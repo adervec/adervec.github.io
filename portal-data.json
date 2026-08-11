@@ -1,0 +1,280 @@
+{
+ "GymTracker315": {
+  "pushed_at": "2026-08-11T18:00:30Z",
+  "changes": [
+   {
+    "date": "2026-08-11T18:00:24Z",
+    "msg": "feat 470: two more lines back from the log sheet"
+   },
+   {
+    "date": "2026-08-11T16:00:04Z",
+    "msg": "feat 469: the exercise header collapses to icons"
+   },
+   {
+    "date": "2026-08-09T13:47:24Z",
+    "msg": "feat 468: rucking"
+   },
+   {
+    "date": "2026-08-07T17:56:40Z",
+    "msg": "feat 467: the two curls that were missing"
+   },
+   {
+    "date": "2026-08-07T02:34:08Z",
+    "msg": "feat 466: the bare weight plate"
+   },
+   {
+    "date": "2026-08-07T02:02:25Z",
+    "msg": "chore: publish on every push to main"
+   }
+  ]
+ },
+ "Tachyread": {
+  "pushed_at": "2026-08-11T15:52:56Z",
+  "changes": [
+   {
+    "date": "2026-08-11T15:51:41Z",
+    "msg": "Scroll-to-read persists; tab settings go device-local; themed scrollbars"
+   },
+   {
+    "date": "2026-08-11T01:10:38Z",
+    "msg": "Typing: book + sitting dashboard in the freed-up controls flank"
+   },
+   {
+    "date": "2026-08-11T00:22:52Z",
+    "msg": "Typing: Fix-errors discipline \u2014 repair the word before advancing"
+   },
+   {
+    "date": "2026-08-09T13:51:54Z",
+    "msg": "Read-through context + live STT; default panes; boot settings-clobber fix"
+   },
+   {
+    "date": "2026-08-08T22:52:03Z",
+    "msg": "Audiobook: narration quality feedback, stored and live + training log"
+   },
+   {
+    "date": "2026-08-08T22:13:51Z",
+    "msg": "Audiobook: read the book aloud in one continuous session"
+   }
+  ]
+ },
+ "ChessRetabled": {
+  "pushed_at": "2026-08-05T19:39:01Z",
+  "changes": [
+   {
+    "date": "2026-08-05T19:29:23Z",
+    "msg": "Mirror Tachyread's Drive sync, and reuse its OAuth client"
+   },
+   {
+    "date": "2026-08-05T17:42:13Z",
+    "msg": "Give the app its own scrolling, and its own scrollbars"
+   },
+   {
+    "date": "2026-08-04T02:06:21Z",
+    "msg": "Close the session gaps: every game tracked, every puzzle logged, real resume"
+   },
+   {
+    "date": "2026-08-04T01:41:01Z",
+    "msg": "Sessions you can come back to, one Academy, and puzzles in one place"
+   },
+   {
+    "date": "2026-08-04T01:32:56Z",
+    "msg": "Central review area with per-move ratings, deletion, and a games library"
+   },
+   {
+    "date": "2026-08-03T11:29:39Z",
+    "msg": "Per-game layout, boards that fit, board touches that move pieces"
+   }
+  ]
+ },
+ "GuitarPicker": {
+  "pushed_at": "2026-08-05T19:31:44Z",
+  "changes": [
+   {
+    "date": "2026-08-05T19:31:39Z",
+    "msg": "Mirror Tachyread's Drive sync and reuse its OAuth client"
+   },
+   {
+    "date": "2026-08-03T12:12:51Z",
+    "msg": "Expand the instrument roster: 15 -> 59"
+   },
+   {
+    "date": "2026-08-03T11:26:51Z",
+    "msg": "Make the landing page instrument-agnostic"
+   },
+   {
+    "date": "2026-08-02T15:55:07Z",
+    "msg": "Mobile and desktop layouts"
+   },
+   {
+    "date": "2026-08-02T14:36:37Z",
+    "msg": "README: link the live site"
+   },
+   {
+    "date": "2026-08-02T14:35:30Z",
+    "msg": "Deploy: ship manifest, service worker, icons and docs to Pages"
+   }
+  ]
+ },
+ "BlackMirrorBikeRide": {
+  "pushed_at": "2026-08-06T01:59:28Z",
+  "changes": [
+   {
+    "date": "2026-08-06T01:59:24Z",
+    "msg": "Triple model tessellation; stop the ground ending in mid-air"
+   },
+   {
+    "date": "2026-08-06T01:11:00Z",
+    "msg": "Tabular lists, and guard an in-progress ride from being abandoned"
+   },
+   {
+    "date": "2026-08-06T00:59:42Z",
+    "msg": "Ship a library of 34 bundled routes (~660 km)"
+   },
+   {
+    "date": "2026-08-06T00:14:11Z",
+    "msg": "Add 18 more biomes and 31 more props (58 biomes, 114 types)"
+   },
+   {
+    "date": "2026-08-05T23:41:23Z",
+    "msg": "Add 18 more biomes and 29 more artifact types (40 biomes, 83 props)"
+   },
+   {
+    "date": "2026-08-05T21:43:34Z",
+    "msg": "Expand to 22 biomes and 54 roadside artifact types"
+   }
+  ]
+ },
+ "BodybuildingProgressCoach": {
+  "pushed_at": "2026-08-07T19:45:24Z",
+  "changes": [
+   {
+    "date": "2026-08-07T19:45:20Z",
+    "msg": "Sidebar everywhere + all scrolling in-app"
+   },
+   {
+    "date": "2026-08-07T12:19:05Z",
+    "msg": "Per-division mandatories (24 poses) + live Mirror practice page"
+   },
+   {
+    "date": "2026-08-05T20:51:12Z",
+    "msg": "Browser-only build, deployed to GitHub Pages"
+   },
+   {
+    "date": "2026-08-05T20:05:31Z",
+    "msg": "Google Drive sync, mirroring Tachyread"
+   },
+   {
+    "date": "2026-08-02T21:24:30Z",
+    "msg": "Orientation controlled by a setting, not the accelerometer"
+   },
+   {
+    "date": "2026-08-02T20:24:15Z",
+    "msg": "Patch dependency vulnerabilities"
+   }
+  ]
+ },
+ "HandwritingHelper": {
+  "pushed_at": "2026-08-10T16:56:16Z",
+  "changes": [
+   {
+    "date": "2026-08-10T16:56:14Z",
+    "msg": "Make the import gallery lazy and cached, and fix a hash-drift bug"
+   },
+   {
+    "date": "2026-08-08T21:59:48Z",
+    "msg": "Work out cursive, mirror-prime and headline scripts from the page"
+   },
+   {
+    "date": "2026-08-08T00:06:17Z",
+    "msg": "Review scan batches as a gallery, and detect duplicate pages"
+   },
+   {
+    "date": "2026-08-07T21:19:03Z",
+    "msg": "Don't grade pen control where thick-and-thin IS the script"
+   },
+   {
+    "date": "2026-08-07T21:17:35Z",
+    "msg": "Measure spacing along the writing's slant"
+   },
+   {
+    "date": "2026-08-07T21:14:38Z",
+    "msg": "Support nine alphabets, and fix two real bugs found doing it"
+   }
+  ]
+ },
+ "MicroMiniger": {
+  "pushed_at": "2026-08-08T14:48:12Z",
+  "changes": [
+   {
+    "date": "2026-08-08T14:48:09Z",
+    "msg": "Modern sidebar navigation + 12-theme system (SpeechImprover-style)"
+   },
+   {
+    "date": "2026-08-08T13:26:38Z",
+    "msg": "Full MicroMiniger PWA: collection manager, 3D scan & splat viewer, cloud backup"
+   },
+   {
+    "date": "2026-07-18T13:21:21Z",
+    "msg": "initial commit"
+   }
+  ]
+ },
+ "SpeechImprover": {
+  "pushed_at": "2026-08-09T13:28:01Z",
+  "changes": [
+   {
+    "date": "2026-08-09T13:27:59Z",
+    "msg": "Non-verbal sound monitor, session=block terminology, radar label fix"
+   },
+   {
+    "date": "2026-08-09T12:52:39Z",
+    "msg": "Track page ranges, live-chip fixes, auto-submit on completed reading"
+   },
+   {
+    "date": "2026-08-08T22:50:58Z",
+    "msg": "Count Tachyread audiobook narration as speech training"
+   },
+   {
+    "date": "2026-08-08T22:07:07Z",
+    "msg": "Live feedback dashboard while recording"
+   },
+   {
+    "date": "2026-08-08T00:05:51Z",
+    "msg": "Integrate with CoworkSyncHub (cowork-manifest v1)"
+   },
+   {
+    "date": "2026-08-07T03:25:38Z",
+    "msg": "Wave 3: command palette, bulk History ops, date-aligned charts"
+   }
+  ]
+ },
+ "Mise": {
+  "pushed_at": "2026-08-05T19:31:27Z",
+  "changes": [
+   {
+    "date": "2026-08-05T19:31:06Z",
+    "msg": "Google Drive sync for the cook log, mirroring Tachyread"
+   },
+   {
+    "date": "2026-08-03T23:48:42Z",
+    "msg": "Maximal Instant Pot coverage: 20 recipes + 8 reference pages"
+   },
+   {
+    "date": "2026-08-03T11:52:53Z",
+    "msg": "Add Grid view mode to recipe detail"
+   },
+   {
+    "date": "2026-08-02T21:24:47Z",
+    "msg": "Add screen-orientation setting (Auto / Portrait / Landscape)"
+   },
+   {
+    "date": "2026-08-02T21:12:37Z",
+    "msg": "Fold protein guides into the app; add gh-pages deploy"
+   },
+   {
+    "date": "2026-07-12T13:46:06Z",
+    "msg": "Voice control, cook log for Claude reports, launcher + PWA polish"
+   }
+  ]
+ }
+}
