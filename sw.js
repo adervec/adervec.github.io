@@ -1,4 +1,4 @@
-const C="portal-202608112026";
+const C="portal-202608112035";
 self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(["./","manifest.webmanifest","icon.svg"])));self.skipWaiting();});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));});
 self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;
