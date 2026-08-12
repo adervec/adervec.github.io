@@ -1,0 +1,18 @@
+{
+ "name": "adervec \u2014 free, local-first web apps",
+ "short_name": "adervec apps",
+ "description": "Portal for 10 free web apps: launch, install, and follow changes.",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#0d1220",
+ "theme_color": "#1d4ed8",
+ "icons": [
+  {
+   "src": "icon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml",
+   "purpose": "any"
+  }
+ ]
+}

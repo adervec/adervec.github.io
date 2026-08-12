@@ -3,21 +3,36 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>adervec — free, local-first web apps</title>
 <meta name="description" content="10 free web apps by one maker: fitness, reading, chess, guitar, cycling, cooking and more. No accounts, no servers — your data stays on your device.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128450;</text></svg>">
-<style>
-:root{
+<link rel="canonical" href="https://adervec.github.io/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://adervec.github.io/">
+<meta property="og:title" content="adervec — free, local-first web apps">
+<meta property="og:description" content="10 free web apps by one maker. No accounts, no servers — your data stays on your device.">
+<meta name="theme-color" content="#f6f8f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1220" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="adervec — recently shipped" href="feed.xml">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>:root{--mono:ui-monospace,'Cascadia Code',Consolas,'SF Mono',monospace;--sans:system-ui,'Segoe UI',sans-serif;
   --bg:#f6f8f7; --card:#ffffff; --ink:#131820; --mut:#5c6572; --line:#d9dfe3;
   --grid:rgba(29,78,216,.055); --acc:#1d4ed8; --accink:#ffffff;
   --tile:70% 90%; --tileink:35% 25%; --chipbg:#eef1f4;
-  --mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",monospace;
-  --sans:system-ui,"Segoe UI",sans-serif;
+  --spark:60% 40%; --area:rgba(29,78,216,.12);
 }
-@media (prefers-color-scheme:dark){:root{
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
   --bg:#0d1220; --card:#161d30; --ink:#e8eaf2; --mut:#98a2b8; --line:#283152;
   --grid:rgba(122,162,255,.05); --acc:#82a6ff; --accink:#0d1220;
   --tile:45% 20%; --tileink:70% 75%; --chipbg:#1e2742;
+  --spark:65% 62%; --area:rgba(130,166,255,.14);
 }}
+:root[data-theme=dark]{
+  --bg:#0d1220; --card:#161d30; --ink:#e8eaf2; --mut:#98a2b8; --line:#283152;
+  --grid:rgba(122,162,255,.05); --acc:#82a6ff; --accink:#0d1220;
+  --tile:45% 20%; --tileink:70% 75%; --chipbg:#1e2742;
+  --spark:65% 62%; --area:rgba(130,166,255,.14);
+}
+
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;color:var(--ink);font:15px/1.5 var(--sans);
   background:linear-gradient(var(--grid) 1px,transparent 1px),
              linear-gradient(90deg,var(--grid) 1px,transparent 1px),var(--bg);
@@ -25,39 +40,70 @@ body{margin:0;color:var(--ink);font:15px/1.5 var(--sans);
 main{max-width:1140px;margin:0 auto;padding:28px 20px 60px}
 a{color:var(--acc)}
 h1{font:700 30px/1.15 var(--mono);letter-spacing:-.5px;margin:6px 0 10px}
+.head{display:flex;align-items:center;gap:12px}
 .wordmark{font:600 13px var(--mono);color:var(--mut);letter-spacing:.5px}
+.toggle{margin-left:auto;width:36px;height:36px;font-size:16px;color:var(--ink);cursor:pointer;
+  background:var(--card);border:1px solid var(--line);border-radius:9px}
 .lede{max-width:620px;color:var(--mut);margin:0 0 14px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none;
   font:12px var(--mono)}
 .chips li{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 11px}
+.chips li a{text-decoration:none}
 .eyebrow{font:600 12px var(--mono);letter-spacing:1.5px;text-transform:uppercase;
   color:var(--mut);margin:0 0 10px}
 .ship{border:1px solid var(--line);background:var(--card);border-radius:12px;
-  padding:16px 18px;margin:0 0 26px;overflow-x:auto}
-.ship ol{list-style:none;margin:0;padding:0;font:13px/1.9 var(--mono);white-space:nowrap}
+  padding:16px 18px;margin:0 0 22px}
+.chartwrap{position:relative;margin:2px 0 4px}
+#fleet{width:100%;height:64px;display:block}
+#fleet .area{fill:var(--area)}
+#fleet .ln{fill:none;stroke:var(--acc);stroke-width:2;vector-effect:non-scaling-stroke}
+#fleet .base{stroke:var(--line)}
+#fleet .cur{stroke:var(--mut);stroke-dasharray:3 3;vector-effect:non-scaling-stroke}
+.tip{position:absolute;top:-4px;transform:translateY(-100%);background:var(--ink);color:var(--bg);
+  font:11px var(--mono);padding:3px 8px;border-radius:5px;pointer-events:none;white-space:nowrap}
+.caption{font:11px var(--mono);color:var(--mut);margin:0 0 12px}
+.ship ol{list-style:none;margin:0;padding:0;font:13px/1.9 var(--mono);white-space:nowrap;overflow-x:auto}
 .ship .when{display:inline-block;min-width:76px;color:var(--mut)}
 .ship .who{display:inline-block;min-width:150px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:hsl(var(--h) var(--spark));margin-right:4px}
+#recent{margin:0 0 16px;font:12px var(--mono);color:var(--mut);
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#recent a{border:1px solid var(--line);background:var(--card);border-radius:999px;
+  padding:3px 11px;text-decoration:none}
 .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 18px}
 .controls input{flex:1;min-width:220px;padding:9px 13px;font:14px var(--sans);
   color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:9px}
 .controls select{padding:8px 10px;font:13px var(--mono);color:var(--ink);
   background:var(--card);border:1px solid var(--line);border-radius:9px}
+#count{font:12px var(--mono);color:var(--mut);white-space:nowrap}
+kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;
+  font:11px var(--mono);background:var(--card)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
 .app{border:1px solid var(--line);background:var(--card);border-radius:12px;
-  padding:18px;display:flex;flex-direction:column;gap:10px}
+  padding:18px;display:flex;flex-direction:column;gap:10px;position:relative}
 @media (prefers-reduced-motion:no-preference){
   .app{transition:transform .15s,box-shadow .15s}
   .app:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
 }
+.appday{border-color:var(--acc)}
+.appday::after{content:"app of the day";position:absolute;top:-9px;right:14px;
+  background:var(--acc);color:var(--accink);font:600 10px var(--mono);letter-spacing:.8px;
+  text-transform:uppercase;padding:2px 8px;border-radius:5px}
 .app header{display:flex;gap:12px;align-items:flex-start}
 .tile{flex:none;width:46px;height:46px;border-radius:11px;display:grid;place-items:center;
   font-size:24px;background:hsl(var(--h) var(--tile));color:hsl(var(--h) var(--tileink))}
 .app h2{font:700 17px var(--mono);margin:2px 0 3px}
 .app h2 .src{font:400 12px var(--mono);text-decoration:none;margin-left:6px}
 .tag{margin:0;font-size:13.5px;color:var(--mut)}
-.badges{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none;
-  font:11px var(--mono)}
-.badges li{background:var(--chipbg);border-radius:5px;padding:2px 8px;color:var(--mut)}
+.stats{display:flex;gap:10px;align-items:center;margin:0;font:11px var(--mono);color:var(--mut)}
+.spark{flex:none}
+.spark polyline{fill:none;stroke:hsl(var(--h) var(--spark));stroke-width:2;
+  stroke-linejoin:round;stroke-linecap:round}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.badges button{background:var(--chipbg);border:0;border-radius:5px;padding:2px 8px;
+  color:var(--mut);font:11px var(--mono);cursor:pointer}
+.badges button:hover{color:var(--ink)}
 .feat{margin:0;padding-left:19px;font-size:13.5px}
 .feat li{margin:3px 0}
 .latest{margin:0;font-size:13px;color:var(--mut)}
@@ -69,150 +115,244 @@ details .when{color:var(--mut);display:inline-block;min-width:70px}
 .app footer{margin-top:auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .launch{background:var(--acc);color:var(--accink);text-decoration:none;font:600 13px var(--mono);
   padding:8px 18px;border-radius:8px}
-.launch:focus-visible,.controls :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .dl{font-size:12.5px}
 .usage{font:11px var(--mono);color:var(--mut);margin-left:auto;text-align:right}
+#empty{border:1px dashed var(--line);border-radius:12px;padding:28px;text-align:center;
+  color:var(--mut);margin:16px 0 0}
+#empty button{background:none;border:0;color:var(--acc);font:inherit;cursor:pointer;
+  text-decoration:underline}
 .note{color:var(--mut);font-size:13px;max-width:640px;margin:26px 0 0}
 footer.page{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
   font:12px var(--mono);color:var(--mut);display:flex;flex-wrap:wrap;gap:14px}
 </style></head><body><main>
-<div class="wordmark">adervec.github.io</div>
+<div class="head"><div class="wordmark">adervec.github.io</div>
+<button id="theme" class="toggle" type="button" aria-label="theme">◐</button></div>
 <h1>Free, local-first web apps</h1>
 <p class="lede">One maker, 10 apps — fitness, reading, chess, guitar, cycling, cooking, and more.
 No accounts, no servers, no tracking: everything runs in your browser and your data stays on your device.</p>
-<ul class="chips"><li>10 apps</li><li>all free</li><li>open source</li><li>no accounts</li><li>works offline</li></ul>
-<section class='ship'><h2 class='eyebrow'>// recently shipped</h2><ol><li><span class='when' data-ts='1786471224' title='2026-08-11 14:00'>5h ago</span> <a class='who' href='#gymtracker315'>GymTracker</a> feat 470: two more lines back from the log sheet</li><li><span class='when' data-ts='1786464004' title='2026-08-11 12:00'>7h ago</span> <a class='who' href='#gymtracker315'>GymTracker</a> feat 469: the exercise header collapses to icons</li><li><span class='when' data-ts='1786463501' title='2026-08-11 11:51'>8h ago</span> <a class='who' href='#tachyread'>Tachyread</a> Scroll-to-read persists; tab settings go device-local; themed scrollbars</li><li><span class='when' data-ts='1786410638' title='2026-08-10 21:10'>22h ago</span> <a class='who' href='#tachyread'>Tachyread</a> Typing: book + sitting dashboard in the freed-up controls flank</li><li><span class='when' data-ts='1786407772' title='2026-08-10 20:22'>23h ago</span> <a class='who' href='#tachyread'>Tachyread</a> Typing: Fix-errors discipline — repair the word before advancing</li><li><span class='when' data-ts='1786380974' title='2026-08-10 12:56'>1d ago</span> <a class='who' href='#handwritinghelper'>Handwriting Helper</a> Make the import gallery lazy and cached, and fix a hash-drift bug</li><li><span class='when' data-ts='1786283514' title='2026-08-09 09:51'>2d ago</span> <a class='who' href='#tachyread'>Tachyread</a> Read-through context + live STT; default panes; boot settings-clobber fix</li><li><span class='when' data-ts='1786283244' title='2026-08-09 09:47'>2d ago</span> <a class='who' href='#gymtracker315'>GymTracker</a> feat 468: rucking</li></ol></section>
+<ul class="chips"><li>10 apps</li><li>all free</li><li>open source</li><li>no accounts</li>
+<li>works offline</li><li>1070 commits this year</li><li id="appday-chip" hidden>today: <a href="#"></a></li></ul>
+<section class='ship'><h2 class='eyebrow'>// recently shipped</h2><div class="chartwrap">
+<svg id="fleet" viewBox="0 0 520 64" preserveAspectRatio="none" role="img"
+ aria-label="1070 commits across all apps in the last 52 weeks">
+<line class="base" x1="0" y1="56" x2="520" y2="56"/>
+<path class="area" d="M0,56 L 0.0,56.0 L 10.2,56.0 L 20.4,56.0 L 30.6,56.0 L 40.8,56.0 L 51.0,56.0 L 61.2,56.0 L 71.4,56.0 L 81.6,56.0 L 91.8,56.0 L 102.0,56.0 L 112.2,56.0 L 122.4,56.0 L 132.5,56.0 L 142.7,56.0 L 152.9,56.0 L 163.1,56.0 L 173.3,56.0 L 183.5,56.0 L 193.7,56.0 L 203.9,56.0 L 214.1,56.0 L 224.3,56.0 L 234.5,56.0 L 244.7,56.0 L 254.9,56.0 L 265.1,56.0 L 275.3,56.0 L 285.5,56.0 L 295.7,56.0 L 305.9,56.0 L 316.1,56.0 L 326.3,56.0 L 336.5,56.0 L 346.7,56.0 L 356.9,56.0 L 367.1,56.0 L 377.3,56.0 L 387.5,56.0 L 397.6,56.0 L 407.8,56.0 L 418.0,43.5 L 428.2,13.6 L 438.4,26.4 L 448.6,12.0 L 458.8,34.7 L 469.0,22.7 L 479.2,36.5 L 489.4,40.5 L 499.6,44.5 L 509.8,24.5 L 520.0,31.7 L 520,56 Z"/><polyline class="ln" points="0.0,56.0 10.2,56.0 20.4,56.0 30.6,56.0 40.8,56.0 51.0,56.0 61.2,56.0 71.4,56.0 81.6,56.0 91.8,56.0 102.0,56.0 112.2,56.0 122.4,56.0 132.5,56.0 142.7,56.0 152.9,56.0 163.1,56.0 173.3,56.0 183.5,56.0 193.7,56.0 203.9,56.0 214.1,56.0 224.3,56.0 234.5,56.0 244.7,56.0 254.9,56.0 265.1,56.0 275.3,56.0 285.5,56.0 295.7,56.0 305.9,56.0 316.1,56.0 326.3,56.0 336.5,56.0 346.7,56.0 356.9,56.0 367.1,56.0 377.3,56.0 387.5,56.0 397.6,56.0 407.8,56.0 418.0,43.5 428.2,13.6 438.4,26.4 448.6,12.0 458.8,34.7 469.0,22.7 479.2,36.5 489.4,40.5 499.6,44.5 509.8,24.5 520.0,31.7"/>
+<line id="cursor" class="cur" x1="0" x2="0" y1="10" y2="56" visibility="hidden"/></svg>
+<div class="tip" id="fleettip" hidden></div></div>
+<p class="caption">1070 commits across the fleet in the last 52 weeks · busiest week: 165</p><ol><li style='--h:20'><span class='when' data-ts='1786471224' title='2026-08-11 14:00'>6h ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#gymtracker315'>GymTracker</a> feat 470: two more lines back from the log sheet</li><li style='--h:20'><span class='when' data-ts='1786464004' title='2026-08-11 12:00'>8h ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#gymtracker315'>GymTracker</a> feat 469: the exercise header collapses to icons</li><li style='--h:270'><span class='when' data-ts='1786463501' title='2026-08-11 11:51'>8h ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#tachyread'>Tachyread</a> Scroll-to-read persists; tab settings go device-local; themed scrollbars</li><li style='--h:270'><span class='when' data-ts='1786410638' title='2026-08-10 21:10'>23h ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#tachyread'>Tachyread</a> Typing: book + sitting dashboard in the freed-up controls flank</li><li style='--h:270'><span class='when' data-ts='1786407772' title='2026-08-10 20:22'>1d ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#tachyread'>Tachyread</a> Typing: Fix-errors discipline — repair the word before advancing</li><li style='--h:210'><span class='when' data-ts='1786380974' title='2026-08-10 12:56'>1d ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#handwritinghelper'>Handwriting Helper</a> Make the import gallery lazy and cached, and fix a hash-drift bug</li><li style='--h:270'><span class='when' data-ts='1786283514' title='2026-08-09 09:51'>2d ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#tachyread'>Tachyread</a> Read-through context + live STT; default panes; boot settings-clobber fix</li><li style='--h:20'><span class='when' data-ts='1786283244' title='2026-08-09 09:47'>2d ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#gymtracker315'>GymTracker</a> feat 468: rucking</li><li style='--h:315'><span class='when' data-ts='1786282079' title='2026-08-09 09:27'>2d ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#speechimprover'>SpeechImprover</a> Non-verbal sound monitor, session=block terminology, radar label fix</li><li style='--h:315'><span class='when' data-ts='1786279959' title='2026-08-09 08:52'>2d ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#speechimprover'>SpeechImprover</a> Track page ranges, live-chip fixes, auto-submit on completed reading</li><li style='--h:270'><span class='when' data-ts='1786229523' title='2026-08-08 18:52'>3d ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#tachyread'>Tachyread</a> Audiobook: narration quality feedback, stored and live + training log</li><li style='--h:315'><span class='when' data-ts='1786229458' title='2026-08-08 18:50'>3d ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#speechimprover'>SpeechImprover</a> Count Tachyread audiobook narration as speech training</li></ol></section>
+<div id="recent" hidden><span>jump back in:</span><div class="rr"></div></div>
 <div class="controls">
 <input id="q" type="search" placeholder="filter apps — try &quot;chess&quot;, &quot;offline&quot;, &quot;sync&quot;…" aria-label="Filter apps">
+<span id="count"></span><span><kbd>/</kbd></span>
 <select id="sort" aria-label="Sort apps"><option value="name">A–Z</option>
 <option value="updated">Recently updated</option><option value="used">Your most used</option></select>
 </div>
-<div class="grid"><article class="app" id="gymtracker315" style="--h:20" data-k="gymtracker a whole gym logbook in one html file — lifts, cardio, plans, and progress. pwa single file strava sync cloud sync adaptive workout plans and a fast set logger picker-driven equipment setup: barbell, dumbbell, kettlebell, landmine… per-exercise reference media and baked-in coaching guides biometrics plus strava reconciliation cloud sync via google drive, dropbox, or onedrive offline-first — everything lives in your browser storage" data-slug="GymTracker315" data-pushed="1786471230">
+<div class="grid"><article class="app" id="gymtracker315" style="--h:20" data-k="gymtracker a whole gym logbook in one html file — lifts, cardio, plans, and progress. pwa single file strava sync cloud sync adaptive workout plans and a fast set logger picker-driven equipment setup: barbell, dumbbell, kettlebell, landmine… per-exercise reference media and baked-in coaching guides biometrics plus strava reconciliation cloud sync via google drive, dropbox, or onedrive offline-first — everything lives in your browser storage" data-slug="GymTracker315" data-title="GymTracker" data-pushed="1786471230">
 <header><span class="tile" aria-hidden="true">🏋️</span><div>
 <h2>GymTracker <a class="src" href="https://github.com/adervec/GymTracker315" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">A whole gym logbook in one HTML file — lifts, cardio, plans, and progress.</p></div></header>
-<ul class="badges"><li>PWA</li><li>single file</li><li>Strava sync</li><li>cloud sync</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='385 commits in the last 52 weeks'><title>385 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,21.5 85.6,4.0 87.7,12.9 89.7,10.9 91.8,19.1 93.8,21.0 95.8,22.6 97.9,20.9 99.9,22.6 102.0,21.6 104.0,21.9'/></svg><span>since 2026 · 385 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>single file</button><button type='button'>Strava sync</button><button type='button'>cloud sync</button></div>
 <ul class="feat"><li>Adaptive workout plans and a fast set logger</li><li>Picker-driven equipment setup: barbell, dumbbell, kettlebell, landmine…</li><li>Per-exercise reference media and baked-in coaching guides</li><li>Biometrics plus Strava reconciliation</li><li>Cloud sync via Google Drive, Dropbox, or OneDrive</li><li>Offline-first — everything lives in your browser storage</li></ul>
-<p class='latest'><b>Latest:</b> feat 470: two more lines back from the log sheet <span class='when' data-ts='1786471224' title='2026-08-11 14:00'>5h ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786464004' title='2026-08-11 12:00'>7h ago</span> feat 469: the exercise header collapses to icons</li><li><span class='when' data-ts='1786283244' title='2026-08-09 09:47'>2d ago</span> feat 468: rucking</li><li><span class='when' data-ts='1786125400' title='2026-08-07 13:56'>4d ago</span> feat 467: the two curls that were missing</li><li><span class='when' data-ts='1786070048' title='2026-08-06 22:34'>4d ago</span> feat 466: the bare weight plate</li><li><span class='when' data-ts='1786068145' title='2026-08-06 22:02'>4d ago</span> chore: publish on every push to main</li></ul></details>
+<p class='latest'><b>Latest:</b> feat 470: two more lines back from the log sheet <span class='when' data-ts='1786471224' title='2026-08-11 14:00'>6h ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786464004' title='2026-08-11 12:00'>8h ago</span> feat 469: the exercise header collapses to icons</li><li><span class='when' data-ts='1786283244' title='2026-08-09 09:47'>2d ago</span> feat 468: rucking</li><li><span class='when' data-ts='1786125400' title='2026-08-07 13:56'>4d ago</span> feat 467: the two curls that were missing</li><li><span class='when' data-ts='1786070048' title='2026-08-06 22:34'>4d ago</span> feat 466: the bare weight plate</li><li><span class='when' data-ts='1786068145' title='2026-08-06 22:02'>4d ago</span> chore: publish on every push to main</li><li><span class='when' data-ts='1786068051' title='2026-08-06 22:00'>4d ago</span> feat 465: multi-user hardening -- update, visibility, backup</li><li><span class='when' data-ts='1785981535' title='2026-08-05 21:58'>5d ago</span> feat 464: the Cuban press</li><li><span class='when' data-ts='1785805521' title='2026-08-03 21:05'>7d ago</span> feat 463: a subtle marker on the set you are on</li><li><span class='when' data-ts='1785791679' title='2026-08-03 17:14'>8d ago</span> feat 462: duplication sweep -- two classes deeper, plus a reconciler bug</li></ul></details>
 <footer><a class="launch" data-slug="GymTracker315" href="https://adervec.github.io/GymTracker315/" target="_blank" rel="noopener">Launch</a>
-<a class='dl' href='https://adervec.github.io/GymTracker315/gym-tracker.html' download>single file</a><span class="usage" data-slug="GymTracker315">&nbsp;</span></footer>
-</article><article class="app" id="tachyread" style="--h:270" data-k="tachyread speed reading one word at a time — rsvp on an optimal recognition point, up to ~1500 wpm. drive sync ⚠ flashing text import txt, docx, pdf, epub — or ocr-grab text from images ~30 themes and animated reader faces text-to-speech, voice and clap control typing and speaking minigames, audiobook recording measured reading stats and an editable table of contents" data-slug="Tachyread" data-pushed="1786463576">
+<a class='dl' href='https://github.com/adervec/GymTracker315/blob/main/gym-tracker.html'>single file</a><span class="usage" data-slug="GymTracker315">&nbsp;</span></footer>
+</article><article class="app" id="tachyread" style="--h:270" data-k="tachyread speed reading one word at a time — rsvp on an optimal recognition point, up to ~1500 wpm. drive sync ⚠ flashing text import txt, docx, pdf, epub — or ocr-grab text from images ~30 themes and animated reader faces text-to-speech, voice and clap control typing and speaking minigames, audiobook recording measured reading stats and an editable table of contents" data-slug="Tachyread" data-title="Tachyread" data-pushed="1786463576">
 <header><span class="tile" aria-hidden="true">⚡</span><div>
 <h2>Tachyread <a class="src" href="https://github.com/adervec/Tachyread" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">Speed reading one word at a time — RSVP on an optimal recognition point, up to ~1500 WPM.</p></div></header>
-<ul class="badges"><li>Drive sync</li><li>⚠ flashing text</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='490 commits in the last 52 weeks'><title>490 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,20.4 85.6,22.0 87.7,16.3 89.7,15.3 91.8,17.5 93.8,4.0 95.8,11.2 97.9,16.0 99.9,16.2 102.0,12.0 104.0,18.2'/></svg><span>since 2026 · 490 commits/yr</span></p>
+<div class="badges"><button type='button'>Drive sync</button><button type='button'>⚠ flashing text</button></div>
 <ul class="feat"><li>Import TXT, DOCX, PDF, EPUB — or OCR-grab text from images</li><li>~30 themes and animated reader faces</li><li>Text-to-speech, voice and clap control</li><li>Typing and speaking minigames, audiobook recording</li><li>Measured reading stats and an editable table of contents</li></ul>
-<p class='latest'><b>Latest:</b> Scroll-to-read persists; tab settings go device-local; themed scrollbars <span class='when' data-ts='1786463501' title='2026-08-11 11:51'>8h ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786410638' title='2026-08-10 21:10'>22h ago</span> Typing: book + sitting dashboard in the freed-up controls flank</li><li><span class='when' data-ts='1786407772' title='2026-08-10 20:22'>23h ago</span> Typing: Fix-errors discipline — repair the word before advancing</li><li><span class='when' data-ts='1786283514' title='2026-08-09 09:51'>2d ago</span> Read-through context + live STT; default panes; boot settings-clobber fix</li><li><span class='when' data-ts='1786229523' title='2026-08-08 18:52'>3d ago</span> Audiobook: narration quality feedback, stored and live + training log</li><li><span class='when' data-ts='1786227231' title='2026-08-08 18:13'>3d ago</span> Audiobook: read the book aloud in one continuous session</li></ul></details>
+<p class='latest'><b>Latest:</b> Scroll-to-read persists; tab settings go device-local; themed scrollbars <span class='when' data-ts='1786463501' title='2026-08-11 11:51'>8h ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786410638' title='2026-08-10 21:10'>23h ago</span> Typing: book + sitting dashboard in the freed-up controls flank</li><li><span class='when' data-ts='1786407772' title='2026-08-10 20:22'>1d ago</span> Typing: Fix-errors discipline — repair the word before advancing</li><li><span class='when' data-ts='1786283514' title='2026-08-09 09:51'>2d ago</span> Read-through context + live STT; default panes; boot settings-clobber fix</li><li><span class='when' data-ts='1786229523' title='2026-08-08 18:52'>3d ago</span> Audiobook: narration quality feedback, stored and live + training log</li><li><span class='when' data-ts='1786227231' title='2026-08-08 18:13'>3d ago</span> Audiobook: read the book aloud in one continuous session</li><li><span class='when' data-ts='1786210595' title='2026-08-08 13:36'>3d ago</span> Reading: option to blur everything when idle</li><li><span class='when' data-ts='1786209963' title='2026-08-08 13:26'>3d ago</span> Typing: normalise progress for text difficulty</li><li><span class='when' data-ts='1786209005' title='2026-08-08 13:10'>3d ago</span> Typing: size the passage to the run limit, not a fixed 600 words</li><li><span class='when' data-ts='1786200547' title='2026-08-08 10:49'>3d ago</span> Typing: track which physical keyboard each run was typed on</li></ul></details>
 <footer><a class="launch" data-slug="Tachyread" href="https://adervec.github.io/Tachyread/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="Tachyread">&nbsp;</span></footer>
-</article><article class="app" id="chessretabled" style="--h:165" data-k="chessretabled a cel-shaded chess club in the browser — bots, lessons, puzzles, and 56 games. pwa offline drive sync 12 stockfish-powered characters, 250 to 2850 elo 37 validated tactics puzzles with rated training academy courses and practice-arena endgame drills 56 games — board, cards, logic — each with a strategy guide level, xp, streaks, and personal ratings full offline play once installed" data-slug="ChessRetabled" data-pushed="1785958741">
+</article><article class="app" id="chessretabled" style="--h:165" data-k="chessretabled a cel-shaded chess club in the browser — bots, lessons, puzzles, and 56 games. pwa offline drive sync 12 stockfish-powered characters, 250 to 2850 elo 37 validated tactics puzzles with rated training academy courses and practice-arena endgame drills 56 games — board, cards, logic — each with a strategy guide level, xp, streaks, and personal ratings full offline play once installed" data-slug="ChessRetabled" data-title="ChessRetabled" data-pushed="1785958741">
 <header><span class="tile" aria-hidden="true">♞</span><div>
 <h2>ChessRetabled <a class="src" href="https://github.com/adervec/ChessRetabled" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">A cel-shaded chess club in the browser — bots, lessons, puzzles, and 56 games.</p></div></header>
-<ul class="badges"><li>PWA</li><li>offline</li><li>Drive sync</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='72 commits in the last 52 weeks'><title>72 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,21.5 85.6,21.5 87.7,23.0 89.7,4.0 91.8,8.6 93.8,23.0 95.8,23.0 97.9,23.0 99.9,23.0 102.0,7.8 104.0,20.0'/></svg><span>since 2026 · 72 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button><button type='button'>Drive sync</button></div>
 <ul class="feat"><li>12 Stockfish-powered characters, 250 to 2850 Elo</li><li>37 validated tactics puzzles with rated training</li><li>Academy courses and practice-arena endgame drills</li><li>56 games — board, cards, logic — each with a strategy guide</li><li>Level, XP, streaks, and personal ratings</li><li>Full offline play once installed</li></ul>
-<p class='latest'><b>Latest:</b> Mirror Tachyread&#x27;s Drive sync, and reuse its OAuth client <span class='when' data-ts='1785958163' title='2026-08-05 15:29'>6d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1785951733' title='2026-08-05 13:42'>6d ago</span> Give the app its own scrolling, and its own scrollbars</li><li><span class='when' data-ts='1785809181' title='2026-08-03 22:06'>7d ago</span> Close the session gaps: every game tracked, every puzzle logged, real resume</li><li><span class='when' data-ts='1785807661' title='2026-08-03 21:41'>7d ago</span> Sessions you can come back to, one Academy, and puzzles in one place</li><li><span class='when' data-ts='1785807176' title='2026-08-03 21:32'>7d ago</span> Central review area with per-move ratings, deletion, and a games library</li><li><span class='when' data-ts='1785756579' title='2026-08-03 07:29'>8d ago</span> Per-game layout, boards that fit, board touches that move pieces</li></ul></details>
+<p class='latest'><b>Latest:</b> Mirror Tachyread&#x27;s Drive sync, and reuse its OAuth client <span class='when' data-ts='1785958163' title='2026-08-05 15:29'>6d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1785951733' title='2026-08-05 13:42'>6d ago</span> Give the app its own scrolling, and its own scrollbars</li><li><span class='when' data-ts='1785809181' title='2026-08-03 22:06'>7d ago</span> Close the session gaps: every game tracked, every puzzle logged, real resume</li><li><span class='when' data-ts='1785807661' title='2026-08-03 21:41'>7d ago</span> Sessions you can come back to, one Academy, and puzzles in one place</li><li><span class='when' data-ts='1785807176' title='2026-08-03 21:32'>7d ago</span> Central review area with per-move ratings, deletion, and a games library</li><li><span class='when' data-ts='1785756579' title='2026-08-03 07:29'>8d ago</span> Per-game layout, boards that fit, board touches that move pieces</li><li><span class='when' data-ts='1785707494' title='2026-08-02 17:51'>9d ago</span> Make cards readable on a phone</li><li><span class='when' data-ts='1785706092' title='2026-08-02 17:28'>9d ago</span> Portrait/landscape is a setting, not the accelerometer</li><li><span class='when' data-ts='1785685647' title='2026-08-02 11:47'>9d ago</span> Mobile mode: touch interaction, card scaling, safe areas, landscape</li><li><span class='when' data-ts='1785680780' title='2026-08-02 10:26'>9d ago</span> Document the new features and add a double-click launcher</li></ul></details>
 <footer><a class="launch" data-slug="ChessRetabled" href="https://adervec.github.io/ChessRetabled/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="ChessRetabled">&nbsp;</span></footer>
-</article><article class="app" id="guitarpicker" style="--h:45" data-k="guitarpicker zero-build guitar school — note highway, tuner, karaoke, and a synthesized backing band. pwa drive sync streaming note highway with per-note grading live tuner across 59 instruments and their tunings 45+ public-domain songs, each with a synthesized backing band karaoke with word-by-word lyrics and pitch scoring song editor, record-and-transcribe, theory games, courses" data-slug="GuitarPicker" data-pushed="1785958304">
+</article><article class="app" id="guitarpicker" style="--h:45" data-k="guitarpicker zero-build guitar school — note highway, tuner, karaoke, and a synthesized backing band. pwa drive sync streaming note highway with per-note grading live tuner across 59 instruments and their tunings 45+ public-domain songs, each with a synthesized backing band karaoke with word-by-word lyrics and pitch scoring song editor, record-and-transcribe, theory games, courses" data-slug="GuitarPicker" data-title="GuitarPicker" data-pushed="1785958304">
 <header><span class="tile" aria-hidden="true">🎸</span><div>
 <h2>GuitarPicker <a class="src" href="https://github.com/adervec/GuitarPicker" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">Zero-build guitar school — note highway, tuner, karaoke, and a synthesized backing band.</p></div></header>
-<ul class="badges"><li>PWA</li><li>Drive sync</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='25 commits in the last 52 weeks'><title>25 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,4.0 85.6,6.7 87.7,23.0 89.7,12.1 91.8,20.3 93.8,23.0 95.8,23.0 97.9,23.0 99.9,23.0 102.0,6.7 104.0,20.3'/></svg><span>since 2026 · 25 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>Drive sync</button></div>
 <ul class="feat"><li>Streaming note highway with per-note grading</li><li>Live tuner across 59 instruments and their tunings</li><li>45+ public-domain songs, each with a synthesized backing band</li><li>Karaoke with word-by-word lyrics and pitch scoring</li><li>Song editor, record-and-transcribe, theory games, courses</li></ul>
-<p class='latest'><b>Latest:</b> Mirror Tachyread&#x27;s Drive sync and reuse its OAuth client <span class='when' data-ts='1785958299' title='2026-08-05 15:31'>6d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1785759171' title='2026-08-03 08:12'>8d ago</span> Expand the instrument roster: 15 -&gt; 59</li><li><span class='when' data-ts='1785756411' title='2026-08-03 07:26'>8d ago</span> Make the landing page instrument-agnostic</li><li><span class='when' data-ts='1785686107' title='2026-08-02 11:55'>9d ago</span> Mobile and desktop layouts</li><li><span class='when' data-ts='1785681397' title='2026-08-02 10:36'>9d ago</span> README: link the live site</li><li><span class='when' data-ts='1785681330' title='2026-08-02 10:35'>9d ago</span> Deploy: ship manifest, service worker, icons and docs to Pages</li></ul></details>
+<p class='latest'><b>Latest:</b> Mirror Tachyread&#x27;s Drive sync and reuse its OAuth client <span class='when' data-ts='1785958299' title='2026-08-05 15:31'>6d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1785759171' title='2026-08-03 08:12'>8d ago</span> Expand the instrument roster: 15 -&gt; 59</li><li><span class='when' data-ts='1785756411' title='2026-08-03 07:26'>8d ago</span> Make the landing page instrument-agnostic</li><li><span class='when' data-ts='1785686107' title='2026-08-02 11:55'>9d ago</span> Mobile and desktop layouts</li><li><span class='when' data-ts='1785681397' title='2026-08-02 10:36'>9d ago</span> README: link the live site</li><li><span class='when' data-ts='1785681330' title='2026-08-02 10:35'>9d ago</span> Deploy: ship manifest, service worker, icons and docs to Pages</li><li><span class='when' data-ts='1785681225' title='2026-08-02 10:33'>9d ago</span> Instruments, PWA install, and launcher</li><li><span class='when' data-ts='1782580521' title='2026-06-27 13:15'>45d ago</span> Going-public copyright/honesty pass + cloud-sync origin allowlist</li><li><span class='when' data-ts='1782214949' title='2026-06-23 07:42'>49d ago</span> Tidy: dedupe escapeHTML, use stdlib (crypto.randomUUID, Array.find)</li><li><span class='when' data-ts='1781970786' title='2026-06-20 11:53'>52d ago</span> Add opt-in Google Drive cloud sync (local-first, no backend)</li></ul></details>
 <footer><a class="launch" data-slug="GuitarPicker" href="https://adervec.github.io/GuitarPicker/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="GuitarPicker">&nbsp;</span></footer>
-</article><article class="app" id="blackmirrorbikeride" style="--h:130" data-k="black mirror bike ride a homebrew zwift — your real trainer over bluetooth, low-poly worlds, real gpx routes. pwa bluetooth drive sync reads power and heart rate over web bluetooth — zero drivers a proper physics model behind every ride build your own low-poly 3d worlds gpx import plus 34 bundled routes (~660 km) replay, ride history, and ghosts" data-slug="BlackMirrorBikeRide" data-pushed="1785981568">
+</article><article class="app" id="blackmirrorbikeride" style="--h:130" data-k="black mirror bike ride a homebrew zwift — your real trainer over bluetooth, low-poly worlds, real gpx routes. pwa bluetooth drive sync reads power and heart rate over web bluetooth — zero drivers a proper physics model behind every ride build your own low-poly 3d worlds gpx import plus 34 bundled routes (~660 km) replay, ride history, and ghosts" data-slug="BlackMirrorBikeRide" data-title="Black Mirror Bike Ride" data-pushed="1785981568">
 <header><span class="tile" aria-hidden="true">🚴</span><div>
 <h2>Black Mirror Bike Ride <a class="src" href="https://github.com/adervec/BlackMirrorBikeRide" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">A homebrew Zwift — your real trainer over Bluetooth, low-poly worlds, real GPX routes.</p></div></header>
-<ul class="badges"><li>PWA</li><li>Bluetooth</li><li>Drive sync</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='22 commits in the last 52 weeks'><title>22 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,14.4 85.6,19.5 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,23.0 97.9,23.0 99.9,23.0 102.0,16.1 104.0,4.0'/></svg><span>since 2026 · 22 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>Bluetooth</button><button type='button'>Drive sync</button></div>
 <ul class="feat"><li>Reads power and heart rate over Web Bluetooth — zero drivers</li><li>A proper physics model behind every ride</li><li>Build your own low-poly 3D worlds</li><li>GPX import plus 34 bundled routes (~660 km)</li><li>Replay, ride history, and ghosts</li></ul>
-<p class='latest'><b>Latest:</b> Triple model tessellation; stop the ground ending in mid-air <span class='when' data-ts='1785981564' title='2026-08-05 21:59'>5d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1785978660' title='2026-08-05 21:11'>5d ago</span> Tabular lists, and guard an in-progress ride from being abandoned</li><li><span class='when' data-ts='1785977982' title='2026-08-05 20:59'>5d ago</span> Ship a library of 34 bundled routes (~660 km)</li><li><span class='when' data-ts='1785975251' title='2026-08-05 20:14'>5d ago</span> Add 18 more biomes and 31 more props (58 biomes, 114 types)</li><li><span class='when' data-ts='1785973283' title='2026-08-05 19:41'>6d ago</span> Add 18 more biomes and 29 more artifact types (40 biomes, 83 props)</li><li><span class='when' data-ts='1785966214' title='2026-08-05 17:43'>6d ago</span> Expand to 22 biomes and 54 roadside artifact types</li></ul></details>
+<p class='latest'><b>Latest:</b> Triple model tessellation; stop the ground ending in mid-air <span class='when' data-ts='1785981564' title='2026-08-05 21:59'>5d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1785978660' title='2026-08-05 21:11'>5d ago</span> Tabular lists, and guard an in-progress ride from being abandoned</li><li><span class='when' data-ts='1785977982' title='2026-08-05 20:59'>5d ago</span> Ship a library of 34 bundled routes (~660 km)</li><li><span class='when' data-ts='1785975251' title='2026-08-05 20:14'>6d ago</span> Add 18 more biomes and 31 more props (58 biomes, 114 types)</li><li><span class='when' data-ts='1785973283' title='2026-08-05 19:41'>6d ago</span> Add 18 more biomes and 29 more artifact types (40 biomes, 83 props)</li><li><span class='when' data-ts='1785966214' title='2026-08-05 17:43'>6d ago</span> Expand to 22 biomes and 54 roadside artifact types</li><li><span class='when' data-ts='1785964127' title='2026-08-05 17:08'>6d ago</span> Make the app an installable PWA</li><li><span class='when' data-ts='1785963057' title='2026-08-05 16:50'>6d ago</span> Add procedural textures to road and ground surfaces</li><li><span class='when' data-ts='1785959759' title='2026-08-05 15:55'>6d ago</span> Point CI/CD at master, the repo&#x27;s actual default branch</li><li><span class='when' data-ts='1785959181' title='2026-08-05 15:46'>6d ago</span> Add Google Drive cloud sync, mirroring the sibling apps</li></ul></details>
 <footer><a class="launch" data-slug="BlackMirrorBikeRide" href="https://adervec.github.io/BlackMirrorBikeRide/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="BlackMirrorBikeRide">&nbsp;</span></footer>
-</article><article class="app" id="bodybuildingprogresscoach" style="--h:240" data-k="bodybuilding progress coach honest physique and posing tracking from your own photos — scored against the classics. pwa offline ai optional on-device pose analysis — nothing uploaded objective symmetry and proportion geometry first, opinion second per-division posing technique (24 mandatories) and live mirror practice body-composition trends corroborate the photos aligned progress timelapses" data-slug="BodybuildingProgressCoach" data-pushed="1786131924">
+</article><article class="app" id="bodybuildingprogresscoach" style="--h:240" data-k="bodybuilding progress coach honest physique and posing tracking from your own photos — scored against the classics. pwa offline ai optional on-device pose analysis — nothing uploaded objective symmetry and proportion geometry first, opinion second per-division posing technique (24 mandatories) and live mirror practice body-composition trends corroborate the photos aligned progress timelapses" data-slug="BodybuildingProgressCoach" data-title="Bodybuilding Progress Coach" data-pushed="1786131924">
 <header><span class="tile" aria-hidden="true">🗿</span><div>
 <h2>Bodybuilding Progress Coach <a class="src" href="https://github.com/adervec/BodybuildingProgressCoach" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">Honest physique and posing tracking from your own photos — scored against the classics.</p></div></header>
-<ul class="badges"><li>PWA</li><li>offline</li><li>AI optional</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='18 commits in the last 52 weeks'><title>18 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,13.5 85.6,4.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,23.0 97.9,23.0 99.9,23.0 102.0,7.2 104.0,10.3'/></svg><span>since 2026 · 18 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button><button type='button'>AI optional</button></div>
 <ul class="feat"><li>On-device pose analysis — nothing uploaded</li><li>Objective symmetry and proportion geometry first, opinion second</li><li>Per-division posing technique (24 mandatories) and live mirror practice</li><li>Body-composition trends corroborate the photos</li><li>Aligned progress timelapses</li></ul>
-<p class='latest'><b>Latest:</b> Sidebar everywhere + all scrolling in-app <span class='when' data-ts='1786131920' title='2026-08-07 15:45'>4d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786105145' title='2026-08-07 08:19'>4d ago</span> Per-division mandatories (24 poses) + live Mirror practice page</li><li><span class='when' data-ts='1785963072' title='2026-08-05 16:51'>6d ago</span> Browser-only build, deployed to GitHub Pages</li><li><span class='when' data-ts='1785960331' title='2026-08-05 16:05'>6d ago</span> Google Drive sync, mirroring Tachyread</li><li><span class='when' data-ts='1785705870' title='2026-08-02 17:24'>9d ago</span> Orientation controlled by a setting, not the accelerometer</li><li><span class='when' data-ts='1785702255' title='2026-08-02 16:24'>9d ago</span> Patch dependency vulnerabilities</li></ul></details>
+<p class='latest'><b>Latest:</b> Sidebar everywhere + all scrolling in-app <span class='when' data-ts='1786131920' title='2026-08-07 15:45'>4d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786105145' title='2026-08-07 08:19'>4d ago</span> Per-division mandatories (24 poses) + live Mirror practice page</li><li><span class='when' data-ts='1785963072' title='2026-08-05 16:51'>6d ago</span> Browser-only build, deployed to GitHub Pages</li><li><span class='when' data-ts='1785960331' title='2026-08-05 16:05'>6d ago</span> Google Drive sync, mirroring Tachyread</li><li><span class='when' data-ts='1785705870' title='2026-08-02 17:24'>9d ago</span> Orientation controlled by a setting, not the accelerometer</li><li><span class='when' data-ts='1785702255' title='2026-08-02 16:24'>9d ago</span> Patch dependency vulnerabilities</li><li><span class='when' data-ts='1785701961' title='2026-08-02 16:19'>9d ago</span> Mark going-public checklist items done (repo is public)</li><li><span class='when' data-ts='1785701895' title='2026-08-02 16:18'>9d ago</span> Drag &amp; drop, EXIF dating, guide plates, mobile layout</li><li><span class='when' data-ts='1785701888' title='2026-08-02 16:18'>9d ago</span> PWA install + one-command launcher</li><li><span class='when' data-ts='1780631466' title='2026-06-04 23:51'>67d ago</span> Vendor fonts + MediaPipe assets — zero third-party calls, fully offline</li></ul></details>
 <footer><a class="launch" data-slug="BodybuildingProgressCoach" href="https://adervec.github.io/BodybuildingProgressCoach/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="BodybuildingProgressCoach">&nbsp;</span></footer>
-</article><article class="app" id="handwritinghelper" style="--h:210" data-k="handwriting helper photograph a page of handwriting and get honest, measured scores — then drill. pwa offline per-line scores: slant, baseline, size, spacing, pen control, legibility right or left hand, print or cursive, plus mirror-prime mode 38 drills with printable guide sheets in true size review scan batches as a gallery, with duplicate detection streaks, trends, and full history" data-slug="HandwritingHelper" data-pushed="1786380976">
+</article><article class="app" id="handwritinghelper" style="--h:210" data-k="handwriting helper photograph a page of handwriting and get honest, measured scores — then drill. pwa offline per-line scores: slant, baseline, size, spacing, pen control, legibility right or left hand, print or cursive, plus mirror-prime mode 38 drills with printable guide sheets in true size review scan batches as a gallery, with duplicate detection streaks, trends, and full history" data-slug="HandwritingHelper" data-title="Handwriting Helper" data-pushed="1786380976">
 <header><span class="tile" aria-hidden="true">✍️</span><div>
 <h2>Handwriting Helper <a class="src" href="https://github.com/adervec/HandwritingHelper" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">Photograph a page of handwriting and get honest, measured scores — then drill.</p></div></header>
-<ul class="badges"><li>PWA</li><li>offline</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='21 commits in the last 52 weeks'><title>21 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,23.0 97.9,21.9 99.9,23.0 102.0,19.6 104.0,4.0'/></svg><span>since 2026 · 21 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button></div>
 <ul class="feat"><li>Per-line scores: slant, baseline, size, spacing, pen control, legibility</li><li>Right or left hand, print or cursive, plus mirror-prime mode</li><li>38 drills with printable guide sheets in true size</li><li>Review scan batches as a gallery, with duplicate detection</li><li>Streaks, trends, and full history</li></ul>
-<p class='latest'><b>Latest:</b> Make the import gallery lazy and cached, and fix a hash-drift bug <span class='when' data-ts='1786380974' title='2026-08-10 12:56'>1d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786226388' title='2026-08-08 17:59'>3d ago</span> Work out cursive, mirror-prime and headline scripts from the page</li><li><span class='when' data-ts='1786147577' title='2026-08-07 20:06'>3d ago</span> Review scan batches as a gallery, and detect duplicate pages</li><li><span class='when' data-ts='1786137543' title='2026-08-07 17:19'>4d ago</span> Don&#x27;t grade pen control where thick-and-thin IS the script</li><li><span class='when' data-ts='1786137455' title='2026-08-07 17:17'>4d ago</span> Measure spacing along the writing&#x27;s slant</li><li><span class='when' data-ts='1786137278' title='2026-08-07 17:14'>4d ago</span> Support nine alphabets, and fix two real bugs found doing it</li></ul></details>
+<p class='latest'><b>Latest:</b> Make the import gallery lazy and cached, and fix a hash-drift bug <span class='when' data-ts='1786380974' title='2026-08-10 12:56'>1d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786226388' title='2026-08-08 17:59'>3d ago</span> Work out cursive, mirror-prime and headline scripts from the page</li><li><span class='when' data-ts='1786147577' title='2026-08-07 20:06'>4d ago</span> Review scan batches as a gallery, and detect duplicate pages</li><li><span class='when' data-ts='1786137543' title='2026-08-07 17:19'>4d ago</span> Don&#x27;t grade pen control where thick-and-thin IS the script</li><li><span class='when' data-ts='1786137455' title='2026-08-07 17:17'>4d ago</span> Measure spacing along the writing&#x27;s slant</li><li><span class='when' data-ts='1786137278' title='2026-08-07 17:14'>4d ago</span> Support nine alphabets, and fix two real bugs found doing it</li><li><span class='when' data-ts='1786108446' title='2026-08-07 09:14'>4d ago</span> Surface the project you&#x27;re in the middle of on Today</li><li><span class='when' data-ts='1786108353' title='2026-08-07 09:12'>4d ago</span> Group pages into projects</li><li><span class='when' data-ts='1786104632' title='2026-08-07 08:10'>4d ago</span> Real README, replacing the empty readme.txt</li><li><span class='when' data-ts='1786104585' title='2026-08-07 08:09'>4d ago</span> Line-by-line breakdown of an analyzed page</li></ul></details>
 <footer><a class="launch" data-slug="HandwritingHelper" href="https://adervec.github.io/HandwritingHelper/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="HandwritingHelper">&nbsp;</span></footer>
-</article><article class="app" id="microminiger" style="--h:0" data-k="microminiger a miniature-collection manager — paint queue, photo studio, and offline photo-to-3d. pwa offline rich per-mini metadata, kitbash-aware, with provenance and value kanban paint queue, paint timer, deadlines multi-angle photos, 360° viewer, spin video and gif export photo-to-3d mesh and gaussian-splat viewer, stl/ply export armies, points, and a battle log field-scoped search, bulk edit, csv, one-file backup" data-slug="MicroMiniger" data-pushed="1786200492">
+</article><article class="app" id="microminiger" style="--h:0" data-k="microminiger a miniature-collection manager — paint queue, photo studio, and offline photo-to-3d. pwa offline rich per-mini metadata, kitbash-aware, with provenance and value kanban paint queue, paint timer, deadlines multi-angle photos, 360° viewer, spin video and gif export photo-to-3d mesh and gaussian-splat viewer, stl/ply export armies, points, and a battle log field-scoped search, bulk edit, csv, one-file backup" data-slug="MicroMiniger" data-title="MicroMiniger" data-pushed="1786200492">
 <header><span class="tile" aria-hidden="true">⚔️</span><div>
 <h2>MicroMiniger <a class="src" href="https://github.com/adervec/MicroMiniger" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">A miniature-collection manager — paint queue, photo studio, and offline photo-to-3D.</p></div></header>
-<ul class="badges"><li>PWA</li><li>offline</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='3 commits in the last 52 weeks'><title>3 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,23.0 97.9,13.5 99.9,23.0 102.0,23.0 104.0,4.0'/></svg><span>since 2026 · 3 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button></div>
 <ul class="feat"><li>Rich per-mini metadata, kitbash-aware, with provenance and value</li><li>Kanban paint queue, paint timer, deadlines</li><li>Multi-angle photos, 360° viewer, spin video and GIF export</li><li>Photo-to-3D mesh and Gaussian-splat viewer, STL/PLY export</li><li>Armies, points, and a battle log</li><li>Field-scoped search, bulk edit, CSV, one-file backup</li></ul>
 <p class='latest'><b>Latest:</b> Modern sidebar navigation + 12-theme system (SpeechImprover-style) <span class='when' data-ts='1786200489' title='2026-08-08 10:48'>3d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786195598' title='2026-08-08 09:26'>3d ago</span> Full MicroMiniger PWA: collection manager, 3D scan &amp; splat viewer, cloud backup</li><li><span class='when' data-ts='1784380881' title='2026-07-18 09:21'>24d ago</span> initial commit</li></ul></details>
 <footer><a class="launch" data-slug="MicroMiniger" href="https://adervec.github.io/MicroMiniger/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="MicroMiniger">&nbsp;</span></footer>
-</article><article class="app" id="speechimprover" style="--h:315" data-k="speechimprover record yourself and get ten scored attributes — then train the weak ones. pwa drive sync reading passages, improv, articulation drills, or your own text ten attributes scored 0–100, from pace to projection free speaking toward a chosen target tone or emotion projects — read a whole book passage by passage trends, an activity heatmap, a/b compare, ai-coach export" data-slug="SpeechImprover" data-pushed="1786282081">
+</article><article class="app" id="speechimprover" style="--h:315" data-k="speechimprover record yourself and get ten scored attributes — then train the weak ones. pwa drive sync reading passages, improv, articulation drills, or your own text ten attributes scored 0–100, from pace to projection free speaking toward a chosen target tone or emotion projects — read a whole book passage by passage trends, an activity heatmap, a/b compare, ai-coach export" data-slug="SpeechImprover" data-title="SpeechImprover" data-pushed="1786282081">
 <header><span class="tile" aria-hidden="true">🎙️</span><div>
 <h2>SpeechImprover <a class="src" href="https://github.com/adervec/SpeechImprover" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">Record yourself and get ten scored attributes — then train the weak ones.</p></div></header>
-<ul class="badges"><li>PWA</li><li>Drive sync</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='23 commits in the last 52 weeks'><title>23 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,17.9 85.6,20.5 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,23.0 97.9,23.0 99.9,23.0 102.0,20.5 104.0,4.0'/></svg><span>since 2026 · 23 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>Drive sync</button></div>
 <ul class="feat"><li>Reading passages, improv, articulation drills, or your own text</li><li>Ten attributes scored 0–100, from pace to projection</li><li>Free speaking toward a chosen target tone or emotion</li><li>Projects — read a whole book passage by passage</li><li>Trends, an activity heatmap, A/B compare, AI-coach export</li></ul>
-<p class='latest'><b>Latest:</b> Non-verbal sound monitor, session=block terminology, radar label fix <span class='when' data-ts='1786282079' title='2026-08-09 09:27'>2d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786279959' title='2026-08-09 08:52'>2d ago</span> Track page ranges, live-chip fixes, auto-submit on completed reading</li><li><span class='when' data-ts='1786229458' title='2026-08-08 18:50'>3d ago</span> Count Tachyread audiobook narration as speech training</li><li><span class='when' data-ts='1786226827' title='2026-08-08 18:07'>3d ago</span> Live feedback dashboard while recording</li><li><span class='when' data-ts='1786147551' title='2026-08-07 20:05'>3d ago</span> Integrate with CoworkSyncHub (cowork-manifest v1)</li><li><span class='when' data-ts='1786073138' title='2026-08-06 23:25'>4d ago</span> Wave 3: command palette, bulk History ops, date-aligned charts</li></ul></details>
+<p class='latest'><b>Latest:</b> Non-verbal sound monitor, session=block terminology, radar label fix <span class='when' data-ts='1786282079' title='2026-08-09 09:27'>2d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786279959' title='2026-08-09 08:52'>2d ago</span> Track page ranges, live-chip fixes, auto-submit on completed reading</li><li><span class='when' data-ts='1786229458' title='2026-08-08 18:50'>3d ago</span> Count Tachyread audiobook narration as speech training</li><li><span class='when' data-ts='1786226827' title='2026-08-08 18:07'>3d ago</span> Live feedback dashboard while recording</li><li><span class='when' data-ts='1786147551' title='2026-08-07 20:05'>4d ago</span> Integrate with CoworkSyncHub (cowork-manifest v1)</li><li><span class='when' data-ts='1786073138' title='2026-08-06 23:25'>4d ago</span> Wave 3: command palette, bulk History ops, date-aligned charts</li><li><span class='when' data-ts='1786070343' title='2026-08-06 22:39'>4d ago</span> More features: date-range trends, CSV export, weekly goal, PWA install</li><li><span class='when' data-ts='1786070138' title='2026-08-06 22:35'>4d ago</span> UX + a11y + missing-feature pass across the app</li><li><span class='when' data-ts='1786067517' title='2026-08-06 21:51'>4d ago</span> Merge/ungroup tracks in project tracklist</li><li><span class='when' data-ts='1785980585' title='2026-08-05 21:43'>5d ago</span> Waveform trim/split editor for project tracks</li></ul></details>
 <footer><a class="launch" data-slug="SpeechImprover" href="https://adervec.github.io/SpeechImprover/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="SpeechImprover">&nbsp;</span></footer>
-</article><article class="app" id="mise" style="--h:75" data-k="mise an interactive cookbook you can run — recipes execute as live, scheduled flow charts. pwa offline voice 102 recipes plus techniques, ingredients, and equipment guides execute mode: station swimlanes, a moving playhead, countdowns, alarms voice control — play, pause, done, skip — with steps read aloud a cook log of every finished cook, exportable field guides: coffee, tea, alcohol, protein prep — and a box-mix calculator" data-slug="Mise" data-pushed="1785958287">
+</article><article class="app" id="mise" style="--h:75" data-k="mise an interactive cookbook you can run — recipes execute as live, scheduled flow charts. pwa offline voice 102 recipes plus techniques, ingredients, and equipment guides execute mode: station swimlanes, a moving playhead, countdowns, alarms voice control — play, pause, done, skip — with steps read aloud a cook log of every finished cook, exportable field guides: coffee, tea, alcohol, protein prep — and a box-mix calculator" data-slug="Mise" data-title="Mise" data-pushed="1785958287">
 <header><span class="tile" aria-hidden="true">🍳</span><div>
 <h2>Mise <a class="src" href="https://github.com/adervec/Mise" title="source on GitHub">src&#8599;</a></h2>
 <p class="tag">An interactive cookbook you can run — recipes execute as live, scheduled flow charts.</p></div></header>
-<ul class="badges"><li>PWA</li><li>offline</li><li>voice</li></ul>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='11 commits in the last 52 weeks'><title>11 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,4.0 91.8,23.0 93.8,23.0 95.8,19.2 97.9,23.0 99.9,23.0 102.0,7.8 104.0,19.2'/></svg><span>since 2026 · 11 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button><button type='button'>voice</button></div>
 <ul class="feat"><li>102 recipes plus techniques, ingredients, and equipment guides</li><li>Execute mode: station swimlanes, a moving playhead, countdowns, alarms</li><li>Voice control — play, pause, done, skip — with steps read aloud</li><li>A cook log of every finished cook, exportable</li><li>Field guides: coffee, tea, alcohol, protein prep — and a box-mix calculator</li></ul>
-<p class='latest'><b>Latest:</b> Google Drive sync for the cook log, mirroring Tachyread <span class='when' data-ts='1785958266' title='2026-08-05 15:31'>6d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1785800922' title='2026-08-03 19:48'>8d ago</span> Maximal Instant Pot coverage: 20 recipes + 8 reference pages</li><li><span class='when' data-ts='1785757973' title='2026-08-03 07:52'>8d ago</span> Add Grid view mode to recipe detail</li><li><span class='when' data-ts='1785705887' title='2026-08-02 17:24'>9d ago</span> Add screen-orientation setting (Auto / Portrait / Landscape)</li><li><span class='when' data-ts='1785705157' title='2026-08-02 17:12'>9d ago</span> Fold protein guides into the app; add gh-pages deploy</li><li><span class='when' data-ts='1783863966' title='2026-07-12 09:46'>30d ago</span> Voice control, cook log for Claude reports, launcher + PWA polish</li></ul></details>
+<p class='latest'><b>Latest:</b> Google Drive sync for the cook log, mirroring Tachyread <span class='when' data-ts='1785958266' title='2026-08-05 15:31'>6d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1785800922' title='2026-08-03 19:48'>8d ago</span> Maximal Instant Pot coverage: 20 recipes + 8 reference pages</li><li><span class='when' data-ts='1785757973' title='2026-08-03 07:52'>8d ago</span> Add Grid view mode to recipe detail</li><li><span class='when' data-ts='1785705887' title='2026-08-02 17:24'>9d ago</span> Add screen-orientation setting (Auto / Portrait / Landscape)</li><li><span class='when' data-ts='1785705157' title='2026-08-02 17:12'>9d ago</span> Fold protein guides into the app; add gh-pages deploy</li><li><span class='when' data-ts='1783863966' title='2026-07-12 09:46'>30d ago</span> Voice control, cook log for Claude reports, launcher + PWA polish</li><li><span class='when' data-ts='1782174748' title='2026-06-22 20:32'>49d ago</span> Add 12 lean high-protein recipes</li><li><span class='when' data-ts='1782083815' title='2026-06-21 19:16'>51d ago</span> Slim initial load: fetch catalog data + lazy execute route</li><li><span class='when' data-ts='1782083479' title='2026-06-21 19:11'>51d ago</span> Integrate field guides into the shell with a consistent header</li><li><span class='when' data-ts='1782083211' title='2026-06-21 19:06'>51d ago</span> Add mid-cook resume via localStorage</li></ul></details>
 <footer><a class="launch" data-slug="Mise" href="https://adervec.github.io/Mise/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="Mise">&nbsp;</span></footer>
 </article></div>
+<p id="empty" hidden>Nothing matches. <button id="clearq" type="button">Clear the filter</button></p>
 <p class="note"><b>Install any of them:</b> launch the app, then use the browser's
 <i>Install app</i> button (the icon in the address bar in Chrome and Edge). Installed apps get
-their own window and the ones marked <i>offline</i> keep working without a connection.</p>
-<footer class="page"><span>generated 2026-08-11 19:52</span>
-<span>usage counts live only in this browser</span>
+their own window and the ones marked <i>offline</i> keep working without a connection.
+This portal installs the same way.</p>
+<footer class="page"><span>generated 2026-08-11 20:26</span>
+<span>usage counts live only in this browser</span><span id="you"></span>
+<span><a href="feed.xml">RSS</a></span>
 <span><a href="https://github.com/adervec">github.com/adervec</a></span></footer>
-</main><script>
+</main><script>const GEN=1786494378;const FLEET=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 159, 111, 165, 80, 125, 73, 58, 43, 118, 91];
+(function(){
+var d=document;
+if("serviceWorker" in navigator&&location.protocol==="https:")
+  navigator.serviceWorker.register("sw.js").catch(function(){});
+// theme: auto -> light -> dark, persisted
+var root=d.documentElement,tbtn=d.getElementById("theme");
+var modes=["auto","light","dark"],icons={auto:"\u25d0",light:"\u2600",dark:"\u263e"};
+function setTheme(m){
+  if(m==="auto")root.removeAttribute("data-theme");else root.setAttribute("data-theme",m);
+  tbtn.textContent=icons[m];tbtn.title="theme: "+m;tbtn.setAttribute("aria-label","theme: "+m);
+  try{localStorage.setItem("portal-theme",m)}catch(err){}}
+var cur="auto";try{cur=localStorage.getItem("portal-theme")||"auto"}catch(err){}
+setTheme(cur);
+tbtn.addEventListener("click",function(){cur=modes[(modes.indexOf(cur)+1)%3];setTheme(cur)});
+// live relative times
 function rel(s){if(s<60)return Math.floor(s)+"s";if(s<3600)return Math.floor(s/60)+"m";
   if(s<86400)return Math.floor(s/3600)+"h";return Math.floor(s/86400)+"d";}
 function tick(){var now=Date.now()/1000;
-  document.querySelectorAll("[data-ts]").forEach(function(el){
-    var t=parseFloat(el.dataset.ts); if(t) el.textContent=rel(now-t)+" ago";});}
-tick(); setInterval(tick,30000);
+  d.querySelectorAll("[data-ts]").forEach(function(el){
+    var t=parseFloat(el.dataset.ts);if(t)el.textContent=rel(now-t)+" ago";});}
+tick();setInterval(tick,30000);
+// usage tracking (this browser only)
 var KEY="portal-usage";
 function usage(){try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(err){return{}}}
-function paintUsage(){var u=usage(),now=Date.now()/1000;
-  document.querySelectorAll(".usage").forEach(function(el){
-    var d=u[el.dataset.slug];
-    el.textContent=d?("opened "+d.n+"\u00d7 \u00b7 "+rel(now-d.last)+" ago"):"not opened yet";});}
+function paintUsage(){var u=usage(),now=Date.now()/1000,tot=0,tried=0;
+  d.querySelectorAll(".usage").forEach(function(el){
+    var x=u[el.dataset.slug];
+    el.textContent=x?("opened "+x.n+"\u00d7 \u00b7 "+rel(now-x.last)+" ago"):"not opened yet";});
+  Object.keys(u).forEach(function(k){tot+=u[k].n;tried++;});
+  var you=d.getElementById("you");
+  you.textContent=tot?("you: "+tot+" launch"+(tot>1?"es":"")+" across "+tried+" app"+(tried>1?"s":"")):"";
+  var rec=Object.keys(u).sort(function(a,b){return u[b].last-u[a].last}).slice(0,4),
+      host=d.getElementById("recent");
+  if(rec.length){host.hidden=false;var box=host.querySelector(".rr");box.innerHTML="";
+    rec.forEach(function(s){var c=d.getElementById(s.toLowerCase());if(!c)return;
+      var a=d.createElement("a");a.href="#"+s.toLowerCase();a.textContent=c.dataset.title;
+      box.appendChild(a);});}}
 paintUsage();
-document.querySelectorAll(".launch").forEach(function(a){
+d.querySelectorAll(".launch").forEach(function(a){
   a.addEventListener("click",function(){var u=usage(),s=a.dataset.slug;
     u[s]={n:((u[s]||{}).n||0)+1,last:Date.now()/1000};
     try{localStorage.setItem(KEY,JSON.stringify(u))}catch(err){}
     paintUsage();});});
-var q=document.getElementById("q");
-q.addEventListener("input",function(){var v=q.value.toLowerCase();
-  document.querySelectorAll("[data-k]").forEach(function(el){
-    el.style.display=el.dataset.k.indexOf(v)>=0?"":"none";});});
-var grid=document.querySelector(".grid"),sort=document.getElementById("sort");
-sort.addEventListener("change",function(){
-  var u=usage(),cards=Array.prototype.slice.call(grid.children);
-  cards.sort(function(a,b){
+// filter + count + empty state; badges are filter shortcuts
+var q=d.getElementById("q"),count=d.getElementById("count"),empty=d.getElementById("empty"),
+    grid=d.querySelector(".grid");
+function cards(){return Array.prototype.slice.call(grid.children)}
+function applyFilter(){var v=q.value.toLowerCase(),n=0;
+  cards().forEach(function(c){var show=c.dataset.k.indexOf(v)>=0;
+    c.style.display=show?"":"none";if(show)n++;});
+  count.textContent=n+" of "+cards().length+" apps";
+  empty.hidden=n>0;}
+applyFilter();
+q.addEventListener("input",applyFilter);
+d.getElementById("clearq").addEventListener("click",function(){q.value="";applyFilter();q.focus()});
+d.addEventListener("click",function(ev){
+  var b=ev.target.closest(".badges button");
+  if(b){q.value=b.textContent.replace(/^\u26a0 /,"");applyFilter();
+    q.scrollIntoView({block:"nearest"});}});
+d.addEventListener("keydown",function(ev){
+  var t=ev.target.tagName;
+  if(ev.key==="/"&&t!=="INPUT"&&t!=="SELECT"&&t!=="TEXTAREA"){ev.preventDefault();q.focus();}
+  if(ev.key==="Escape"&&t==="INPUT"){q.value="";applyFilter();}});
+// sort
+var sort=d.getElementById("sort");
+sort.addEventListener("change",function(){var u=usage(),cs=cards();
+  cs.sort(function(a,b){
     if(sort.value==="updated")return(+b.dataset.pushed||0)-(+a.dataset.pushed||0);
     if(sort.value==="used")return(((u[b.dataset.slug]||{}).n)||0)-(((u[a.dataset.slug]||{}).n)||0);
     return a.dataset.slug.localeCompare(b.dataset.slug);});
-  cards.forEach(function(c){grid.appendChild(c);});});
+  cs.forEach(function(c){grid.appendChild(c)});});
+// app of the day: deterministic daily pick
+var slugs=cards().map(function(c){return c.dataset.slug}).sort();
+if(slugs.length){var pick=slugs[Math.floor(Date.now()/864e5)%slugs.length],
+    card=d.getElementById(pick.toLowerCase());
+  if(card){card.classList.add("appday");
+    var chip=d.getElementById("appday-chip");chip.hidden=false;
+    var a=chip.querySelector("a");a.href="#"+pick.toLowerCase();a.textContent=card.dataset.title;}}
+// fleet chart hover: crosshair + tooltip
+var fs=d.getElementById("fleet");
+if(fs&&window.FLEET&&FLEET.length>1){
+  var tip=d.getElementById("fleettip"),cur2=d.getElementById("cursor"),n=FLEET.length;
+  fs.addEventListener("mousemove",function(ev){var r=fs.getBoundingClientRect();
+    var i=Math.min(n-1,Math.max(0,Math.round((ev.clientX-r.left)/r.width*(n-1))));
+    var wk=new Date((GEN-(n-1-i)*604800)*1000);
+    tip.hidden=false;
+    tip.textContent="week of "+wk.toLocaleDateString(undefined,{month:"short",day:"numeric"})
+      +": "+FLEET[i]+" commit"+(FLEET[i]===1?"":"s");
+    var x=(ev.clientX-r.left);
+    tip.style.left=Math.min(r.width-tip.offsetWidth,Math.max(0,x-tip.offsetWidth/2))+"px";
+    var vx=i*(520/(n-1));
+    cur2.setAttribute("x1",vx);cur2.setAttribute("x2",vx);
+    cur2.setAttribute("visibility","visible");});
+  fs.addEventListener("mouseleave",function(){tip.hidden=true;
+    cur2.setAttribute("visibility","hidden");});}
+})();
 </script></body></html>

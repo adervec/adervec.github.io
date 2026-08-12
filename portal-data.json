@@ -1,6 +1,62 @@
 {
  "GymTracker315": {
   "pushed_at": "2026-08-11T18:00:30Z",
+  "stars": 0,
+  "created": "2026-05-30T03:53:46Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   11,
+   135,
+   72,
+   86,
+   28,
+   14,
+   3,
+   15,
+   3,
+   10,
+   8
+  ],
   "changes": [
    {
     "date": "2026-08-11T18:00:24Z",
@@ -25,11 +81,83 @@
    {
     "date": "2026-08-07T02:02:25Z",
     "msg": "chore: publish on every push to main"
+   },
+   {
+    "date": "2026-08-07T02:00:51Z",
+    "msg": "feat 465: multi-user hardening -- update, visibility, backup"
+   },
+   {
+    "date": "2026-08-06T01:58:55Z",
+    "msg": "feat 464: the Cuban press"
+   },
+   {
+    "date": "2026-08-04T01:05:21Z",
+    "msg": "feat 463: a subtle marker on the set you are on"
+   },
+   {
+    "date": "2026-08-03T21:14:39Z",
+    "msg": "feat 462: duplication sweep -- two classes deeper, plus a reconciler bug"
    }
   ]
  },
  "Tachyread": {
   "pushed_at": "2026-08-11T15:52:56Z",
+  "stars": 0,
+  "created": "2026-05-30T03:41:56Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   15,
+   6,
+   39,
+   45,
+   32,
+   111,
+   69,
+   41,
+   40,
+   64,
+   28
+  ],
   "changes": [
    {
     "date": "2026-08-11T15:51:41Z",
@@ -54,11 +182,83 @@
    {
     "date": "2026-08-08T22:13:51Z",
     "msg": "Audiobook: read the book aloud in one continuous session"
+   },
+   {
+    "date": "2026-08-08T17:36:35Z",
+    "msg": "Reading: option to blur everything when idle"
+   },
+   {
+    "date": "2026-08-08T17:26:03Z",
+    "msg": "Typing: normalise progress for text difficulty"
+   },
+   {
+    "date": "2026-08-08T17:10:05Z",
+    "msg": "Typing: size the passage to the run limit, not a fixed 600 words"
+   },
+   {
+    "date": "2026-08-08T14:49:07Z",
+    "msg": "Typing: track which physical keyboard each run was typed on"
    }
   ]
  },
  "ChessRetabled": {
   "pushed_at": "2026-08-05T19:39:01Z",
+  "stars": 0,
+  "created": "2026-05-31T13:07:16Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   2,
+   2,
+   0,
+   25,
+   19,
+   0,
+   0,
+   0,
+   0,
+   20,
+   4
+  ],
   "changes": [
    {
     "date": "2026-08-05T19:29:23Z",
@@ -83,11 +283,83 @@
    {
     "date": "2026-08-03T11:29:39Z",
     "msg": "Per-game layout, boards that fit, board touches that move pieces"
+   },
+   {
+    "date": "2026-08-02T21:51:34Z",
+    "msg": "Make cards readable on a phone"
+   },
+   {
+    "date": "2026-08-02T21:28:12Z",
+    "msg": "Portrait/landscape is a setting, not the accelerometer"
+   },
+   {
+    "date": "2026-08-02T15:47:27Z",
+    "msg": "Mobile mode: touch interaction, card scaling, safe areas, landscape"
+   },
+   {
+    "date": "2026-08-02T14:26:20Z",
+    "msg": "Document the new features and add a double-click launcher"
    }
   ]
  },
  "GuitarPicker": {
   "pushed_at": "2026-08-05T19:31:44Z",
+  "stars": 0,
+  "created": "2026-05-30T03:46:51Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   7,
+   6,
+   0,
+   4,
+   1,
+   0,
+   0,
+   0,
+   0,
+   6,
+   1
+  ],
   "changes": [
    {
     "date": "2026-08-05T19:31:39Z",
@@ -112,11 +384,83 @@
    {
     "date": "2026-08-02T14:35:30Z",
     "msg": "Deploy: ship manifest, service worker, icons and docs to Pages"
+   },
+   {
+    "date": "2026-08-02T14:33:45Z",
+    "msg": "Instruments, PWA install, and launcher"
+   },
+   {
+    "date": "2026-06-27T17:15:21Z",
+    "msg": "Going-public copyright/honesty pass + cloud-sync origin allowlist"
+   },
+   {
+    "date": "2026-06-23T11:42:29Z",
+    "msg": "Tidy: dedupe escapeHTML, use stdlib (crypto.randomUUID, Array.find)"
+   },
+   {
+    "date": "2026-06-20T15:53:06Z",
+    "msg": "Add opt-in Google Drive cloud sync (local-first, no backend)"
    }
   ]
  },
  "BlackMirrorBikeRide": {
   "pushed_at": "2026-08-06T01:59:28Z",
+  "stars": 0,
+  "created": "2026-05-30T03:41:43Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   5,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   4,
+   11
+  ],
   "changes": [
    {
     "date": "2026-08-06T01:59:24Z",
@@ -141,11 +485,83 @@
    {
     "date": "2026-08-05T21:43:34Z",
     "msg": "Expand to 22 biomes and 54 roadside artifact types"
+   },
+   {
+    "date": "2026-08-05T21:08:47Z",
+    "msg": "Make the app an installable PWA"
+   },
+   {
+    "date": "2026-08-05T20:50:57Z",
+    "msg": "Add procedural textures to road and ground surfaces"
+   },
+   {
+    "date": "2026-08-05T19:55:59Z",
+    "msg": "Point CI/CD at master, the repo's actual default branch"
+   },
+   {
+    "date": "2026-08-05T19:46:21Z",
+    "msg": "Add Google Drive cloud sync, mirroring the sibling apps"
    }
   ]
  },
  "BodybuildingProgressCoach": {
   "pushed_at": "2026-08-07T19:45:24Z",
+  "stars": 0,
+  "created": "2026-05-31T12:59:37Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   3,
+   6,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   5,
+   4
+  ],
   "changes": [
    {
     "date": "2026-08-07T19:45:20Z",
@@ -170,11 +586,83 @@
    {
     "date": "2026-08-02T20:24:15Z",
     "msg": "Patch dependency vulnerabilities"
+   },
+   {
+    "date": "2026-08-02T20:19:21Z",
+    "msg": "Mark going-public checklist items done (repo is public)"
+   },
+   {
+    "date": "2026-08-02T20:18:15Z",
+    "msg": "Drag & drop, EXIF dating, guide plates, mobile layout"
+   },
+   {
+    "date": "2026-08-02T20:18:08Z",
+    "msg": "PWA install + one-command launcher"
+   },
+   {
+    "date": "2026-06-05T03:51:06Z",
+    "msg": "Vendor fonts + MediaPipe assets \u2014 zero third-party calls, fully offline"
    }
   ]
  },
  "HandwritingHelper": {
   "pushed_at": "2026-08-10T16:56:16Z",
+  "stars": 0,
+  "created": "2026-08-02T20:21:43Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   3,
+   17
+  ],
   "changes": [
    {
     "date": "2026-08-10T16:56:14Z",
@@ -199,11 +687,83 @@
    {
     "date": "2026-08-07T21:14:38Z",
     "msg": "Support nine alphabets, and fix two real bugs found doing it"
+   },
+   {
+    "date": "2026-08-07T13:14:06Z",
+    "msg": "Surface the project you're in the middle of on Today"
+   },
+   {
+    "date": "2026-08-07T13:12:33Z",
+    "msg": "Group pages into projects"
+   },
+   {
+    "date": "2026-08-07T12:10:32Z",
+    "msg": "Real README, replacing the empty readme.txt"
+   },
+   {
+    "date": "2026-08-07T12:09:45Z",
+    "msg": "Line-by-line breakdown of an analyzed page"
    }
   ]
  },
  "MicroMiniger": {
   "pushed_at": "2026-08-08T14:48:12Z",
+  "stars": 0,
+  "created": "2026-08-08T13:26:44Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   2
+  ],
   "changes": [
    {
     "date": "2026-08-08T14:48:09Z",
@@ -221,6 +781,62 @@
  },
  "SpeechImprover": {
   "pushed_at": "2026-08-09T13:28:01Z",
+  "stars": 0,
+  "created": "2026-05-30T03:44:29Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   4,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   2,
+   15
+  ],
   "changes": [
    {
     "date": "2026-08-09T13:27:59Z",
@@ -245,11 +861,83 @@
    {
     "date": "2026-08-07T03:25:38Z",
     "msg": "Wave 3: command palette, bulk History ops, date-aligned charts"
+   },
+   {
+    "date": "2026-08-07T02:39:03Z",
+    "msg": "More features: date-range trends, CSV export, weekly goal, PWA install"
+   },
+   {
+    "date": "2026-08-07T02:35:38Z",
+    "msg": "UX + a11y + missing-feature pass across the app"
+   },
+   {
+    "date": "2026-08-07T01:51:57Z",
+    "msg": "Merge/ungroup tracks in project tracklist"
+   },
+   {
+    "date": "2026-08-06T01:43:05Z",
+    "msg": "Waveform trim/split editor for project tracks"
    }
   ]
  },
  "Mise": {
   "pushed_at": "2026-08-05T19:31:27Z",
+  "stars": 0,
+  "created": "2026-08-02T21:11:16Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   5,
+   0,
+   0,
+   1,
+   0,
+   0,
+   4,
+   1
+  ],
   "changes": [
    {
     "date": "2026-08-05T19:31:06Z",
@@ -274,6 +962,22 @@
    {
     "date": "2026-07-12T13:46:06Z",
     "msg": "Voice control, cook log for Claude reports, launcher + PWA polish"
+   },
+   {
+    "date": "2026-06-23T00:32:28Z",
+    "msg": "Add 12 lean high-protein recipes"
+   },
+   {
+    "date": "2026-06-21T23:16:55Z",
+    "msg": "Slim initial load: fetch catalog data + lazy execute route"
+   },
+   {
+    "date": "2026-06-21T23:11:19Z",
+    "msg": "Integrate field guides into the shell with a consistent header"
+   },
+   {
+    "date": "2026-06-21T23:06:51Z",
+    "msg": "Add mid-cook resume via localStorage"
    }
   ]
  }
