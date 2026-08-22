@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-08-13T02:39:37Z",
+  "pushed_at": "2026-08-19T02:43:31Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -44,64 +44,64 @@
    0,
    0,
    0,
+   42,
+   131,
+   73,
+   79,
+   21,
    0,
-   32,
-   114,
-   87,
-   91,
-   13,
    9,
-   3,
-   15,
+   9,
    4,
-   9,
-   18
+   14,
+   19,
+   5
   ],
   "changes": [
    {
+    "date": "2026-08-19T02:43:27Z",
+    "msg": "feat 488: the rest of the power twister, and the whole ab roller"
+   },
+   {
+    "date": "2026-08-18T15:06:54Z",
+    "msg": "feat 487: forgiving search, everywhere, default on"
+   },
+   {
+    "date": "2026-08-18T02:07:31Z",
+    "msg": "feat 486: the Bruce Lee vocabulary, inside the safety margins"
+   },
+   {
+    "date": "2026-08-16T22:56:50Z",
+    "msg": "feat 485: the rice bucket"
+   },
+   {
+    "date": "2026-08-15T01:07:59Z",
+    "msg": "feat 484: the grip-tool haul lands in the catalogue"
+   },
+   {
+    "date": "2026-08-14T20:22:13Z",
+    "msg": "feat 483: triple-digit heart rates stop losing their leading digit"
+   },
+   {
+    "date": "2026-08-14T20:19:23Z",
+    "msg": "feat 482: target tiles and the timer learn about the set itself"
+   },
+   {
+    "date": "2026-08-13T11:10:24Z",
+    "msg": "feat 481: the rest timer stops using one number for every lift"
+   },
+   {
+    "date": "2026-08-13T03:09:15Z",
+    "msg": "feat 480: Log > Plans -- which plans done when"
+   },
+   {
     "date": "2026-08-13T02:36:29Z",
     "msg": "feat 480: tell the maker portal this app is installed"
-   },
-   {
-    "date": "2026-08-13T02:34:16Z",
-    "msg": "feat 479: the try-later plan queue"
-   },
-   {
-    "date": "2026-08-12T22:04:52Z",
-    "msg": "feat 478: the targets section collapses too"
-   },
-   {
-    "date": "2026-08-12T17:18:34Z",
-    "msg": "feat 477: the reference row earns its space"
-   },
-   {
-    "date": "2026-08-12T16:23:56Z",
-    "msg": "feat 476: MOTION LAB chunk 4 -- the pattern-word router"
-   },
-   {
-    "date": "2026-08-12T14:54:09Z",
-    "msg": "feat 475: MOTION LAB chunk 3 -- leg raises, get-ups, nordics, rack positions"
-   },
-   {
-    "date": "2026-08-12T13:30:48Z",
-    "msg": "feat 474 fix: a held plate is a free weight, not the family's cable"
-   },
-   {
-    "date": "2026-08-12T13:21:11Z",
-    "msg": "feat 474: MOTION LAB chunk 2 -- rotation, overhead carries, the motion carousel"
-   },
-   {
-    "date": "2026-08-12T07:33:06Z",
-    "msg": "feat 473: MOTION LAB chunk 1 -- the motion-generation submodule"
-   },
-   {
-    "date": "2026-08-12T07:14:06Z",
-    "msg": "chore: renumber log-sheet tightening to feat 472 (471 was taken by the About-page link in a parallel session)"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-08-13T02:40:04Z",
+  "pushed_at": "2026-08-21T13:41:47Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -145,59 +145,59 @@
    0,
    0,
    0,
-   0,
-   16,
-   5,
-   57,
-   29,
-   30,
-   123,
-   57,
-   50,
+   18,
+   13,
+   61,
+   37,
+   49,
+   110,
    39,
-   56,
-   42
+   55,
+   24,
+   62,
+   53,
+   6
   ],
   "changes": [
    {
-    "date": "2026-08-13T02:36:55Z",
-    "msg": "Startup: tell the app portal Tachyread is installed"
+    "date": "2026-08-21T13:40:36Z",
+    "msg": "Audiobook console: download folders with incremental auto-sync"
    },
    {
-    "date": "2026-08-12T19:25:39Z",
-    "msg": "Pace ghost: the goal is the finish line"
+    "date": "2026-08-19T02:32:43Z",
+    "msg": "Audiobook console: singleton tab, book editor is a Library drill-down"
    },
    {
-    "date": "2026-08-12T19:17:27Z",
-    "msg": "Reading: race a pace ghost while reading manually"
+    "date": "2026-08-17T12:33:37Z",
+    "msg": "Audiobook command centre: cross-book queue, library and analytics"
    },
    {
-    "date": "2026-08-12T19:06:25Z",
-    "msg": "Section bar: subtle page ticks so its grain conveys section length"
+    "date": "2026-08-14T02:20:34Z",
+    "msg": "Menu emoji, mobile section bars, no stray audio focus, full-screen controls"
    },
    {
-    "date": "2026-08-12T17:12:01Z",
-    "msg": "Mobile: emoji in the minimized dock, no ellipsed labels on the view switch"
+    "date": "2026-08-14T00:48:26Z",
+    "msg": "Eye-rest vs TTS, richer collapsed dock, clearer ToC marks and section bars"
    },
    {
-    "date": "2026-08-12T16:30:08Z",
-    "msg": "Mobile: persistent pill page, single-row tabs, uncrowded progress row, emoji"
+    "date": "2026-08-13T22:42:34Z",
+    "msg": "Keep the screen awake during playback, read-aloud and recording"
    },
    {
-    "date": "2026-08-12T13:10:18Z",
-    "msg": "Splash: terse recent-activity line \u2014 volume and trajectory, no verdicts"
+    "date": "2026-08-13T21:25:27Z",
+    "msg": "Audiobook: live chunk detail, sticky toolbar, character-weighted ETA"
    },
    {
-    "date": "2026-08-12T00:33:51Z",
-    "msg": "Disclaimer: link to the maker's app portal (adervec.github.io)"
+    "date": "2026-08-13T12:24:01Z",
+    "msg": "Section bar: draw every level you're inside, not just the innermost"
    },
    {
-    "date": "2026-08-11T15:51:41Z",
-    "msg": "Scroll-to-read persists; tab settings go device-local; themed scrollbars"
+    "date": "2026-08-13T12:18:26Z",
+    "msg": "Lines: gridlines show through highlights; rich section headers"
    },
    {
-    "date": "2026-08-11T01:10:38Z",
-    "msg": "Typing: book + sitting dashboard in the freed-up controls flank"
+    "date": "2026-08-13T02:42:15Z",
+    "msg": "Emoji options, collapsed-dock chooser, biometric \u2715 fix, reworked profiles"
    }
   ]
  },
@@ -246,18 +246,18 @@
    0,
    0,
    0,
+   4,
    0,
-   2,
-   2,
+   22,
    19,
-   6,
-   19,
+   3,
    0,
    0,
    0,
    0,
    24,
-   2
+   4,
+   0
   ],
   "changes": [
    {
@@ -347,9 +347,8 @@
    0,
    0,
    0,
+   13,
    0,
-   10,
-   3,
    1,
    3,
    1,
@@ -358,7 +357,8 @@
    0,
    0,
    7,
-   3
+   3,
+   0
   ],
   "changes": [
    {
@@ -448,9 +448,7 @@
    0,
    0,
    0,
-   0,
-   6,
-   1,
+   7,
    0,
    0,
    0,
@@ -458,8 +456,10 @@
    0,
    0,
    0,
-   11,
-   5
+   0,
+   15,
+   2,
+   0
   ],
   "changes": [
    {
@@ -505,7 +505,7 @@
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-08-13T02:40:07Z",
+  "pushed_at": "2026-08-19T10:26:32Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -549,18 +549,18 @@
    0,
    0,
    0,
+   9,
    0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   9,
    4,
-   5,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   7,
-   4
+   0
   ],
   "changes": [
    {
@@ -657,11 +657,11 @@
    0,
    0,
    0,
-   0,
    1,
    0,
+   17,
    5,
-   16
+   0
   ],
   "changes": [
    {
@@ -758,11 +758,11 @@
    0,
    0,
    0,
-   0,
    1,
    0,
    0,
-   3
+   4,
+   0
   ],
   "changes": [
    {
@@ -788,7 +788,7 @@
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-08-13T02:39:42Z",
+  "pushed_at": "2026-08-19T20:26:56Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -832,9 +832,7 @@
    0,
    0,
    0,
-   0,
-   5,
-   1,
+   6,
    0,
    0,
    0,
@@ -842,10 +840,32 @@
    0,
    0,
    0,
-   4,
-   14
+   0,
+   12,
+   7,
+   5
   ],
   "changes": [
+   {
+    "date": "2026-08-19T20:26:52Z",
+    "msg": "Scenario category (22) + 8 more trouble sounds; 128 -> 158 exercises"
+   },
+   {
+    "date": "2026-08-19T02:32:44Z",
+    "msg": "Second drill pass: 44 -> 65 targeted drills, 263 variants, 8 warm-ups"
+   },
+   {
+    "date": "2026-08-18T15:06:23Z",
+    "msg": "Corpus 488\u2192962 passages, worldwide-PD rights policy, provenance audit"
+   },
+   {
+    "date": "2026-08-18T11:58:17Z",
+    "msg": "Targeted drill sets per attribute, anti-repetition, emotive delivery tags"
+   },
+   {
+    "date": "2026-08-18T11:44:08Z",
+    "msg": "Neuromuscular cues in post-recording analysis"
+   },
    {
     "date": "2026-08-13T02:36:27Z",
     "msg": "Register install beacon for the app portal"
@@ -865,26 +885,6 @@
    {
     "date": "2026-08-08T22:50:58Z",
     "msg": "Count Tachyread audiobook narration as speech training"
-   },
-   {
-    "date": "2026-08-08T22:07:07Z",
-    "msg": "Live feedback dashboard while recording"
-   },
-   {
-    "date": "2026-08-08T00:05:51Z",
-    "msg": "Integrate with CoworkSyncHub (cowork-manifest v1)"
-   },
-   {
-    "date": "2026-08-07T03:25:38Z",
-    "msg": "Wave 3: command palette, bulk History ops, date-aligned charts"
-   },
-   {
-    "date": "2026-08-07T02:39:03Z",
-    "msg": "More features: date-range trends, CSV export, weekly goal, PWA install"
-   },
-   {
-    "date": "2026-08-07T02:35:38Z",
-    "msg": "UX + a11y + missing-feature pass across the app"
    }
   ]
  },
@@ -936,7 +936,6 @@
    0,
    0,
    0,
-   0,
    5,
    0,
    0,
@@ -944,7 +943,8 @@
    0,
    0,
    5,
-   1
+   2,
+   0
   ],
   "changes": [
    {
