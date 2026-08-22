@@ -1,0 +1,37 @@
+<!doctype html><meta charset="utf-8"><title>cowork.js self-test</title>
+<body style="font:14px system-ui;margin:24px"><h1 id="r">running…</h1><pre id="log"></pre>
+<div id="a"></div><div id="b"></div>
+<script src="cowork.js"></script>
+<script>
+(async function(){
+  var fails=[],log=[];function ok(c,m){(c?log:fails).push(m);}
+  ok(window.cowork&&cowork.version===1,"global + version");
+  ok(cowork.stateOf({pending:true})==="PENDING","stateOf pending");
+  ok(cowork.stateOf({pending:true,answered:true})==="answered","stateOf answered");
+  ok(cowork.stateOf({pending:true,stale:true})==="STALE","stateOf stale");
+  ok(cowork.stateOf({note:"x"})==="-","stateOf note");
+  ok(cowork.stateOf({})==="idle","stateOf idle");
+  ok(cowork.rel(30)==="30s ago"&&cowork.rel(3*86400)==="3d ago","rel");
+  var p=document.createElement("cowork-panel");p.setAttribute("mode","data");document.getElementById("a").appendChild(p);
+  var got=[];p.addEventListener("cowork-action",function(ev){got.push(ev.detail.action+":"+ev.detail.channel)});
+  p.data={app:"demo",channels:[{channel:"coach",pending:true,request_mtime:Date.now()/1000-60},
+    {channel:"plan",pending:true,answered:true,reply_mtime:Date.now()/1000-5}],
+    actions:[{id:"push",label:"Send requests",primary:true}]};
+  var sr=p.shadowRoot;
+  ok(sr.querySelectorAll("li").length===2,"two channel rows");
+  ok(sr.querySelector(".pill.pending")&&sr.querySelector(".pill.answered"),"state pills");
+  ok(sr.querySelector("header button.primary").textContent==="Send requests","header action");
+  sr.querySelector("header button.primary").click();
+  sr.querySelectorAll("li")[0].querySelector(".acts button").click();
+  ok(got.join(",")==="push:null,run:coach","actions dispatch cowork-action: "+got.join(","));
+  var q=document.createElement("cowork-panel");document.getElementById("b").appendChild(q);
+  q.configure({app:"selftest",manifest:{protocol:"cowork-manifest",protocolVersion:1,app:"selftest",
+    channels:[{name:"one",request:["one/request.json"],replyPath:"one/reply.json"}]}});
+  ok(q.shadowRoot.querySelector("header button.primary").textContent==="Connect folder","fs mode starts disconnected");
+  ok(q.shadowRoot.querySelector(".pill").textContent==="idle","fs mode idle");
+  ok(getComputedStyle(q.shadowRoot.querySelector(".wrap")).borderTopLeftRadius==="12px","shadow css applied");
+  document.getElementById("r").textContent=fails.length?"FAIL "+fails.length:"OK "+log.length+" checks";
+  document.title=(fails.length?"FAIL":"OK")+" cowork self-test";
+  document.getElementById("log").textContent=(fails.length?"FAILED:\n"+fails.join("\n")+"\n\n":"")+"passed:\n"+log.join("\n");
+})();
+</script>

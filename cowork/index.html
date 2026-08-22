@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI cowork sync — how it works</title>
+<meta name="description" content="How the apps at adervec.github.io hand work to an AI agent through a folder on your disk, and the one shared panel that drives it.">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<style>:root{--mono:ui-monospace,'Cascadia Code',Consolas,'SF Mono',monospace;--sans:system-ui,'Segoe UI',sans-serif;
+  --bg:#f6f8f7; --card:#ffffff; --ink:#131820; --mut:#5c6572; --line:#d9dfe3;
+  --grid:rgba(29,78,216,.055); --acc:#1d4ed8; --accink:#ffffff;
+  --tile:70% 90%; --tileink:35% 25%; --chipbg:#eef1f4;
+  --spark:60% 40%; --area:rgba(29,78,216,.12);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0d1220; --card:#161d30; --ink:#e8eaf2; --mut:#98a2b8; --line:#283152;
+  --grid:rgba(122,162,255,.05); --acc:#82a6ff; --accink:#0d1220;
+  --tile:45% 20%; --tileink:70% 75%; --chipbg:#1e2742;
+  --spark:65% 62%; --area:rgba(130,166,255,.14);
+}}
+:root[data-theme=dark]{
+  --bg:#0d1220; --card:#161d30; --ink:#e8eaf2; --mut:#98a2b8; --line:#283152;
+  --grid:rgba(122,162,255,.05); --acc:#82a6ff; --accink:#0d1220;
+  --tile:45% 20%; --tileink:70% 75%; --chipbg:#1e2742;
+  --spark:65% 62%; --area:rgba(130,166,255,.14);
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;color:var(--ink);font:15px/1.5 var(--sans);
+  background:linear-gradient(var(--grid) 1px,transparent 1px),
+             linear-gradient(90deg,var(--grid) 1px,transparent 1px),var(--bg);
+  background-size:28px 28px;}
+main{max-width:1140px;margin:0 auto;padding:28px 20px 60px}
+a{color:var(--acc)}
+h1{font:700 30px/1.15 var(--mono);letter-spacing:-.5px;margin:6px 0 10px}
+.head{display:flex;align-items:center;gap:12px}
+.wordmark{font:600 13px var(--mono);color:var(--mut);letter-spacing:.5px}
+.toggle{width:36px;height:36px;font-size:16px;color:var(--ink);cursor:pointer;
+  background:var(--card);border:1px solid var(--line);border-radius:9px}
+.install{margin-left:auto;height:36px;padding:0 16px;font:600 12px var(--mono);cursor:pointer;
+  color:var(--accink);background:var(--acc);border:0;border-radius:9px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:14px 8px;
+  margin:18px 0 8px}
+.tiles a{position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;
+  text-decoration:none;color:var(--mut);font:11px/1.25 var(--mono);text-align:center;
+  -webkit-touch-callout:none;user-select:none;touch-action:manipulation}
+.tiles .tile{position:relative;overflow:hidden;width:58px;height:58px;font-size:29px;
+  border-radius:15px;border:1px solid var(--line)}
+/* the hold-to-launch ripple doubles as the progress indicator, so it ignores reduced-motion */
+.tiles .tile::after{content:"";position:absolute;inset:0;border-radius:50%;
+  background:var(--acc);opacity:.32;transform:scale(0)}
+.tiles a.holding .tile::after{animation:hold .45s linear forwards}
+@keyframes hold{to{transform:scale(1.8)}}
+.tiles a.ins::before{content:"✓";position:absolute;top:-4px;right:calc(50% - 34px);z-index:1;
+  width:17px;height:17px;border-radius:50%;background:var(--acc);color:var(--accink);
+  font:700 10px/17px var(--mono);text-align:center}
+.hint{font:11px var(--mono);color:var(--mut);margin:0 0 24px}
+.hint b{color:var(--ink)}
+#whatsnew{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 20px;
+  border:1px solid var(--acc);border-radius:10px;padding:10px 14px;font:12.5px var(--mono)}
+#whatsnew button{background:none;border:1px solid var(--line);border-radius:7px;padding:4px 10px;
+  color:var(--ink);font:inherit;cursor:pointer}
+#wnshow{background:var(--acc);color:var(--accink);border-color:var(--acc)}
+#wndismiss{margin-left:auto;padding:4px 9px}
+.tiles a.new .tile{box-shadow:0 0 0 2px var(--acc)}
+.tiles a.new::after{content:"";position:absolute;top:-2px;left:calc(50% - 34px);z-index:1;
+  width:9px;height:9px;border-radius:50%;background:var(--acc)}
+.app.fresh{border-color:var(--acc)}
+.app.fresh .latest b{color:var(--acc)}
+.ship li.new .who{font-weight:700}
+.ship li.new .when{color:var(--acc)}
+.you{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:16px 18px;margin:0 0 22px}
+.sheet{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px 28px}
+@media (max-width:640px){.sheet{grid-template-columns:1fr}}
+.cs{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font:12px var(--mono)}
+.cs .nm{font-weight:700;letter-spacing:1px}
+.cs .bar{height:9px;border-radius:5px;background:var(--chipbg);overflow:hidden}
+.cs .bar i{display:block;height:100%;background:var(--acc);border-radius:5px;min-width:2px}
+.cs .lv{color:var(--mut);white-space:nowrap}
+.cs .lv b{color:var(--ink)}
+.cs .src{grid-column:1/-1;font:11px var(--mono);color:var(--mut);margin:-3px 0 4px 0}
+.habits{font:12.5px/1.7 var(--mono);color:var(--mut)}
+.habits b{color:var(--ink);font-weight:600}
+.habits p{margin:0 0 6px}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .tiles .tile{transition:transform .12s}
+  .tiles a:hover .tile{transform:scale(1.08)}
+}
+.eyebrow{font:600 12px var(--mono);letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--mut);margin:0 0 10px}
+.ship{border:1px solid var(--line);background:var(--card);border-radius:12px;
+  padding:16px 18px;margin:0 0 22px}
+.chartwrap{position:relative;margin:2px 0 4px}
+#fleet{width:100%;height:64px;display:block}
+#fleet .area{fill:var(--area)}
+#fleet .ln{fill:none;stroke:var(--acc);stroke-width:2;vector-effect:non-scaling-stroke}
+#fleet .base{stroke:var(--line)}
+#fleet .cur{stroke:var(--mut);stroke-dasharray:3 3;vector-effect:non-scaling-stroke}
+.tip{position:absolute;top:-4px;transform:translateY(-100%);background:var(--ink);color:var(--bg);
+  font:11px var(--mono);padding:3px 8px;border-radius:5px;pointer-events:none;white-space:nowrap}
+.caption{font:11px var(--mono);color:var(--mut);margin:0 0 12px}
+.ship ol{list-style:none;margin:0;padding:0;font:13px/1.9 var(--mono);white-space:nowrap;overflow-x:auto}
+.ship .when{display:inline-block;min-width:76px;color:var(--mut)}
+.ship .who{display:inline-block;min-width:150px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:hsl(var(--h) var(--spark));margin-right:4px}
+#recent{margin:0 0 16px;font:12px var(--mono);color:var(--mut);
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#recent a{border:1px solid var(--line);background:var(--card);border-radius:999px;
+  padding:3px 11px;text-decoration:none}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 18px}
+.controls input{flex:1;min-width:220px;padding:9px 13px;font:14px var(--sans);
+  color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:9px}
+.controls select{padding:8px 10px;font:13px var(--mono);color:var(--ink);
+  background:var(--card);border:1px solid var(--line);border-radius:9px}
+#count{font:12px var(--mono);color:var(--mut);white-space:nowrap}
+kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;
+  font:11px var(--mono);background:var(--card)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.app{border:1px solid var(--line);background:var(--card);border-radius:12px;
+  padding:18px;display:flex;flex-direction:column;gap:10px;position:relative}
+@media (prefers-reduced-motion:no-preference){
+  .app{transition:transform .15s,box-shadow .15s}
+  .app:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+}
+.shot{margin:-18px -18px 0;display:block}
+.shot img{display:block;width:100%;height:auto;border-radius:11px 11px 0 0;
+  border-bottom:1px solid var(--line)}
+.appday{border-color:var(--acc)}
+.appday::after{content:"app of the day";position:absolute;top:-9px;right:14px;
+  background:var(--acc);color:var(--accink);font:600 10px var(--mono);letter-spacing:.8px;
+  text-transform:uppercase;padding:2px 8px;border-radius:5px}
+.app header{display:flex;gap:12px;align-items:flex-start}
+.tile{flex:none;width:46px;height:46px;border-radius:11px;display:grid;place-items:center;
+  font-size:24px;background:hsl(var(--h) var(--tile));color:hsl(var(--h) var(--tileink))}
+.app h2{font:700 17px var(--mono);margin:2px 0 3px}
+.app h2 .src{font:400 12px var(--mono);text-decoration:none;margin-left:6px}
+.tag{margin:0;font-size:13.5px;color:var(--mut)}
+.stats{display:flex;gap:10px;align-items:center;margin:0;font:11px var(--mono);color:var(--mut)}
+.spark{flex:none}
+.spark polyline{fill:none;stroke:hsl(var(--h) var(--spark));stroke-width:2;
+  stroke-linejoin:round;stroke-linecap:round}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.badges button{background:var(--chipbg);border:0;border-radius:5px;padding:2px 8px;
+  color:var(--mut);font:11px var(--mono);cursor:pointer}
+.badges button:hover{color:var(--ink)}
+.feat{margin:0;padding-left:19px;font-size:13.5px}
+.feat li{margin:3px 0}
+.latest{margin:0;font-size:13px;color:var(--mut)}
+.latest b{color:var(--ink);font-weight:600}
+details{font-size:13px}
+summary{cursor:pointer;font:600 12px var(--mono);color:var(--mut)}
+details ul{list-style:none;margin:8px 0 0;padding:0;font:12.5px/1.7 var(--mono)}
+details .when{color:var(--mut);display:inline-block;min-width:70px}
+.app footer{margin-top:auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.launch{background:var(--acc);color:var(--accink);text-decoration:none;font:600 13px var(--mono);
+  padding:8px 18px;border-radius:8px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.dl{font-size:12.5px}
+.usage{font:11px var(--mono);color:var(--mut);margin-left:auto;text-align:right}
+#empty{border:1px dashed var(--line);border-radius:12px;padding:28px;text-align:center;
+  color:var(--mut);margin:16px 0 0}
+#empty button{background:none;border:0;color:var(--acc);font:inherit;cursor:pointer;
+  text-decoration:underline}
+.note{color:var(--mut);font-size:13px;max-width:640px;margin:26px 0 0}
+footer.page{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+  font:12px var(--mono);color:var(--mut);display:flex;flex-wrap:wrap;gap:14px}
+
+.doc p,.doc ul{max-width:720px;font-size:14.5px}
+.doc pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:12.5px/1.55 var(--mono)}
+.doc code{font:12.5px var(--mono);background:var(--chipbg);padding:1px 5px;border-radius:4px}
+.doc pre code{background:none;padding:0}
+.doc .eyebrow{margin-top:28px}
+#demo,#try{max-width:720px;margin:12px 0}
+</style></head><body><main>
+<div class="head"><div class="wordmark"><a href="../" style="text-decoration:none;color:inherit">adervec.github.io</a> / cowork</div></div>
+<h1>AI cowork sync</h1>
+<section class="doc">
+<h2 class="eyebrow">// what it is</h2>
+<p>Every app here can hand its data to an AI agent and take the answer back, through a plain folder on
+your disk: the app writes a <code>cowork.json</code> manifest plus request files, an agent (Claude Code via
+CoworkSyncHub, Claude Desktop pointed at the folder, or a person) writes reply files beside them, the app
+imports the reply. Nothing goes through a server you don't run.</p>
+<h2 class="eyebrow">// one panel, every app</h2>
+<p>The panel below is the exact same component every app shows — same words, same states, same buttons —
+no matter what the app around it looks like. CoworkSyncHub shows the same panel for every connected
+app, where the buttons run the agent instead of writing files.</p>
+<div id="demo"></div>
+<h2 class="eyebrow">// states</h2>
+<ul class="feat"><li><b>idle</b> — nothing asked yet.</li><li><b>PENDING</b> — a request is newer than any reply.</li>
+<li><b>answered</b> — a reply landed after the latest request.</li><li><b>STALE</b> — pending for over 7 days.</li>
+<li><b>note</b> — something's wrong with the folder; the text says what.</li></ul>
+<h2 class="eyebrow">// try it</h2>
+<p>Pick any scratch folder. The panel writes a tiny manifest and request into it; drop a
+<code>reply.json</code> in there (any JSON) and press <i>Check for replies</i>.</p>
+<div id="try"></div>
+<h2 class="eyebrow">// for app authors</h2>
+<pre><code>&lt;script src="https://adervec.github.io/cowork.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+cowork.mount(document.getElementById("sync"), {
+  app: "myapp",
+  manifest: { protocol: "cowork-manifest", protocolVersion: 1, app: "myapp",
+    channels: [{ name: "coach", request: ["coach/request.json"],
+                 instructions: "coach/INSTRUCTIONS.md", replyPath: "coach/reply.json" }] },
+  files: ch =&gt; ({ "coach/request.json": buildRequest(), "coach/INSTRUCTIONS.md": INSTRUCTIONS }),
+  apply: (ch, reply) =&gt; importCoachReply(reply)
+});
+&lt;/script&gt;</code></pre>
+<p>Apps that already drive their own folder keep that logic and use <code>mode="data"</code>: feed the
+panel <code>{app, channels, actions}</code> and listen for <code>cowork-action</code>. Theme it only
+through <code>--cowork-*</code> custom properties; the rest is shadow DOM on purpose. Protocol details:
+<a href="https://github.com/adervec/CoworkSyncHub">CoworkSyncHub / COWORK-PROTOCOL.md</a>.</p>
+<h2 class="eyebrow">// the other two contracts</h2>
+<p>Because every app lives on this origin, they share two small localStorage notes with the portal:
+<code>portal-installed</code> (an app marks itself when it runs installed, so the portal can launch that
+copy) and <code>portal-activity</code> (an app appends <code>[unixSeconds, slug, kind, amount]</code> when you
+actually do something — a set, a chapter, a ride — which feeds the character sheet on the front page;
+<code>amount</code> is roughly minutes of effort ÷ 10, so a short session is 1; keep the array under
+~2000 entries). Both stay in your browser.</p>
+</section>
+<footer class="page"><span><a href="../">all apps</a></span><span><a href="../cowork-selftest.html">self-test</a></span>
+<span><a href="https://github.com/adervec/CoworkSyncHub">CoworkSyncHub</a></span></footer>
+</main>
+<script src="../cowork.js"></script>
+<script>
+var demo=document.createElement("cowork-panel");demo.setAttribute("mode","data");
+document.getElementById("demo").appendChild(demo);
+var now=Date.now()/1000;
+demo.data={app:"example app",folder:"example app",channels:[
+  {channel:"coach",pending:true,request_mtime:now-1800},
+  {channel:"plan-of-the-day",pending:true,answered:true,request_mtime:now-7200,reply_mtime:now-600},
+  {channel:"analysis",pending:true,stale:true,request_mtime:now-9*86400},
+  {channel:"archive"}],
+  actions:[{id:"push",label:"Send requests",primary:true},{id:"poll",label:"Check for replies"}],
+  channelActions:[{id:"run",label:"Run",primary:"pending"}]};
+demo.addEventListener("cowork-action",function(ev){demo.data=Object.assign({},demo._cfg,{channels:demo.channels,
+  actions:[{id:"push",label:"Send requests",primary:true},{id:"poll",label:"Check for replies"}],
+  message:"demo: would "+ev.detail.action+(ev.detail.channel?" "+ev.detail.channel:"")});});
+cowork.mount(document.getElementById("try"),{app:"portal-try",
+  manifest:{protocol:"cowork-manifest",protocolVersion:1,app:"portal-try",
+    channels:[{name:"hello",request:["hello/request.json"],instructions:"hello/INSTRUCTIONS.md",replyPath:"hello/reply.json"}]},
+  files:function(){return {"hello/request.json":{protocol:"portal-try",protocolVersion:1,kind:"hello",
+      generatedAt:new Date().toISOString(),payload:{say:"hi"}},
+    "hello/INSTRUCTIONS.md":"# hello\n\nWrite any JSON to hello/reply.json."}},
+  apply:function(ch,reply){alert("reply imported: "+JSON.stringify(reply).slice(0,120));}});
+</script></body></html>
