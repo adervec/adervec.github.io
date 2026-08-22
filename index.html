@@ -91,6 +91,18 @@ h1{font:700 30px/1.15 var(--mono);letter-spacing:-.5px;margin:6px 0 10px}
 .cs .up{color:var(--acc);font-weight:700;margin-left:4px}
 #lvlups:empty{display:none}
 #lvlups{color:var(--acc)}
+.act{margin:14px 0 0;font-size:13px}
+.act summary{cursor:pointer;font:600 12px var(--mono);color:var(--mut)}
+.act summary b{color:var(--ink)}
+.heatwrap{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin:12px 0 10px}
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,11px);grid-auto-columns:11px;gap:2px}
+.heat i{display:block;width:11px;height:11px;border-radius:2px;background:var(--chipbg)}
+.heat i.on{background:hsl(var(--h) 70% 50% / var(--a))}
+.heat i.today{outline:1px solid var(--ink);outline-offset:-1px}
+.heatkey{font:11px/1.8 var(--mono);color:var(--mut);max-width:260px}
+.heatkey i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;background:hsl(var(--h) 70% 50%)}
+.journal{list-style:none;margin:0;padding:0;font:12px/1.8 var(--mono);color:var(--mut)}
+.journal b{color:var(--ink);font-weight:600;display:inline-block;min-width:62px}
 .cs{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font:12px var(--mono)}
 .cs .nm{font-weight:700;letter-spacing:1px}
 .cs .bar{height:9px;border-radius:5px;background:var(--chipbg);overflow:hidden}
@@ -209,6 +221,9 @@ and holding opens that copy</p>
 <div class="cs" id="stats"></div>
 <div class="habits" id="habits"><p id="lvlups"></p><div id="habitlist"></div></div></div>
 <p class="caption" id="sheetnote"></p>
+<details class="act" id="act"><summary id="actsum">your activity</summary>
+<div class="heatwrap"><div class="heat" id="heat"></div><div class="heatkey" id="heatkey"></div></div>
+<ol class="journal" id="journal"></ol></details>
 </section>
 <div id="recent" hidden><span>jump back in:</span><div class="rr"></div></div>
 <div class="controls">
@@ -264,7 +279,7 @@ and holding opens that copy</p>
 <p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='24 commits in the last 52 weeks'><title>24 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,14.1 83.6,23.0 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,23.0 97.9,23.0 99.9,4.0 102.0,20.5 104.0,23.0'/></svg><span>since 2026 · 24 commits/yr</span></p>
 <div class="badges"><button type='button'>PWA</button><button type='button'>Bluetooth</button><button type='button'>Drive sync</button></div>
 <ul class="feat"><li>Reads power and heart rate over Web Bluetooth — zero drivers</li><li>A proper physics model behind every ride</li><li>Build your own low-poly 3D worlds</li><li>GPX import plus 34 bundled routes (~660 km)</li><li>Replay, ride history, and ghosts</li></ul>
-<p class='latest'><b>Latest:</b> Tell the maker&#x27;s app portal when the app is installed <span class='when' data-ts='1786588642' title='2026-08-12 22:37'>9d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786494808' title='2026-08-11 20:33'>10d ago</span> Link the maker&#x27;s app portal from the menu footer</li><li><span class='when' data-ts='1785981564' title='2026-08-05 21:59'>16d ago</span> Triple model tessellation; stop the ground ending in mid-air</li><li><span class='when' data-ts='1785978660' title='2026-08-05 21:11'>16d ago</span> Tabular lists, and guard an in-progress ride from being abandoned</li><li><span class='when' data-ts='1785977982' title='2026-08-05 20:59'>16d ago</span> Ship a library of 34 bundled routes (~660 km)</li><li><span class='when' data-ts='1785975251' title='2026-08-05 20:14'>16d ago</span> Add 18 more biomes and 31 more props (58 biomes, 114 types)</li><li><span class='when' data-ts='1785973283' title='2026-08-05 19:41'>16d ago</span> Add 18 more biomes and 29 more artifact types (40 biomes, 83 props)</li><li><span class='when' data-ts='1785966214' title='2026-08-05 17:43'>16d ago</span> Expand to 22 biomes and 54 roadside artifact types</li><li><span class='when' data-ts='1785964127' title='2026-08-05 17:08'>17d ago</span> Make the app an installable PWA</li><li><span class='when' data-ts='1785963057' title='2026-08-05 16:50'>17d ago</span> Add procedural textures to road and ground surfaces</li></ul></details>
+<p class='latest'><b>Latest:</b> Tell the maker&#x27;s app portal when the app is installed <span class='when' data-ts='1786588642' title='2026-08-12 22:37'>9d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786494808' title='2026-08-11 20:33'>10d ago</span> Link the maker&#x27;s app portal from the menu footer</li><li><span class='when' data-ts='1785981564' title='2026-08-05 21:59'>16d ago</span> Triple model tessellation; stop the ground ending in mid-air</li><li><span class='when' data-ts='1785978660' title='2026-08-05 21:11'>16d ago</span> Tabular lists, and guard an in-progress ride from being abandoned</li><li><span class='when' data-ts='1785977982' title='2026-08-05 20:59'>16d ago</span> Ship a library of 34 bundled routes (~660 km)</li><li><span class='when' data-ts='1785975251' title='2026-08-05 20:14'>16d ago</span> Add 18 more biomes and 31 more props (58 biomes, 114 types)</li><li><span class='when' data-ts='1785973283' title='2026-08-05 19:41'>16d ago</span> Add 18 more biomes and 29 more artifact types (40 biomes, 83 props)</li><li><span class='when' data-ts='1785966214' title='2026-08-05 17:43'>17d ago</span> Expand to 22 biomes and 54 roadside artifact types</li><li><span class='when' data-ts='1785964127' title='2026-08-05 17:08'>17d ago</span> Make the app an installable PWA</li><li><span class='when' data-ts='1785963057' title='2026-08-05 16:50'>17d ago</span> Add procedural textures to road and ground surfaces</li></ul></details>
 <footer><a class="launch" data-slug="BlackMirrorBikeRide" href="https://adervec.github.io/BlackMirrorBikeRide/" target="_blank" rel="noopener">Launch</a>
 <span class="usage" data-slug="BlackMirrorBikeRide">&nbsp;</span></footer>
 </article><article class="app" id="bodybuildingprogresscoach" style="--h:240" data-k="bodybuilding progress coach honest physique and posing tracking from your own photos — scored against the classics. pwa offline ai optional on-device pose analysis — nothing uploaded objective symmetry and proportion geometry first, opinion second per-division posing technique (24 mandatories) and live mirror practice body-composition trends corroborate the photos aligned progress timelapses" data-slug="BodybuildingProgressCoach" data-title="Bodybuilding Progress Coach" data-pushed="1787135192">
@@ -325,11 +340,11 @@ no accounts, no servers, no tracking. Everything runs in your browser and your d
 <i>Install app</i> button (the icon in the address bar in Chrome and Edge). Installed apps get
 their own window and the ones marked <i>offline</i> keep working without a connection.
 This portal installs the same way.</p>
-<footer class="page"><span>generated 2026-08-22 17:31</span>
+<footer class="page"><span>generated 2026-08-22 17:43</span>
 <span>usage counts live only in this browser</span><span id="you"></span>
 <span><a href="feed.xml">RSS</a></span>
 <span><a href="https://github.com/adervec">github.com/adervec</a></span></footer>
-</main><script>const GEN=1787434300;const FLEET=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 99, 144, 157, 143, 74, 110, 49, 66, 28, 165, 103, 16];const CHANGES=[[1787319636, "Tachyread"], [1787171212, "SpeechImprover"], [1787107407, "GymTracker315"], [1787106764, "SpeechImprover"], [1787106763, "Tachyread"], [1787065614, "GymTracker315"], [1787065583, "SpeechImprover"], [1787054297, "SpeechImprover"], [1787053448, "SpeechImprover"], [1787018851, "GymTracker315"], [1786970017, "Tachyread"], [1786921010, "GymTracker315"], [1786756079, "GymTracker315"], [1786738933, "GymTracker315"], [1786738763, "GymTracker315"], [1786674034, "Tachyread"], [1786668506, "Tachyread"], [1786660954, "Tachyread"], [1786656327, "Tachyread"], [1786623841, "Tachyread"], [1786623506, "Tachyread"], [1786619424, "GymTracker315"], [1786590555, "GymTracker315"], [1786588935, "Tachyread"], [1786588807, "HandwritingHelper"], [1786588642, "BlackMirrorBikeRide"], [1786588628, "Mise"], [1786588626, "MicroMiniger"], [1786588602, "BodybuildingProgressCoach"], [1786588589, "GymTracker315"], [1786588587, "SpeechImprover"], [1786588520, "ChessRetabled"], [1786495552, "GuitarPicker"], [1786494837, "Mise"], [1786494808, "BlackMirrorBikeRide"], [1786494788, "HandwritingHelper"], [1786494766, "BodybuildingProgressCoach"], [1786494765, "SpeechImprover"], [1786494738, "ChessRetabled"], [1786494733, "MicroMiniger"], [1786494727, "GuitarPicker"], [1786380974, "HandwritingHelper"], [1786283425, "GuitarPicker"], [1786282079, "SpeechImprover"], [1786279959, "SpeechImprover"], [1786229458, "SpeechImprover"], [1786226388, "HandwritingHelper"], [1786200489, "MicroMiniger"], [1786195598, "MicroMiniger"], [1786147577, "HandwritingHelper"], [1786137543, "HandwritingHelper"], [1786137455, "HandwritingHelper"], [1786137278, "HandwritingHelper"], [1786131920, "BodybuildingProgressCoach"], [1786108446, "HandwritingHelper"], [1786108353, "HandwritingHelper"], [1786105145, "BodybuildingProgressCoach"], [1785981564, "BlackMirrorBikeRide"], [1785978660, "BlackMirrorBikeRide"], [1785977982, "BlackMirrorBikeRide"]];const APPKIND={"GymTracker315": "lift", "Tachyread": "read", "ChessRetabled": "chess", "GuitarPicker": "practice", "BlackMirrorBikeRide": "ride", "BodybuildingProgressCoach": "checkin", "HandwritingHelper": "write", "MicroMiniger": "paint", "SpeechImprover": "speak", "Mise": "cook"};const TITLES={"GymTracker315": "GymTracker", "Tachyread": "Tachyread", "ChessRetabled": "ChessRetabled", "GuitarPicker": "GuitarPicker", "BlackMirrorBikeRide": "Black Mirror Bike Ride", "BodybuildingProgressCoach": "Bodybuilding Progress Coach", "HandwritingHelper": "Handwriting Helper", "MicroMiniger": "MicroMiniger", "SpeechImprover": "SpeechImprover", "Mise": "Mise"};
+</main><script>const GEN=1787435034;const FLEET=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 99, 144, 157, 143, 74, 110, 49, 66, 28, 165, 103, 16];const CHANGES=[[1787319636, "Tachyread"], [1787171212, "SpeechImprover"], [1787107407, "GymTracker315"], [1787106764, "SpeechImprover"], [1787106763, "Tachyread"], [1787065614, "GymTracker315"], [1787065583, "SpeechImprover"], [1787054297, "SpeechImprover"], [1787053448, "SpeechImprover"], [1787018851, "GymTracker315"], [1786970017, "Tachyread"], [1786921010, "GymTracker315"], [1786756079, "GymTracker315"], [1786738933, "GymTracker315"], [1786738763, "GymTracker315"], [1786674034, "Tachyread"], [1786668506, "Tachyread"], [1786660954, "Tachyread"], [1786656327, "Tachyread"], [1786623841, "Tachyread"], [1786623506, "Tachyread"], [1786619424, "GymTracker315"], [1786590555, "GymTracker315"], [1786588935, "Tachyread"], [1786588807, "HandwritingHelper"], [1786588642, "BlackMirrorBikeRide"], [1786588628, "Mise"], [1786588626, "MicroMiniger"], [1786588602, "BodybuildingProgressCoach"], [1786588589, "GymTracker315"], [1786588587, "SpeechImprover"], [1786588520, "ChessRetabled"], [1786495552, "GuitarPicker"], [1786494837, "Mise"], [1786494808, "BlackMirrorBikeRide"], [1786494788, "HandwritingHelper"], [1786494766, "BodybuildingProgressCoach"], [1786494765, "SpeechImprover"], [1786494738, "ChessRetabled"], [1786494733, "MicroMiniger"], [1786494727, "GuitarPicker"], [1786380974, "HandwritingHelper"], [1786283425, "GuitarPicker"], [1786282079, "SpeechImprover"], [1786279959, "SpeechImprover"], [1786229458, "SpeechImprover"], [1786226388, "HandwritingHelper"], [1786200489, "MicroMiniger"], [1786195598, "MicroMiniger"], [1786147577, "HandwritingHelper"], [1786137543, "HandwritingHelper"], [1786137455, "HandwritingHelper"], [1786137278, "HandwritingHelper"], [1786131920, "BodybuildingProgressCoach"], [1786108446, "HandwritingHelper"], [1786108353, "HandwritingHelper"], [1786105145, "BodybuildingProgressCoach"], [1785981564, "BlackMirrorBikeRide"], [1785978660, "BlackMirrorBikeRide"], [1785977982, "BlackMirrorBikeRide"]];const APPKIND={"GymTracker315": "lift", "Tachyread": "read", "ChessRetabled": "chess", "GuitarPicker": "practice", "BlackMirrorBikeRide": "ride", "BodybuildingProgressCoach": "checkin", "HandwritingHelper": "write", "MicroMiniger": "paint", "SpeechImprover": "speak", "Mise": "cook"};const HUES={"GymTracker315": 20, "Tachyread": 270, "ChessRetabled": 165, "GuitarPicker": 45, "BlackMirrorBikeRide": 130, "BodybuildingProgressCoach": 240, "HandwritingHelper": 210, "MicroMiniger": 0, "SpeechImprover": 315, "Mise": 75};const TITLES={"GymTracker315": "GymTracker", "Tachyread": "Tachyread", "ChessRetabled": "ChessRetabled", "GuitarPicker": "GuitarPicker", "BlackMirrorBikeRide": "Black Mirror Bike Ride", "BodybuildingProgressCoach": "Bodybuilding Progress Coach", "HandwritingHelper": "Handwriting Helper", "MicroMiniger": "MicroMiniger", "SpeechImprover": "SpeechImprover", "Mise": "Mise"};
 (function(){
 var d=document;
 if("serviceWorker" in navigator&&location.protocol==="https:")
@@ -493,6 +508,35 @@ function sheet(){var a=activity(),now=Date.now()/1000,score={},by={},rate7={},ra
   if(groups.fresh.length)h+="<p>\ud83c\udf31 <b>new this week:</b> "+names(groups.fresh)+"</p>";
   if(groups.resting.length)h+="<p>\ud83c\udf42 <b>resting lately:</b> "+names(groups.resting)+" — still here whenever you're back</p>";
   hb.innerHTML=h||"<p>habits show up once there's a couple of weeks of activity</p>";
+  // 12-week heatmap (colour = the day's busiest app, depth = how much), fleet streak, journal
+  var DAY=864e5,today=new Date();today.setHours(0,0,0,0);var t0=today.getTime();
+  var days={};a.events.forEach(function(x){var ts=+x[0]>2e10?x[0]:x[0]*1000,k=Math.floor((t0-new Date(new Date(ts).setHours(0,0,0,0)).getTime())/DAY+.5);
+    if(k<0||k>=84)return;var dd=days[k]||(days[k]={tot:0,by:{}});var amt=+x[3]||1;dd.tot+=amt;dd.by[x[1]]=(dd.by[x[1]]||0)+amt;});
+  var heat=d.getElementById("heat"),cells="",mxd=1;Object.keys(days).forEach(function(k){mxd=Math.max(mxd,days[k].tot)});
+  // columns are weeks, oldest first; rows Mon..Sun so the grid reads like a calendar
+  var dow=(today.getDay()+6)%7;  // this week's Monday is `dow` days back; column 11 is this week
+  for(var c=0;c<12;c++)for(var r=0;r<7;r++){var k=dow+(11-c)*7-r;
+    if(k<0||k>83){cells+="<i style='visibility:hidden'></i>";continue;}
+    var dd=days[k],dt=new Date(t0-k*DAY),lab=dt.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+    if(!dd){cells+="<i title='"+lab+"'"+(k===0?" class='today'":"")+"></i>";continue;}
+    var top=Object.keys(dd.by).sort(function(p,q){return dd.by[q]-dd.by[p]})[0];
+    cells+="<i class='on"+(k===0?" today":"")+"' style='--h:"+(HUES[top]||220)+";--a:"+(0.25+0.75*Math.min(1,dd.tot/mxd)).toFixed(2)+"' title='"+lab+" · "
+      +Object.keys(dd.by).map(function(s){return TITLES[s]+" "+Math.round(dd.by[s]*10)/10}).join(", ")+"'></i>";}
+  heat.innerHTML=cells;
+  var used={};a.events.forEach(function(x){used[x[1]]=1});
+  d.getElementById("heatkey").innerHTML=Object.keys(used).map(function(s){return "<span><i style='--h:"+HUES[s]+"'></i>"+TITLES[s]+"</span>"}).join("<br>");
+  var streak=0;for(var k=(days[0]?0:1);days[k];k++)streak++;
+  var wk=0,by7={};Object.keys(days).forEach(function(k){if(k<7)wk+=days[k].tot});
+  Object.keys(days).forEach(function(k){if(k<56){var wd=(new Date(t0-k*DAY).getDay()+6)%7;by7[wd]=(by7[wd]||0)+days[k].tot}});
+  var best=Object.keys(by7).sort(function(p,q){return by7[q]-by7[p]})[0],
+      names=["Mondays","Tuesdays","Wednesdays","Thursdays","Fridays","Saturdays","Sundays"];
+  d.getElementById("actsum").innerHTML="your activity · "+(streak?"<b>🔥 "+streak+"-day streak</b> · ":"")
+    +"<b>"+Math.round(wk)+"</b> this week"+(best!==undefined?" · busiest on <b>"+names[best]+"</b>":"");
+  var jl=d.getElementById("journal"),rows=[];
+  for(var k=0;k<14;k++){if(!days[k])continue;var dt=new Date(t0-k*DAY);
+    rows.push("<li><b>"+(k===0?"today":k===1?"yesterday":dt.toLocaleDateString(undefined,{weekday:"short",day:"numeric"}))+"</b> "
+      +Object.keys(days[k].by).map(function(s){return TITLES[s]+" ×"+Math.round(days[k].by[s]*10)/10}).join(" · ")+"</li>");}
+  jl.innerHTML=rows.join("")||"<li>nothing in the last two weeks</li>";
   d.getElementById("sheetnote").textContent=(a.real?a.events.length+" activities reported by your apps":
     "based on launches only so far — apps report real activity as they're updated")
     +" · last 2 weeks count double · lives only in this browser";}
