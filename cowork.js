@@ -181,6 +181,8 @@
       this.shadowRoot.appendChild(this._host);
     }
     get mode() { return this.getAttribute("mode") === "data" ? "data" : "fs"; }
+    // React 19 assigns known properties instead of attributes, so the attribute needs a setter twin
+    set mode(v) { if (v == null) this.removeAttribute("mode"); else this.setAttribute("mode", String(v)); }
 
     connectedCallback() {
       this.render();

@@ -24,7 +24,8 @@
   sr.querySelector("header button.primary").click();
   sr.querySelectorAll("li")[0].querySelector(".acts button").click();
   ok(got.join(",")==="push:null,run:coach","actions dispatch cowork-action: "+got.join(","));
-  var q=document.createElement("cowork-panel");document.getElementById("b").appendChild(q);
+  var q=document.createElement("cowork-panel");q.mode="fs";ok(q.getAttribute("mode")==="fs","mode is settable as a property (React 19)");
+  document.getElementById("b").appendChild(q);
   q.configure({app:"selftest",manifest:{protocol:"cowork-manifest",protocolVersion:1,app:"selftest",
     channels:[{name:"one",request:["one/request.json"],replyPath:"one/reply.json"}]}});
   ok(q.shadowRoot.querySelector("header button.primary").textContent==="Connect folder","fs mode starts disconnected");
