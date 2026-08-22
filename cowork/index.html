@@ -69,8 +69,18 @@ h1{font:700 30px/1.15 var(--mono);letter-spacing:-.5px;margin:6px 0 10px}
 .ship li.new .who{font-weight:700}
 .ship li.new .when{color:var(--acc)}
 .you{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:16px 18px;margin:0 0 22px}
-.sheet{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px 28px}
-@media (max-width:640px){.sheet{grid-template-columns:1fr}}
+.sheet{display:grid;grid-template-columns:auto minmax(0,1.2fr) minmax(0,1fr);gap:18px 28px;align-items:start}
+@media (max-width:760px){.sheet{grid-template-columns:1fr 1fr}#radar{grid-row:span 2}}
+@media (max-width:520px){.sheet{grid-template-columns:1fr}#radar{grid-row:auto;justify-self:center}}
+#radar{width:180px;height:180px;display:block}
+#radar .web{fill:none;stroke:var(--line)}
+#radar .axis{stroke:var(--line)}
+#radar .area{fill:hsl(220 80% 55% / .22);stroke:var(--acc);stroke-width:2;stroke-linejoin:round}
+#radar .lbl{font:700 10px var(--mono);fill:var(--mut)}
+#radar .lbl.hi{fill:var(--ink)}
+.cs .up{color:var(--acc);font-weight:700;margin-left:4px}
+#lvlups:empty{display:none}
+#lvlups{color:var(--acc)}
 .cs{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font:12px var(--mono)}
 .cs .nm{font-weight:700;letter-spacing:1px}
 .cs .bar{height:9px;border-radius:5px;background:var(--chipbg);overflow:hidden}
