@@ -235,7 +235,9 @@ cowork.mount(document.getElementById("sync"), {
 <p>Apps that already drive their own folder keep that logic and use <code>mode="data"</code>: feed the
 panel <code>{app, channels, actions}</code> and listen for <code>cowork-action</code>. Theme it only
 through <code>--cowork-*</code> custom properties; the rest is shadow DOM on purpose. Protocol details:
-<a href="https://github.com/adervec/CoworkSyncHub">CoworkSyncHub / COWORK-PROTOCOL.md</a>.</p>
+<a href="https://github.com/adervec/CoworkSyncHub">CoworkSyncHub / COWORK-PROTOCOL.md</a>.
+Step-by-step setup and troubleshooting for every app, the hub, and the data sources (Garmin, Strava,
+Drive, Bluetooth): <a href="https://github.com/adervec/CoworkSyncHub/blob/main/SETUP.md">SETUP.md</a>.</p>
 <h2 class="eyebrow">// the other two contracts</h2>
 <p>Because every app lives on this origin, they share two small localStorage notes with the portal:
 <code>portal-installed</code> (an app marks itself when it runs installed, so the portal can launch that
