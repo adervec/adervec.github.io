@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>adervec — free, local-first web apps</title>
+<meta name="description" content="15 free web apps by one maker: fitness, reading, chess, guitar, cycling, cooking and more. No accounts, no servers — your data stays on your device.">
+<link rel="canonical" href="https://adervec.github.io/portal/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://adervec.github.io/portal/">
+<meta property="og:title" content="adervec — free, local-first web apps">
+<meta property="og:description" content="15 free web apps by one maker. No accounts, no servers — your data stays on your device.">
+<meta property="og:image" content="https://adervec.github.io/portal/shots/portal.png">
+<meta name="theme-color" content="#f6f8f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1220" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="adervec — recently shipped" href="feed.xml">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<script src="../cowork.js" defer></script>
+<style>:root{--mono:ui-monospace,'Cascadia Code',Consolas,'SF Mono',monospace;--sans:system-ui,'Segoe UI',sans-serif;
+  --bg:#f6f8f7; --card:#ffffff; --ink:#131820; --mut:#5c6572; --line:#d9dfe3;
+  --grid:rgba(29,78,216,.055); --acc:#1d4ed8; --accink:#ffffff;
+  --tile:70% 90%; --tileink:35% 25%; --chipbg:#eef1f4;
+  --spark:60% 40%; --area:rgba(29,78,216,.12);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0d1220; --card:#161d30; --ink:#e8eaf2; --mut:#98a2b8; --line:#283152;
+  --grid:rgba(122,162,255,.05); --acc:#82a6ff; --accink:#0d1220;
+  --tile:45% 20%; --tileink:70% 75%; --chipbg:#1e2742;
+  --spark:65% 62%; --area:rgba(130,166,255,.14);
+}}
+:root[data-theme=dark]{
+  --bg:#0d1220; --card:#161d30; --ink:#e8eaf2; --mut:#98a2b8; --line:#283152;
+  --grid:rgba(122,162,255,.05); --acc:#82a6ff; --accink:#0d1220;
+  --tile:45% 20%; --tileink:70% 75%; --chipbg:#1e2742;
+  --spark:65% 62%; --area:rgba(130,166,255,.14);
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;color:var(--ink);font:15px/1.5 var(--sans);
+  background:linear-gradient(var(--grid) 1px,transparent 1px),
+             linear-gradient(90deg,var(--grid) 1px,transparent 1px),var(--bg);
+  background-size:28px 28px;}
+main{max-width:1140px;margin:0 auto;padding:28px 20px 60px}
+a{color:var(--acc)}
+h1{font:700 30px/1.15 var(--mono);letter-spacing:-.5px;margin:6px 0 10px}
+.head{display:flex;align-items:center;gap:12px}
+.wordmark{font:600 13px var(--mono);color:var(--mut);letter-spacing:.5px}
+.toggle{width:36px;height:36px;font-size:16px;color:var(--ink);cursor:pointer;
+  background:var(--card);border:1px solid var(--line);border-radius:9px}
+.install{margin-left:auto;height:36px;padding:0 16px;font:600 12px var(--mono);cursor:pointer;
+  color:var(--accink);background:var(--acc);border:0;border-radius:9px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:14px 8px;
+  margin:18px 0 8px}
+.tiles a{position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;
+  text-decoration:none;color:var(--mut);font:11px/1.25 var(--mono);text-align:center;
+  -webkit-touch-callout:none;user-select:none;touch-action:manipulation}
+.tiles .tile{position:relative;overflow:hidden;width:58px;height:58px;font-size:29px;
+  border-radius:15px;border:1px solid var(--line)}
+/* the hold-to-launch ripple doubles as the progress indicator, so it ignores reduced-motion */
+.tiles .tile::after{content:"";position:absolute;inset:0;border-radius:50%;
+  background:var(--acc);opacity:.32;transform:scale(0)}
+.tiles a.holding .tile::after{animation:hold .45s linear forwards}
+@keyframes hold{to{transform:scale(1.8)}}
+.tiles a.ins::before{content:"✓";position:absolute;top:-4px;right:calc(50% - 34px);z-index:1;
+  width:17px;height:17px;border-radius:50%;background:var(--acc);color:var(--accink);
+  font:700 10px/17px var(--mono);text-align:center}
+.hint{font:11px var(--mono);color:var(--mut);margin:0 0 24px}
+.hint b{color:var(--ink)}
+#whatsnew{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 20px;
+  border:1px solid var(--acc);border-radius:10px;padding:10px 14px;font:12.5px var(--mono)}
+#whatsnew button{background:none;border:1px solid var(--line);border-radius:7px;padding:4px 10px;
+  color:var(--ink);font:inherit;cursor:pointer}
+#wnshow{background:var(--acc);color:var(--accink);border-color:var(--acc)}
+#wndismiss{margin-left:auto;padding:4px 9px}
+.tiles a.new .tile{box-shadow:0 0 0 2px var(--acc)}
+.tiles a.new::after{content:"";position:absolute;top:-2px;left:calc(50% - 34px);z-index:1;
+  width:9px;height:9px;border-radius:50%;background:var(--acc)}
+.app.fresh{border-color:var(--acc)}
+.app.fresh .latest b{color:var(--acc)}
+.ship li.new .who{font-weight:700}
+.ship li.new .when{color:var(--acc)}
+.you{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:16px 18px;margin:0 0 22px}
+.sheet{display:grid;grid-template-columns:auto minmax(0,1.2fr) minmax(0,1fr);gap:18px 28px;align-items:start}
+@media (max-width:760px){.sheet{grid-template-columns:1fr 1fr}#radar{grid-row:span 2}}
+@media (max-width:520px){.sheet{grid-template-columns:1fr}#radar{grid-row:auto;justify-self:center}}
+#radar{width:180px;height:180px;display:block}
+#radar .web{fill:none;stroke:var(--line)}
+#radar .axis{stroke:var(--line)}
+#radar .area{fill:hsl(220 80% 55% / .22);stroke:var(--acc);stroke-width:2;stroke-linejoin:round}
+#radar .lbl{font:700 10px var(--mono);fill:var(--mut)}
+#radar .lbl.hi{fill:var(--ink)}
+.cs .up{color:var(--acc);font-weight:700;margin-left:4px}
+#lvlups:empty{display:none}
+#lvlups{color:var(--acc)}
+.act{margin:14px 0 0;font-size:13px}
+.act summary{cursor:pointer;font:600 12px var(--mono);color:var(--mut)}
+.act summary b{color:var(--ink)}
+.heatwrap{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin:12px 0 10px}
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,11px);grid-auto-columns:11px;gap:2px}
+.heat i{display:block;width:11px;height:11px;border-radius:2px;background:var(--chipbg)}
+.heat i.on{background:hsl(var(--h) 70% 50% / var(--a))}
+.heat i.today{outline:1px solid var(--ink);outline-offset:-1px}
+.heatkey{font:11px/1.8 var(--mono);color:var(--mut);max-width:260px}
+.heatkey i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;background:hsl(var(--h) 70% 50%)}
+.journal{list-style:none;margin:0;padding:0;font:12px/1.8 var(--mono);color:var(--mut)}
+.journal b{color:var(--ink);font-weight:600;display:inline-block;min-width:62px}
+#askhost{margin:10px 0}
+.reply{white-space:pre-wrap;font:13px/1.6 var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--line);
+  border-radius:10px;padding:12px 14px;margin:0;max-height:420px;overflow:auto}
+.usage .you{color:var(--ink)}
+.cs{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font:12px var(--mono)}
+.cs .nm{font-weight:700;letter-spacing:1px}
+.cs .bar{height:9px;border-radius:5px;background:var(--chipbg);overflow:hidden}
+.cs .bar i{display:block;height:100%;background:var(--acc);border-radius:5px;min-width:2px}
+.cs .lv{color:var(--mut);white-space:nowrap}
+.cs .lv b{color:var(--ink)}
+.cs .src{grid-column:1/-1;font:11px var(--mono);color:var(--mut);margin:-3px 0 4px 0}
+.habits{font:12.5px/1.7 var(--mono);color:var(--mut)}
+.habits b{color:var(--ink);font-weight:600}
+.habits p{margin:0 0 6px}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .tiles .tile{transition:transform .12s}
+  .tiles a:hover .tile{transform:scale(1.08)}
+}
+.eyebrow{font:600 12px var(--mono);letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--mut);margin:0 0 10px}
+.ship{border:1px solid var(--line);background:var(--card);border-radius:12px;
+  padding:16px 18px;margin:0 0 22px}
+.chartwrap{position:relative;margin:2px 0 4px}
+#fleet{width:100%;height:64px;display:block}
+#fleet .area{fill:var(--area)}
+#fleet .ln{fill:none;stroke:var(--acc);stroke-width:2;vector-effect:non-scaling-stroke}
+#fleet .base{stroke:var(--line)}
+#fleet .cur{stroke:var(--mut);stroke-dasharray:3 3;vector-effect:non-scaling-stroke}
+.tip{position:absolute;top:-4px;transform:translateY(-100%);background:var(--ink);color:var(--bg);
+  font:11px var(--mono);padding:3px 8px;border-radius:5px;pointer-events:none;white-space:nowrap}
+.caption{font:11px var(--mono);color:var(--mut);margin:0 0 12px}
+.ship ol{list-style:none;margin:0;padding:0;font:13px/1.9 var(--mono);white-space:nowrap;overflow-x:auto}
+.ship .when{display:inline-block;min-width:76px;color:var(--mut)}
+.ship .who{display:inline-block;min-width:150px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:hsl(var(--h) var(--spark));margin-right:4px}
+#recent{margin:0 0 16px;font:12px var(--mono);color:var(--mut);
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#recent a{border:1px solid var(--line);background:var(--card);border-radius:999px;
+  padding:3px 11px;text-decoration:none}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 18px}
+.controls input{flex:1;min-width:220px;padding:9px 13px;font:14px var(--sans);
+  color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:9px}
+.controls select{padding:8px 10px;font:13px var(--mono);color:var(--ink);
+  background:var(--card);border:1px solid var(--line);border-radius:9px}
+#count{font:12px var(--mono);color:var(--mut);white-space:nowrap}
+kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;
+  font:11px var(--mono);background:var(--card)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.app{border:1px solid var(--line);background:var(--card);border-radius:12px;
+  padding:18px;display:flex;flex-direction:column;gap:10px;position:relative}
+@media (prefers-reduced-motion:no-preference){
+  .app{transition:transform .15s,box-shadow .15s}
+  .app:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+}
+.shot{margin:-18px -18px 0;display:block}
+.shot img{display:block;width:100%;height:auto;border-radius:11px 11px 0 0;
+  border-bottom:1px solid var(--line)}
+.appday{border-color:var(--acc)}
+.appday::after{content:"app of the day";position:absolute;top:-9px;right:14px;
+  background:var(--acc);color:var(--accink);font:600 10px var(--mono);letter-spacing:.8px;
+  text-transform:uppercase;padding:2px 8px;border-radius:5px}
+.app header{display:flex;gap:12px;align-items:flex-start}
+.tile{flex:none;width:46px;height:46px;border-radius:11px;display:grid;place-items:center;
+  font-size:24px;background:hsl(var(--h) var(--tile));color:hsl(var(--h) var(--tileink))}
+.app h2{font:700 17px var(--mono);margin:2px 0 3px}
+.app h2 .src{font:400 12px var(--mono);text-decoration:none;margin-left:6px}
+.tag{margin:0;font-size:13.5px;color:var(--mut)}
+.stats{display:flex;gap:10px;align-items:center;margin:0;font:11px var(--mono);color:var(--mut)}
+.spark{flex:none}
+.spark polyline{fill:none;stroke:hsl(var(--h) var(--spark));stroke-width:2;
+  stroke-linejoin:round;stroke-linecap:round}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.badges button{background:var(--chipbg);border:0;border-radius:5px;padding:2px 8px;
+  color:var(--mut);font:11px var(--mono);cursor:pointer}
+.badges button:hover{color:var(--ink)}
+.feat{margin:0;padding-left:19px;font-size:13.5px}
+.feat li{margin:3px 0}
+.latest{margin:0;font-size:13px;color:var(--mut)}
+.latest b{color:var(--ink);font-weight:600}
+details{font-size:13px}
+summary{cursor:pointer;font:600 12px var(--mono);color:var(--mut)}
+details ul{list-style:none;margin:8px 0 0;padding:0;font:12.5px/1.7 var(--mono)}
+details .when{color:var(--mut);display:inline-block;min-width:70px}
+.app footer{margin-top:auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.launch{background:var(--acc);color:var(--accink);text-decoration:none;font:600 13px var(--mono);
+  padding:8px 18px;border-radius:8px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.dl{font-size:12.5px}
+.usage{font:11px var(--mono);color:var(--mut);margin-left:auto;text-align:right}
+#empty{border:1px dashed var(--line);border-radius:12px;padding:28px;text-align:center;
+  color:var(--mut);margin:16px 0 0}
+#empty button{background:none;border:0;color:var(--acc);font:inherit;cursor:pointer;
+  text-decoration:underline}
+.note{color:var(--mut);font-size:13px;max-width:640px;margin:26px 0 0}
+footer.page{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+  font:12px var(--mono);color:var(--mut);display:flex;flex-wrap:wrap;gap:14px}
+</style></head><body><main>
+<div class="head"><div class="wordmark">adervec.github.io</div>
+<button id="install" class="install" type="button" hidden>Install</button>
+<button id="theme" class="toggle" type="button" aria-label="theme">◐</button></div>
+<h1>Free, local-first web apps</h1>
+<nav class="tiles" aria-label="Apps"><a href='#gymtracker315' style='--h:20' data-slug='GymTracker315' data-url='https://adervec.github.io/GymTracker315/' title='GymTracker — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🏋️</span><span>GymTracker</span></a><a href='#tachyread' style='--h:270' data-slug='Tachyread' data-url='https://adervec.github.io/Tachyread/' title='Tachyread — tap for details, hold to launch'><span class='tile' aria-hidden='true'>⚡</span><span>Tachyread</span></a><a href='#chessretabled' style='--h:165' data-slug='ChessRetabled' data-url='https://adervec.github.io/ChessRetabled/' title='ChessRetabled — tap for details, hold to launch'><span class='tile' aria-hidden='true'>♞</span><span>ChessRetabled</span></a><a href='#guitarpicker' style='--h:45' data-slug='GuitarPicker' data-url='https://adervec.github.io/GuitarPicker/' title='GuitarPicker — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🎸</span><span>GuitarPicker</span></a><a href='#blackmirrorbikeride' style='--h:130' data-slug='BlackMirrorBikeRide' data-url='https://adervec.github.io/BlackMirrorBikeRide/' title='Black Mirror Bike Ride — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🚴</span><span>Black Mirror Bike Ride</span></a><a href='#bodybuildingprogresscoach' style='--h:240' data-slug='BodybuildingProgressCoach' data-url='https://adervec.github.io/BodybuildingProgressCoach/' title='Bodybuilding Progress Coach — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🗿</span><span>Bodybuilding Progress Coach</span></a><a href='#handwritinghelper' style='--h:210' data-slug='HandwritingHelper' data-url='https://adervec.github.io/HandwritingHelper/' title='Handwriting Helper — tap for details, hold to launch'><span class='tile' aria-hidden='true'>✍️</span><span>Handwriting Helper</span></a><a href='#microminiger' style='--h:0' data-slug='MicroMiniger' data-url='https://adervec.github.io/MicroMiniger/' title='MicroMiniger — tap for details, hold to launch'><span class='tile' aria-hidden='true'>⚔️</span><span>MicroMiniger</span></a><a href='#speechimprover' style='--h:315' data-slug='SpeechImprover' data-url='https://adervec.github.io/SpeechImprover/' title='SpeechImprover — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🎙️</span><span>SpeechImprover</span></a><a href='#mise' style='--h:75' data-slug='Mise' data-url='https://adervec.github.io/Mise/' title='Mise — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🍳</span><span>Mise</span></a><a href='#marksmanapp' style='--h:100' data-slug='MarksmanApp' data-url='https://adervec.github.io/MarksmanApp/' title='Marksman — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🎯</span><span>Marksman</span></a><a href='#run315' style='--h:190' data-slug='Run315' data-url='https://adervec.github.io/Run315/' title='Run315 — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🏃</span><span>Run315</span></a><a href='#learning-pit' style='--h:55' data-slug='learning-pit' data-url='https://adervec.github.io/learning-pit/' title='Learning Pit — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🧠</span><span>Learning Pit</span></a><a href='#musicstudio' style='--h:295' data-slug='MusicStudio' data-url='https://adervec.github.io/MusicStudio/' title='Music Studio — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🎼</span><span>Music Studio</span></a><a href='#long-gallery' style='--h:335' data-slug='long-gallery' data-url='https://adervec.github.io/long-gallery/' title='The Long Gallery — tap for details, hold to launch'><span class='tile' aria-hidden='true'>🖼️</span><span>The Long Gallery</span></a></nav>
+<p class="hint">tap a tile for details · <b>hold</b> to launch — a ✓ marks an app you've installed,
+and holding opens that copy · keys <kbd>1</kbd>–<kbd>0</kbd> launch too</p>
+<div id="whatsnew" hidden><b></b><button id="wnshow" type="button">show me</button>
+<button id="wndismiss" type="button" title="dismiss">&times;</button></div>
+<section class='ship'><h2 class='eyebrow'>// recently shipped</h2><div class="chartwrap">
+<svg id="fleet" viewBox="0 0 520 64" preserveAspectRatio="none" role="img"
+ aria-label="1219 commits across all apps in the last 52 weeks">
+<line class="base" x1="0" y1="56" x2="520" y2="56"/>
+<path class="area" d="M0,56 L 0.0,56.0 L 10.2,56.0 L 20.4,56.0 L 30.6,56.0 L 40.8,56.0 L 51.0,56.0 L 61.2,56.0 L 71.4,56.0 L 81.6,56.0 L 91.8,56.0 L 102.0,56.0 L 112.2,56.0 L 122.4,56.0 L 132.5,56.0 L 142.7,56.0 L 152.9,56.0 L 163.1,56.0 L 173.3,56.0 L 183.5,56.0 L 193.7,56.0 L 203.9,56.0 L 214.1,56.0 L 224.3,56.0 L 234.5,56.0 L 244.7,56.0 L 254.9,56.0 L 265.1,56.0 L 275.3,56.0 L 285.5,56.0 L 295.7,56.0 L 305.9,56.0 L 316.1,56.0 L 326.3,56.0 L 336.5,56.0 L 346.7,56.0 L 356.9,56.0 L 367.1,56.0 L 377.3,52.8 L 387.5,27.3 L 397.6,16.2 L 407.8,22.4 L 418.0,23.4 L 428.2,37.2 L 438.4,25.6 L 448.6,46.9 L 458.8,40.7 L 469.0,46.9 L 479.2,12.0 L 489.4,34.7 L 499.6,46.4 L 509.8,52.5 L 520.0,53.8 L 520,56 Z"/><polyline class="ln" points="0.0,56.0 10.2,56.0 20.4,56.0 30.6,56.0 40.8,56.0 51.0,56.0 61.2,56.0 71.4,56.0 81.6,56.0 91.8,56.0 102.0,56.0 112.2,56.0 122.4,56.0 132.5,56.0 142.7,56.0 152.9,56.0 163.1,56.0 173.3,56.0 183.5,56.0 193.7,56.0 203.9,56.0 214.1,56.0 224.3,56.0 234.5,56.0 244.7,56.0 254.9,56.0 265.1,56.0 275.3,56.0 285.5,56.0 295.7,56.0 305.9,56.0 316.1,56.0 326.3,56.0 336.5,56.0 346.7,56.0 356.9,56.0 367.1,56.0 377.3,52.8 387.5,27.3 397.6,16.2 407.8,22.4 418.0,23.4 428.2,37.2 438.4,25.6 448.6,46.9 458.8,40.7 469.0,46.9 479.2,12.0 489.4,34.7 499.6,46.4 509.8,52.5 520.0,53.8"/>
+<line id="cursor" class="cur" x1="0" x2="0" y1="10" y2="56" visibility="hidden"/></svg>
+<div class="tip" id="fleettip" hidden></div></div>
+<p class="caption">1219 commits across the fleet in the last 52 weeks · busiest week: 178</p><ol><li style='--h:100'><span class='when' data-ts='1788731162' title='2026-09-06 17:46'>2m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#marksmanapp'>Marksman</a> Read the photos phones actually take</li><li style='--h:100'><span class='when' data-ts='1788731034' title='2026-09-06 17:43'>4m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#marksmanapp'>Marksman</a> Stop a deploy taking ten minutes to reach anyone</li><li style='--h:100'><span class='when' data-ts='1788730945' title='2026-09-06 17:42'>6m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#marksmanapp'>Marksman</a> Let the app analyse a photo without going through Google Drive</li><li style='--h:100'><span class='when' data-ts='1788730722' title='2026-09-06 17:38'>10m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#marksmanapp'>Marksman</a> Drop the imports the split made dead, and give the desktop some room</li><li style='--h:100'><span class='when' data-ts='1788730506' title='2026-09-06 17:35'>13m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#marksmanapp'>Marksman</a> Make the site the app, not a page about the app</li><li style='--h:190'><span class='when' data-ts='1788729935' title='2026-09-06 17:25'>23m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#run315'>Run315</a> Normalise line endings so commits stop shouting about CRLF</li><li style='--h:190'><span class='when' data-ts='1788729922' title='2026-09-06 17:25'>23m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#run315'>Run315</a> Add the non-Apple spelling of mobile-web-app-capable</li><li style='--h:190'><span class='when' data-ts='1788729780' title='2026-09-06 17:23'>25m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#run315'>Run315</a> Make it installable: manifest, service worker, icons</li><li style='--h:55'><span class='when' data-ts='1788729481' title='2026-09-06 17:18'>30m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#learning-pit'>Learning Pit</a> README: live URL, deploy is a branch push</li><li style='--h:55'><span class='when' data-ts='1788729344' title='2026-09-06 17:15'>33m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#learning-pit'>Learning Pit</a> Learning Pit: static PWA flashcard app</li><li style='--h:190'><span class='when' data-ts='1788728425' title='2026-09-06 17:00'>48m ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#run315'>Run315</a> Run315: self-hosted running analytics, plus a frozen public demo</li><li style='--h:100'><span class='when' data-ts='1788726759' title='2026-09-06 16:32'>1h ago</span> <span class='dot' aria-hidden='true'></span><a class='who' href='#marksmanapp'>Marksman</a> Stop two links downloading a file instead of opening a page</li></ol></section>
+<section class="you" id="sheet" hidden>
+<h2 class="eyebrow">// your character sheet</h2>
+<div class="sheet"><svg id="radar" viewBox="0 0 200 200" role="img" aria-label="stat balance"></svg>
+<div class="cs" id="stats"></div>
+<div class="habits" id="habits"><p id="lvlups"></p><div id="habitlist"></div></div></div>
+<p class="caption" id="sheetnote"></p>
+<details class="act" id="act"><summary id="actsum">your activity</summary>
+<div class="heatwrap"><div class="heat" id="heat"></div><div class="heatkey" id="heatkey"></div></div>
+<ol class="journal" id="journal"></ol></details>
+</section>
+<section class="you" id="ask" hidden>
+<h2 class="eyebrow">// ask your coach</h2>
+<p class="caption">Hand your whole week — every app — to an agent through a folder: CoworkSyncHub, Claude Desktop,
+or a person. It writes a review back and it shows here. Nothing is uploaded.</p>
+<div id="askhost"></div>
+<pre id="askreply" class="reply" hidden></pre>
+</section>
+<div id="recent" hidden><span>jump back in:</span><div class="rr"></div></div>
+<div class="controls">
+<input id="q" type="search" placeholder="filter apps — try &quot;chess&quot;, &quot;offline&quot;, &quot;sync&quot;…" aria-label="Filter apps">
+<span id="count"></span><span><kbd>/</kbd></span>
+<select id="sort" aria-label="Sort apps"><option value="name">A–Z</option>
+<option value="updated">Recently updated</option><option value="used">Your most used</option></select>
+</div>
+<div class="grid"><article class="app" id="gymtracker315" style="--h:20" data-k="gymtracker a whole gym logbook in one html file — lifts, cardio, plans, and progress. pwa single file strava sync cloud sync adaptive workout plans and a fast set logger picker-driven equipment setup: barbell, dumbbell, kettlebell, landmine… per-exercise reference media and baked-in coaching guides biometrics plus strava reconciliation cloud sync via google drive, dropbox, or onedrive offline-first — everything lives in your browser storage" data-slug="GymTracker315" data-title="GymTracker" data-pushed="1788450544">
+<a class='shot' href='https://adervec.github.io/GymTracker315/' target='_blank' rel='noopener' tabindex='-1'><img src='shots/gymtracker315.png' alt='' width='800' height='500' loading='lazy'></a><header><span class="tile" aria-hidden="true">🏋️</span><div>
+<h2>GymTracker <a class="src" href="https://github.com/adervec/GymTracker315" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">A whole gym logbook in one HTML file — lifts, cardio, plans, and progress.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='415 commits in the last 52 weeks'><title>415 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,22.7 77.5,13.4 79.5,4.0 81.6,14.5 83.6,12.5 85.6,19.9 87.7,23.0 89.7,21.2 91.8,21.8 93.8,22.6 95.8,21.1 97.9,20.1 99.9,22.1 102.0,22.1 104.0,22.9'/></svg><span>since 2026 · 415 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>single file</button><button type='button'>Strava sync</button><button type='button'>cloud sync</button></div>
+<ul class="feat"><li>Adaptive workout plans and a fast set logger</li><li>Picker-driven equipment setup: barbell, dumbbell, kettlebell, landmine…</li><li>Per-exercise reference media and baked-in coaching guides</li><li>Biometrics plus Strava reconciliation</li><li>Cloud sync via Google Drive, Dropbox, or OneDrive</li><li>Offline-first — everything lives in your browser storage</li></ul>
+<p class='latest'><b>Latest:</b> feat 497: bring every cross-link up to date <span class='when' data-ts='1788450527' title='2026-09-03 11:48'>3d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1787939634' title='2026-08-28 13:53'>9d ago</span> feat 496: pay down the masked test debt</li><li><span class='when' data-ts='1787938748' title='2026-08-28 13:39'>9d ago</span> feat 495: the reverse hyper corner and the roman chair leftovers</li><li><span class='when' data-ts='1787927409' title='2026-08-28 10:30'>9d ago</span> feat 494: targets that beat records, and a picker that talks steps</li><li><span class='when' data-ts='1787616722' title='2026-08-24 20:12'>12d ago</span> feat 493: BFR, the ladder, the wobble and the recovery drawer</li><li><span class='when' data-ts='1787599725' title='2026-08-24 15:28'>13d ago</span> feat 492: sliders, fingers, strands and a pair of reels</li><li><span class='when' data-ts='1787487490' title='2026-08-23 08:18'>14d ago</span> feat 491: read the hub&#x27;s shared DATA SOURCES file instead of fetching Garmin/Strava</li><li><span class='when' data-ts='1787433168' title='2026-08-22 17:12'>15d ago</span> feat 490: the shared cowork panel on the Analysis page</li><li><span class='when' data-ts='1787432374' title='2026-08-22 16:59'>15d ago</span> feat 489: activity beacon for the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1787107407' title='2026-08-18 22:43'>18d ago</span> feat 488: the rest of the power twister, and the whole ab roller</li></ul></details>
+<footer><a class="launch" data-slug="GymTracker315" href="https://adervec.github.io/GymTracker315/" target="_blank" rel="noopener">Launch</a>
+<a class='dl' href='https://github.com/adervec/GymTracker315/blob/main/gym-tracker.html'>single file</a><span class="usage" data-slug="GymTracker315">&nbsp;</span></footer>
+</article><article class="app" id="tachyread" style="--h:270" data-k="tachyread speed reading one word at a time — rsvp on an optimal recognition point, up to ~1500 wpm. drive sync ⚠ flashing text import txt, docx, pdf, epub — or ocr-grab text from images ~30 themes and animated reader faces text-to-speech, voice and clap control typing and speaking minigames, audiobook recording measured reading stats and an editable table of contents" data-slug="Tachyread" data-title="Tachyread" data-pushed="1788720720">
+<header><span class="tile" aria-hidden="true">⚡</span><div>
+<h2>Tachyread <a class="src" href="https://github.com/adervec/Tachyread" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">Speed reading one word at a time — RSVP on an optimal recognition point, up to ~1500 WPM.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='538 commits in the last 52 weeks'><title>538 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,22.8 77.5,20.4 79.5,18.0 81.6,15.2 83.6,17.5 85.6,14.4 87.7,4.0 89.7,19.7 91.8,14.7 93.8,17.7 95.8,13.3 97.9,16.9 99.9,21.1 102.0,23.0 104.0,22.2'/></svg><span>since 2026 · 538 commits/yr</span></p>
+<div class="badges"><button type='button'>Drive sync</button><button type='button'>⚠ flashing text</button></div>
+<ul class="feat"><li>Import TXT, DOCX, PDF, EPUB — or OCR-grab text from images</li><li>~30 themes and animated reader faces</li><li>Text-to-speech, voice and clap control</li><li>Typing and speaking minigames, audiobook recording</li><li>Measured reading stats and an editable table of contents</li></ul>
+<p class='latest'><b>Latest:</b> Audiobook sync: partition download folders by Trackyread status <span class='when' data-ts='1788720657' title='2026-09-06 14:50'>2h ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1788433906' title='2026-09-03 07:11'>3d ago</span> Audiobook console: every list is a table, with bulk add-all on its dropdowns</li><li><span class='when' data-ts='1788122853' title='2026-08-30 16:47'>7d ago</span> Fix: Trackyread&#x27;s add-book form blanked every field as you typed</li><li><span class='when' data-ts='1787433425' title='2026-08-22 17:17'>15d ago</span> Lint: optional catch binding in the portal activity beacon</li><li><span class='when' data-ts='1787433175' title='2026-08-22 17:12'>15d ago</span> AI / Cowork: the cowork group wears the maker&#x27;s shared cowork panel</li><li><span class='when' data-ts='1787432381' title='2026-08-22 16:59'>15d ago</span> Report finished sections to the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1787319636' title='2026-08-21 09:40'>16d ago</span> Audiobook console: download folders with incremental auto-sync</li><li><span class='when' data-ts='1787106763' title='2026-08-18 22:32'>18d ago</span> Audiobook console: singleton tab, book editor is a Library drill-down</li><li><span class='when' data-ts='1786970017' title='2026-08-17 08:33'>20d ago</span> Audiobook command centre: cross-book queue, library and analytics</li><li><span class='when' data-ts='1786674034' title='2026-08-13 22:20'>23d ago</span> Menu emoji, mobile section bars, no stray audio focus, full-screen controls</li></ul></details>
+<footer><a class="launch" data-slug="Tachyread" href="https://adervec.github.io/Tachyread/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="Tachyread">&nbsp;</span></footer>
+</article><article class="app" id="chessretabled" style="--h:165" data-k="chessretabled a cel-shaded chess club in the browser — bots, lessons, puzzles, and 56 games. pwa offline drive sync 12 stockfish-powered characters, 250 to 2850 elo 37 validated tactics puzzles with rated training academy courses and practice-arena endgame drills 56 games — board, cards, logic — each with a strategy guide level, xp, streaks, and personal ratings full offline play once installed" data-slug="ChessRetabled" data-title="ChessRetabled" data-pushed="1787434361">
+<a class='shot' href='https://adervec.github.io/ChessRetabled/' target='_blank' rel='noopener' tabindex='-1'><img src='shots/chessretabled.png' alt='' width='800' height='500' loading='lazy'></a><header><span class="tile" aria-hidden="true">♞</span><div>
+<h2>ChessRetabled <a class="src" href="https://github.com/adervec/ChessRetabled" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">A cel-shaded chess club in the browser — bots, lessons, puzzles, and 56 games.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='80 commits in the last 52 weeks'><title>80 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,20.0 79.5,23.0 81.6,4.0 83.6,8.6 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,4.8 97.9,20.0 99.9,20.0 102.0,23.0 104.0,23.0'/></svg><span>since 2026 · 80 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button><button type='button'>Drive sync</button></div>
+<ul class="feat"><li>12 Stockfish-powered characters, 250 to 2850 Elo</li><li>37 validated tactics puzzles with rated training</li><li>Academy courses and practice-arena endgame drills</li><li>56 games — board, cards, logic — each with a strategy guide</li><li>Level, XP, streaks, and personal ratings</li><li>Full offline play once installed</li></ul>
+<p class='latest'><b>Latest:</b> AI Coach: folder cowork through the maker&#x27;s shared panel <span class='when' data-ts='1787434330' title='2026-08-22 17:32'>15d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1787432386' title='2026-08-22 16:59'>15d ago</span> Report played games and solved puzzles to the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1786588520' title='2026-08-12 22:35'>24d ago</span> Tell the app portal we&#x27;re installed</li><li><span class='when' data-ts='1786494738' title='2026-08-11 20:32'>25d ago</span> Link the maker&#x27;s other apps from the Home fine print</li><li><span class='when' data-ts='1785958163' title='2026-08-05 15:29'>32d ago</span> Mirror Tachyread&#x27;s Drive sync, and reuse its OAuth client</li><li><span class='when' data-ts='1785951733' title='2026-08-05 13:42'>32d ago</span> Give the app its own scrolling, and its own scrollbars</li><li><span class='when' data-ts='1785809181' title='2026-08-03 22:06'>33d ago</span> Close the session gaps: every game tracked, every puzzle logged, real resume</li><li><span class='when' data-ts='1785807661' title='2026-08-03 21:41'>33d ago</span> Sessions you can come back to, one Academy, and puzzles in one place</li><li><span class='when' data-ts='1785807176' title='2026-08-03 21:32'>33d ago</span> Central review area with per-move ratings, deletion, and a games library</li><li><span class='when' data-ts='1785756579' title='2026-08-03 07:29'>34d ago</span> Per-game layout, boards that fit, board touches that move pieces</li></ul></details>
+<footer><a class="launch" data-slug="ChessRetabled" href="https://adervec.github.io/ChessRetabled/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="ChessRetabled">&nbsp;</span></footer>
+</article><article class="app" id="guitarpicker" style="--h:45" data-k="guitarpicker zero-build guitar school — note highway, tuner, karaoke, and a synthesized backing band. pwa drive sync streaming note highway with per-note grading live tuner across 59 instruments and their tunings 45+ public-domain songs, each with a synthesized backing band karaoke with word-by-word lyrics and pitch scoring song editor, record-and-transcribe, theory games, courses" data-slug="GuitarPicker" data-title="GuitarPicker" data-pushed="1787448499">
+<a class='shot' href='https://adervec.github.io/GuitarPicker/' target='_blank' rel='noopener' tabindex='-1'><img src='shots/guitarpicker.png' alt='' width='800' height='500' loading='lazy'></a><header><span class="tile" aria-hidden="true">🎸</span><div>
+<h2>GuitarPicker <a class="src" href="https://github.com/adervec/GuitarPicker" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">Zero-build guitar school — note highway, tuner, karaoke, and a synthesized backing band.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='28 commits in the last 52 weeks'><title>28 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,6.7 77.5,4.0 79.5,23.0 81.6,14.9 83.6,17.6 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,4.0 97.9,14.9 99.9,23.0 102.0,23.0 104.0,23.0'/></svg><span>since 2026 · 28 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>Drive sync</button></div>
+<ul class="feat"><li>Streaming note highway with per-note grading</li><li>Live tuner across 59 instruments and their tunings</li><li>45+ public-domain songs, each with a synthesized backing band</li><li>Karaoke with word-by-word lyrics and pitch scoring</li><li>Song editor, record-and-transcribe, theory games, courses</li></ul>
+<p class='latest'><b>Latest:</b> Add six app skins, and a check that a skin has CSS <span class='when' data-ts='1786495552' title='2026-08-11 20:45'>25d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786494727' title='2026-08-11 20:32'>25d ago</span> Link the maker&#x27;s app portal from About &amp; disclaimers</li><li><span class='when' data-ts='1786283425' title='2026-08-09 09:50'>28d ago</span> Synthesize backing tracks, and the parts you don&#x27;t play</li><li><span class='when' data-ts='1785958299' title='2026-08-05 15:31'>32d ago</span> Mirror Tachyread&#x27;s Drive sync and reuse its OAuth client</li><li><span class='when' data-ts='1785759171' title='2026-08-03 08:12'>34d ago</span> Expand the instrument roster: 15 -&gt; 59</li><li><span class='when' data-ts='1785756411' title='2026-08-03 07:26'>34d ago</span> Make the landing page instrument-agnostic</li><li><span class='when' data-ts='1785686107' title='2026-08-02 11:55'>35d ago</span> Mobile and desktop layouts</li><li><span class='when' data-ts='1785681397' title='2026-08-02 10:36'>35d ago</span> README: link the live site</li><li><span class='when' data-ts='1785681330' title='2026-08-02 10:35'>35d ago</span> Deploy: ship manifest, service worker, icons and docs to Pages</li><li><span class='when' data-ts='1785681225' title='2026-08-02 10:33'>35d ago</span> Instruments, PWA install, and launcher</li></ul></details>
+<footer><a class="launch" data-slug="GuitarPicker" href="https://adervec.github.io/GuitarPicker/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="GuitarPicker">&nbsp;</span></footer>
+</article><article class="app" id="blackmirrorbikeride" style="--h:130" data-k="black mirror bike ride a homebrew zwift — your real trainer over bluetooth, low-poly worlds, real gpx routes. pwa bluetooth drive sync reads power and heart rate over web bluetooth — zero drivers a proper physics model behind every ride build your own low-poly 3d worlds gpx import plus 34 bundled routes (~660 km) replay, ride history, and ghosts" data-slug="BlackMirrorBikeRide" data-title="Black Mirror Bike Ride" data-pushed="1787451755">
+<a class='shot' href='https://adervec.github.io/BlackMirrorBikeRide/' target='_blank' rel='noopener' tabindex='-1'><img src='shots/blackmirrorbikeride.png' alt='' width='800' height='500' loading='lazy'></a><header><span class="tile" aria-hidden="true">🚴</span><div>
+<h2>Black Mirror Bike Ride <a class="src" href="https://github.com/adervec/BlackMirrorBikeRide" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">A homebrew Zwift — your real trainer over Bluetooth, low-poly worlds, real GPX routes.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='26 commits in the last 52 weeks'><title>26 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,20.5 77.5,16.7 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,4.0 97.9,20.5 99.9,21.7 102.0,21.7 104.0,23.0'/></svg><span>since 2026 · 26 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>Bluetooth</button><button type='button'>Drive sync</button></div>
+<ul class="feat"><li>Reads power and heart rate over Web Bluetooth — zero drivers</li><li>A proper physics model behind every ride</li><li>Build your own low-poly 3D worlds</li><li>GPX import plus 34 bundled routes (~660 km)</li><li>Replay, ride history, and ghosts</li></ul>
+<p class='latest'><b>Latest:</b> History: coach section — folder cowork through the maker&#x27;s shared panel <span class='when' data-ts='1787451753' title='2026-08-22 22:22'>14d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1787432394' title='2026-08-22 16:59'>15d ago</span> Report recorded rides to the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1786588642' title='2026-08-12 22:37'>24d ago</span> Tell the maker&#x27;s app portal when the app is installed</li><li><span class='when' data-ts='1786494808' title='2026-08-11 20:33'>25d ago</span> Link the maker&#x27;s app portal from the menu footer</li><li><span class='when' data-ts='1785981564' title='2026-08-05 21:59'>31d ago</span> Triple model tessellation; stop the ground ending in mid-air</li><li><span class='when' data-ts='1785978660' title='2026-08-05 21:11'>31d ago</span> Tabular lists, and guard an in-progress ride from being abandoned</li><li><span class='when' data-ts='1785977982' title='2026-08-05 20:59'>31d ago</span> Ship a library of 34 bundled routes (~660 km)</li><li><span class='when' data-ts='1785975251' title='2026-08-05 20:14'>31d ago</span> Add 18 more biomes and 31 more props (58 biomes, 114 types)</li><li><span class='when' data-ts='1785973283' title='2026-08-05 19:41'>31d ago</span> Add 18 more biomes and 29 more artifact types (40 biomes, 83 props)</li><li><span class='when' data-ts='1785966214' title='2026-08-05 17:43'>32d ago</span> Expand to 22 biomes and 54 roadside artifact types</li></ul></details>
+<footer><a class="launch" data-slug="BlackMirrorBikeRide" href="https://adervec.github.io/BlackMirrorBikeRide/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="BlackMirrorBikeRide">&nbsp;</span></footer>
+</article><article class="app" id="bodybuildingprogresscoach" style="--h:240" data-k="bodybuilding progress coach honest physique and posing tracking from your own photos — scored against the classics. pwa offline ai optional on-device pose analysis — nothing uploaded objective symmetry and proportion geometry first, opinion second per-division posing technique (24 mandatories) and live mirror practice body-composition trends corroborate the photos aligned progress timelapses" data-slug="BodybuildingProgressCoach" data-title="Bodybuilding Progress Coach" data-pushed="1788420893">
+<header><span class="tile" aria-hidden="true">🗿</span><div>
+<h2>Bodybuilding Progress Coach <a class="src" href="https://github.com/adervec/BodybuildingProgressCoach" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">Honest physique and posing tracking from your own photos — scored against the classics.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='28 commits in the last 52 weeks'><title>28 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,4.0 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,4.0 97.9,14.6 99.9,14.6 102.0,18.8 104.0,23.0'/></svg><span>since 2026 · 28 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button><button type='button'>AI optional</button></div>
+<ul class="feat"><li>On-device pose analysis — nothing uploaded</li><li>Objective symmetry and proportion geometry first, opinion second</li><li>Per-division posing technique (24 mandatories) and live mirror practice</li><li>Body-composition trends corroborate the photos</li><li>Aligned progress timelapses</li></ul>
+<p class='latest'><b>Latest:</b> Dashboard: coach section — folder cowork through the maker&#x27;s shared panel <span class='when' data-ts='1787451757' title='2026-08-22 22:22'>14d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1787432398' title='2026-08-22 16:59'>15d ago</span> Report photo uploads and body-comp entries to the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1787430805' title='2026-08-22 16:33'>15d ago</span> 34 poses + hands-free Mirror (spoken call-outs, self-timer, auto-save)</li><li><span class='when' data-ts='1786588602' title='2026-08-12 22:36'>24d ago</span> Startup beacon so the app portal knows we&#x27;re installed</li><li><span class='when' data-ts='1786494766' title='2026-08-11 20:32'>25d ago</span> More-apps link (adervec.github.io) in the disclaimer modal</li><li><span class='when' data-ts='1786131920' title='2026-08-07 15:45'>30d ago</span> Sidebar everywhere + all scrolling in-app</li><li><span class='when' data-ts='1786105145' title='2026-08-07 08:19'>30d ago</span> Per-division mandatories (24 poses) + live Mirror practice page</li><li><span class='when' data-ts='1785963072' title='2026-08-05 16:51'>32d ago</span> Browser-only build, deployed to GitHub Pages</li><li><span class='when' data-ts='1785960331' title='2026-08-05 16:05'>32d ago</span> Google Drive sync, mirroring Tachyread</li><li><span class='when' data-ts='1785705870' title='2026-08-02 17:24'>35d ago</span> Orientation controlled by a setting, not the accelerometer</li></ul></details>
+<footer><a class="launch" data-slug="BodybuildingProgressCoach" href="https://adervec.github.io/BodybuildingProgressCoach/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="BodybuildingProgressCoach">&nbsp;</span></footer>
+</article><article class="app" id="handwritinghelper" style="--h:210" data-k="handwriting helper photograph a page of handwriting and get honest, measured scores — then drill. pwa offline per-line scores: slant, baseline, size, spacing, pen control, legibility right or left hand, print or cursive, plus mirror-prime mode 38 drills with printable guide sheets in true size review scan batches as a gallery, with duplicate detection streaks, trends, and full history" data-slug="HandwritingHelper" data-title="Handwriting Helper" data-pushed="1787451747">
+<a class='shot' href='https://adervec.github.io/HandwritingHelper/' target='_blank' rel='noopener' tabindex='-1'><img src='shots/handwritinghelper.png' alt='' width='800' height='500' loading='lazy'></a><header><span class="tile" aria-hidden="true">✍️</span><div>
+<h2>Handwriting Helper <a class="src" href="https://github.com/adervec/HandwritingHelper" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">Photograph a page of handwriting and get honest, measured scores — then drill.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='25 commits in the last 52 weeks'><title>25 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,22.0 91.8,23.0 93.8,23.0 95.8,4.0 97.9,20.0 99.9,22.0 102.0,22.0 104.0,23.0'/></svg><span>since 2026 · 25 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button></div>
+<ul class="feat"><li>Per-line scores: slant, baseline, size, spacing, pen control, legibility</li><li>Right or left hand, print or cursive, plus mirror-prime mode</li><li>38 drills with printable guide sheets in true size</li><li>Review scan batches as a gallery, with duplicate detection</li><li>Streaks, trends, and full history</li></ul>
+<p class='latest'><b>Latest:</b> Coach card — folder cowork through the maker&#x27;s shared panel <span class='when' data-ts='1787451744' title='2026-08-22 22:22'>14d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1787432402' title='2026-08-22 17:00'>15d ago</span> Report logged drills and scored pages to the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1786588807' title='2026-08-12 22:40'>24d ago</span> Tell the app portal this app is installed</li><li><span class='when' data-ts='1786494788' title='2026-08-11 20:33'>25d ago</span> Link the maker&#x27;s app portal from the Reference card</li><li><span class='when' data-ts='1786380974' title='2026-08-10 12:56'>27d ago</span> Make the import gallery lazy and cached, and fix a hash-drift bug</li><li><span class='when' data-ts='1786226388' title='2026-08-08 17:59'>28d ago</span> Work out cursive, mirror-prime and headline scripts from the page</li><li><span class='when' data-ts='1786147577' title='2026-08-07 20:06'>29d ago</span> Review scan batches as a gallery, and detect duplicate pages</li><li><span class='when' data-ts='1786137543' title='2026-08-07 17:19'>30d ago</span> Don&#x27;t grade pen control where thick-and-thin IS the script</li><li><span class='when' data-ts='1786137455' title='2026-08-07 17:17'>30d ago</span> Measure spacing along the writing&#x27;s slant</li><li><span class='when' data-ts='1786137278' title='2026-08-07 17:14'>30d ago</span> Support nine alphabets, and fix two real bugs found doing it</li></ul></details>
+<footer><a class="launch" data-slug="HandwritingHelper" href="https://adervec.github.io/HandwritingHelper/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="HandwritingHelper">&nbsp;</span></footer>
+</article><article class="app" id="microminiger" style="--h:0" data-k="microminiger a miniature-collection manager — paint queue, photo studio, and offline photo-to-3d. pwa offline rich per-mini metadata, kitbash-aware, with provenance and value kanban paint queue, paint timer, deadlines multi-angle photos, 360° viewer, spin video and gif export photo-to-3d mesh and gaussian-splat viewer, stl/ply export armies, points, and a battle log field-scoped search, bulk edit, csv, one-file backup" data-slug="MicroMiniger" data-title="MicroMiniger" data-pushed="1787451920">
+<header><span class="tile" aria-hidden="true">⚔️</span><div>
+<h2>MicroMiniger <a class="src" href="https://github.com/adervec/MicroMiniger" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">A miniature-collection manager — paint queue, photo studio, and offline photo-to-3D.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='8 commits in the last 52 weeks'><title>8 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,13.5 91.8,23.0 93.8,23.0 95.8,4.0 97.9,4.0 99.9,13.5 102.0,4.0 104.0,23.0'/></svg><span>since 2026 · 8 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button></div>
+<ul class="feat"><li>Rich per-mini metadata, kitbash-aware, with provenance and value</li><li>Kanban paint queue, paint timer, deadlines</li><li>Multi-angle photos, 360° viewer, spin video and GIF export</li><li>Photo-to-3D mesh and Gaussian-splat viewer, STL/PLY export</li><li>Armies, points, and a battle log</li><li>Field-scoped search, bulk edit, CSV, one-file backup</li></ul>
+<p class='latest'><b>Latest:</b> CSP: allow the maker portal&#x27;s shared cowork panel script <span class='when' data-ts='1787451917' title='2026-08-22 22:25'>14d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1787451749' title='2026-08-22 22:22'>14d ago</span> Coach in the help dialog: folder cowork through the maker&#x27;s shared panel</li><li><span class='when' data-ts='1787432407' title='2026-08-22 17:00'>15d ago</span> Report painting time to the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1786588626' title='2026-08-12 22:37'>24d ago</span> Portal install beacon on startup (same-origin localStorage)</li><li><span class='when' data-ts='1786494733' title='2026-08-11 20:32'>25d ago</span> Maker portal link in help dialog (adervec.github.io)</li><li><span class='when' data-ts='1786200489' title='2026-08-08 10:48'>29d ago</span> Modern sidebar navigation + 12-theme system (SpeechImprover-style)</li><li><span class='when' data-ts='1786195598' title='2026-08-08 09:26'>29d ago</span> Full MicroMiniger PWA: collection manager, 3D scan &amp; splat viewer, cloud backup</li><li><span class='when' data-ts='1784380881' title='2026-07-18 09:21'>50d ago</span> initial commit</li></ul></details>
+<footer><a class="launch" data-slug="MicroMiniger" href="https://adervec.github.io/MicroMiniger/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="MicroMiniger">&nbsp;</span></footer>
+</article><article class="app" id="speechimprover" style="--h:315" data-k="speechimprover record yourself and get ten scored attributes — then train the weak ones. pwa drive sync reading passages, improv, articulation drills, or your own text ten attributes scored 0–100, from pace to projection free speaking toward a chosen target tone or emotion projects — read a whole book passage by passage trends, an activity heatmap, a/b compare, ai-coach export" data-slug="SpeechImprover" data-title="SpeechImprover" data-pushed="1787433390">
+<header><span class="tile" aria-hidden="true">🎙️</span><div>
+<h2>SpeechImprover <a class="src" href="https://github.com/adervec/SpeechImprover" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">Record yourself and get ten scored attributes — then train the weak ones.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='33 commits in the last 52 weeks'><title>33 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,21.7 77.5,16.7 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,4.0 97.9,17.9 99.9,12.9 102.0,23.0 104.0,23.0'/></svg><span>since 2026 · 33 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>Drive sync</button></div>
+<ul class="feat"><li>Reading passages, improv, articulation drills, or your own text</li><li>Ten attributes scored 0–100, from pace to projection</li><li>Free speaking toward a chosen target tone or emotion</li><li>Projects — read a whole book passage by passage</li><li>Trends, an activity heatmap, A/B compare, AI-coach export</li></ul>
+<p class='latest'><b>Latest:</b> Lint: optional catch binding in the portal activity beacon <span class='when' data-ts='1787433388' title='2026-08-22 17:16'>15d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1787433198' title='2026-08-22 17:13'>15d ago</span> Cowork sync view wears the maker&#x27;s shared cowork panel</li><li><span class='when' data-ts='1787432411' title='2026-08-22 17:00'>15d ago</span> Report recorded sessions to the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1787171212' title='2026-08-19 16:26'>18d ago</span> Scenario category (22) + 8 more trouble sounds; 128 -&gt; 158 exercises</li><li><span class='when' data-ts='1787106764' title='2026-08-18 22:32'>18d ago</span> Second drill pass: 44 -&gt; 65 targeted drills, 263 variants, 8 warm-ups</li><li><span class='when' data-ts='1787065583' title='2026-08-18 11:06'>19d ago</span> Corpus 488→962 passages, worldwide-PD rights policy, provenance audit</li><li><span class='when' data-ts='1787054297' title='2026-08-18 07:58'>19d ago</span> Targeted drill sets per attribute, anti-repetition, emotive delivery tags</li><li><span class='when' data-ts='1787053448' title='2026-08-18 07:44'>19d ago</span> Neuromuscular cues in post-recording analysis</li><li><span class='when' data-ts='1786588587' title='2026-08-12 22:36'>24d ago</span> Register install beacon for the app portal</li><li><span class='when' data-ts='1786494765' title='2026-08-11 20:32'>25d ago</span> Maker portal link in Help footer</li></ul></details>
+<footer><a class="launch" data-slug="SpeechImprover" href="https://adervec.github.io/SpeechImprover/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="SpeechImprover">&nbsp;</span></footer>
+</article><article class="app" id="mise" style="--h:75" data-k="mise an interactive cookbook you can run — recipes execute as live, scheduled flow charts. pwa offline voice 114 recipes plus techniques, ingredients, and equipment guides execute mode: station swimlanes, a moving playhead, countdowns, alarms voice control — play, pause, done, skip — with steps read aloud a cook log of every finished cook, exportable field guides: coffee, tea, alcohol, protein prep — and a box-mix calculator" data-slug="Mise" data-title="Mise" data-pushed="1787434351">
+<a class='shot' href='https://adervec.github.io/Mise/' target='_blank' rel='noopener' tabindex='-1'><img src='shots/mise.png' alt='' width='800' height='500' loading='lazy'></a><header><span class="tile" aria-hidden="true">🍳</span><div>
+<h2>Mise <a class="src" href="https://github.com/adervec/Mise" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">An interactive cookbook you can run — recipes execute as live, scheduled flow charts.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='15 commits in the last 52 weeks'><title>15 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,4.0 85.6,23.0 87.7,23.0 89.7,19.2 91.8,23.0 93.8,23.0 95.8,4.0 97.9,15.4 99.9,15.4 102.0,23.0 104.0,23.0'/></svg><span>since 2026 · 15 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button><button type='button'>voice</button></div>
+<ul class="feat"><li>114 recipes plus techniques, ingredients, and equipment guides</li><li>Execute mode: station swimlanes, a moving playhead, countdowns, alarms</li><li>Voice control — play, pause, done, skip — with steps read aloud</li><li>A cook log of every finished cook, exportable</li><li>Field guides: coffee, tea, alcohol, protein prep — and a box-mix calculator</li></ul>
+<p class='latest'><b>Latest:</b> Settings: folder cowork for the cook log through the maker&#x27;s shared panel <span class='when' data-ts='1787434339' title='2026-08-22 17:32'>15d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1787432416' title='2026-08-22 17:00'>15d ago</span> Report finished cooks to the maker portal&#x27;s character sheet</li><li><span class='when' data-ts='1786588628' title='2026-08-12 22:37'>24d ago</span> Register with the app portal when running as an installed PWA</li><li><span class='when' data-ts='1786494837' title='2026-08-11 20:33'>25d ago</span> Add About section in Settings linking the maker&#x27;s app portal</li><li><span class='when' data-ts='1785958266' title='2026-08-05 15:31'>32d ago</span> Google Drive sync for the cook log, mirroring Tachyread</li><li><span class='when' data-ts='1785800922' title='2026-08-03 19:48'>33d ago</span> Maximal Instant Pot coverage: 20 recipes + 8 reference pages</li><li><span class='when' data-ts='1785757973' title='2026-08-03 07:52'>34d ago</span> Add Grid view mode to recipe detail</li><li><span class='when' data-ts='1785705887' title='2026-08-02 17:24'>35d ago</span> Add screen-orientation setting (Auto / Portrait / Landscape)</li><li><span class='when' data-ts='1785705157' title='2026-08-02 17:12'>35d ago</span> Fold protein guides into the app; add gh-pages deploy</li><li><span class='when' data-ts='1783863966' title='2026-07-12 09:46'>56d ago</span> Voice control, cook log for Claude reports, launcher + PWA polish</li></ul></details>
+<footer><a class="launch" data-slug="Mise" href="https://adervec.github.io/Mise/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="Mise">&nbsp;</span></footer>
+</article><article class="app" id="marksmanapp" style="--h:100" data-k="marksman foam-dart marksmanship, measured — photograph your target and get real metrics. web + desktop drive sync cli mark up a photo of where your darts landed — precision, accuracy, bias tiered practice standards judge every session progress overall, by blaster category, and by specific blaster prints true-size target faces to shoot at equipment packs: plain json defines drills, faces, and vocabulary" data-slug="MarksmanApp" data-title="Marksman" data-pushed="1788731166">
+<header><span class="tile" aria-hidden="true">🎯</span><div>
+<h2>Marksman <a class="src" href="https://github.com/adervec/MarksmanApp" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">Foam-dart marksmanship, measured — photograph your target and get real metrics.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='17 commits in the last 52 weeks'><title>17 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,20.3 77.5,12.1 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,20.3 91.8,20.3 93.8,23.0 95.8,4.0 97.9,20.3 99.9,23.0 102.0,17.6 104.0,23.0'/></svg><span>since 2026 · 17 commits/yr</span></p>
+<div class="badges"><button type='button'>web + desktop</button><button type='button'>Drive sync</button><button type='button'>CLI</button></div>
+<ul class="feat"><li>Mark up a photo of where your darts landed — precision, accuracy, bias</li><li>Tiered practice standards judge every session</li><li>Progress overall, by blaster category, and by specific blaster</li><li>Prints true-size target faces to shoot at</li><li>Equipment packs: plain JSON defines drills, faces, and vocabulary</li></ul>
+<p class='latest'><b>Latest:</b> Read the photos phones actually take <span class='when' data-ts='1788731162' title='2026-09-06 17:46'>2m ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1788731034' title='2026-09-06 17:43'>4m ago</span> Stop a deploy taking ten minutes to reach anyone</li><li><span class='when' data-ts='1788730945' title='2026-09-06 17:42'>6m ago</span> Let the app analyse a photo without going through Google Drive</li><li><span class='when' data-ts='1788730722' title='2026-09-06 17:38'>10m ago</span> Drop the imports the split made dead, and give the desktop some room</li><li><span class='when' data-ts='1788730506' title='2026-09-06 17:35'>13m ago</span> Make the site the app, not a page about the app</li><li><span class='when' data-ts='1788726759' title='2026-09-06 16:32'>1h ago</span> Stop two links downloading a file instead of opening a page</li><li><span class='when' data-ts='1788726603' title='2026-09-06 16:30'>1h ago</span> Publish the site, and fix the docs it would have published</li><li><span class='when' data-ts='1788723905' title='2026-09-06 15:45'>2h ago</span> Point the README at the contributor docs, not the launch plan</li><li><span class='when' data-ts='1788723855' title='2026-09-06 15:44'>2h ago</span> Tidy the tree for a public first impression</li><li><span class='when' data-ts='1787490505' title='2026-08-23 09:08'>14d ago</span> Stop the drills self-check pinning one pack&#x27;s numbers</li></ul></details>
+<footer><a class="launch" data-slug="MarksmanApp" href="https://adervec.github.io/MarksmanApp/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="MarksmanApp">&nbsp;</span></footer>
+</article><article class="app" id="run315" style="--h:190" data-k="run315 self-hosted running analytics — garmin sync, race projections, routes, trails, territory. self-hosted garmin sync live demo garmin connect sync; best efforts mined from inside every run fitness / fatigue / form model, race projections, taper planning route builder, trail completion, and an interval territory game shoe mileage, weather correction, climbing and durability analysis the live site is a frozen demo year — self-host it for your own data" data-slug="Run315" data-title="Run315" data-pushed="1788729937">
+<header><span class="tile" aria-hidden="true">🏃</span><div>
+<h2>Run315 <a class="src" href="https://github.com/adervec/Run315" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">Self-hosted running analytics — Garmin sync, race projections, routes, trails, territory.</p></div></header>
+<p class='stats'><span>since 2026</span></p>
+<div class="badges"><button type='button'>self-hosted</button><button type='button'>Garmin sync</button><button type='button'>live demo</button></div>
+<ul class="feat"><li>Garmin Connect sync; best efforts mined from inside every run</li><li>Fitness / fatigue / form model, race projections, taper planning</li><li>Route builder, trail completion, and an interval territory game</li><li>Shoe mileage, weather correction, climbing and durability analysis</li><li>The live site is a frozen demo year — self-host it for your own data</li></ul>
+<p class='latest'><b>Latest:</b> Normalise line endings so commits stop shouting about CRLF <span class='when' data-ts='1788729935' title='2026-09-06 17:25'>23m ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1788729922' title='2026-09-06 17:25'>23m ago</span> Add the non-Apple spelling of mobile-web-app-capable</li><li><span class='when' data-ts='1788729780' title='2026-09-06 17:23'>25m ago</span> Make it installable: manifest, service worker, icons</li><li><span class='when' data-ts='1788728425' title='2026-09-06 17:00'>48m ago</span> Run315: self-hosted running analytics, plus a frozen public demo</li></ul></details>
+<footer><a class="launch" data-slug="Run315" href="https://adervec.github.io/Run315/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="Run315">&nbsp;</span></footer>
+</article><article class="app" id="learning-pit" style="--h:55" data-k="learning pit flashcards and learning games with spaced repetition — for readers and pre-readers alike. pwa offline drive sync kid mode 23 modules from first words to full decks — plus make your own spaced repetition with sessions, streaks, exam mode, and undo games: match boards, duels, spelling, tracing on a slate kid mode with pictures, stickers, and read-aloud voices static files, no build — fully offline once installed" data-slug="learning-pit" data-title="Learning Pit" data-pushed="1788729482">
+<header><span class="tile" aria-hidden="true">🧠</span><div>
+<h2>Learning Pit <a class="src" href="https://github.com/adervec/learning-pit" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">Flashcards and learning games with spaced repetition — for readers and pre-readers alike.</p></div></header>
+<p class='stats'><span>since 2026</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button><button type='button'>Drive sync</button><button type='button'>kid mode</button></div>
+<ul class="feat"><li>23 modules from first words to full decks — plus make your own</li><li>Spaced repetition with sessions, streaks, exam mode, and undo</li><li>Games: match boards, duels, spelling, tracing on a slate</li><li>Kid mode with pictures, stickers, and read-aloud voices</li><li>Static files, no build — fully offline once installed</li></ul>
+<p class='latest'><b>Latest:</b> README: live URL, deploy is a branch push <span class='when' data-ts='1788729481' title='2026-09-06 17:18'>30m ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1788729344' title='2026-09-06 17:15'>33m ago</span> Learning Pit: static PWA flashcard app</li></ul></details>
+<footer><a class="launch" data-slug="learning-pit" href="https://adervec.github.io/learning-pit/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="learning-pit">&nbsp;</span></footer>
+</article><article class="app" id="musicstudio" style="--h:295" data-k="music studio an elevenlabs album builder in your browser — curate prompts, generate songs, export albums. pwa byo api key local backup albums in nested groups with full metadata and per-group themes generate songs and dialog; fill an album with a cost estimate first waveforms, trim/fade/gain, reorder, playlists, crossfaded mixdowns export tagged tracks — and publish picked albums to a phone-synced folder a backup folder an agent can co-author album designs into" data-slug="MusicStudio" data-title="Music Studio" data-pushed="1788721596">
+<header><span class="tile" aria-hidden="true">🎼</span><div>
+<h2>Music Studio <a class="src" href="https://github.com/adervec/MusicStudio" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">An ElevenLabs album builder in your browser — curate prompts, generate songs, export albums.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='3 commits in the last 52 weeks'><title>3 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,13.5 89.7,23.0 91.8,23.0 93.8,23.0 95.8,23.0 97.9,4.0 99.9,23.0 102.0,23.0 104.0,23.0'/></svg><span>since 2026 · 3 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>BYO API key</button><button type='button'>local backup</button></div>
+<ul class="feat"><li>Albums in nested groups with full metadata and per-group themes</li><li>Generate songs and dialog; fill an album with a cost estimate first</li><li>Waveforms, trim/fade/gain, reorder, playlists, crossfaded mixdowns</li><li>Export tagged tracks — and publish picked albums to a phone-synced folder</li><li>A backup folder an agent can co-author album designs into</li></ul>
+<p class='latest'><b>Latest:</b> Add CI and GitHub Pages deploy workflows <span class='when' data-ts='1786575228' title='2026-08-12 18:53'>24d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1786575223' title='2026-08-12 18:53'>24d ago</span> Add Google Drive phone remote, device sync, and paste-prompts importer</li><li><span class='when' data-ts='1783556459' title='2026-07-08 20:20'>59d ago</span> Initial COmmit</li></ul></details>
+<footer><a class="launch" data-slug="MusicStudio" href="https://adervec.github.io/MusicStudio/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="MusicStudio">&nbsp;</span></footer>
+</article><article class="app" id="long-gallery" style="--h:335" data-k="the long gallery a museum in a single page — thousands of works from the olmec heads to now, with their stories. pwa offline six eras, antiquity to modern, across movements, regions, and themes every work with its story: what it is, its context, and a hidden detail hd images with zoom, plus guided tours through the collection track what you&#x27;ve seen as you wander" data-slug="long-gallery" data-title="The Long Gallery" data-pushed="1788492291">
+<header><span class="tile" aria-hidden="true">🖼️</span><div>
+<h2>The Long Gallery <a class="src" href="https://github.com/adervec/long-gallery" title="source on GitHub">src&#8599;</a></h2>
+<p class="tag">A museum in a single page — thousands of works from the Olmec heads to now, with their stories.</p></div></header>
+<p class='stats'><svg class='spark' viewBox='0 0 104 26' width='104' height='26' role='img' aria-label='3 commits in the last 52 weeks'><title>3 commits in the last 52 weeks</title><polyline points='0.0,23.0 2.0,23.0 4.1,23.0 6.1,23.0 8.2,23.0 10.2,23.0 12.2,23.0 14.3,23.0 16.3,23.0 18.4,23.0 20.4,23.0 22.4,23.0 24.5,23.0 26.5,23.0 28.5,23.0 30.6,23.0 32.6,23.0 34.7,23.0 36.7,23.0 38.7,23.0 40.8,23.0 42.8,23.0 44.9,23.0 46.9,23.0 48.9,23.0 51.0,23.0 53.0,23.0 55.1,23.0 57.1,23.0 59.1,23.0 61.2,23.0 63.2,23.0 65.3,23.0 67.3,23.0 69.3,23.0 71.4,23.0 73.4,23.0 75.5,23.0 77.5,23.0 79.5,23.0 81.6,23.0 83.6,23.0 85.6,23.0 87.7,23.0 89.7,23.0 91.8,23.0 93.8,23.0 95.8,23.0 97.9,23.0 99.9,23.0 102.0,23.0 104.0,4.0'/></svg><span>since 2026 · 3 commits/yr</span></p>
+<div class="badges"><button type='button'>PWA</button><button type='button'>offline</button></div>
+<ul class="feat"><li>Six eras, Antiquity to Modern, across movements, regions, and themes</li><li>Every work with its story: what it is, its context, and a hidden detail</li><li>HD images with zoom, plus guided tours through the collection</li><li>Track what you&#x27;ve seen as you wander</li></ul>
+<p class='latest'><b>Latest:</b> Depth tranche: +125 works deepening the masters the app calls essential <span class='when' data-ts='1788492280' title='2026-09-03 23:24'>2d ago</span></p><details><summary>Recent changes</summary><ul><li><span class='when' data-ts='1788479738' title='2026-09-03 19:55'>2d ago</span> Canon audit: +31 works closing the last named gaps</li><li><span class='when' data-ts='1788470106' title='2026-09-03 17:15'>3d ago</span> The Long Gallery — 4602 works, 1991 artists, 3816 plates</li></ul></details>
+<footer><a class="launch" data-slug="long-gallery" href="https://adervec.github.io/long-gallery/" target="_blank" rel="noopener">Launch</a>
+<span class="usage" data-slug="long-gallery">&nbsp;</span></footer>
+</article></div>
+<p id="empty" hidden>Nothing matches. <button id="clearq" type="button">Clear the filter</button></p>
+<p class="note"><b>Private by design:</b> one maker, 15 free, open-source apps —
+no accounts, no servers, no tracking. Everything runs in your browser and your data stays on your device.</p>
+<p class="note"><b>Install any of them:</b> launch the app, then use the browser's
+<i>Install app</i> button (the icon in the address bar in Chrome and Edge). Installed apps get
+their own window and the ones marked <i>offline</i> keep working without a connection.
+This portal installs the same way.</p>
+<footer class="page"><span>generated 2026-09-06 17:48</span>
+<span>usage counts live only in this browser</span><span id="you"></span>
+<span><a href="feed.xml">RSS</a></span>
+<span><a href="https://github.com/adervec">github.com/adervec</a></span></footer>
+</main><script>const GEN=1788731329;const FLEET=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 116, 161, 136, 132, 76, 123, 37, 62, 37, 178, 86, 39, 14, 9];const CHANGES=[[1788731162, "MarksmanApp"], [1788731034, "MarksmanApp"], [1788730945, "MarksmanApp"], [1788730722, "MarksmanApp"], [1788730506, "MarksmanApp"], [1788729935, "Run315"], [1788729922, "Run315"], [1788729780, "Run315"], [1788729481, "learning-pit"], [1788729344, "learning-pit"], [1788728425, "Run315"], [1788726759, "MarksmanApp"], [1788726603, "MarksmanApp"], [1788723905, "MarksmanApp"], [1788723855, "MarksmanApp"], [1788720657, "Tachyread"], [1788492280, "long-gallery"], [1788479738, "long-gallery"], [1788470106, "long-gallery"], [1788450527, "GymTracker315"], [1788433906, "Tachyread"], [1788122853, "Tachyread"], [1787939634, "GymTracker315"], [1787938748, "GymTracker315"], [1787927409, "GymTracker315"], [1787616722, "GymTracker315"], [1787599725, "GymTracker315"], [1787490505, "MarksmanApp"], [1787487490, "GymTracker315"], [1787451917, "MicroMiniger"], [1787451757, "BodybuildingProgressCoach"], [1787451753, "BlackMirrorBikeRide"], [1787451749, "MicroMiniger"], [1787451744, "HandwritingHelper"], [1787434339, "Mise"], [1787434330, "ChessRetabled"], [1787433425, "Tachyread"], [1787433388, "SpeechImprover"], [1787433198, "SpeechImprover"], [1787433175, "Tachyread"], [1787433168, "GymTracker315"], [1787432416, "Mise"], [1787432411, "SpeechImprover"], [1787432407, "MicroMiniger"], [1787432402, "HandwritingHelper"], [1787432398, "BodybuildingProgressCoach"], [1787432394, "BlackMirrorBikeRide"], [1787432386, "ChessRetabled"], [1787432381, "Tachyread"], [1787432374, "GymTracker315"], [1787430805, "BodybuildingProgressCoach"], [1787319636, "Tachyread"], [1787171212, "SpeechImprover"], [1787107407, "GymTracker315"], [1787106764, "SpeechImprover"], [1787106763, "Tachyread"], [1787065583, "SpeechImprover"], [1787054297, "SpeechImprover"], [1787053448, "SpeechImprover"], [1786970017, "Tachyread"]];const APPKIND={"GymTracker315": "lift", "Tachyread": "read", "ChessRetabled": "chess", "GuitarPicker": "practice", "BlackMirrorBikeRide": "ride", "BodybuildingProgressCoach": "checkin", "HandwritingHelper": "write", "MicroMiniger": "paint", "SpeechImprover": "speak", "Mise": "cook", "MarksmanApp": "aim", "Run315": "cardio", "learning-pit": "study", "MusicStudio": "compose", "long-gallery": "art"};const HUES={"GymTracker315": 20, "Tachyread": 270, "ChessRetabled": 165, "GuitarPicker": 45, "BlackMirrorBikeRide": 130, "BodybuildingProgressCoach": 240, "HandwritingHelper": 210, "MicroMiniger": 0, "SpeechImprover": 315, "Mise": 75, "MarksmanApp": 100, "Run315": 190, "learning-pit": 55, "MusicStudio": 295, "long-gallery": 335};const TITLES={"GymTracker315": "GymTracker", "Tachyread": "Tachyread", "ChessRetabled": "ChessRetabled", "GuitarPicker": "GuitarPicker", "BlackMirrorBikeRide": "Black Mirror Bike Ride", "BodybuildingProgressCoach": "Bodybuilding Progress Coach", "HandwritingHelper": "Handwriting Helper", "MicroMiniger": "MicroMiniger", "SpeechImprover": "SpeechImprover", "Mise": "Mise", "MarksmanApp": "Marksman", "Run315": "Run315", "learning-pit": "Learning Pit", "MusicStudio": "Music Studio", "long-gallery": "The Long Gallery"};
+(function(){
+var d=document;
+if("serviceWorker" in navigator&&location.protocol==="https:")
+  navigator.serviceWorker.register("sw.js").catch(function(){});
+// theme: auto -> light -> dark, persisted
+var root=d.documentElement,tbtn=d.getElementById("theme");
+var modes=["auto","light","dark"],icons={auto:"\u25d0",light:"\u2600",dark:"\u263e"};
+function setTheme(m){
+  if(m==="auto")root.removeAttribute("data-theme");else root.setAttribute("data-theme",m);
+  tbtn.textContent=icons[m];tbtn.title="theme: "+m;tbtn.setAttribute("aria-label","theme: "+m);
+  try{localStorage.setItem("portal-theme",m)}catch(err){}}
+var cur="auto";try{cur=localStorage.getItem("portal-theme")||"auto"}catch(err){}
+setTheme(cur);
+tbtn.addEventListener("click",function(){cur=modes[(modes.indexOf(cur)+1)%3];setTheme(cur)});
+// live relative times
+function rel(s){if(s<60)return Math.floor(s)+"s";if(s<3600)return Math.floor(s/60)+"m";
+  if(s<86400)return Math.floor(s/3600)+"h";return Math.floor(s/86400)+"d";}
+function tick(){var now=Date.now()/1000;
+  d.querySelectorAll("[data-ts]").forEach(function(el){
+    var t=parseFloat(el.dataset.ts);if(t)el.textContent=rel(now-t)+" ago";});}
+tick();setInterval(tick,30000);
+// usage counts, and the registry each installed app writes about itself (both
+// same-origin localStorage, this browser only — nothing leaves the device)
+var KEY="portal-usage",IKEY="portal-installed",VKEY="portal-visit";
+var freshOnly=false,fresh={};  // apps that shipped since the visit you last acknowledged
+function usage(){try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(err){return{}}}
+// Each app restamps its entry every installed launch. Nothing can tell us about an
+// uninstall, so an entry unrefreshed for 90 days stops counting as installed.
+function installed(){try{var m=JSON.parse(localStorage.getItem(IKEY)||"{}"),
+  cut=Date.now()-90*864e5,live={};
+  Object.keys(m).forEach(function(k){if(m[k]>cut)live[k]=m[k]});
+  return live;}catch(err){return{}}}
+function paintUsage(){var u=usage(),ins=installed(),now=Date.now()/1000,tot=0,tried=0;
+  d.querySelectorAll(".usage").forEach(function(el){
+    var x=u[el.dataset.slug],pre=ins[el.dataset.slug]?"installed \u00b7 ":"";
+    el.textContent=pre+(x?("opened "+x.n+"\u00d7 \u00b7 "+rel(now-x.last)+" ago"):"not opened yet");});
+  d.querySelectorAll(".tiles a").forEach(function(el){
+    el.classList.toggle("ins",!!ins[el.dataset.slug]);});
+  Object.keys(u).forEach(function(k){tot+=u[k].n;tried++;});
+  var you=d.getElementById("you");
+  you.textContent=tot?("you: "+tot+" launch"+(tot>1?"es":"")+" across "+tried+" app"+(tried>1?"s":"")):"";
+  var rec=Object.keys(u).sort(function(a,b){return u[b].last-u[a].last}).slice(0,4),
+      host=d.getElementById("recent");
+  if(rec.length){host.hidden=false;var box=host.querySelector(".rr");box.innerHTML="";
+    rec.forEach(function(s){var c=d.getElementById(s.toLowerCase());if(!c)return;
+      var a=d.createElement("a");a.href="#"+s.toLowerCase();a.textContent=c.dataset.title;
+      box.appendChild(a);});}}
+paintUsage();
+function bump(slug){var u=usage();if(!APPKIND[slug])return;
+  u[slug]={n:((u[slug]||{}).n||0)+1,last:Date.now()/1000};
+  try{localStorage.setItem(KEY,JSON.stringify(u))}catch(err){}
+  paintUsage();sheet();}
+// An installed app can only take over the URL on a top-level navigation, so
+// installed apps get same-tab; everything else opens in a tab beside the portal.
+function launch(slug,url){bump(slug);
+  if(installed()[slug]){location.href=url;return;}
+  if(!window.open(url,"_blank","noopener"))location.href=url;}
+d.querySelectorAll(".launch").forEach(function(a){
+  a.addEventListener("click",function(ev){
+    if(installed()[a.dataset.slug]){ev.preventDefault();launch(a.dataset.slug,a.href);}
+    else bump(a.dataset.slug);});});
+// tiles: a tap jumps to the card, a hold launches the app
+var HOLD=450,timer=null,fired=false,held=null,sx=0,sy=0;
+function endHold(){if(timer)clearTimeout(timer);timer=null;
+  if(held)held.classList.remove("holding");held=null;}
+d.querySelectorAll(".tiles a").forEach(function(a){
+  a.addEventListener("pointerdown",function(ev){
+    if(ev.button)return;
+    fired=false;sx=ev.clientX;sy=ev.clientY;held=a;a.classList.add("holding");
+    timer=setTimeout(function(){fired=true;endHold();
+      if(navigator.vibrate)navigator.vibrate(15);
+      launch(a.dataset.slug,a.dataset.url);},HOLD);});
+  a.addEventListener("pointermove",function(ev){
+    if(timer&&(Math.abs(ev.clientX-sx)>10||Math.abs(ev.clientY-sy)>10))endHold();});
+  ["pointerup","pointercancel","pointerleave"].forEach(function(t){a.addEventListener(t,endHold)});
+  a.addEventListener("contextmenu",function(ev){ev.preventDefault()});
+  a.addEventListener("click",function(ev){if(fired){ev.preventDefault();fired=false;}});});
+// filter + count + empty state; badges are filter shortcuts
+var q=d.getElementById("q"),count=d.getElementById("count"),empty=d.getElementById("empty"),
+    grid=d.querySelector(".grid");
+function cards(){return Array.prototype.slice.call(grid.children)}
+function applyFilter(){var v=q.value.toLowerCase(),n=0;
+  cards().forEach(function(c){
+    var show=c.dataset.k.indexOf(v)>=0&&(!freshOnly||!!fresh[c.dataset.slug]);
+    c.style.display=show?"":"none";if(show)n++;});
+  count.textContent=n+" of "+cards().length+" apps"+(freshOnly?" · new only":"");
+  empty.hidden=n>0;}
+applyFilter();
+q.addEventListener("input",applyFilter);
+d.getElementById("clearq").addEventListener("click",function(){q.value="";applyFilter();q.focus()});
+d.addEventListener("click",function(ev){
+  var b=ev.target.closest(".badges button");
+  if(b){q.value=b.textContent.replace(/^\u26a0 /,"");applyFilter();
+    q.scrollIntoView({block:"nearest"});}});
+d.addEventListener("keydown",function(ev){
+  var t=ev.target.tagName;
+  if(/^[0-9]$/.test(ev.key)&&t!=="INPUT"&&t!=="SELECT"&&t!=="TEXTAREA"&&!ev.ctrlKey&&!ev.metaKey&&!ev.altKey){
+    var tl=d.querySelectorAll(".tiles a")[ev.key==="0"?9:+ev.key-1];
+    if(tl){ev.preventDefault();launch(tl.dataset.slug,tl.dataset.url);}}
+  if(ev.key==="/"&&t!=="INPUT"&&t!=="SELECT"&&t!=="TEXTAREA"){ev.preventDefault();q.focus();}
+  if(ev.key==="Escape"&&t==="INPUT"){q.value="";applyFilter();}});
+// character sheet + habits, from what the apps report (same-origin localStorage,
+// [ts, slug, kind, amount] per thing you did) — launch counts fill in until they do.
+var AKEY="portal-activity";
+var STATS=["STR","DEX","END","PSI","INT","CHR","VIT"];
+// what each kind of activity feeds. Loose on purpose: this is a character sheet, not a lab.
+var KIND={lift:{STR:1,VIT:.3},cardio:{END:1,VIT:.4},ride:{END:1,VIT:.4},read:{INT:1,PSI:.3},
+  chess:{INT:.7,PSI:.7},practice:{DEX:1,CHR:.4},write:{DEX:.8,PSI:.3},speak:{CHR:1,PSI:.3},
+  paint:{DEX:.8,PSI:.5},cook:{VIT:1,DEX:.3},checkin:{VIT:.6,PSI:.4},focus:{PSI:1},
+  aim:{DEX:1,PSI:.4},study:{INT:1,PSI:.3},compose:{PSI:.8,CHR:.6},art:{PSI:.8,INT:.4}};
+function activity(){var ev=[];try{ev=JSON.parse(localStorage.getItem(AKEY)||"[]")}catch(err){}
+  if(!Array.isArray(ev))ev=[];
+  ev=ev.filter(function(x){return Array.isArray(x)&&x.length>=3&&APPKIND[x[1]]});
+  var real=ev.length>0,u=usage();
+  if(!real)Object.keys(u).forEach(function(s){if(APPKIND[s])ev.push([u[s].last,s,APPKIND[s],.25*Math.min(u[s].n,8)])});
+  return{events:ev,real:real};}
+function sheet(){var a=activity(),now=Date.now()/1000,score={},by={},rate7={},rate21={};
+  STATS.forEach(function(s){score[s]=0;by[s]={}});
+  a.events.forEach(function(x){var ts=+x[0]>2e10?x[0]/1000:+x[0],age=(now-ts)/86400;if(!(age>=0))return;
+    var w=Math.pow(2,-age/14)*(+x[3]||1),m=KIND[x[2]]||KIND[APPKIND[x[1]]]||{};
+    Object.keys(m).forEach(function(s){score[s]+=w*m[s];by[s][x[1]]=(by[s][x[1]]||0)+w*m[s]});
+    if(age<7)rate7[x[1]]=(rate7[x[1]]||0)+(+x[3]||1)/7;
+    else if(age<28)rate21[x[1]]=(rate21[x[1]]||0)+(+x[3]||1)/21;});
+  var host=d.getElementById("sheet");
+  if(!a.events.length){host.hidden=true;return;}
+  host.hidden=false;
+  var mx=Math.max.apply(null,STATS.map(function(s){return score[s]}))||1,st=d.getElementById("stats");st.innerHTML="";
+  function level(v){return v?Math.min(20,Math.round(1+4*Math.log2(1+v))):1}
+  STATS.forEach(function(s){var v=score[s],lv=level(v);
+    var nm=d.createElement("span");nm.className="nm";nm.textContent=s;
+    var bar=d.createElement("span");bar.className="bar";var i=d.createElement("i");i.style.width=Math.round(100*v/mx)+"%";bar.appendChild(i);
+    var l=d.createElement("span");l.className="lv";l.innerHTML="lv <b>"+lv+"</b>";
+    st.appendChild(nm);st.appendChild(bar);st.appendChild(l);
+    var tot=0,who=Object.keys(by[s]);who.forEach(function(k){tot+=by[s][k]});
+    if(tot){who.sort(function(p,q){return by[s][q]-by[s][p]});
+      var src=d.createElement("span");src.className="src";
+      src.textContent="← "+who.slice(0,3).map(function(k){return TITLES[k]+" "+Math.round(100*by[s][k]/tot)+"%"}).join(" · ");
+      st.appendChild(src);}});
+  // radar: the seven stats as one shape, so balance is visible at a glance
+  var R=d.getElementById("radar"),cx=100,cy=100,rad=70,n=STATS.length,pt=function(i,f){
+    var ang=-Math.PI/2+i*2*Math.PI/n;return [(cx+Math.cos(ang)*rad*f).toFixed(1),(cy+Math.sin(ang)*rad*f).toFixed(1)]};
+  var svg="";[.25,.5,.75,1].forEach(function(f){svg+="<polygon class='web' points='"+STATS.map(function(_,i){return pt(i,f).join(",")}).join(" ")+"'/>"});
+  STATS.forEach(function(s,i){var o=pt(i,1);svg+="<line class='axis' x1='"+cx+"' y1='"+cy+"' x2='"+o[0]+"' y2='"+o[1]+"'/>"});
+  svg+="<polygon class='area' points='"+STATS.map(function(s,i){return pt(i,Math.max(.04,score[s]/mx)).join(",")}).join(" ")+"'/>";
+  STATS.forEach(function(s,i){var o=pt(i,1.22);svg+="<text class='lbl"+(score[s]===mx?" hi":"")+"' x='"+o[0]+"' y='"+o[1]+"' text-anchor='middle' dominant-baseline='middle'>"+s+"</text>"});
+  R.innerHTML=svg;
+  // level-ups: compare with a snapshot at least a day old, then roll the snapshot forward
+  var LKEY="portal-levels",lv={};STATS.forEach(function(s){lv[s]=level(score[s])});
+  var snap=null;try{snap=JSON.parse(localStorage.getItem(LKEY)||"null")}catch(err){}
+  // compare against the previous day's snapshot, which stays fixed until the next rollover —
+  // so a refresh never erases the arrows (same rule as what's-new)
+  var ups=[],base=snap&&(snap.prev||snap.levels);
+  if(base){STATS.forEach(function(s){if(lv[s]>(base[s]||0))ups.push(s+" "+(base[s]||0)+"→"+lv[s])});}
+  if(!snap||Date.now()-snap.at>864e5){try{localStorage.setItem(LKEY,JSON.stringify({at:Date.now(),levels:lv,prev:snap?snap.levels:null}))}catch(err){}}
+  ups.forEach(function(u){var s=u.split(" ")[0],i=STATS.indexOf(s);if(i<0)return;
+    var lvEl=st.querySelectorAll(".lv")[i];if(lvEl){var b=d.createElement("b");b.className="up";b.textContent="↑";lvEl.appendChild(b);}});
+  d.getElementById("lvlups").textContent=ups.length?"⬆ level up: "+ups.join(" · "):"";
+  var hb=d.getElementById("habitlist"),groups={strong:[],steady:[],fresh:[],resting:[]};
+  Object.keys(APPKIND).forEach(function(k){var r7=rate7[k]||0,r21=rate21[k]||0;
+    if(!r7&&!r21)return;
+    if(!r21&&r7)groups.fresh.push(k);else if(r7>=.8*r21&&r7)groups.strong.push(k);
+    else if(r7<.5*r21)groups.resting.push(k);else groups.steady.push(k);});
+  function names(ks){return ks.map(function(k){return TITLES[k]}).join(", ")}
+  var h="";
+  if(groups.strong.length)h+="<p>\ud83d\udcaa <b>going strong:</b> "+names(groups.strong)+"</p>";
+  if(groups.steady.length)h+="<p>\ud83d\udfe2 <b>steady:</b> "+names(groups.steady)+"</p>";
+  if(groups.fresh.length)h+="<p>\ud83c\udf31 <b>new this week:</b> "+names(groups.fresh)+"</p>";
+  if(groups.resting.length)h+="<p>\ud83c\udf42 <b>resting lately:</b> "+names(groups.resting)+" — still here whenever you're back</p>";
+  hb.innerHTML=h||"<p>habits show up once there's a couple of weeks of activity</p>";
+  // 12-week heatmap (colour = the day's busiest app, depth = how much), fleet streak, journal
+  var DAY=864e5,today=new Date();today.setHours(0,0,0,0);var t0=today.getTime();
+  var days={};a.events.forEach(function(x){var ts=+x[0]>2e10?x[0]:x[0]*1000,k=Math.floor((t0-new Date(new Date(ts).setHours(0,0,0,0)).getTime())/DAY+.5);
+    if(k<0||k>=84)return;var dd=days[k]||(days[k]={tot:0,by:{}});var amt=+x[3]||1;dd.tot+=amt;dd.by[x[1]]=(dd.by[x[1]]||0)+amt;});
+  var heat=d.getElementById("heat"),cells="",mxd=1;Object.keys(days).forEach(function(k){mxd=Math.max(mxd,days[k].tot)});
+  // columns are weeks, oldest first; rows Mon..Sun so the grid reads like a calendar
+  var dow=(today.getDay()+6)%7;  // this week's Monday is `dow` days back; column 11 is this week
+  for(var c=0;c<12;c++)for(var r=0;r<7;r++){var k=dow+(11-c)*7-r;
+    if(k<0||k>83){cells+="<i style='visibility:hidden'></i>";continue;}
+    var dd=days[k],dt=new Date(t0-k*DAY),lab=dt.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+    if(!dd){cells+="<i title='"+lab+"'"+(k===0?" class='today'":"")+"></i>";continue;}
+    var top=Object.keys(dd.by).sort(function(p,q){return dd.by[q]-dd.by[p]})[0];
+    cells+="<i class='on"+(k===0?" today":"")+"' style='--h:"+(HUES[top]||220)+";--a:"+(0.25+0.75*Math.min(1,dd.tot/mxd)).toFixed(2)+"' title='"+lab+" · "
+      +Object.keys(dd.by).map(function(s){return TITLES[s]+" "+Math.round(dd.by[s]*10)/10}).join(", ")+"'></i>";}
+  heat.innerHTML=cells;
+  var used={};a.events.forEach(function(x){used[x[1]]=1});
+  d.getElementById("heatkey").innerHTML=Object.keys(used).map(function(s){return "<span><i style='--h:"+HUES[s]+"'></i>"+TITLES[s]+"</span>"}).join("<br>");
+  var streak=0;for(var k=(days[0]?0:1);days[k];k++)streak++;
+  var wk=0,by7={};Object.keys(days).forEach(function(k){if(k<7)wk+=days[k].tot});
+  Object.keys(days).forEach(function(k){if(k<56){var wd=(new Date(t0-k*DAY).getDay()+6)%7;by7[wd]=(by7[wd]||0)+days[k].tot}});
+  var best=Object.keys(by7).sort(function(p,q){return by7[q]-by7[p]})[0],
+      names=["Mondays","Tuesdays","Wednesdays","Thursdays","Fridays","Saturdays","Sundays"];
+  d.getElementById("actsum").innerHTML="your activity · "+(streak?"<b>🔥 "+streak+"-day streak</b> · ":"")
+    +"<b>"+Math.round(wk)+"</b> this week"+(best!==undefined?" · busiest on <b>"+names[best]+"</b>":"");
+  var jl=d.getElementById("journal"),rows=[];
+  for(var k=0;k<14;k++){if(!days[k])continue;var dt=new Date(t0-k*DAY);
+    rows.push("<li><b>"+(k===0?"today":k===1?"yesterday":dt.toLocaleDateString(undefined,{weekday:"short",day:"numeric"}))+"</b> "
+      +Object.keys(days[k].by).map(function(s){return TITLES[s]+" ×"+Math.round(days[k].by[s]*10)/10}).join(" · ")+"</li>");}
+  jl.innerHTML=rows.join("")||"<li>nothing in the last two weeks</li>";
+  // per-card personal line + weekly rhythm: the same events, seen from each app
+  var act30={},byDow={};a.events.forEach(function(x){var ts=+x[0]>2e10?x[0]/1000:+x[0],age=(now-ts)/86400;
+    if(age<30)act30[x[1]]=(act30[x[1]]||0)+1;
+    if(age<56){var wd=(new Date(ts*1000).getDay()+6)%7;(byDow[x[1]]=byDow[x[1]]||[0,0,0,0,0,0,0])[wd]+=(+x[3]||1);}});
+  d.querySelectorAll(".usage").forEach(function(el){var n=act30[el.dataset.slug];
+    if(n&&el.textContent.indexOf("this month")<0)el.innerHTML="<span class='you'>"+n+" activit"+(n>1?"ies":"y")+" this month</span> · "+el.textContent;});
+  var DN=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  function rhythm(k){var w=byDow[k];if(!w)return "";var tot=w.reduce(function(p,q){return p+q},0);if(tot<4)return "";
+    var idx=[0,1,2,3,4,5,6].sort(function(p,q){return w[q]-w[p]}).filter(function(i){return w[i]>0}).slice(0,3);
+    var cover=idx.reduce(function(p,i){return p+w[i]},0)/tot;return cover>=.6?" ("+idx.sort().map(function(i){return DN[i]}).join(" · ")+")":"";}
+  d.querySelectorAll("#habitlist p").forEach(function(pEl){Object.keys(TITLES).forEach(function(k){
+    var r=rhythm(k);if(r&&pEl.textContent.indexOf(TITLES[k])>=0&&/going strong|steady/.test(pEl.textContent))pEl.innerHTML=pEl.innerHTML.replace(TITLES[k],TITLES[k]+"<span class='rh'>"+r+"</span>");});});
+  // what an agent gets to see when you ask for a review (built here, sent by the panel below)
+  window.__sheet={generatedAt:new Date().toISOString(),levels:lv,
+    sources:STATS.reduce(function(o,s){var tot=0;Object.keys(by[s]).forEach(function(k){tot+=by[s][k]});
+      o[s]=Object.keys(by[s]).map(function(k){return TITLES[k]+" "+Math.round(100*by[s][k]/tot)+"%"});return o},{}),
+    habits:{goingStrong:groups.strong.map(function(k){return TITLES[k]+rhythm(k)}),steady:groups.steady.map(function(k){return TITLES[k]+rhythm(k)}),
+      newThisWeek:groups.fresh.map(function(k){return TITLES[k]}),resting:groups.resting.map(function(k){return TITLES[k]})},
+    streakDays:streak,thisWeek:Math.round(wk),busiestWeekday:best!==undefined?names[best]:null,
+    journal:rows.map(function(r){return r.replace(/<[^>]+>/g,"")}),
+    installed:Object.keys(installed()),launchesByApp:usage()};
+  askCoach();
+  d.getElementById("sheetnote").textContent=(a.real?a.events.length+" activities reported by your apps":
+    "based on launches only so far — apps report real activity as they're updated")
+    +" · last 2 weeks count double · lives only in this browser";}
+sheet();
+// ask your coach: the portal is a cowork app too — the shared panel in fs mode, one `review` channel
+var askMounted=false;
+function askCoach(){var sec=d.getElementById("ask"),host=d.getElementById("askhost"),out=d.getElementById("askreply");
+  if(!window.__sheet)return;sec.hidden=false;
+  var cached="";try{cached=localStorage.getItem("portal-review-reply")||""}catch(err){}
+  if(cached&&!out.textContent){out.textContent=cached;out.hidden=false;}
+  function mount(){if(askMounted||!window.cowork)return;askMounted=true;
+    function djb2(t){var h=5381;for(var i=0;i<t.length;i++)h=((h*33)^t.charCodeAt(i))>>>0;return h.toString(16)}
+    cowork.mount(host,{app:"adervec-portal",
+      manifest:{protocol:"cowork-manifest",protocolVersion:1,app:"adervec-portal",
+        channels:[{name:"review",request:["review/request.json"],instructions:"review/INSTRUCTIONS.md",replyPath:"review/reply.json"}]},
+      files:function(){var payload=window.__sheet;return {
+        "review/request.json":{protocol:"adervec-portal-review",protocolVersion:1,kind:"review-request",
+          generatedAt:new Date().toISOString(),requestHash:djb2(JSON.stringify(payload)),payload:payload},
+        "review/INSTRUCTIONS.md":"# adervec portal — review channel\n\nRead `review/request.json`: `payload` is one person's week across all their apps — "+
+          "character-sheet levels (STR/DEX/END/PSI/INT/CHR/VIT, 1–20) with which app feeds each, habits (going strong / steady / new / resting, with weekday rhythm), "+
+          "streak, this week's total, a two-week journal, and launch counts.\n\nWrite `review/reply.json`:\n\n```json\n{ \"requestHash\": \"<copy the request's requestHash verbatim>\",\n"+
+          "  \"reply\": \"<a warm, specific weekly review in markdown: what's going well and why it shows in the numbers, what's quietly resting (no guilt — nobody runs ten apps at once), "+
+          "one concrete, small suggestion for next week that fits the rhythm they already have. Under 200 words.>\" }\n```\n"}},
+      apply:function(ch,reply){var text=typeof reply==="string"?reply:(reply&&(reply.reply||(reply.payload&&reply.payload.reply)))||JSON.stringify(reply,null,2);
+        try{localStorage.setItem("portal-review-reply",text)}catch(err){}
+        out.textContent=text;out.hidden=false;bump("adervec-portal");}});}
+  if(window.cowork)mount();else window.addEventListener("load",mount);}
+// what's new since your last visit. The stamp only moves when you acknowledge the
+// banner, so a refresh (or a second look an hour later) doesn't erase the markers.
+var wn=d.getElementById("whatsnew");
+function markSeen(){try{localStorage.setItem(VKEY,String(Math.floor(Date.now()/1000)))}catch(err){}}
+(function(){
+  var s=0;try{s=+localStorage.getItem(VKEY)||0}catch(err){}
+  if(!s){markSeen();return;}                      // first visit: nothing is "new" yet
+  var n=0;CHANGES.forEach(function(c){if(c[0]>s){n++;fresh[c[1]]=1;}});
+  var na=Object.keys(fresh).length;
+  if(!n){markSeen();return;}
+  d.querySelectorAll(".tiles a").forEach(function(a){
+    if(fresh[a.dataset.slug])a.classList.add("new")});
+  cards().forEach(function(c){if(fresh[c.dataset.slug])c.classList.add("fresh")});
+  d.querySelectorAll(".ship ol li").forEach(function(li){
+    var w=li.querySelector(".when");if(w&&+w.dataset.ts>s)li.classList.add("new")});
+  wn.querySelector("b").textContent=n+" change"+(n>1?"s":"")+" across "+na+" app"+(na>1?"s":"")
+    +" since your last visit, "+rel(Date.now()/1000-s)+" ago";
+  wn.hidden=false;
+  var show=d.getElementById("wnshow");
+  show.addEventListener("click",function(){freshOnly=!freshOnly;
+    show.textContent=freshOnly?"show every app":"show me";
+    applyFilter();grid.scrollIntoView({block:"start"});});
+  d.getElementById("wndismiss").addEventListener("click",function(){
+    markSeen();wn.hidden=true;freshOnly=false;fresh={};applyFilter();
+    d.querySelectorAll(".new,.fresh").forEach(function(el){
+      el.classList.remove("new");el.classList.remove("fresh")});});
+})();
+// sort
+var sort=d.getElementById("sort");
+sort.addEventListener("change",function(){var u=usage(),cs=cards();
+  cs.sort(function(a,b){
+    if(sort.value==="updated")return(+b.dataset.pushed||0)-(+a.dataset.pushed||0);
+    if(sort.value==="used")return(((u[b.dataset.slug]||{}).n)||0)-(((u[a.dataset.slug]||{}).n)||0);
+    return a.dataset.slug.localeCompare(b.dataset.slug);});
+  cs.forEach(function(c){grid.appendChild(c)});});
+// app of the day: deterministic daily pick
+var slugs=cards().map(function(c){return c.dataset.slug}).sort();
+if(slugs.length){var pick=slugs[Math.floor(Date.now()/864e5)%slugs.length],
+    card=d.getElementById(pick.toLowerCase());
+  if(card)card.classList.add("appday");}
+// PWA install prompt
+var ib=d.getElementById("install"),deferred=null;
+window.addEventListener("beforeinstallprompt",function(ev){
+  ev.preventDefault();deferred=ev;ib.hidden=false;});
+ib.addEventListener("click",function(){
+  if(deferred){deferred.prompt();deferred=null;ib.hidden=true;}});
+window.addEventListener("appinstalled",function(){ib.hidden=true;});
+// fleet chart hover: crosshair + tooltip
+var fs=d.getElementById("fleet");
+if(fs&&window.FLEET&&FLEET.length>1){
+  var tip=d.getElementById("fleettip"),cur2=d.getElementById("cursor"),n=FLEET.length;
+  fs.addEventListener("mousemove",function(ev){var r=fs.getBoundingClientRect();
+    var i=Math.min(n-1,Math.max(0,Math.round((ev.clientX-r.left)/r.width*(n-1))));
+    var wk=new Date((GEN-(n-1-i)*604800)*1000);
+    tip.hidden=false;
+    tip.textContent="week of "+wk.toLocaleDateString(undefined,{month:"short",day:"numeric"})
+      +": "+FLEET[i]+" commit"+(FLEET[i]===1?"":"s");
+    var x=(ev.clientX-r.left);
+    tip.style.left=Math.min(r.width-tip.offsetWidth,Math.max(0,x-tip.offsetWidth/2))+"px";
+    var vx=i*(520/(n-1));
+    cur2.setAttribute("x1",vx);cur2.setAttribute("x2",vx);
+    cur2.setAttribute("visibility","visible");});
+  fs.addEventListener("mouseleave",function(){tip.hidden=true;
+    cur2.setAttribute("visibility","hidden");});}
+})();
+</script></body></html>
