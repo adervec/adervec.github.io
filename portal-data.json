@@ -41,20 +41,20 @@
    0,
    0,
    0,
-   2,
-   65,
-   129,
-   58,
-   71,
+   6,
+   87,
+   123,
+   46,
+   63,
    21,
-   0,
-   12,
-   8,
    3,
-   13,
+   9,
+   9,
+   7,
+   9,
    20,
    6,
-   6,
+   5,
    1
   ],
   "changes": [
@@ -142,21 +142,21 @@
    0,
    0,
    0,
-   1,
-   17,
-   32,
-   50,
-   35,
-   55,
-   122,
-   21,
-   53,
-   34,
-   62,
+   10,
+   10,
    39,
+   41,
+   35,
+   73,
+   106,
+   19,
+   63,
+   48,
+   40,
+   37,
    12,
-   0,
-   5
+   3,
+   4
   ],
   "changes": [
    {
@@ -243,8 +243,8 @@
    0,
    0,
    0,
-   0,
-   4,
+   1,
+   3,
    0,
    25,
    19,
@@ -252,8 +252,8 @@
    0,
    0,
    0,
-   0,
-   24,
+   13,
+   11,
    4,
    4,
    0,
@@ -353,9 +353,9 @@
    0,
    0,
    0,
-   0,
-   7,
-   3,
+   4,
+   4,
+   2,
    0,
    0,
    0
@@ -445,8 +445,8 @@
    0,
    0,
    0,
-   2,
-   5,
+   4,
+   3,
    0,
    0,
    0,
@@ -457,8 +457,8 @@
    0,
    15,
    2,
-   1,
-   1,
+   2,
+   0,
    0
   ],
   "changes": [
@@ -546,20 +546,20 @@
    0,
    0,
    0,
-   0,
-   9,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   9,
-   4,
-   4,
    2,
+   7,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   5,
+   4,
+   4,
+   6,
+   0,
    0
   ],
   "changes": [
@@ -656,11 +656,11 @@
    0,
    1,
    0,
-   0,
-   19,
+   2,
+   17,
    3,
-   1,
-   1,
+   2,
+   0,
    0
   ],
   "changes": [
@@ -760,8 +760,8 @@
    0,
    2,
    2,
-   1,
-   2,
+   3,
+   0,
    0
   ],
   "changes": [
@@ -841,18 +841,18 @@
    0,
    0,
    0,
-   1,
-   5,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   15,
+   2,
    4,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   2,
+   15,
+   2,
    8,
    0,
    0
@@ -945,14 +945,14 @@
    0,
    0,
    0,
-   0,
-   5,
-   0,
+   4,
+   1,
    0,
    1,
    0,
    0,
-   5,
+   2,
+   3,
    2,
    2,
    0,
@@ -1002,7 +1002,7 @@
   ]
  },
  "MarksmanApp": {
-  "pushed_at": "2026-09-06T21:46:06Z",
+  "pushed_at": "2026-09-07T14:36:13Z",
   "stars": 0,
   "created": "2026-05-30T03:50:29Z",
   "weeks": [
@@ -1049,17 +1049,21 @@
    0,
    0,
    0,
-   0,
-   1,
    1,
    0,
-   7,
    1,
-   0,
    2,
-   0
+   5,
+   1,
+   2,
+   0,
+   9
   ],
   "changes": [
+   {
+    "date": "2026-09-07T14:36:05Z",
+    "msg": "Wire Marksman into the maker portal"
+   },
    {
     "date": "2026-09-06T21:46:02Z",
     "msg": "Read the photos phones actually take"
@@ -1095,15 +1099,11 @@
    {
     "date": "2026-09-06T19:44:15Z",
     "msg": "Tidy the tree for a public first impression"
-   },
-   {
-    "date": "2026-08-23T13:08:25Z",
-    "msg": "Stop the drills self-check pinning one pack's numbers"
    }
   ]
  },
  "Run315": {
-  "pushed_at": "2026-09-06T21:25:37Z",
+  "pushed_at": "2026-09-07T19:04:11Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1158,9 +1158,13 @@
    0,
    0,
    0,
-   0
+   4
   ],
   "changes": [
+   {
+    "date": "2026-09-07T19:04:07Z",
+    "msg": "Wire Run315 into the maker portal"
+   },
    {
     "date": "2026-09-06T21:25:35Z",
     "msg": "Normalise line endings so commits stop shouting about CRLF"
@@ -1180,7 +1184,7 @@
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-09-06T21:18:02Z",
+  "pushed_at": "2026-09-07T14:45:14Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1235,9 +1239,13 @@
    0,
    0,
    0,
-   0
+   2
   ],
   "changes": [
+   {
+    "date": "2026-09-07T14:45:11Z",
+    "msg": "Wire the Pit into the maker portal"
+   },
    {
     "date": "2026-09-06T21:18:01Z",
     "msg": "README: live URL, deploy is a branch push"
@@ -1249,7 +1257,7 @@
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-09-06T19:06:36Z",
+  "pushed_at": "2026-09-07T14:48:10Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
@@ -1308,6 +1316,10 @@
   ],
   "changes": [
    {
+    "date": "2026-09-07T14:48:07Z",
+    "msg": "Wire Music Studio into the maker portal"
+   },
+   {
     "date": "2026-08-12T22:53:48Z",
     "msg": "Add CI and GitHub Pages deploy workflows"
    },
@@ -1322,7 +1334,7 @@
   ]
  },
  "long-gallery": {
-  "pushed_at": "2026-09-04T03:24:51Z",
+  "pushed_at": "2026-09-07T19:06:20Z",
   "stars": 0,
   "created": "2026-08-25T00:51:45Z",
   "weeks": [
@@ -1380,6 +1392,14 @@
    3
   ],
   "changes": [
+   {
+    "date": "2026-09-07T19:06:17Z",
+    "msg": "Precache the page with cache:'reload'"
+   },
+   {
+    "date": "2026-09-07T14:38:24Z",
+    "msg": "Wire the gallery into the maker portal"
+   },
    {
     "date": "2026-09-04T03:24:40Z",
     "msg": "Depth tranche: +125 works deepening the masters the app calls essential"
