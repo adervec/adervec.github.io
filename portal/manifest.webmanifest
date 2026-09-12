@@ -1,7 +1,7 @@
 {
  "name": "adervec \u2014 free, local-first web apps",
  "short_name": "adervec apps",
- "description": "Portal for 15 free web apps: launch, install, and follow changes.",
+ "description": "Portal for 16 free web apps: launch, install, and follow changes.",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",

@@ -41,21 +41,21 @@
    0,
    0,
    0,
-   6,
-   87,
-   123,
-   46,
-   63,
+   42,
+   131,
+   73,
+   79,
    21,
-   3,
+   0,
    9,
    9,
-   7,
-   9,
-   20,
-   6,
+   4,
+   14,
+   19,
    5,
-   1
+   8,
+   1,
+   0
   ],
   "changes": [
    {
@@ -101,7 +101,7 @@
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-09-06T18:52:00Z",
+  "pushed_at": "2026-09-11T16:24:17Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -142,23 +142,27 @@
    0,
    0,
    0,
-   10,
-   10,
-   39,
-   41,
-   35,
-   73,
-   106,
-   19,
-   63,
-   48,
-   40,
+   18,
+   13,
+   61,
    37,
-   12,
-   3,
+   49,
+   110,
+   39,
+   55,
+   24,
+   62,
+   53,
+   6,
+   6,
+   5,
    4
   ],
   "changes": [
+   {
+    "date": "2026-09-11T16:23:04Z",
+    "msg": "Trackyread bulk link: one editable table with safe, explained guesses"
+   },
    {
     "date": "2026-09-06T18:50:57Z",
     "msg": "Audiobook sync: partition download folders by Trackyread status"
@@ -194,10 +198,6 @@
    {
     "date": "2026-08-17T12:33:37Z",
     "msg": "Audiobook command centre: cross-book queue, library and analytics"
-   },
-   {
-    "date": "2026-08-14T02:20:34Z",
-    "msg": "Menu emoji, mobile section bars, no stray audio focus, full-screen controls"
    }
   ]
  },
@@ -243,18 +243,18 @@
    0,
    0,
    0,
-   1,
+   4,
+   0,
+   22,
+   19,
    3,
    0,
-   25,
-   19,
    0,
    0,
    0,
-   0,
-   13,
-   11,
+   24,
    4,
+   0,
    4,
    0,
    0
@@ -344,18 +344,18 @@
    0,
    0,
    0,
-   6,
-   7,
+   13,
    0,
+   1,
    3,
-   2,
+   1,
    0,
    0,
    0,
    0,
-   4,
-   4,
-   2,
+   7,
+   3,
+   0,
    0,
    0,
    0
@@ -445,8 +445,7 @@
    0,
    0,
    0,
-   4,
-   3,
+   7,
    0,
    0,
    0,
@@ -457,6 +456,7 @@
    0,
    15,
    2,
+   0,
    2,
    0,
    0
@@ -505,7 +505,7 @@
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-09-03T07:34:53Z",
+  "pushed_at": "2026-09-11T05:21:58Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -546,8 +546,7 @@
    0,
    0,
    0,
-   2,
-   7,
+   9,
    0,
    0,
    0,
@@ -555,9 +554,10 @@
    0,
    0,
    0,
-   5,
+   0,
+   9,
    4,
-   4,
+   0,
    6,
    0,
    0
@@ -606,7 +606,7 @@
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-08-23T02:22:27Z",
+  "pushed_at": "2026-09-07T20:13:30Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -656,14 +656,18 @@
    0,
    1,
    0,
-   2,
    17,
-   3,
+   5,
+   0,
    2,
    0,
-   0
+   1
   ],
   "changes": [
+   {
+    "date": "2026-09-07T20:13:27Z",
+    "msg": "Add the MIT license"
+   },
    {
     "date": "2026-08-23T02:22:24Z",
     "msg": "Coach card \u2014 folder cowork through the maker's shared panel"
@@ -699,10 +703,6 @@
    {
     "date": "2026-08-07T21:17:35Z",
     "msg": "Measure spacing along the writing's slant"
-   },
-   {
-    "date": "2026-08-07T21:14:38Z",
-    "msg": "Support nine alphabets, and fix two real bugs found doing it"
    }
   ]
  },
@@ -758,8 +758,8 @@
    1,
    0,
    0,
-   2,
-   2,
+   4,
+   0,
    3,
    0,
    0
@@ -800,7 +800,7 @@
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-08-22T21:16:30Z",
+  "pushed_at": "2026-09-12T02:04:38Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -841,8 +841,7 @@
    0,
    0,
    0,
-   2,
-   4,
+   6,
    0,
    0,
    0,
@@ -850,14 +849,23 @@
    0,
    0,
    0,
-   2,
-   15,
-   2,
-   8,
    0,
-   0
+   12,
+   7,
+   5,
+   3,
+   0,
+   1
   ],
   "changes": [
+   {
+    "date": "2026-09-12T02:04:36Z",
+    "msg": "Reading projects: document import, words-per-passage at creation, passage list; live word underline"
+   },
+   {
+    "date": "2026-09-11T22:59:54Z",
+    "msg": "Picker: already-used passages/prompts sink to a marked \"Already read\" group"
+   },
    {
     "date": "2026-08-22T21:16:28Z",
     "msg": "Lint: optional catch binding in the portal activity beacon"
@@ -889,14 +897,6 @@
    {
     "date": "2026-08-18T11:44:08Z",
     "msg": "Neuromuscular cues in post-recording analysis"
-   },
-   {
-    "date": "2026-08-13T02:36:27Z",
-    "msg": "Register install beacon for the app portal"
-   },
-   {
-    "date": "2026-08-12T00:32:45Z",
-    "msg": "Maker portal link in Help footer"
    }
   ]
  },
@@ -945,15 +945,15 @@
    0,
    0,
    0,
-   4,
+   5,
+   0,
+   0,
    1,
    0,
-   1,
    0,
+   5,
+   2,
    0,
-   2,
-   3,
-   2,
    2,
    0,
    0
@@ -1002,7 +1002,7 @@
   ]
  },
  "MarksmanApp": {
-  "pushed_at": "2026-09-07T14:36:13Z",
+  "pushed_at": "2026-09-09T08:24:26Z",
   "stars": 0,
   "created": "2026-05-30T03:50:29Z",
   "weeks": [
@@ -1043,21 +1043,21 @@
    0,
    0,
    0,
-   1,
-   4,
-   0,
-   0,
-   0,
-   0,
-   1,
-   0,
-   1,
-   2,
    5,
+   0,
+   0,
+   0,
+   0,
+   0,
    1,
+   1,
+   0,
+   7,
+   1,
+   0,
    2,
    0,
-   9
+   11
   ],
   "changes": [
    {
@@ -1103,9 +1103,94 @@
   ]
  },
  "Run315": {
-  "pushed_at": "2026-09-07T19:04:11Z",
+  "pushed_at": "2026-09-07T20:13:26Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   6
+  ],
+  "changes": [
+   {
+    "date": "2026-09-07T20:13:23Z",
+    "msg": "Add the MIT license"
+   },
+   {
+    "date": "2026-09-07T19:04:07Z",
+    "msg": "Wire Run315 into the maker portal"
+   },
+   {
+    "date": "2026-09-06T21:25:35Z",
+    "msg": "Normalise line endings so commits stop shouting about CRLF"
+   },
+   {
+    "date": "2026-09-06T21:25:22Z",
+    "msg": "Add the non-Apple spelling of mobile-web-app-capable"
+   },
+   {
+    "date": "2026-09-06T21:23:00Z",
+    "msg": "Make it installable: manifest, service worker, icons"
+   },
+   {
+    "date": "2026-09-06T21:00:25Z",
+    "msg": "Run315: self-hosted running analytics, plus a frozen public demo"
+   }
+  ]
+ },
+ "learning-pit": {
+  "pushed_at": "2026-09-07T20:13:28Z",
+  "stars": 0,
+  "created": "2026-09-06T21:15:14Z",
   "weeks": [
    0,
    0,
@@ -1162,86 +1247,9 @@
   ],
   "changes": [
    {
-    "date": "2026-09-07T19:04:07Z",
-    "msg": "Wire Run315 into the maker portal"
+    "date": "2026-09-07T20:13:25Z",
+    "msg": "Add the MIT license"
    },
-   {
-    "date": "2026-09-06T21:25:35Z",
-    "msg": "Normalise line endings so commits stop shouting about CRLF"
-   },
-   {
-    "date": "2026-09-06T21:25:22Z",
-    "msg": "Add the non-Apple spelling of mobile-web-app-capable"
-   },
-   {
-    "date": "2026-09-06T21:23:00Z",
-    "msg": "Make it installable: manifest, service worker, icons"
-   },
-   {
-    "date": "2026-09-06T21:00:25Z",
-    "msg": "Run315: self-hosted running analytics, plus a frozen public demo"
-   }
-  ]
- },
- "learning-pit": {
-  "pushed_at": "2026-09-07T14:45:14Z",
-  "stars": 0,
-  "created": "2026-09-06T21:15:14Z",
-  "weeks": [
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   2
-  ],
-  "changes": [
    {
     "date": "2026-09-07T14:45:11Z",
     "msg": "Wire the Pit into the maker portal"
@@ -1303,7 +1311,6 @@
    0,
    0,
    0,
-   0,
    1,
    0,
    0,
@@ -1312,7 +1319,8 @@
    2,
    0,
    0,
-   0
+   0,
+   1
   ],
   "changes": [
    {
@@ -1334,7 +1342,7 @@
   ]
  },
  "long-gallery": {
-  "pushed_at": "2026-09-07T19:06:20Z",
+  "pushed_at": "2026-09-12T11:11:09Z",
   "stars": 0,
   "created": "2026-08-25T00:51:45Z",
   "weeks": [
@@ -1388,29 +1396,126 @@
    0,
    0,
    0,
-   0,
-   3
+   3,
+   4
   ],
   "changes": [
    {
+    "date": "2026-09-12T11:11:00Z",
+    "msg": "Wave 7: 5,656 works \u2014 land art, performance, film, East Asian modernism"
+   },
+   {
+    "date": "2026-09-12T10:34:37Z",
+    "msg": "Wave 6: 5,555 works \u2014 nineteenth-century depth"
+   },
+   {
+    "date": "2026-09-12T09:28:35Z",
+    "msg": "Wave 5: 5,459 works \u2014 Renaissance depth, and a better division of labour"
+   },
+   {
+    "date": "2026-09-12T05:31:34Z",
+    "msg": "Wave 4: 5,359 works \u2014 Baroque depth, image coverage complete again"
+   },
+   {
+    "date": "2026-09-12T04:32:31Z",
+    "msg": "Wave 3: 5,257 works \u2014 six domains, postwar painting and photojournalism"
+   },
+   {
+    "date": "2026-09-12T02:45:36Z",
+    "msg": "Wave 2: 5,080 works, image coverage complete again"
+   },
+   {
+    "date": "2026-09-12T02:07:28Z",
+    "msg": "Wave 1 complete: 5,006 works \u2014 past halfway to 10,000"
+   },
+   {
+    "date": "2026-09-11T16:24:01Z",
+    "msg": "Road to 10,000, wave 1: +150 works; your portal, coach and licence changes now live in the source"
+   },
+   {
+    "date": "2026-09-07T20:13:36Z",
+    "msg": "Add a license that separates the code from the pictures"
+   },
+   {
     "date": "2026-09-07T19:06:17Z",
     "msg": "Precache the page with cache:'reload'"
+   }
+  ]
+ },
+ "classical-journey": {
+  "pushed_at": "2026-09-12T12:08:54Z",
+  "stars": 0,
+  "created": "2026-09-11T11:26:41Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   2
+  ],
+  "changes": [
+   {
+    "date": "2026-09-12T12:08:51Z",
+    "msg": "Wire the Journey into the maker portal"
    },
    {
-    "date": "2026-09-07T14:38:24Z",
-    "msg": "Wire the gallery into the maker portal"
+    "date": "2026-09-12T02:53:56Z",
+    "msg": "Depth wave 3: 2,444 works, depth queue cleared"
    },
    {
-    "date": "2026-09-04T03:24:40Z",
-    "msg": "Depth tranche: +125 works deepening the masters the app calls essential"
+    "date": "2026-09-11T16:21:57Z",
+    "msg": "Depth wave 2: 2,318 works, 535 composers"
    },
    {
-    "date": "2026-09-03T23:55:38Z",
-    "msg": "Canon audit: +31 works closing the last named gaps"
-   },
-   {
-    "date": "2026-09-03T21:15:06Z",
-    "msg": "The Long Gallery \u2014 4602 works, 1991 artists, 3816 plates"
+    "date": "2026-09-11T11:26:35Z",
+    "msg": "The Classical Journey: 2,191 works, 535 composers"
    }
   ]
  }
