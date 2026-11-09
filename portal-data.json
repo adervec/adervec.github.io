@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-09-03T15:49:04Z",
+  "pushed_at": "2026-11-09T01:58:27Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -32,76 +32,76 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   42,
-   131,
-   73,
-   79,
+   6,
+   87,
+   123,
+   46,
+   63,
    21,
-   0,
+   3,
    9,
    9,
-   4,
-   14,
-   19,
+   7,
+   9,
+   20,
+   6,
    5,
-   8,
    1,
-   0
+   0,
+   1,
+   0,
+   0,
+   3,
+   14,
+   5,
+   3,
+   25
   ],
   "changes": [
    {
-    "date": "2026-09-03T15:48:47Z",
-    "msg": "feat 497: bring every cross-link up to date"
+    "date": "2026-11-09T01:58:21Z",
+    "msg": "feat 555: wider desktop column, capped for ultrawide"
    },
    {
-    "date": "2026-08-28T17:53:54Z",
-    "msg": "feat 496: pay down the masked test debt"
+    "date": "2026-11-08T22:41:54Z",
+    "msg": "feat 554: Freemotion Row station, seated low-row machine, and four lifts from reels"
    },
    {
-    "date": "2026-08-28T17:39:08Z",
-    "msg": "feat 495: the reverse hyper corner and the roman chair leftovers"
+    "date": "2026-11-08T22:03:47Z",
+    "msg": "feat 553: the ghost click that dismissed the End Workout sheet"
    },
    {
-    "date": "2026-08-28T14:30:09Z",
-    "msg": "feat 494: targets that beat records, and a picker that talks steps"
+    "date": "2026-11-07T02:10:04Z",
+    "msg": "feats 551-552: calories from heart rate; End Workout takes one tap"
    },
    {
-    "date": "2026-08-25T00:12:02Z",
-    "msg": "feat 493: BFR, the ladder, the wobble and the recovery drawer"
+    "date": "2026-11-06T01:21:03Z",
+    "msg": "feat 550: custom sound clips for the PR, progress, rest-over and workout-ended sounds"
    },
    {
-    "date": "2026-08-24T19:28:45Z",
-    "msg": "feat 492: sliders, fingers, strands and a pair of reels"
+    "date": "2026-11-06T00:57:06Z",
+    "msg": "feat 549: coach's choice on a plan step"
    },
    {
-    "date": "2026-08-23T12:18:10Z",
-    "msg": "feat 491: read the hub's shared DATA SOURCES file instead of fetching Garmin/Strava"
+    "date": "2026-11-05T23:38:47Z",
+    "msg": "feat 548: the holds pass"
    },
    {
-    "date": "2026-08-22T21:12:48Z",
-    "msg": "feat 490: the shared cowork panel on the Analysis page"
+    "date": "2026-11-05T22:33:50Z",
+    "msg": "feat 547: the S-rank set on the next-set card"
    },
    {
-    "date": "2026-08-22T20:59:34Z",
-    "msg": "feat 489: activity beacon for the maker portal's character sheet"
+    "date": "2026-11-05T17:15:21Z",
+    "msg": "feat 546: Use-plan sheet adds 1.5x, times each volume at your pace, finish-by picks it"
    },
    {
-    "date": "2026-08-19T02:43:27Z",
-    "msg": "feat 488: the rest of the power twister, and the whole ab roller"
+    "date": "2026-11-05T16:53:27Z",
+    "msg": "feats 544-545: cowork workout review in the Log; week/month/quarter summaries + write-ups"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-09-11T16:24:17Z",
+  "pushed_at": "2026-11-09T22:48:48Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -133,71 +133,71 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   18,
-   13,
-   61,
-   37,
-   49,
-   110,
+   10,
+   10,
    39,
-   55,
-   24,
-   62,
+   41,
+   35,
+   73,
+   106,
+   19,
+   63,
+   48,
+   40,
+   37,
+   12,
+   3,
+   4,
+   8,
+   0,
+   6,
+   2,
+   8,
    53,
-   6,
-   6,
-   5,
-   4
+   26,
+   10,
+   76
   ],
   "changes": [
    {
-    "date": "2026-09-11T16:23:04Z",
-    "msg": "Trackyread bulk link: one editable table with safe, explained guesses"
+    "date": "2026-11-09T22:47:37Z",
+    "msg": "Cowork: dynamic queues, re-queue suggestions that don't nag, prep notes per queue"
    },
    {
-    "date": "2026-09-06T18:50:57Z",
-    "msg": "Audiobook sync: partition download folders by Trackyread status"
+    "date": "2026-11-08T22:47:41Z",
+    "msg": "Reading aloud: face-camera presenting score, and session logs for SpeechImprover"
    },
    {
-    "date": "2026-09-03T11:11:46Z",
-    "msg": "Audiobook console: every list is a table, with bulk add-all on its dropdowns"
+    "date": "2026-11-08T22:15:36Z",
+    "msg": "Cowork page: a subtask chip per operation; schedule dropdowns no longer reload the whole dialog"
    },
    {
-    "date": "2026-08-30T20:47:33Z",
-    "msg": "Fix: Trackyread's add-book form blanked every field as you typed"
+    "date": "2026-11-08T21:58:21Z",
+    "msg": "Add Untracked Files to Trackyread: track a folder without opening it; deeper folder search"
    },
    {
-    "date": "2026-08-22T21:17:05Z",
-    "msg": "Lint: optional catch binding in the portal activity beacon"
+    "date": "2026-11-08T17:38:18Z",
+    "msg": "Listen mode: lock-screen chunk/book skips, local render-ahead, Kokoro speed test"
    },
    {
-    "date": "2026-08-22T21:12:55Z",
-    "msg": "AI / Cowork: the cowork group wears the maker's shared cowork panel"
+    "date": "2026-11-08T17:23:59Z",
+    "msg": "Pocket listening: render the queue ahead on the sync machine, pull it on the phone"
    },
    {
-    "date": "2026-08-22T20:59:41Z",
-    "msg": "Report finished sections to the maker portal's character sheet"
+    "date": "2026-11-08T17:04:32Z",
+    "msg": "Listen mode: read-aloud plays straight through a reading queue"
    },
    {
-    "date": "2026-08-21T13:40:36Z",
-    "msg": "Audiobook console: download folders with incremental auto-sync"
+    "date": "2026-11-08T16:57:07Z",
+    "msg": "Compress narration clips to Ogg Opus (15\u201330\u00d7 smaller)"
    },
    {
-    "date": "2026-08-19T02:32:43Z",
-    "msg": "Audiobook console: singleton tab, book editor is a Library drill-down"
+    "date": "2026-11-08T16:45:13Z",
+    "msg": "One Tachyread folder, honest sync status, cowork without the hub"
    },
    {
-    "date": "2026-08-17T12:33:37Z",
-    "msg": "Audiobook command centre: cross-book queue, library and analytics"
+    "date": "2026-11-07T00:54:44Z",
+    "msg": "Fix: EPUBs opened with 0 words; dependency security clean-up"
    }
   ]
  },
@@ -234,28 +234,28 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   4,
-   0,
-   22,
-   19,
+   1,
    3,
    0,
+   25,
+   19,
    0,
    0,
    0,
-   24,
+   0,
+   13,
+   11,
+   4,
    4,
    0,
-   4,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
    0,
    0
   ],
@@ -303,8 +303,8 @@
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-08-23T01:28:19Z",
-  "stars": 0,
+  "pushed_at": "2026-11-07T14:11:54Z",
+  "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
    0,
@@ -335,32 +335,52 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   13,
-   0,
-   1,
-   3,
-   1,
-   0,
-   0,
-   0,
-   0,
+   6,
    7,
+   0,
+   3,
+   2,
+   0,
+   0,
+   0,
+   0,
+   4,
+   4,
+   3,
    3,
    0,
    0,
    0,
-   0
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1
   ],
   "changes": [
+   {
+    "date": "2026-11-07T14:11:51Z",
+    "msg": "Practice mode, MIDI input, MusicXML import, fretboard game, sight-reading, practice timer"
+   },
+   {
+    "date": "2026-08-23T01:28:17Z",
+    "msg": "Progress: loading the shared cowork panel tolerates a headless DOM"
+   },
+   {
+    "date": "2026-08-22T21:32:15Z",
+    "msg": "Progress: folder cowork through the maker's shared panel"
+   },
+   {
+    "date": "2026-08-22T20:59:50Z",
+    "msg": "Report graded runs to the maker portal's character sheet"
+   },
+   {
+    "date": "2026-08-13T02:35:53Z",
+    "msg": "Tell the maker's app portal that this app is installed"
+   },
    {
     "date": "2026-08-12T00:45:52Z",
     "msg": "Add six app skins, and a check that a skin has CSS"
@@ -380,26 +400,6 @@
    {
     "date": "2026-08-03T12:12:51Z",
     "msg": "Expand the instrument roster: 15 -> 59"
-   },
-   {
-    "date": "2026-08-03T11:26:51Z",
-    "msg": "Make the landing page instrument-agnostic"
-   },
-   {
-    "date": "2026-08-02T15:55:07Z",
-    "msg": "Mobile and desktop layouts"
-   },
-   {
-    "date": "2026-08-02T14:36:37Z",
-    "msg": "README: link the live site"
-   },
-   {
-    "date": "2026-08-02T14:35:30Z",
-    "msg": "Deploy: ship manifest, service worker, icons and docs to Pages"
-   },
-   {
-    "date": "2026-08-02T14:33:45Z",
-    "msg": "Instruments, PWA install, and launcher"
    }
   ]
  },
@@ -436,16 +436,8 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   7,
+   4,
+   3,
    0,
    0,
    0,
@@ -456,8 +448,16 @@
    0,
    15,
    2,
-   0,
    2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
    0,
    0
   ],
@@ -505,7 +505,7 @@
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-09-11T05:21:58Z",
+  "pushed_at": "2026-10-30T00:36:49Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -537,6 +537,8 @@
    0,
    0,
    0,
+   2,
+   7,
    0,
    0,
    0,
@@ -544,21 +546,19 @@
    0,
    0,
    0,
-   0,
-   0,
-   9,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   9,
+   5,
    4,
-   0,
+   4,
    6,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
    0,
    0
   ],
@@ -606,7 +606,7 @@
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-09-07T20:13:30Z",
+  "pushed_at": "2026-11-08T22:53:55Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -645,25 +645,33 @@
    0,
    0,
    0,
+   1,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
+   2,
+   17,
+   3,
+   2,
    0,
    0,
    1,
    0,
-   17,
-   5,
    0,
-   2,
    0,
-   1
+   0,
+   0,
+   0,
+   0,
+   2
   ],
   "changes": [
+   {
+    "date": "2026-11-08T22:53:52Z",
+    "msg": "Keep BRIEF.md, brief.json and recent.json current in the cowork folder for the morning brief"
+   },
+   {
+    "date": "2026-11-08T22:42:04Z",
+    "msg": "Sheets you can fill, a header the scanner reads back, and the loops a drill is meant to close"
+   },
    {
     "date": "2026-09-07T20:13:27Z",
     "msg": "Add the MIT license"
@@ -695,14 +703,6 @@
    {
     "date": "2026-08-08T00:06:17Z",
     "msg": "Review scan batches as a gallery, and detect duplicate pages"
-   },
-   {
-    "date": "2026-08-07T21:19:03Z",
-    "msg": "Don't grade pen control where thick-and-thin IS the script"
-   },
-   {
-    "date": "2026-08-07T21:17:35Z",
-    "msg": "Measure spacing along the writing's slant"
    }
   ]
  },
@@ -746,21 +746,21 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
    1,
    0,
    0,
-   4,
-   0,
+   2,
+   2,
    3,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
    0,
    0
   ],
@@ -800,7 +800,7 @@
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-09-12T02:04:38Z",
+  "pushed_at": "2026-09-12T19:51:44Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -832,6 +832,8 @@
    0,
    0,
    0,
+   2,
+   4,
    0,
    0,
    0,
@@ -839,25 +841,27 @@
    0,
    0,
    0,
+   2,
+   15,
+   2,
+   8,
    0,
    0,
-   6,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   12,
-   7,
-   5,
    3,
    0,
-   1
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
   ],
   "changes": [
+   {
+    "date": "2026-09-12T19:51:42Z",
+    "msg": "Modal: focus the dialog once on open, not on every re-render"
+   },
    {
     "date": "2026-09-12T02:04:36Z",
     "msg": "Reading projects: document import, words-per-passage at creation, passage list; live word underline"
@@ -893,10 +897,6 @@
    {
     "date": "2026-08-18T11:58:17Z",
     "msg": "Targeted drill sets per attribute, anti-repetition, emotive delivery tags"
-   },
-   {
-    "date": "2026-08-18T11:44:08Z",
-    "msg": "Neuromuscular cues in post-recording analysis"
    }
   ]
  },
@@ -936,25 +936,25 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   5,
-   0,
+   4,
+   1,
    0,
    1,
    0,
    0,
-   5,
+   2,
+   3,
+   2,
    2,
    0,
-   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
    0,
    0
   ],
@@ -1034,30 +1034,30 @@
    0,
    0,
    0,
+   1,
+   4,
    0,
    0,
    0,
    0,
+   1,
    0,
-   0,
-   0,
-   0,
-   0,
+   1,
+   2,
    5,
-   0,
-   0,
-   0,
-   0,
-   0,
    1,
-   1,
-   0,
-   7,
-   1,
-   0,
    2,
    0,
-   11
+   9,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
   ],
   "changes": [
    {
@@ -1103,7 +1103,7 @@
   ]
  },
  "Run315": {
-  "pushed_at": "2026-09-07T20:13:26Z",
+  "pushed_at": "2026-11-08T22:46:10Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1149,41 +1149,57 @@
    0,
    0,
    0,
+   4,
+   2,
    0,
    0,
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   6
+   23,
+   3,
+   17
   ],
   "changes": [
    {
-    "date": "2026-09-07T20:13:23Z",
-    "msg": "Add the MIT license"
+    "date": "2026-11-08T22:46:06Z",
+    "msg": "recent.json in the cowork folder: six weeks whole, for the daily and weekly brief"
    },
    {
-    "date": "2026-09-07T19:04:07Z",
-    "msg": "Wire Run315 into the maker portal"
+    "date": "2026-11-08T22:20:33Z",
+    "msg": "Service worker goes network-first so a deploy never mixes old and new modules"
    },
    {
-    "date": "2026-09-06T21:25:35Z",
-    "msg": "Normalise line endings so commits stop shouting about CRLF"
+    "date": "2026-11-08T22:11:27Z",
+    "msg": "Lint, a device crash log, and no Drive sign-in popups from background syncs"
    },
    {
-    "date": "2026-09-06T21:25:22Z",
-    "msg": "Add the non-Apple spelling of mobile-web-app-capable"
+    "date": "2026-11-07T05:22:06Z",
+    "msg": "D' balance through a run, and DFA-a1 when the watch logs beat-to-beat intervals"
    },
    {
-    "date": "2026-09-06T21:23:00Z",
-    "msg": "Make it installable: manifest, service worker, icons"
+    "date": "2026-11-07T05:13:07Z",
+    "msg": "Run at most four test files at once"
    },
    {
-    "date": "2026-09-06T21:00:25Z",
-    "msg": "Run315: self-hosted running analytics, plus a frozen public demo"
+    "date": "2026-11-07T05:11:47Z",
+    "msg": "Records & collections, year in review, sharing with privacy, air quality"
+   },
+   {
+    "date": "2026-11-07T05:08:14Z",
+    "msg": "Replay, ghost race and a coverage time-lapse"
+   },
+   {
+    "date": "2026-11-07T05:07:45Z",
+    "msg": "Plan a new-ground run: routes through unrun streets and missing tiles, as GPX"
+   },
+   {
+    "date": "2026-11-07T04:59:39Z",
+    "msg": "Insights: HR recovery, HRV trend, form over the years, seasons, predictors, climbs, time of day"
+   },
+   {
+    "date": "2026-11-07T04:55:06Z",
+    "msg": "An SQL console over all the athlete's data, in the browser"
    }
   ]
  },
@@ -1234,6 +1250,8 @@
    0,
    0,
    0,
+   2,
+   2,
    0,
    0,
    0,
@@ -1241,9 +1259,7 @@
    0,
    0,
    0,
-   0,
-   0,
-   4
+   0
   ],
   "changes": [
    {
@@ -1265,18 +1281,10 @@
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-09-07T14:48:10Z",
+  "pushed_at": "2026-11-07T13:22:40Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
    0,
    0,
    0,
@@ -1320,29 +1328,61 @@
    0,
    0,
    0,
-   1
+   1,
+   0,
+   0,
+   8,
+   1,
+   0,
+   0,
+   0,
+   8
   ],
   "changes": [
    {
-    "date": "2026-09-07T14:48:07Z",
-    "msg": "Wire Music Studio into the maker portal"
+    "date": "2026-11-07T13:22:38Z",
+    "msg": "Ratings, notes, taste profile for agents, Library bulk actions, finetunes"
    },
    {
-    "date": "2026-08-12T22:53:48Z",
-    "msg": "Add CI and GitHub Pages deploy workflows"
+    "date": "2026-11-07T13:16:40Z",
+    "msg": "Reverse-engineer songs, siblings, sound effects, video scoring, stems"
    },
    {
-    "date": "2026-08-12T22:53:43Z",
-    "msg": "Add Google Drive phone remote, device sync, and paste-prompts importer"
+    "date": "2026-11-07T13:13:25Z",
+    "msg": "Takes, composition plans, section redo, seeds, lyrics, quality check, spend confirm"
    },
    {
-    "date": "2026-07-09T00:20:59Z",
-    "msg": "Initial COmmit"
+    "date": "2026-11-07T13:02:18Z",
+    "msg": "TODO: feature ideas from similar projects and unused ElevenLabs endpoints"
+   },
+   {
+    "date": "2026-11-06T04:56:10Z",
+    "msg": "Persistent player bar, real Explorer opening, pickers start in the album folder"
+   },
+   {
+    "date": "2026-11-05T13:52:31Z",
+    "msg": "Album-pinned generation queue"
+   },
+   {
+    "date": "2026-11-05T12:55:39Z",
+    "msg": "Show ElevenLabs credit-pool consumption on the Spend button"
+   },
+   {
+    "date": "2026-11-05T12:26:18Z",
+    "msg": "Pick up in-place album.json edits for every album, not just the open one"
+   },
+   {
+    "date": "2026-10-09T23:31:50Z",
+    "msg": "Add TODO: ratings, notes and an agent-readable taste profile"
+   },
+   {
+    "date": "2026-10-04T20:21:18Z",
+    "msg": "Keep file tags in sync with the app (masters + published copies)"
    }
   ]
  },
  "long-gallery": {
-  "pushed_at": "2026-09-12T11:11:09Z",
+  "pushed_at": "2026-11-08T22:51:46Z",
   "stars": 0,
   "created": "2026-08-25T00:51:45Z",
   "weeks": [
@@ -1388,62 +1428,62 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
    3,
-   4
+   15,
+   12,
+   17,
+   14,
+   0,
+   16,
+   3,
+   0,
+   1
   ],
   "changes": [
    {
-    "date": "2026-09-12T11:11:00Z",
-    "msg": "Wave 7: 5,656 works \u2014 land art, performance, film, East Asian modernism"
+    "date": "2026-11-08T22:51:39Z",
+    "msg": "Write BRIEF.md + brief.json to a Cowork folder for the morning brief"
    },
    {
-    "date": "2026-09-12T10:34:37Z",
-    "msg": "Wave 6: 5,555 works \u2014 nineteenth-century depth"
+    "date": "2026-10-24T15:15:26Z",
+    "msg": "22 more artist portraits found by Commons search"
    },
    {
-    "date": "2026-09-12T09:28:35Z",
-    "msg": "Wave 5: 5,459 works \u2014 Renaissance depth, and a better division of labour"
+    "date": "2026-10-24T14:38:56Z",
+    "msg": "61 more artist portraits found by Commons search"
    },
    {
-    "date": "2026-09-12T05:31:34Z",
-    "msg": "Wave 4: 5,359 works \u2014 Baroque depth, image coverage complete again"
+    "date": "2026-10-24T10:53:53Z",
+    "msg": "HD zoom for every credited plate via Commons; artist timelines"
    },
    {
-    "date": "2026-09-12T04:32:31Z",
-    "msg": "Wave 3: 5,257 works \u2014 six domains, postwar painting and photojournalism"
+    "date": "2026-10-17T11:47:01Z",
+    "msg": "Artist portraits: all candidates checked (checks 12-14)"
    },
    {
-    "date": "2026-09-12T02:45:36Z",
-    "msg": "Wave 2: 5,080 works, image coverage complete again"
+    "date": "2026-10-17T11:26:44Z",
+    "msg": "More artist portraits (check 11)"
    },
    {
-    "date": "2026-09-12T02:07:28Z",
-    "msg": "Wave 1 complete: 5,006 works \u2014 past halfway to 10,000"
+    "date": "2026-10-17T11:18:57Z",
+    "msg": "More artist portraits (checks 7-10)"
    },
    {
-    "date": "2026-09-11T16:24:01Z",
-    "msg": "Road to 10,000, wave 1: +150 works; your portal, coach and licence changes now live in the source"
+    "date": "2026-10-17T11:10:33Z",
+    "msg": "Artist pages: map of where their works were made"
    },
    {
-    "date": "2026-09-07T20:13:36Z",
-    "msg": "Add a license that separates the code from the pictures"
+    "date": "2026-10-17T11:08:54Z",
+    "msg": "Autoplay: hands-free walk with filters, order, full/split layout, timed or narrated with subtitles"
    },
    {
-    "date": "2026-09-07T19:06:17Z",
-    "msg": "Precache the page with cache:'reload'"
+    "date": "2026-10-17T11:03:12Z",
+    "msg": "Constellation picture mode: works as 64px thumbnails and artists as portraits when zoomed in"
    }
   ]
  },
  "classical-journey": {
-  "pushed_at": "2026-09-12T12:08:54Z",
+  "pushed_at": "2026-11-09T01:40:09Z",
   "stars": 0,
   "created": "2026-09-11T11:26:41Z",
   "weeks": [
@@ -1490,32 +1530,194 @@
    0,
    0,
    0,
+   6,
    0,
+   6,
+   8,
+   16,
+   3,
+   2,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   2
+   4
   ],
   "changes": [
    {
-    "date": "2026-09-12T12:08:51Z",
-    "msg": "Wire the Journey into the maker portal"
+    "date": "2026-11-09T01:40:06Z",
+    "msg": "Autoplay narration: spoken notes, composer bios and theory stops before each piece"
    },
    {
-    "date": "2026-09-12T02:53:56Z",
-    "msg": "Depth wave 3: 2,444 works, depth queue cleared"
+    "date": "2026-11-09T01:32:44Z",
+    "msg": "Autoplay: hands-free run through a journey, marking each piece heard"
    },
    {
-    "date": "2026-09-11T16:21:57Z",
-    "msg": "Depth wave 2: 2,318 works, 535 composers"
+    "date": "2026-11-08T22:46:09Z",
+    "msg": "Write BRIEF.md + brief.json to a Cowork folder for the morning brief"
    },
    {
-    "date": "2026-09-11T11:26:35Z",
-    "msg": "The Classical Journey: 2,191 works, 535 composers"
+    "date": "2026-11-08T18:16:25Z",
+    "msg": "Blind listening quiz, who-was-alive lifetimes view, year in review"
+   },
+   {
+    "date": "2026-11-08T18:13:14Z",
+    "msg": "Piece of the day, weekly mix with loved-piece re-listens, listening-history import (Spotify/YouTube/Last.fm/ListenBrainz)"
+   },
+   {
+    "date": "2026-11-08T04:08:15Z",
+    "msg": "Gym mode (one-screen big-button player + marks, wake lock) and Google Drive sync that works on phones"
+   },
+   {
+    "date": "2026-10-23T23:20:46Z",
+    "msg": "Offline download also caches the page and index"
+   },
+   {
+    "date": "2026-10-23T23:19:34Z",
+    "msg": "QoL: Up next queue, Surprise me, recently viewed, keyboard marks, offline download, list export"
+   },
+   {
+    "date": "2026-10-16T22:57:04Z",
+    "msg": "QoL: Want-to-hear list, search everything (/ or Ctrl-K), a Journey for every genre, Because-you-liked suggestions"
+   },
+   {
+    "date": "2026-10-16T22:50:10Z",
+    "msg": "Depth catch-up for passes 5-6: 8,323 works"
+   }
+  ]
+ },
+ "InsightMaster": {
+  "pushed_at": "2026-11-09T22:36:07Z",
+  "stars": 0,
+  "created": "2026-08-12T22:54:41Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "changes": [
+   {
+    "date": "2026-11-09T22:36:05Z",
+    "msg": "Build 2: settling-in countdown, open sits, reminders, CSV, update toast; deploy to Pages"
+   },
+   {
+    "date": "2026-08-12T22:49:22Z",
+    "msg": "InsightHunter: the app, with a starter sitting-meditation module"
+   },
+   {
+    "date": "2026-08-12T22:25:29Z",
+    "msg": "Initial commit"
+   }
+  ]
+ },
+ "CelebrityCrusher": {
+  "pushed_at": "2026-11-09T23:08:53Z",
+  "stars": 0,
+  "created": "2026-11-09T23:08:47Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "changes": [
+   {
+    "date": "2026-11-09T23:08:46Z",
+    "msg": "Celebrity Crusher: 389 celebrity fitness feats judged against your own data"
    }
   ]
  }

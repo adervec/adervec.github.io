@@ -204,13 +204,12 @@ footer.page{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
 <section class="doc">
 <h2 class="eyebrow">// what it is</h2>
 <p>Every app here can hand its data to an AI agent and take the answer back, through a plain folder on
-your disk: the app writes a <code>cowork.json</code> manifest plus request files, an agent (Claude Code via
-CoworkSyncHub, Claude Desktop pointed at the folder, or a person) writes reply files beside them, the app
+your disk: the app writes a <code>cowork.json</code> manifest plus request files, an agent (Claude
+Cowork or Claude Code pointed at the folder, or a person) writes reply files beside them, the app
 imports the reply. Nothing goes through a server you don't run.</p>
 <h2 class="eyebrow">// one panel, every app</h2>
 <p>The panel below is the exact same component every app shows — same words, same states, same buttons —
-no matter what the app around it looks like. CoworkSyncHub shows the same panel for every connected
-app, where the buttons run the agent instead of writing files.</p>
+no matter what the app around it looks like.</p>
 <div id="demo"></div>
 <h2 class="eyebrow">// states</h2>
 <ul class="feat"><li><b>idle</b> — nothing asked yet.</li><li><b>PENDING</b> — a request is newer than any reply.</li>
@@ -236,7 +235,7 @@ cowork.mount(document.getElementById("sync"), {
 panel <code>{app, channels, actions}</code> and listen for <code>cowork-action</code>. Theme it only
 through <code>--cowork-*</code> custom properties; the rest is shadow DOM on purpose. Protocol details:
 <a href="https://github.com/adervec/CoworkSyncHub">CoworkSyncHub / COWORK-PROTOCOL.md</a>.
-Step-by-step setup and troubleshooting for every app, the hub, and the data sources (Garmin, Strava,
+Step-by-step setup and troubleshooting for every app, the briefs folder, and the data sources (Garmin, Strava,
 Drive, Bluetooth): <a href="https://github.com/adervec/CoworkSyncHub/blob/main/SETUP.md">SETUP.md</a>.</p>
 <h2 class="eyebrow">// the other two contracts</h2>
 <p>Because every app lives on this origin, they share two small localStorage notes with the portal:
