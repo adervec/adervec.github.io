@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-11-10T15:53:02Z",
+  "pushed_at": "2026-11-10T18:20:02Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -59,6 +59,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:19:58Z",
+    "msg": "feat 558: erase all GymTracker data on this device; guides load no third-party fonts"
+   },
+   {
     "date": "2026-11-10T15:52:58Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -93,15 +97,11 @@
    {
     "date": "2026-11-06T01:21:03Z",
     "msg": "feat 550: custom sound clips for the PR, progress, rest-over and workout-ended sounds"
-   },
-   {
-    "date": "2026-11-06T00:57:06Z",
-    "msg": "feat 549: coach's choice on a plan step"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-10T15:53:34Z",
+  "pushed_at": "2026-11-10T16:51:36Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -160,6 +160,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T16:51:33Z",
+    "msg": "Deploy: full-history checkout so the build number is real"
+   },
+   {
+    "date": "2026-11-10T16:49:14Z",
+    "msg": "House standards: local-day dates, crash and update notices, persistent storage, zoom option, self-hosted engines"
+   },
+   {
     "date": "2026-11-10T15:53:32Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -190,14 +198,6 @@
    {
     "date": "2026-11-08T21:58:21Z",
     "msg": "Add Untracked Files to Trackyread: track a folder without opening it; deeper folder search"
-   },
-   {
-    "date": "2026-11-08T17:38:18Z",
-    "msg": "Listen mode: lock-screen chunk/book skips, local render-ahead, Kokoro speed test"
-   },
-   {
-    "date": "2026-11-08T17:23:59Z",
-    "msg": "Pocket listening: render the queue ahead on the sync machine, pull it on the phone"
    }
   ]
  },
@@ -404,7 +404,7 @@
   ]
  },
  "BlackMirrorBikeRide": {
-  "pushed_at": "2026-11-10T15:52:39Z",
+  "pushed_at": "2026-11-10T17:50:13Z",
   "stars": 0,
   "created": "2026-05-30T03:41:43Z",
   "weeks": [
@@ -463,6 +463,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T17:50:03Z",
+    "msg": "Erase-all-data control; CI runs every suite and deploys from main"
+   },
+   {
     "date": "2026-11-10T15:52:37Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -497,15 +501,11 @@
    {
     "date": "2026-08-06T01:59:24Z",
     "msg": "Triple model tessellation; stop the ground ending in mid-air"
-   },
-   {
-    "date": "2026-08-06T01:11:00Z",
-    "msg": "Tabular lists, and guard an in-progress ride from being abandoned"
    }
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-11-10T15:52:44Z",
+  "pushed_at": "2026-11-10T17:48:38Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -564,6 +564,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T17:48:35Z",
+    "msg": "Local calendar days, erase-everything control, third-party origin guard"
+   },
+   {
     "date": "2026-11-10T15:52:40Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -598,15 +602,11 @@
    {
     "date": "2026-08-12T00:32:46Z",
     "msg": "More-apps link (adervec.github.io) in the disclaimer modal"
-   },
-   {
-    "date": "2026-08-07T19:45:20Z",
-    "msg": "Sidebar everywhere + all scrolling in-app"
    }
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-11-10T15:53:05Z",
+  "pushed_at": "2026-11-10T17:54:42Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -665,6 +665,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T17:54:36Z",
+    "msg": "No third-party requests, and an Erase everything control"
+   },
+   {
     "date": "2026-11-10T15:53:03Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -699,10 +703,6 @@
    {
     "date": "2026-08-23T02:22:24Z",
     "msg": "Coach card \u2014 folder cowork through the maker's shared panel"
-   },
-   {
-    "date": "2026-08-22T21:00:02Z",
-    "msg": "Report logged drills and scored pages to the maker portal's character sheet"
    }
   ]
  },
@@ -1111,7 +1111,7 @@
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-10T15:53:26Z",
+  "pushed_at": "2026-11-10T15:55:25Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1212,7 +1212,7 @@
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-11-10T15:53:39Z",
+  "pushed_at": "2026-11-10T18:01:38Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1271,6 +1271,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:01:35Z",
+    "msg": "Erase everything: fix the button, take only the Pit's own data, disconnect Drive"
+   },
+   {
     "date": "2026-11-10T15:53:37Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -1305,10 +1309,6 @@
    {
     "date": "2026-09-07T14:45:11Z",
     "msg": "Wire the Pit into the maker portal"
-   },
-   {
-    "date": "2026-09-06T21:18:01Z",
-    "msg": "README: live URL, deploy is a branch push"
    }
   ]
  },
@@ -1616,7 +1616,7 @@
   ]
  },
  "InsightMaster": {
-  "pushed_at": "2026-11-10T13:09:50Z",
+  "pushed_at": "2026-11-10T17:51:43Z",
   "stars": 0,
   "created": "2026-08-12T22:54:41Z",
   "weeks": [
@@ -1675,6 +1675,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T17:51:41Z",
+    "msg": "Build 4: erase only this app's keys, and report sits to the maker portal"
+   },
+   {
     "date": "2026-11-10T13:09:48Z",
     "msg": "Deploy only after the checks pass"
    },
@@ -1705,7 +1709,7 @@
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-10T15:52:47Z",
+  "pushed_at": "2026-11-10T17:55:16Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1763,6 +1767,10 @@
    1
   ],
   "changes": [
+   {
+    "date": "2026-11-10T17:55:14Z",
+    "msg": "House standards: local days, self-hosted fonts, erase, portal activity"
+   },
    {
     "date": "2026-11-10T15:52:45Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
