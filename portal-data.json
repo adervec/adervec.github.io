@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-11-09T01:58:27Z",
+  "pushed_at": "2026-11-10T12:31:02Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -59,6 +59,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:30:57Z",
+    "msg": "feat 557: house font standard - Atkinson Hyperlegible default, font picker in Settings"
+   },
+   {
+    "date": "2026-11-10T12:01:02Z",
+    "msg": "feat 556: motion figures rebuilt - readable, anatomically right, and pinned per exercise"
+   },
+   {
     "date": "2026-11-09T01:58:21Z",
     "msg": "feat 555: wider desktop column, capped for ultrawide"
    },
@@ -89,19 +97,11 @@
    {
     "date": "2026-11-05T22:33:50Z",
     "msg": "feat 547: the S-rank set on the next-set card"
-   },
-   {
-    "date": "2026-11-05T17:15:21Z",
-    "msg": "feat 546: Use-plan sheet adds 1.5x, times each volume at your pace, finish-by picks it"
-   },
-   {
-    "date": "2026-11-05T16:53:27Z",
-    "msg": "feats 544-545: cowork workout review in the Log; week/month/quarter summaries + write-ups"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-10T00:56:36Z",
+  "pushed_at": "2026-11-10T12:05:23Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -160,6 +160,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:04:09Z",
+    "msg": "Default font: Atkinson Hyperlegible for the UI and for tabs with no font chosen"
+   },
+   {
     "date": "2026-11-10T00:54:35Z",
     "msg": "Queue: forget a remembered file path once the file is gone from the search folders"
    },
@@ -194,15 +198,11 @@
    {
     "date": "2026-11-08T16:57:07Z",
     "msg": "Compress narration clips to Ogg Opus (15\u201330\u00d7 smaller)"
-   },
-   {
-    "date": "2026-11-08T16:45:13Z",
-    "msg": "One Tachyread folder, honest sync status, cowork without the hub"
    }
   ]
  },
  "ChessRetabled": {
-  "pushed_at": "2026-11-10T00:54:54Z",
+  "pushed_at": "2026-11-10T03:25:06Z",
   "stars": 0,
   "created": "2026-05-31T13:07:16Z",
   "weeks": [
@@ -303,7 +303,7 @@
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-11-07T14:11:54Z",
+  "pushed_at": "2026-11-10T12:37:55Z",
   "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
@@ -362,6 +362,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:37:50Z",
+    "msg": "Show the connected Google account's profile picture beside its name"
+   },
+   {
+    "date": "2026-11-10T03:22:01Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
+   },
+   {
     "date": "2026-11-07T14:11:51Z",
     "msg": "Practice mode, MIDI input, MusicXML import, fretboard game, sight-reading, practice timer"
    },
@@ -392,19 +400,11 @@
    {
     "date": "2026-08-09T13:50:25Z",
     "msg": "Synthesize backing tracks, and the parts you don't play"
-   },
-   {
-    "date": "2026-08-05T19:31:39Z",
-    "msg": "Mirror Tachyread's Drive sync and reuse its OAuth client"
-   },
-   {
-    "date": "2026-08-03T12:12:51Z",
-    "msg": "Expand the instrument roster: 15 -> 59"
    }
   ]
  },
  "BlackMirrorBikeRide": {
-  "pushed_at": "2026-08-23T02:22:35Z",
+  "pushed_at": "2026-11-10T12:03:32Z",
   "stars": 0,
   "created": "2026-05-30T03:41:43Z",
   "weeks": [
@@ -463,6 +463,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T01:35:18Z",
+    "msg": "Adopt the house font standard: shared font.js, --app-font, settings picker"
+   },
+   {
+    "date": "2026-11-10T00:55:31Z",
+    "msg": "Workouts, trainer control, zones, climbs, TCX, audio, weather; cowork brief"
+   },
+   {
     "date": "2026-08-23T02:22:33Z",
     "msg": "History: coach section \u2014 folder cowork through the maker's shared panel"
    },
@@ -493,19 +501,11 @@
    {
     "date": "2026-08-06T00:14:11Z",
     "msg": "Add 18 more biomes and 31 more props (58 biomes, 114 types)"
-   },
-   {
-    "date": "2026-08-05T23:41:23Z",
-    "msg": "Add 18 more biomes and 29 more artifact types (40 biomes, 83 props)"
-   },
-   {
-    "date": "2026-08-05T21:43:34Z",
-    "msg": "Expand to 22 biomes and 54 roadside artifact types"
    }
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-10-30T00:36:49Z",
+  "pushed_at": "2026-11-10T03:25:57Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -606,7 +606,7 @@
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-11-10T00:53:55Z",
+  "pushed_at": "2026-11-10T12:38:02Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -665,6 +665,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:38:00Z",
+    "msg": "Show the Google profile picture beside the account when Drive is connected"
+   },
+   {
+    "date": "2026-11-10T03:22:22Z",
+    "msg": "House font \u2014 Atkinson Hyperlegible by default, with a font choice under Setup"
+   },
+   {
     "date": "2026-11-10T00:53:53Z",
     "msg": "CI: run the in-page self-test headless on every push"
    },
@@ -695,19 +703,11 @@
    {
     "date": "2026-08-12T00:33:08Z",
     "msg": "Link the maker's app portal from the Reference card"
-   },
-   {
-    "date": "2026-08-10T16:56:14Z",
-    "msg": "Make the import gallery lazy and cached, and fix a hash-drift bug"
-   },
-   {
-    "date": "2026-08-08T21:59:48Z",
-    "msg": "Work out cursive, mirror-prime and headline scripts from the page"
    }
   ]
  },
  "MicroMiniger": {
-  "pushed_at": "2026-11-10T00:47:56Z",
+  "pushed_at": "2026-11-10T03:29:14Z",
   "stars": 0,
   "created": "2026-08-08T13:26:44Z",
   "weeks": [
@@ -766,6 +766,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T03:29:11Z",
+    "msg": "Smoke test: wait for the font picker; optional SMOKE_HASH"
+   },
+   {
+    "date": "2026-11-10T01:33:24Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
+   },
+   {
     "date": "2026-11-10T00:47:53Z",
     "msg": "CI: run the checks on every push"
    },
@@ -796,15 +804,11 @@
    {
     "date": "2026-08-08T13:26:38Z",
     "msg": "Full MicroMiniger PWA: collection manager, 3D scan & splat viewer, cloud backup"
-   },
-   {
-    "date": "2026-07-18T13:21:21Z",
-    "msg": "initial commit"
    }
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-10T00:56:02Z",
+  "pushed_at": "2026-11-10T12:38:28Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -863,6 +867,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:38:25Z",
+    "msg": "Drive sync: show the connected Google account's photo and name"
+   },
+   {
+    "date": "2026-11-10T03:21:16Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
+   },
+   {
     "date": "2026-11-10T00:55:59Z",
     "msg": "Practice QoL: pace timeline + splits, hedges, WCPM, listen-first, talk timer, echo, Just speak"
    },
@@ -893,19 +905,11 @@
    {
     "date": "2026-08-22T21:13:18Z",
     "msg": "Cowork sync view wears the maker's shared cowork panel"
-   },
-   {
-    "date": "2026-08-22T21:00:11Z",
-    "msg": "Report recorded sessions to the maker portal's character sheet"
-   },
-   {
-    "date": "2026-08-19T20:26:52Z",
-    "msg": "Scenario category (22) + 8 more trouble sounds; 128 -> 158 exercises"
    }
   ]
  },
  "Mise": {
-  "pushed_at": "2026-11-10T00:48:09Z",
+  "pushed_at": "2026-11-10T12:38:44Z",
   "stars": 0,
   "created": "2026-08-02T21:11:16Z",
   "weeks": [
@@ -964,6 +968,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:38:19Z",
+    "msg": "Show the Google account picture beside the Drive sync status"
+   },
+   {
+    "date": "2026-11-10T03:24:02Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
+   },
+   {
     "date": "2026-11-10T00:48:07Z",
     "msg": "CI: run the checks on every push"
    },
@@ -994,19 +1006,11 @@
    {
     "date": "2026-08-03T11:52:53Z",
     "msg": "Add Grid view mode to recipe detail"
-   },
-   {
-    "date": "2026-08-02T21:24:47Z",
-    "msg": "Add screen-orientation setting (Auto / Portrait / Landscape)"
-   },
-   {
-    "date": "2026-08-02T21:12:37Z",
-    "msg": "Fold protein guides into the app; add gh-pages deploy"
    }
   ]
  },
  "MarksmanApp": {
-  "pushed_at": "2026-09-09T08:24:26Z",
+  "pushed_at": "2026-11-10T12:40:16Z",
   "stars": 0,
   "created": "2026-05-30T03:50:29Z",
   "weeks": [
@@ -1065,6 +1069,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T03:29:52Z",
+    "msg": "CI: run the Python 3.9 job on ubuntu-24.04"
+   },
+   {
+    "date": "2026-11-10T03:23:11Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice in the app"
+   },
+   {
     "date": "2026-09-07T14:36:05Z",
     "msg": "Wire Marksman into the maker portal"
    },
@@ -1095,19 +1107,11 @@
    {
     "date": "2026-09-06T20:30:03Z",
     "msg": "Publish the site, and fix the docs it would have published"
-   },
-   {
-    "date": "2026-09-06T19:45:05Z",
-    "msg": "Point the README at the contributor docs, not the launch plan"
-   },
-   {
-    "date": "2026-09-06T19:44:15Z",
-    "msg": "Tidy the tree for a public first impression"
    }
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-10T00:43:11Z",
+  "pushed_at": "2026-11-10T12:49:06Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1166,6 +1170,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:38:03Z",
+    "msg": "Show the Google profile picture beside the Drive account and in the nav's sync status"
+   },
+   {
+    "date": "2026-11-10T03:22:12Z",
+    "msg": "House font: Atkinson Hyperlegible by default, reader's choice in settings"
+   },
+   {
     "date": "2026-11-08T22:46:06Z",
     "msg": "recent.json in the cowork folder: six weeks whole, for the daily and weekly brief"
    },
@@ -1196,19 +1208,11 @@
    {
     "date": "2026-11-07T05:07:45Z",
     "msg": "Plan a new-ground run: routes through unrun streets and missing tiles, as GPX"
-   },
-   {
-    "date": "2026-11-07T04:59:39Z",
-    "msg": "Insights: HR recovery, HRV trend, form over the years, seasons, predictors, climbs, time of day"
-   },
-   {
-    "date": "2026-11-07T04:55:06Z",
-    "msg": "An SQL console over all the athlete's data, in the browser"
    }
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-11-10T00:48:03Z",
+  "pushed_at": "2026-11-10T12:48:28Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1267,6 +1271,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:48:26Z",
+    "msg": "Sync: show the connected Google account's picture and name"
+   },
+   {
+    "date": "2026-11-10T12:09:00Z",
+    "msg": "House font: Atkinson Hyperlegible by default, reader's choice in Settings"
+   },
+   {
+    "date": "2026-11-10T12:08:59Z",
+    "msg": "Content: In Order, Chemical Elements, Frases Cortas; Using the Pit covers the new features"
+   },
+   {
     "date": "2026-11-10T00:48:00Z",
     "msg": "CI: run the checks on every push"
    },
@@ -1293,7 +1309,7 @@
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-11-10T00:53:58Z",
+  "pushed_at": "2026-11-10T12:37:51Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
@@ -1352,6 +1368,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:37:49Z",
+    "msg": "Show the Google account picture beside the connected Drive account"
+   },
+   {
+    "date": "2026-11-10T03:21:00Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
+   },
+   {
     "date": "2026-11-10T00:53:56Z",
     "msg": "CI: run the checks through npm test"
    },
@@ -1382,19 +1406,11 @@
    {
     "date": "2026-11-05T12:55:39Z",
     "msg": "Show ElevenLabs credit-pool consumption on the Spend button"
-   },
-   {
-    "date": "2026-11-05T12:26:18Z",
-    "msg": "Pick up in-place album.json edits for every album, not just the open one"
-   },
-   {
-    "date": "2026-10-09T23:31:50Z",
-    "msg": "Add TODO: ratings, notes and an agent-readable taste profile"
    }
   ]
  },
  "long-gallery": {
-  "pushed_at": "2026-11-10T00:48:00Z",
+  "pushed_at": "2026-11-10T03:29:11Z",
   "stars": 0,
   "created": "2026-08-25T00:51:45Z",
   "weeks": [
@@ -1453,6 +1469,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T03:29:04Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice on the Progress page"
+   },
+   {
     "date": "2026-11-10T00:47:58Z",
     "msg": "CI: run the checks on every push"
    },
@@ -1487,15 +1507,11 @@
    {
     "date": "2026-10-17T11:10:33Z",
     "msg": "Artist pages: map of where their works were made"
-   },
-   {
-    "date": "2026-10-17T11:08:54Z",
-    "msg": "Autoplay: hands-free walk with filters, order, full/split layout, timed or narrated with subtitles"
    }
   ]
  },
  "classical-journey": {
-  "pushed_at": "2026-11-10T00:47:58Z",
+  "pushed_at": "2026-11-10T12:39:42Z",
   "stars": 0,
   "created": "2026-09-11T11:26:41Z",
   "weeks": [
@@ -1554,6 +1570,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T12:39:40Z",
+    "msg": "Show the Google account picture on the sync chip and in the sync dialog"
+   },
+   {
+    "date": "2026-11-10T03:28:11Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice on the Progress page"
+   },
+   {
     "date": "2026-11-10T00:47:56Z",
     "msg": "CI: run the checks on every push"
    },
@@ -1584,19 +1608,11 @@
    {
     "date": "2026-10-23T23:20:46Z",
     "msg": "Offline download also caches the page and index"
-   },
-   {
-    "date": "2026-10-23T23:19:34Z",
-    "msg": "QoL: Up next queue, Surprise me, recently viewed, keyboard marks, offline download, list export"
-   },
-   {
-    "date": "2026-10-16T22:57:04Z",
-    "msg": "QoL: Want-to-hear list, search everything (/ or Ctrl-K), a Journey for every genre, Because-you-liked suggestions"
    }
   ]
  },
  "InsightMaster": {
-  "pushed_at": "2026-11-10T00:52:16Z",
+  "pushed_at": "2026-11-10T03:22:57Z",
   "stars": 0,
   "created": "2026-08-12T22:54:41Z",
   "weeks": [
@@ -1655,6 +1671,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T03:22:55Z",
+    "msg": "Build 3: house font (Atkinson Hyperlegible) with a reader font choice under Settings"
+   },
+   {
     "date": "2026-11-10T00:52:14Z",
     "msg": "Test: wait for the service worker to finish activating instead of racing it"
    },
@@ -1677,7 +1697,7 @@
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-10T00:48:05Z",
+  "pushed_at": "2026-11-10T12:48:40Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1735,6 +1755,14 @@
    1
   ],
   "changes": [
+   {
+    "date": "2026-11-10T12:48:38Z",
+    "msg": "Show the Google profile picture beside the Drive account name"
+   },
+   {
+    "date": "2026-11-10T12:03:45Z",
+    "msg": "Adopt the house font: Atkinson Hyperlegible with a reader-changeable setting"
+   },
    {
     "date": "2026-11-10T00:48:02Z",
     "msg": "CI: run the checks on every push"
