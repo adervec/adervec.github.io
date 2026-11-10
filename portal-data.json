@@ -32,30 +32,30 @@
    0,
    0,
    0,
-   6,
-   87,
-   123,
-   46,
-   63,
-   21,
+   11,
+   117,
+   89,
+   50,
+   60,
+   19,
    3,
-   9,
+   15,
+   3,
    9,
    7,
-   9,
    20,
-   6,
-   5,
+   7,
+   4,
    1,
    0,
    1,
    0,
    0,
-   3,
-   14,
+   9,
+   8,
    5,
-   3,
-   25
+   10,
+   19
   ],
   "changes": [
    {
@@ -101,7 +101,7 @@
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-09T22:48:48Z",
+  "pushed_at": "2026-11-10T00:54:38Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -133,32 +133,36 @@
    0,
    0,
    0,
-   10,
-   10,
+   15,
+   6,
+   38,
+   42,
+   36,
+   91,
+   89,
+   24,
+   55,
+   60,
+   28,
    39,
-   41,
-   35,
-   73,
-   106,
-   19,
-   63,
-   48,
-   40,
-   37,
-   12,
+   10,
    3,
    4,
    8,
    0,
    6,
    2,
-   8,
-   53,
    26,
-   10,
-   76
+   43,
+   20,
+   8,
+   78
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:54:35Z",
+    "msg": "Queue: forget a remembered file path once the file is gone from the search folders"
+   },
    {
     "date": "2026-11-09T22:47:37Z",
     "msg": "Cowork: dynamic queues, re-queue suggestions that don't nag, prep notes per queue"
@@ -194,15 +198,11 @@
    {
     "date": "2026-11-08T16:45:13Z",
     "msg": "One Tachyread folder, honest sync status, cowork without the hub"
-   },
-   {
-    "date": "2026-11-07T00:54:44Z",
-    "msg": "Fix: EPUBs opened with 0 words; dependency security clean-up"
    }
   ]
  },
  "ChessRetabled": {
-  "pushed_at": "2026-08-22T21:32:41Z",
+  "pushed_at": "2026-11-10T00:54:54Z",
   "stars": 0,
   "created": "2026-05-31T13:07:16Z",
   "weeks": [
@@ -234,8 +234,8 @@
    0,
    0,
    0,
-   1,
-   3,
+   2,
+   2,
    0,
    25,
    19,
@@ -243,8 +243,8 @@
    0,
    0,
    0,
-   13,
-   11,
+   15,
+   9,
    4,
    4,
    0,
@@ -335,8 +335,8 @@
    0,
    0,
    0,
-   6,
    7,
+   6,
    0,
    3,
    2,
@@ -344,8 +344,8 @@
    0,
    0,
    0,
-   4,
-   4,
+   6,
+   2,
    3,
    3,
    0,
@@ -436,17 +436,17 @@
    0,
    0,
    0,
+   5,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
    4,
-   3,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   15,
+   11,
    2,
    2,
    0,
@@ -537,8 +537,8 @@
    0,
    0,
    0,
-   2,
-   7,
+   3,
+   6,
    0,
    0,
    0,
@@ -606,7 +606,7 @@
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-11-08T22:53:55Z",
+  "pushed_at": "2026-11-10T00:53:55Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -648,12 +648,12 @@
    1,
    0,
    2,
-   17,
-   3,
+   18,
+   2,
    2,
    0,
-   0,
    1,
+   0,
    0,
    0,
    0,
@@ -664,6 +664,10 @@
    2
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:53:53Z",
+    "msg": "CI: run the in-page self-test headless on every push"
+   },
    {
     "date": "2026-11-08T22:53:52Z",
     "msg": "Keep BRIEF.md, brief.json and recent.json current in the cowork folder for the morning brief"
@@ -699,15 +703,11 @@
    {
     "date": "2026-08-08T21:59:48Z",
     "msg": "Work out cursive, mirror-prime and headline scripts from the page"
-   },
-   {
-    "date": "2026-08-08T00:06:17Z",
-    "msg": "Review scan batches as a gallery, and detect duplicate pages"
    }
   ]
  },
  "MicroMiniger": {
-  "pushed_at": "2026-08-23T02:25:20Z",
+  "pushed_at": "2026-11-10T00:47:56Z",
   "stars": 0,
   "created": "2026-08-08T13:26:44Z",
   "weeks": [
@@ -766,6 +766,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T00:47:53Z",
+    "msg": "CI: run the checks on every push"
+   },
+   {
     "date": "2026-08-23T02:25:17Z",
     "msg": "CSP: allow the maker portal's shared cowork panel script"
    },
@@ -800,7 +804,7 @@
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-09-12T19:51:44Z",
+  "pushed_at": "2026-11-10T00:56:02Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -832,8 +836,8 @@
    0,
    0,
    0,
-   2,
    4,
+   2,
    0,
    0,
    0,
@@ -855,9 +859,21 @@
    0,
    0,
    0,
-   0
+   1
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:55:59Z",
+    "msg": "Practice QoL: pace timeline + splits, hedges, WCPM, listen-first, talk timer, echo, Just speak"
+   },
+   {
+    "date": "2026-11-10T00:55:58Z",
+    "msg": "CI: npm test runs every module's demo() self-check"
+   },
+   {
+    "date": "2026-11-08T22:46:47Z",
+    "msg": "Import Tachyread reading-aloud sessions as scored sessions"
+   },
    {
     "date": "2026-09-12T19:51:42Z",
     "msg": "Modal: focus the dialog once on open, not on every re-render"
@@ -885,23 +901,11 @@
    {
     "date": "2026-08-19T20:26:52Z",
     "msg": "Scenario category (22) + 8 more trouble sounds; 128 -> 158 exercises"
-   },
-   {
-    "date": "2026-08-19T02:32:44Z",
-    "msg": "Second drill pass: 44 -> 65 targeted drills, 263 variants, 8 warm-ups"
-   },
-   {
-    "date": "2026-08-18T15:06:23Z",
-    "msg": "Corpus 488\u2192962 passages, worldwide-PD rights policy, provenance audit"
-   },
-   {
-    "date": "2026-08-18T11:58:17Z",
-    "msg": "Targeted drill sets per attribute, anti-repetition, emotive delivery tags"
    }
   ]
  },
  "Mise": {
-  "pushed_at": "2026-08-22T21:32:31Z",
+  "pushed_at": "2026-11-10T00:48:09Z",
   "stars": 0,
   "created": "2026-08-02T21:11:16Z",
   "weeks": [
@@ -942,8 +946,8 @@
    1,
    0,
    0,
-   2,
-   3,
+   4,
+   1,
    2,
    2,
    0,
@@ -959,6 +963,10 @@
    0
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:48:07Z",
+    "msg": "CI: run the checks on every push"
+   },
    {
     "date": "2026-08-22T21:32:19Z",
     "msg": "Settings: folder cowork for the cook log through the maker's shared panel"
@@ -994,10 +1002,6 @@
    {
     "date": "2026-08-02T21:12:37Z",
     "msg": "Fold protein guides into the app; add gh-pages deploy"
-   },
-   {
-    "date": "2026-07-12T13:46:06Z",
-    "msg": "Voice control, cook log for Claude reports, launcher + PWA polish"
    }
   ]
  },
@@ -1034,8 +1038,8 @@
    0,
    0,
    0,
-   1,
-   4,
+   2,
+   3,
    0,
    0,
    0,
@@ -1048,8 +1052,8 @@
    1,
    2,
    0,
-   9,
-   2,
+   11,
+   0,
    0,
    0,
    0,
@@ -1103,7 +1107,7 @@
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-08T22:46:10Z",
+  "pushed_at": "2026-11-10T00:43:11Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1149,8 +1153,8 @@
    0,
    0,
    0,
-   4,
-   2,
+   6,
+   0,
    0,
    0,
    0,
@@ -1204,7 +1208,7 @@
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-09-07T20:13:28Z",
+  "pushed_at": "2026-11-10T00:48:03Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1250,8 +1254,7 @@
    0,
    0,
    0,
-   2,
-   2,
+   4,
    0,
    0,
    0,
@@ -1259,9 +1262,18 @@
    0,
    0,
    0,
-   0
+   0,
+   1
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:48:00Z",
+    "msg": "CI: run the checks on every push"
+   },
+   {
+    "date": "2026-11-08T22:54:28Z",
+    "msg": "Learning Pit: ladder, Order it, Say it, deadline sweep, media store, richer brief"
+   },
    {
     "date": "2026-09-07T20:13:25Z",
     "msg": "Add the MIT license"
@@ -1281,7 +1293,7 @@
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-11-07T13:22:40Z",
+  "pushed_at": "2026-11-10T00:53:58Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
@@ -1327,8 +1339,8 @@
    2,
    0,
    0,
-   0,
    1,
+   0,
    0,
    0,
    8,
@@ -1339,6 +1351,10 @@
    8
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:53:56Z",
+    "msg": "CI: run the checks through npm test"
+   },
    {
     "date": "2026-11-07T13:22:38Z",
     "msg": "Ratings, notes, taste profile for agents, Library bulk actions, finetunes"
@@ -1374,15 +1390,11 @@
    {
     "date": "2026-10-09T23:31:50Z",
     "msg": "Add TODO: ratings, notes and an agent-readable taste profile"
-   },
-   {
-    "date": "2026-10-04T20:21:18Z",
-    "msg": "Keep file tags in sync with the app (masters + published copies)"
    }
   ]
  },
  "long-gallery": {
-  "pushed_at": "2026-11-08T22:51:46Z",
+  "pushed_at": "2026-11-10T00:48:00Z",
   "stars": 0,
   "created": "2026-08-25T00:51:45Z",
   "weeks": [
@@ -1428,11 +1440,11 @@
    0,
    0,
    0,
-   3,
-   15,
+   6,
    12,
-   17,
-   14,
+   13,
+   18,
+   12,
    0,
    16,
    3,
@@ -1440,6 +1452,10 @@
    1
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:47:58Z",
+    "msg": "CI: run the checks on every push"
+   },
    {
     "date": "2026-11-08T22:51:39Z",
     "msg": "Write BRIEF.md + brief.json to a Cowork folder for the morning brief"
@@ -1475,15 +1491,11 @@
    {
     "date": "2026-10-17T11:08:54Z",
     "msg": "Autoplay: hands-free walk with filters, order, full/split layout, timed or narrated with subtitles"
-   },
-   {
-    "date": "2026-10-17T11:03:12Z",
-    "msg": "Constellation picture mode: works as 64px thumbnails and artists as portraits when zoomed in"
    }
   ]
  },
  "classical-journey": {
-  "pushed_at": "2026-11-09T01:40:09Z",
+  "pushed_at": "2026-11-10T00:47:58Z",
   "stars": 0,
   "created": "2026-09-11T11:26:41Z",
   "weeks": [
@@ -1538,9 +1550,13 @@
    3,
    2,
    0,
-   4
+   6
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:47:56Z",
+    "msg": "CI: run the checks on every push"
+   },
    {
     "date": "2026-11-09T01:40:06Z",
     "msg": "Autoplay narration: spoken notes, composer bios and theory stops before each piece"
@@ -1576,15 +1592,11 @@
    {
     "date": "2026-10-16T22:57:04Z",
     "msg": "QoL: Want-to-hear list, search everything (/ or Ctrl-K), a Journey for every genre, Because-you-liked suggestions"
-   },
-   {
-    "date": "2026-10-16T22:50:10Z",
-    "msg": "Depth catch-up for passes 5-6: 8,323 works"
    }
   ]
  },
  "InsightMaster": {
-  "pushed_at": "2026-11-09T22:36:07Z",
+  "pushed_at": "2026-11-10T00:52:16Z",
   "stars": 0,
   "created": "2026-08-12T22:54:41Z",
   "weeks": [
@@ -1639,9 +1651,17 @@
    0,
    0,
    0,
-   0
+   1
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:52:14Z",
+    "msg": "Test: wait for the service worker to finish activating instead of racing it"
+   },
+   {
+    "date": "2026-11-10T00:48:05Z",
+    "msg": "CI: run the checks on every push"
+   },
    {
     "date": "2026-11-09T22:36:05Z",
     "msg": "Build 2: settling-in countdown, open sits, reminders, CSV, update toast; deploy to Pages"
@@ -1657,7 +1677,7 @@
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-09T23:08:53Z",
+  "pushed_at": "2026-11-10T00:48:05Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1712,9 +1732,13 @@
    0,
    0,
    0,
-   0
+   1
   ],
   "changes": [
+   {
+    "date": "2026-11-10T00:48:02Z",
+    "msg": "CI: run the checks on every push"
+   },
    {
     "date": "2026-11-09T23:08:46Z",
     "msg": "Celebrity Crusher: 389 celebrity fitness feats judged against your own data"
