@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-11-10T18:20:02Z",
+  "pushed_at": "2026-11-10T18:49:54Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -59,6 +59,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:43:49Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:40:50Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T18:19:58Z",
     "msg": "feat 558: erase all GymTracker data on this device; guides load no third-party fonts"
    },
@@ -89,19 +97,11 @@
    {
     "date": "2026-11-08T22:03:47Z",
     "msg": "feat 553: the ghost click that dismissed the End Workout sheet"
-   },
-   {
-    "date": "2026-11-07T02:10:04Z",
-    "msg": "feats 551-552: calories from heart rate; End Workout takes one tap"
-   },
-   {
-    "date": "2026-11-06T01:21:03Z",
-    "msg": "feat 550: custom sound clips for the PR, progress, rest-over and workout-ended sounds"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-10T16:51:36Z",
+  "pushed_at": "2026-11-10T18:50:01Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -160,6 +160,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:43:53Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:40:55Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T16:51:33Z",
     "msg": "Deploy: full-history checkout so the build number is real"
    },
@@ -190,14 +198,6 @@
    {
     "date": "2026-11-08T22:47:41Z",
     "msg": "Reading aloud: face-camera presenting score, and session logs for SpeechImprover"
-   },
-   {
-    "date": "2026-11-08T22:15:36Z",
-    "msg": "Cowork page: a subtask chip per operation; schedule dropdowns no longer reload the whole dialog"
-   },
-   {
-    "date": "2026-11-08T21:58:21Z",
-    "msg": "Add Untracked Files to Trackyread: track a folder without opening it; deeper folder search"
    }
   ]
  },
@@ -303,7 +303,7 @@
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-11-10T15:52:57Z",
+  "pushed_at": "2026-11-10T18:53:45Z",
   "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
@@ -362,6 +362,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:52:44Z",
+    "msg": "What's new list, and the default skin follows the device"
+   },
+   {
+    "date": "2026-11-10T18:43:56Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:40:58Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T15:52:55Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -388,23 +400,11 @@
    {
     "date": "2026-08-23T01:28:17Z",
     "msg": "Progress: loading the shared cowork panel tolerates a headless DOM"
-   },
-   {
-    "date": "2026-08-22T21:32:15Z",
-    "msg": "Progress: folder cowork through the maker's shared panel"
-   },
-   {
-    "date": "2026-08-22T20:59:50Z",
-    "msg": "Report graded runs to the maker portal's character sheet"
-   },
-   {
-    "date": "2026-08-13T02:35:53Z",
-    "msg": "Tell the maker's app portal that this app is installed"
    }
   ]
  },
  "BlackMirrorBikeRide": {
-  "pushed_at": "2026-11-10T17:50:13Z",
+  "pushed_at": "2026-11-10T18:55:45Z",
   "stars": 0,
   "created": "2026-05-30T03:41:43Z",
   "weeks": [
@@ -463,6 +463,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:54:32Z",
+    "msg": "What's new, device-following default theme, live after-deploy check"
+   },
+   {
+    "date": "2026-11-10T18:43:58Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
     "date": "2026-11-10T17:50:03Z",
     "msg": "Erase-all-data control; CI runs every suite and deploys from main"
    },
@@ -493,19 +501,11 @@
    {
     "date": "2026-08-13T02:37:22Z",
     "msg": "Tell the maker's app portal when the app is installed"
-   },
-   {
-    "date": "2026-08-12T00:33:28Z",
-    "msg": "Link the maker's app portal from the menu footer"
-   },
-   {
-    "date": "2026-08-06T01:59:24Z",
-    "msg": "Triple model tessellation; stop the ground ending in mid-air"
    }
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-11-10T17:48:38Z",
+  "pushed_at": "2026-11-10T18:54:21Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -564,6 +564,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:53:13Z",
+    "msg": "What's new log, and the default theme follows the device"
+   },
+   {
+    "date": "2026-11-10T18:44:01Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:00Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T17:48:35Z",
     "msg": "Local calendar days, erase-everything control, third-party origin guard"
    },
@@ -590,23 +602,11 @@
    {
     "date": "2026-08-22T20:59:58Z",
     "msg": "Report photo uploads and body-comp entries to the maker portal's character sheet"
-   },
-   {
-    "date": "2026-08-22T20:33:25Z",
-    "msg": "34 poses + hands-free Mirror (spoken call-outs, self-timer, auto-save)"
-   },
-   {
-    "date": "2026-08-13T02:36:42Z",
-    "msg": "Startup beacon so the app portal knows we're installed"
-   },
-   {
-    "date": "2026-08-12T00:32:46Z",
-    "msg": "More-apps link (adervec.github.io) in the disclaimer modal"
    }
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-11-10T17:54:42Z",
+  "pushed_at": "2026-11-10T18:54:36Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -665,6 +665,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:53:28Z",
+    "msg": "What's new feed and third-party notices"
+   },
+   {
+    "date": "2026-11-10T18:44:04Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:03Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T17:54:36Z",
     "msg": "No third-party requests, and an Erase everything control"
    },
@@ -691,23 +703,11 @@
    {
     "date": "2026-11-08T22:53:52Z",
     "msg": "Keep BRIEF.md, brief.json and recent.json current in the cowork folder for the morning brief"
-   },
-   {
-    "date": "2026-11-08T22:42:04Z",
-    "msg": "Sheets you can fill, a header the scanner reads back, and the loops a drill is meant to close"
-   },
-   {
-    "date": "2026-09-07T20:13:27Z",
-    "msg": "Add the MIT license"
-   },
-   {
-    "date": "2026-08-23T02:22:24Z",
-    "msg": "Coach card \u2014 folder cowork through the maker's shared panel"
    }
   ]
  },
  "MicroMiniger": {
-  "pushed_at": "2026-11-10T15:53:17Z",
+  "pushed_at": "2026-11-10T18:51:05Z",
   "stars": 0,
   "created": "2026-08-08T13:26:44Z",
   "weeks": [
@@ -766,6 +766,22 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:49:59Z",
+    "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
+   },
+   {
+    "date": "2026-11-10T18:46:09Z",
+    "msg": "Default theme follows the device (Paper in light mode); a saved theme always wins"
+   },
+   {
+    "date": "2026-11-10T18:44:06Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:35:55Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T15:53:15Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -788,27 +804,11 @@
    {
     "date": "2026-11-10T01:33:24Z",
     "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
-   },
-   {
-    "date": "2026-11-10T00:47:53Z",
-    "msg": "CI: run the checks on every push"
-   },
-   {
-    "date": "2026-08-23T02:25:17Z",
-    "msg": "CSP: allow the maker portal's shared cowork panel script"
-   },
-   {
-    "date": "2026-08-23T02:22:29Z",
-    "msg": "Coach in the help dialog: folder cowork through the maker's shared panel"
-   },
-   {
-    "date": "2026-08-22T21:00:07Z",
-    "msg": "Report painting time to the maker portal's character sheet"
    }
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-10T15:53:32Z",
+  "pushed_at": "2026-11-10T18:55:37Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -867,6 +867,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:54:30Z",
+    "msg": "House standards: what's new, device-following default theme, guide fonts self-hosted"
+   },
+   {
+    "date": "2026-11-10T18:44:09Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:06Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T15:53:29Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -893,23 +905,11 @@
    {
     "date": "2026-11-10T00:55:59Z",
     "msg": "Practice QoL: pace timeline + splits, hedges, WCPM, listen-first, talk timer, echo, Just speak"
-   },
-   {
-    "date": "2026-11-10T00:55:58Z",
-    "msg": "CI: npm test runs every module's demo() self-check"
-   },
-   {
-    "date": "2026-11-08T22:46:47Z",
-    "msg": "Import Tachyread reading-aloud sessions as scored sessions"
-   },
-   {
-    "date": "2026-09-12T19:51:42Z",
-    "msg": "Modal: focus the dialog once on open, not on every re-render"
    }
   ]
  },
  "Mise": {
-  "pushed_at": "2026-11-10T15:53:20Z",
+  "pushed_at": "2026-11-10T18:50:24Z",
   "stars": 0,
   "created": "2026-08-02T21:11:16Z",
   "weeks": [
@@ -968,6 +968,22 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:50:03Z",
+    "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
+   },
+   {
+    "date": "2026-11-10T18:46:11Z",
+    "msg": "Default theme follows the device (Paper in light mode); a saved theme always wins"
+   },
+   {
+    "date": "2026-11-10T18:44:33Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:42:13Z",
+    "msg": "Deploy script: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T15:53:18Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -990,27 +1006,11 @@
    {
     "date": "2026-11-10T03:24:02Z",
     "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
-   },
-   {
-    "date": "2026-11-10T00:48:07Z",
-    "msg": "CI: run the checks on every push"
-   },
-   {
-    "date": "2026-08-22T21:32:19Z",
-    "msg": "Settings: folder cowork for the cook log through the maker's shared panel"
-   },
-   {
-    "date": "2026-08-22T21:00:16Z",
-    "msg": "Report finished cooks to the maker portal's character sheet"
-   },
-   {
-    "date": "2026-08-13T02:37:08Z",
-    "msg": "Register with the app portal when running as an installed PWA"
    }
   ]
  },
  "MarksmanApp": {
-  "pushed_at": "2026-11-10T15:53:15Z",
+  "pushed_at": "2026-11-10T18:47:47Z",
   "stars": 0,
   "created": "2026-05-30T03:50:29Z",
   "weeks": [
@@ -1069,6 +1069,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:44:12Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:09Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T15:53:13Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -1099,19 +1107,11 @@
    {
     "date": "2026-09-06T21:43:54Z",
     "msg": "Stop a deploy taking ten minutes to reach anyone"
-   },
-   {
-    "date": "2026-09-06T21:42:25Z",
-    "msg": "Let the app analyse a photo without going through Google Drive"
-   },
-   {
-    "date": "2026-09-06T21:38:42Z",
-    "msg": "Drop the imports the split made dead, and give the desktop some room"
    }
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-10T15:55:25Z",
+  "pushed_at": "2026-11-10T18:54:53Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1170,6 +1170,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:53:25Z",
+    "msg": "What's new for the runner: whatsnew.json, declared in the page and deployed"
+   },
+   {
+    "date": "2026-11-10T18:44:14Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:12Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T15:53:23Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
    },
@@ -1196,23 +1208,11 @@
    {
     "date": "2026-11-08T22:46:06Z",
     "msg": "recent.json in the cowork folder: six weeks whole, for the daily and weekly brief"
-   },
-   {
-    "date": "2026-11-08T22:20:33Z",
-    "msg": "Service worker goes network-first so a deploy never mixes old and new modules"
-   },
-   {
-    "date": "2026-11-08T22:11:27Z",
-    "msg": "Lint, a device crash log, and no Drive sign-in popups from background syncs"
-   },
-   {
-    "date": "2026-11-07T05:22:06Z",
-    "msg": "D' balance through a run, and DFA-a1 when the watch logs beat-to-beat intervals"
    }
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-11-10T18:01:38Z",
+  "pushed_at": "2026-11-10T18:46:10Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1271,6 +1271,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:44:17Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:14Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T18:01:35Z",
     "msg": "Erase everything: fix the button, take only the Pit's own data, disconnect Drive"
    },
@@ -1301,19 +1309,11 @@
    {
     "date": "2026-11-08T22:54:28Z",
     "msg": "Learning Pit: ladder, Order it, Say it, deadline sweep, media store, richer brief"
-   },
-   {
-    "date": "2026-09-07T20:13:25Z",
-    "msg": "Add the MIT license"
-   },
-   {
-    "date": "2026-09-07T14:45:11Z",
-    "msg": "Wire the Pit into the maker portal"
    }
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-11-10T14:08:02Z",
+  "pushed_at": "2026-11-10T18:50:54Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
@@ -1372,6 +1372,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:50:01Z",
+    "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
+   },
+   {
+    "date": "2026-11-10T18:44:19Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:17Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T14:07:54Z",
     "msg": "Spend log: file each spend under its local day, not the UTC day"
    },
@@ -1398,23 +1410,11 @@
    {
     "date": "2026-11-07T13:22:38Z",
     "msg": "Ratings, notes, taste profile for agents, Library bulk actions, finetunes"
-   },
-   {
-    "date": "2026-11-07T13:16:40Z",
-    "msg": "Reverse-engineer songs, siblings, sound effects, video scoring, stems"
-   },
-   {
-    "date": "2026-11-07T13:13:25Z",
-    "msg": "Takes, composition plans, section redo, seeds, lyrics, quality check, spend confirm"
-   },
-   {
-    "date": "2026-11-07T13:02:18Z",
-    "msg": "TODO: feature ideas from similar projects and unused ElevenLabs endpoints"
    }
   ]
  },
  "long-gallery": {
-  "pushed_at": "2026-11-10T15:46:25Z",
+  "pushed_at": "2026-11-10T18:54:00Z",
   "stars": 0,
   "created": "2026-08-25T00:51:45Z",
   "weeks": [
@@ -1473,6 +1473,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:50:25Z",
+    "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
+   },
+   {
+    "date": "2026-11-10T18:41:20Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T15:46:17Z",
     "msg": "Leaflet served from this site, not a CDN; deploy only after the checks pass"
    },
@@ -1503,19 +1511,11 @@
    {
     "date": "2026-10-24T10:53:53Z",
     "msg": "HD zoom for every credited plate via Commons; artist timelines"
-   },
-   {
-    "date": "2026-10-17T11:47:01Z",
-    "msg": "Artist portraits: all candidates checked (checks 12-14)"
-   },
-   {
-    "date": "2026-10-17T11:26:44Z",
-    "msg": "More artist portraits (check 11)"
    }
   ]
  },
  "classical-journey": {
-  "pushed_at": "2026-11-10T15:46:31Z",
+  "pushed_at": "2026-11-10T18:51:49Z",
   "stars": 0,
   "created": "2026-09-11T11:26:41Z",
   "weeks": [
@@ -1574,6 +1574,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:50:39Z",
+    "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
+   },
+   {
+    "date": "2026-11-10T18:41:22Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T15:46:28Z",
     "msg": "Deploy only after the checks pass"
    },
@@ -1604,19 +1612,11 @@
    {
     "date": "2026-11-08T22:46:09Z",
     "msg": "Write BRIEF.md + brief.json to a Cowork folder for the morning brief"
-   },
-   {
-    "date": "2026-11-08T18:16:25Z",
-    "msg": "Blind listening quiz, who-was-alive lifetimes view, year in review"
-   },
-   {
-    "date": "2026-11-08T18:13:14Z",
-    "msg": "Piece of the day, weekly mix with loved-piece re-listens, listening-history import (Spotify/YouTube/Last.fm/ListenBrainz)"
    }
   ]
  },
  "InsightMaster": {
-  "pushed_at": "2026-11-10T17:51:43Z",
+  "pushed_at": "2026-11-10T18:56:27Z",
   "stars": 0,
   "created": "2026-08-12T22:54:41Z",
   "weeks": [
@@ -1675,6 +1675,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:54:30Z",
+    "msg": "What's new after updates: whatsnew.json, linked from the page"
+   },
+   {
+    "date": "2026-11-10T18:44:28Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:25Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T17:51:41Z",
     "msg": "Build 4: erase only this app's keys, and report sits to the maker portal"
    },
@@ -1701,15 +1713,11 @@
    {
     "date": "2026-08-12T22:49:22Z",
     "msg": "InsightHunter: the app, with a starter sitting-meditation module"
-   },
-   {
-    "date": "2026-08-12T22:25:29Z",
-    "msg": "Initial commit"
    }
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-10T17:55:16Z",
+  "pushed_at": "2026-11-10T18:54:36Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1768,6 +1776,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T18:53:37Z",
+    "msg": "What's new for the athlete, and no Google Fonts on the original ledger"
+   },
+   {
+    "date": "2026-11-10T18:44:30Z",
+    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+   },
+   {
+    "date": "2026-11-10T18:41:28Z",
+    "msg": "After each deploy: live check of the published site, then a release tag"
+   },
+   {
     "date": "2026-11-10T17:55:14Z",
     "msg": "House standards: local days, self-hosted fonts, erase, portal activity"
    },
@@ -1794,10 +1814,6 @@
    {
     "date": "2026-11-10T00:48:02Z",
     "msg": "CI: run the checks on every push"
-   },
-   {
-    "date": "2026-11-09T23:08:46Z",
-    "msg": "Celebrity Crusher: 389 celebrity fitness feats judged against your own data"
    }
   ]
  }
