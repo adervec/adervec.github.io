@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-11-10T12:31:02Z",
+  "pushed_at": "2026-11-10T14:32:24Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -59,6 +59,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T14:32:19Z",
+    "msg": "Midnight: a workout stays live across midnight; days are local days; deploy waits for CI"
+   },
+   {
     "date": "2026-11-10T12:30:57Z",
     "msg": "feat 557: house font standard - Atkinson Hyperlegible default, font picker in Settings"
    },
@@ -93,10 +97,6 @@
    {
     "date": "2026-11-05T23:38:47Z",
     "msg": "feat 548: the holds pass"
-   },
-   {
-    "date": "2026-11-05T22:33:50Z",
-    "msg": "feat 547: the S-rank set on the next-set card"
    }
   ]
  },
@@ -303,7 +303,7 @@
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-11-10T13:21:17Z",
+  "pushed_at": "2026-11-10T14:08:13Z",
   "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
@@ -362,6 +362,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T14:08:00Z",
+    "msg": "Calendar days are the player's local day, not UTC"
+   },
+   {
     "date": "2026-11-10T13:21:14Z",
     "msg": "Erase everything: remove only GuitarPicker's data, and sign out of sync"
    },
@@ -396,10 +400,6 @@
    {
     "date": "2026-08-12T00:45:52Z",
     "msg": "Add six app skins, and a check that a skin has CSS"
-   },
-   {
-    "date": "2026-08-12T00:32:07Z",
-    "msg": "Link the maker's app portal from About & disclaimers"
    }
   ]
  },
@@ -707,7 +707,7 @@
   ]
  },
  "MicroMiniger": {
-  "pushed_at": "2026-11-10T13:18:48Z",
+  "pushed_at": "2026-11-10T14:08:09Z",
   "stars": 0,
   "created": "2026-08-08T13:26:44Z",
   "weeks": [
@@ -766,6 +766,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T14:08:03Z",
+    "msg": "today() is the local calendar day, not the UTC day"
+   },
+   {
     "date": "2026-11-10T13:18:46Z",
     "msg": "Erase control; smoke test fails on any third-party request"
    },
@@ -800,15 +804,11 @@
    {
     "date": "2026-08-13T02:37:06Z",
     "msg": "Portal install beacon on startup (same-origin localStorage)"
-   },
-   {
-    "date": "2026-08-12T00:32:13Z",
-    "msg": "Maker portal link in help dialog (adervec.github.io)"
    }
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-10T13:22:50Z",
+  "pushed_at": "2026-11-10T14:08:51Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -867,6 +867,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T14:08:48Z",
+    "msg": "Days are the user's local calendar day (streak, activity grid, DOB, relative dates)"
+   },
+   {
     "date": "2026-11-10T13:22:48Z",
     "msg": "House standards: no third-party requests; erase everything on this device"
    },
@@ -901,10 +905,6 @@
    {
     "date": "2026-09-12T02:04:36Z",
     "msg": "Reading projects: document import, words-per-passage at creation, passage list; live word underline"
-   },
-   {
-    "date": "2026-09-11T22:59:54Z",
-    "msg": "Picker: already-used passages/prompts sink to a marked \"Already read\" group"
    }
   ]
  },
@@ -1111,7 +1111,7 @@
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-10T13:23:57Z",
+  "pushed_at": "2026-11-10T14:09:04Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1170,6 +1170,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T14:09:02Z",
+    "msg": "Calendar days are the runner's local day"
+   },
+   {
     "date": "2026-11-10T13:23:55Z",
     "msg": "No third-party requests, a clean device erase, and the build in settings"
    },
@@ -1204,10 +1208,6 @@
    {
     "date": "2026-11-07T05:11:47Z",
     "msg": "Records & collections, year in review, sharing with privacy, air quality"
-   },
-   {
-    "date": "2026-11-07T05:08:14Z",
-    "msg": "Replay, ghost race and a coverage time-lapse"
    }
   ]
  },
@@ -1313,7 +1313,7 @@
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-11-10T13:54:40Z",
+  "pushed_at": "2026-11-10T14:08:02Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
@@ -1372,6 +1372,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T14:07:54Z",
+    "msg": "Spend log: file each spend under its local day, not the UTC day"
+   },
+   {
     "date": "2026-11-10T13:54:34Z",
     "msg": "Third-party notices for the bundled libraries"
    },
@@ -1406,10 +1410,6 @@
    {
     "date": "2026-11-07T13:02:18Z",
     "msg": "TODO: feature ideas from similar projects and unused ElevenLabs endpoints"
-   },
-   {
-    "date": "2026-11-06T04:56:10Z",
-    "msg": "Persistent player bar, real Explorer opening, pickers start in the album folder"
    }
   ]
  },
