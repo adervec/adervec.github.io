@@ -303,7 +303,7 @@
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-11-10T12:37:55Z",
+  "pushed_at": "2026-11-10T13:21:17Z",
   "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
@@ -362,6 +362,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:21:14Z",
+    "msg": "Erase everything: remove only GuitarPicker's data, and sign out of sync"
+   },
+   {
     "date": "2026-11-10T12:37:50Z",
     "msg": "Show the connected Google account's profile picture beside its name"
    },
@@ -396,15 +400,11 @@
    {
     "date": "2026-08-12T00:32:07Z",
     "msg": "Link the maker's app portal from About & disclaimers"
-   },
-   {
-    "date": "2026-08-09T13:50:25Z",
-    "msg": "Synthesize backing tracks, and the parts you don't play"
    }
   ]
  },
  "BlackMirrorBikeRide": {
-  "pushed_at": "2026-11-10T12:03:32Z",
+  "pushed_at": "2026-11-10T13:54:46Z",
   "stars": 0,
   "created": "2026-05-30T03:41:43Z",
   "weeks": [
@@ -463,6 +463,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:54:41Z",
+    "msg": "Third-party notices for three.js"
+   },
+   {
     "date": "2026-11-10T01:35:18Z",
     "msg": "Adopt the house font standard: shared font.js, --app-font, settings picker"
    },
@@ -497,15 +501,11 @@
    {
     "date": "2026-08-06T00:59:42Z",
     "msg": "Ship a library of 34 bundled routes (~660 km)"
-   },
-   {
-    "date": "2026-08-06T00:14:11Z",
-    "msg": "Add 18 more biomes and 31 more props (58 biomes, 114 types)"
    }
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-11-10T03:25:57Z",
+  "pushed_at": "2026-11-10T13:13:24Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -606,7 +606,7 @@
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-11-10T12:38:02Z",
+  "pushed_at": "2026-11-10T13:09:44Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -665,6 +665,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:09:42Z",
+    "msg": "Deploy only after the checks pass"
+   },
+   {
     "date": "2026-11-10T12:38:00Z",
     "msg": "Show the Google profile picture beside the account when Drive is connected"
    },
@@ -699,15 +703,11 @@
    {
     "date": "2026-08-13T02:40:07Z",
     "msg": "Tell the app portal this app is installed"
-   },
-   {
-    "date": "2026-08-12T00:33:08Z",
-    "msg": "Link the maker's app portal from the Reference card"
    }
   ]
  },
  "MicroMiniger": {
-  "pushed_at": "2026-11-10T03:29:14Z",
+  "pushed_at": "2026-11-10T13:18:48Z",
   "stars": 0,
   "created": "2026-08-08T13:26:44Z",
   "weeks": [
@@ -766,6 +766,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:18:46Z",
+    "msg": "Erase control; smoke test fails on any third-party request"
+   },
+   {
+    "date": "2026-11-10T13:08:44Z",
+    "msg": "Deploy only after the checks pass"
+   },
+   {
     "date": "2026-11-10T03:29:11Z",
     "msg": "Smoke test: wait for the font picker; optional SMOKE_HASH"
    },
@@ -796,19 +804,11 @@
    {
     "date": "2026-08-12T00:32:13Z",
     "msg": "Maker portal link in help dialog (adervec.github.io)"
-   },
-   {
-    "date": "2026-08-08T14:48:09Z",
-    "msg": "Modern sidebar navigation + 12-theme system (SpeechImprover-style)"
-   },
-   {
-    "date": "2026-08-08T13:26:38Z",
-    "msg": "Full MicroMiniger PWA: collection manager, 3D scan & splat viewer, cloud backup"
    }
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-10T12:38:28Z",
+  "pushed_at": "2026-11-10T13:22:50Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -867,6 +867,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:22:48Z",
+    "msg": "House standards: no third-party requests; erase everything on this device"
+   },
+   {
+    "date": "2026-11-10T13:13:20Z",
+    "msg": "Deploy only after lint, self-checks and the content audit pass"
+   },
+   {
     "date": "2026-11-10T12:38:25Z",
     "msg": "Drive sync: show the connected Google account's photo and name"
    },
@@ -897,19 +905,11 @@
    {
     "date": "2026-09-11T22:59:54Z",
     "msg": "Picker: already-used passages/prompts sink to a marked \"Already read\" group"
-   },
-   {
-    "date": "2026-08-22T21:16:28Z",
-    "msg": "Lint: optional catch binding in the portal activity beacon"
-   },
-   {
-    "date": "2026-08-22T21:13:18Z",
-    "msg": "Cowork sync view wears the maker's shared cowork panel"
    }
   ]
  },
  "Mise": {
-  "pushed_at": "2026-11-10T12:38:44Z",
+  "pushed_at": "2026-11-10T13:54:33Z",
   "stars": 0,
   "created": "2026-08-02T21:11:16Z",
   "weeks": [
@@ -968,6 +968,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:54:28Z",
+    "msg": "Add the MIT licence and third-party notices"
+   },
+   {
+    "date": "2026-11-10T13:18:51Z",
+    "msg": "Self-hosted fonts instead of Google Fonts; erase everything in Settings"
+   },
+   {
+    "date": "2026-11-10T13:13:34Z",
+    "msg": "Deploy script runs the tests first"
+   },
+   {
     "date": "2026-11-10T12:38:19Z",
     "msg": "Show the Google account picture beside the Drive sync status"
    },
@@ -994,23 +1006,11 @@
    {
     "date": "2026-08-12T00:33:57Z",
     "msg": "Add About section in Settings linking the maker's app portal"
-   },
-   {
-    "date": "2026-08-05T19:31:06Z",
-    "msg": "Google Drive sync for the cook log, mirroring Tachyread"
-   },
-   {
-    "date": "2026-08-03T23:48:42Z",
-    "msg": "Maximal Instant Pot coverage: 20 recipes + 8 reference pages"
-   },
-   {
-    "date": "2026-08-03T11:52:53Z",
-    "msg": "Add Grid view mode to recipe detail"
    }
   ]
  },
  "MarksmanApp": {
-  "pushed_at": "2026-11-10T12:40:16Z",
+  "pushed_at": "2026-11-10T13:27:44Z",
   "stars": 0,
   "created": "2026-05-30T03:50:29Z",
   "weeks": [
@@ -1111,7 +1111,7 @@
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-10T12:49:06Z",
+  "pushed_at": "2026-11-10T13:23:57Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1170,6 +1170,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:23:55Z",
+    "msg": "No third-party requests, a clean device erase, and the build in settings"
+   },
+   {
     "date": "2026-11-10T12:38:03Z",
     "msg": "Show the Google profile picture beside the Drive account and in the nav's sync status"
    },
@@ -1204,15 +1208,11 @@
    {
     "date": "2026-11-07T05:08:14Z",
     "msg": "Replay, ghost race and a coverage time-lapse"
-   },
-   {
-    "date": "2026-11-07T05:07:45Z",
-    "msg": "Plan a new-ground run: routes through unrun streets and missing tiles, as GPX"
    }
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-11-10T12:48:28Z",
+  "pushed_at": "2026-11-10T13:09:47Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1271,6 +1271,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:09:45Z",
+    "msg": "Deploy only after the checks pass"
+   },
+   {
     "date": "2026-11-10T12:48:26Z",
     "msg": "Sync: show the connected Google account's picture and name"
    },
@@ -1309,7 +1313,7 @@
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-11-10T12:37:51Z",
+  "pushed_at": "2026-11-10T13:54:40Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
@@ -1368,6 +1372,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:54:34Z",
+    "msg": "Third-party notices for the bundled libraries"
+   },
+   {
+    "date": "2026-11-10T13:18:48Z",
+    "msg": "Settings: erase everything (this app's data only)"
+   },
+   {
     "date": "2026-11-10T12:37:49Z",
     "msg": "Show the Google account picture beside the connected Drive account"
    },
@@ -1398,19 +1410,11 @@
    {
     "date": "2026-11-06T04:56:10Z",
     "msg": "Persistent player bar, real Explorer opening, pickers start in the album folder"
-   },
-   {
-    "date": "2026-11-05T13:52:31Z",
-    "msg": "Album-pinned generation queue"
-   },
-   {
-    "date": "2026-11-05T12:55:39Z",
-    "msg": "Show ElevenLabs credit-pool consumption on the Spend button"
    }
   ]
  },
  "long-gallery": {
-  "pushed_at": "2026-11-10T03:29:11Z",
+  "pushed_at": "2026-11-10T13:19:13Z",
   "stars": 0,
   "created": "2026-08-25T00:51:45Z",
   "weeks": [
@@ -1469,6 +1473,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:19:05Z",
+    "msg": "Self-hosted fonts instead of Google Fonts; erase everything in the sync dialog"
+   },
+   {
     "date": "2026-11-10T03:29:04Z",
     "msg": "House font: Atkinson Hyperlegible by default, with a font choice on the Progress page"
    },
@@ -1503,15 +1511,11 @@
    {
     "date": "2026-10-17T11:18:57Z",
     "msg": "More artist portraits (checks 7-10)"
-   },
-   {
-    "date": "2026-10-17T11:10:33Z",
-    "msg": "Artist pages: map of where their works were made"
    }
   ]
  },
  "classical-journey": {
-  "pushed_at": "2026-11-10T12:39:42Z",
+  "pushed_at": "2026-11-10T13:19:15Z",
   "stars": 0,
   "created": "2026-09-11T11:26:41Z",
   "weeks": [
@@ -1570,6 +1574,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:19:13Z",
+    "msg": "Smoke test fails on any third-party request"
+   },
+   {
     "date": "2026-11-10T12:39:40Z",
     "msg": "Show the Google account picture on the sync chip and in the sync dialog"
    },
@@ -1604,15 +1612,11 @@
    {
     "date": "2026-11-08T04:08:15Z",
     "msg": "Gym mode (one-screen big-button player + marks, wake lock) and Google Drive sync that works on phones"
-   },
-   {
-    "date": "2026-10-23T23:20:46Z",
-    "msg": "Offline download also caches the page and index"
    }
   ]
  },
  "InsightMaster": {
-  "pushed_at": "2026-11-10T03:22:57Z",
+  "pushed_at": "2026-11-10T13:09:50Z",
   "stars": 0,
   "created": "2026-08-12T22:54:41Z",
   "weeks": [
@@ -1671,6 +1675,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-10T13:09:48Z",
+    "msg": "Deploy only after the checks pass"
+   },
+   {
     "date": "2026-11-10T03:22:55Z",
     "msg": "Build 3: house font (Atkinson Hyperlegible) with a reader font choice under Settings"
    },
@@ -1697,7 +1705,7 @@
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-10T12:48:40Z",
+  "pushed_at": "2026-11-10T13:54:27Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1755,6 +1763,14 @@
    1
   ],
   "changes": [
+   {
+    "date": "2026-11-10T13:54:21Z",
+    "msg": "Add the MIT licence"
+   },
+   {
+    "date": "2026-11-10T13:09:52Z",
+    "msg": "Deploy only after the checks pass"
+   },
    {
     "date": "2026-11-10T12:48:38Z",
     "msg": "Show the Google profile picture beside the Drive account name"
