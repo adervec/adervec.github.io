@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-11-10T18:49:54Z",
+  "pushed_at": "2026-11-10T20:00:51Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -33,19 +33,19 @@
    0,
    0,
    11,
-   117,
-   89,
-   50,
-   60,
-   19,
+   135,
+   72,
+   86,
+   28,
+   14,
    3,
    15,
    3,
-   9,
-   7,
+   10,
+   8,
    20,
-   7,
-   4,
+   6,
+   3,
    1,
    0,
    1,
@@ -55,9 +55,17 @@
    8,
    5,
    10,
-   19
+   28
   ],
   "changes": [
+   {
+    "date": "2026-11-10T19:54:54Z",
+    "msg": "feat 560: embed the whole shared font.js (About panel, crash notice, offline pill, zoom option)"
+   },
+   {
+    "date": "2026-11-10T19:24:37Z",
+    "msg": "feat 559: default theme follows the device; what's new"
+   },
    {
     "date": "2026-11-10T18:43:49Z",
     "msg": "Agent notes: import the house standards, and how to test and deploy this app"
@@ -89,19 +97,11 @@
    {
     "date": "2026-11-09T01:58:21Z",
     "msg": "feat 555: wider desktop column, capped for ultrawide"
-   },
-   {
-    "date": "2026-11-08T22:41:54Z",
-    "msg": "feat 554: Freemotion Row station, seated low-row machine, and four lifts from reels"
-   },
-   {
-    "date": "2026-11-08T22:03:47Z",
-    "msg": "feat 553: the ghost click that dismissed the End Workout sheet"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-10T18:50:01Z",
+  "pushed_at": "2026-11-10T19:03:42Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -135,16 +135,16 @@
    0,
    15,
    6,
-   38,
-   42,
-   36,
-   91,
-   89,
-   24,
-   55,
-   60,
-   28,
    39,
+   45,
+   32,
+   111,
+   69,
+   41,
+   40,
+   64,
+   28,
+   33,
    10,
    3,
    4,
@@ -153,12 +153,16 @@
    6,
    2,
    26,
-   43,
-   20,
+   53,
+   10,
    8,
-   78
+   89
   ],
   "changes": [
+   {
+    "date": "2026-11-10T19:01:54Z",
+    "msg": "House standards: shared font.js, device-default theme, what's new"
+   },
    {
     "date": "2026-11-10T18:43:53Z",
     "msg": "Agent notes: import the house standards, and how to test and deploy this app"
@@ -194,10 +198,6 @@
    {
     "date": "2026-11-09T22:47:37Z",
     "msg": "Cowork: dynamic queues, re-queue suggestions that don't nag, prep notes per queue"
-   },
-   {
-    "date": "2026-11-08T22:47:41Z",
-    "msg": "Reading aloud: face-camera presenting score, and session logs for SpeechImprover"
    }
   ]
  },
@@ -243,8 +243,8 @@
    0,
    0,
    0,
-   15,
-   9,
+   20,
+   4,
    4,
    4,
    0,
@@ -338,8 +338,8 @@
    7,
    6,
    0,
-   3,
-   2,
+   4,
+   1,
    0,
    0,
    0,
@@ -358,7 +358,7 @@
    0,
    0,
    0,
-   1
+   9
   ],
   "changes": [
    {
@@ -459,7 +459,7 @@
    0,
    0,
    0,
-   0
+   8
   ],
   "changes": [
    {
@@ -560,7 +560,7 @@
    0,
    0,
    0,
-   0
+   9
   ],
   "changes": [
    {
@@ -647,8 +647,8 @@
    0,
    1,
    0,
-   2,
-   18,
+   3,
+   17,
    2,
    2,
    0,
@@ -661,7 +661,7 @@
    0,
    0,
    0,
-   2
+   11
   ],
   "changes": [
    {
@@ -762,7 +762,7 @@
    0,
    0,
    0,
-   0
+   11
   ],
   "changes": [
    {
@@ -851,8 +851,8 @@
    0,
    2,
    15,
-   2,
-   8,
+   5,
+   5,
    0,
    0,
    3,
@@ -863,7 +863,7 @@
    0,
    0,
    0,
-   1
+   12
   ],
   "changes": [
    {
@@ -944,8 +944,8 @@
    0,
    0,
    0,
-   4,
-   1,
+   5,
+   0,
    0,
    1,
    0,
@@ -964,7 +964,7 @@
    0,
    0,
    0,
-   0
+   11
   ],
   "changes": [
    {
@@ -1049,8 +1049,8 @@
    0,
    0,
    1,
-   0,
    1,
+   0,
    2,
    5,
    1,
@@ -1065,7 +1065,7 @@
    0,
    0,
    0,
-   0
+   9
   ],
   "changes": [
    {
@@ -1166,7 +1166,7 @@
    0,
    23,
    3,
-   17
+   26
   ],
   "changes": [
    {
@@ -1212,7 +1212,7 @@
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-11-10T18:46:10Z",
+  "pushed_at": "2026-11-10T18:59:22Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1267,9 +1267,13 @@
    0,
    0,
    0,
-   1
+   11
   ],
   "changes": [
+   {
+    "date": "2026-11-10T18:58:38Z",
+    "msg": "What's new: whatsnew.json for learners and parents, kept from kid profiles"
+   },
    {
     "date": "2026-11-10T18:44:17Z",
     "msg": "Agent notes: import the house standards, and how to test and deploy this app"
@@ -1305,10 +1309,6 @@
    {
     "date": "2026-11-10T00:48:00Z",
     "msg": "CI: run the checks on every push"
-   },
-   {
-    "date": "2026-11-08T22:54:28Z",
-    "msg": "Learning Pit: ladder, Order it, Say it, deadline sweep, media store, richer brief"
    }
   ]
  },
@@ -1368,7 +1368,7 @@
    0,
    0,
    0,
-   8
+   17
   ],
   "changes": [
    {
@@ -1463,13 +1463,13 @@
    6,
    12,
    13,
-   18,
-   12,
+   20,
+   10,
    0,
    16,
    3,
    0,
-   1
+   7
   ],
   "changes": [
    {
@@ -1570,7 +1570,7 @@
    3,
    2,
    0,
-   6
+   13
   ],
   "changes": [
    {
@@ -1671,7 +1671,7 @@
    0,
    0,
    0,
-   1
+   9
   ],
   "changes": [
    {
@@ -1772,7 +1772,7 @@
    0,
    0,
    0,
-   1
+   11
   ],
   "changes": [
    {
