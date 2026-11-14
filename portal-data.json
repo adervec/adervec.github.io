@@ -101,7 +101,7 @@
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-11T02:40:44Z",
+  "pushed_at": "2026-11-14T03:12:56Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -160,6 +160,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T03:12:53Z",
+    "msg": "Cowork: AI review of typing runs and reading-aloud sessions (house standard 18)"
+   },
+   {
     "date": "2026-11-11T02:38:31Z",
     "msg": "Cowork: review first by default (per operation), and a cowork.json manifest"
    },
@@ -194,10 +198,6 @@
    {
     "date": "2026-11-10T12:04:09Z",
     "msg": "Default font: Atkinson Hyperlegible for the UI and for tabs with no font chosen"
-   },
-   {
-    "date": "2026-11-10T00:54:35Z",
-    "msg": "Queue: forget a remembered file path once the file is gone from the search folders"
    }
   ]
  },
@@ -303,7 +303,7 @@
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-11-11T02:30:59Z",
+  "pushed_at": "2026-11-14T02:03:06Z",
   "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
@@ -362,6 +362,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T02:01:04Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
     "date": "2026-11-11T02:30:14Z",
     "msg": "Cowork v2: describe the coach channel so replies are reviewed, not raw JSON"
    },
@@ -396,15 +400,11 @@
    {
     "date": "2026-11-10T03:22:01Z",
     "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
-   },
-   {
-    "date": "2026-11-07T14:11:51Z",
-    "msg": "Practice mode, MIDI input, MusicXML import, fretboard game, sight-reading, practice timer"
    }
   ]
  },
  "BlackMirrorBikeRide": {
-  "pushed_at": "2026-11-11T02:31:36Z",
+  "pushed_at": "2026-11-14T02:03:01Z",
   "stars": 0,
   "created": "2026-05-30T03:41:43Z",
   "weeks": [
@@ -463,6 +463,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T02:01:06Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
     "date": "2026-11-11T02:30:13Z",
     "msg": "Cowork v2: coach replies are reviewed before they apply, with undo"
    },
@@ -497,15 +501,11 @@
    {
     "date": "2026-08-23T02:22:33Z",
     "msg": "History: coach section \u2014 folder cowork through the maker's shared panel"
-   },
-   {
-    "date": "2026-08-22T20:59:54Z",
-    "msg": "Report recorded rides to the maker portal's character sheet"
    }
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-11-11T02:32:19Z",
+  "pushed_at": "2026-11-14T02:02:30Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -564,6 +564,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T02:01:09Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
     "date": "2026-11-11T02:31:01Z",
     "msg": "Cowork v2: describe the coach channel (review, preview text, undo)"
    },
@@ -598,15 +602,11 @@
    {
     "date": "2026-11-10T03:25:54Z",
     "msg": "House font: Atkinson Hyperlegible by default for body text, with a font choice on the Dashboard"
-   },
-   {
-    "date": "2026-08-23T02:22:37Z",
-    "msg": "Dashboard: coach section \u2014 folder cowork through the maker's shared panel"
    }
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-11-11T02:31:38Z",
+  "pushed_at": "2026-11-14T02:02:38Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -665,6 +665,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T02:01:12Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
     "date": "2026-11-11T02:30:29Z",
     "msg": "Cowork v2 \u2014 coach replies are reviewed before they replace the advice, with undo"
    },
@@ -699,10 +703,6 @@
    {
     "date": "2026-11-10T03:22:22Z",
     "msg": "House font \u2014 Atkinson Hyperlegible by default, with a font choice under Setup"
-   },
-   {
-    "date": "2026-11-10T00:53:53Z",
-    "msg": "CI: run the in-page self-test headless on every push"
    }
   ]
  },
@@ -808,7 +808,7 @@
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-11T12:53:36Z",
+  "pushed_at": "2026-11-14T03:10:21Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -867,6 +867,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T03:09:18Z",
+    "msg": "AI speech review channel (house standard 18): an AI grade beside the app's score"
+   },
+   {
+    "date": "2026-11-14T02:01:15Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
     "date": "2026-11-11T12:52:34Z",
     "msg": "Report: per-attribute +/- vs last take; splits score every attribute per part"
    },
@@ -897,14 +905,6 @@
    {
     "date": "2026-11-10T13:22:48Z",
     "msg": "House standards: no third-party requests; erase everything on this device"
-   },
-   {
-    "date": "2026-11-10T13:13:20Z",
-    "msg": "Deploy only after lint, self-checks and the content audit pass"
-   },
-   {
-    "date": "2026-11-10T12:38:25Z",
-    "msg": "Drive sync: show the connected Google account's photo and name"
    }
   ]
  },
@@ -1010,7 +1010,7 @@
   ]
  },
  "MarksmanApp": {
-  "pushed_at": "2026-11-10T18:47:47Z",
+  "pushed_at": "2026-11-14T02:03:24Z",
   "stars": 0,
   "created": "2026-05-30T03:50:29Z",
   "weeks": [
@@ -1069,6 +1069,18 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T02:01:18Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
+    "date": "2026-11-11T02:35:14Z",
+    "msg": "Describe the coach channel, so cowork v2 can review a reply properly"
+   },
+   {
+    "date": "2026-11-10T18:59:27Z",
+    "msg": "Tell people what changed: whatsnew.json, and a filled-in About panel"
+   },
+   {
     "date": "2026-11-10T18:44:12Z",
     "msg": "Agent notes: import the house standards, and how to test and deploy this app"
    },
@@ -1095,23 +1107,11 @@
    {
     "date": "2026-11-10T03:23:11Z",
     "msg": "House font: Atkinson Hyperlegible by default, with a font choice in the app"
-   },
-   {
-    "date": "2026-09-07T14:36:05Z",
-    "msg": "Wire Marksman into the maker portal"
-   },
-   {
-    "date": "2026-09-06T21:46:02Z",
-    "msg": "Read the photos phones actually take"
-   },
-   {
-    "date": "2026-09-06T21:43:54Z",
-    "msg": "Stop a deploy taking ten minutes to reach anyone"
    }
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-11T02:37:27Z",
+  "pushed_at": "2026-11-14T02:02:53Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1170,6 +1170,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T02:01:33Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
     "date": "2026-11-11T02:36:14Z",
     "msg": "Cowork replies wait for review (on by default, per channel), and every apply can be undone"
    },
@@ -1204,10 +1208,6 @@
    {
     "date": "2026-11-10T12:38:03Z",
     "msg": "Show the Google profile picture beside the Drive account and in the nav's sync status"
-   },
-   {
-    "date": "2026-11-10T03:22:12Z",
-    "msg": "House font: Atkinson Hyperlegible by default, reader's choice in settings"
    }
   ]
  },
@@ -1616,7 +1616,7 @@
   ]
  },
  "InsightMaster": {
-  "pushed_at": "2026-11-11T02:36:34Z",
+  "pushed_at": "2026-11-14T02:03:41Z",
   "stars": 0,
   "created": "2026-08-12T22:54:41Z",
   "weeks": [
@@ -1675,6 +1675,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T02:01:36Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
     "date": "2026-11-11T02:34:49Z",
     "msg": "Build 5: practice coach through the shared cowork panel"
    },
@@ -1709,15 +1713,11 @@
    {
     "date": "2026-11-10T00:48:05Z",
     "msg": "CI: run the checks on every push"
-   },
-   {
-    "date": "2026-11-09T22:36:05Z",
-    "msg": "Build 2: settling-in countdown, open sits, reminders, CSV, update toast; deploy to Pages"
    }
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-11T02:37:00Z",
+  "pushed_at": "2026-11-14T02:03:02Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1776,6 +1776,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T02:01:38Z",
+    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
+   },
+   {
     "date": "2026-11-11T02:35:54Z",
     "msg": "Cowork: a feat coach channel on the shared engine"
    },
@@ -1810,10 +1814,6 @@
    {
     "date": "2026-11-10T12:48:38Z",
     "msg": "Show the Google profile picture beside the Drive account name"
-   },
-   {
-    "date": "2026-11-10T12:03:45Z",
-    "msg": "Adopt the house font: Atkinson Hyperlegible with a reader-changeable setting"
    }
   ]
  }
