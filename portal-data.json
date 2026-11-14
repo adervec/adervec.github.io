@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-11-10T20:00:51Z",
+  "pushed_at": "2026-11-13T14:05:45Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -32,32 +32,40 @@
    0,
    0,
    0,
-   11,
-   135,
-   72,
-   86,
-   28,
-   14,
-   3,
-   15,
-   3,
-   10,
-   8,
-   20,
-   6,
-   3,
-   1,
-   0,
-   1,
-   0,
+   42,
+   131,
+   73,
+   79,
+   21,
    0,
    9,
-   8,
+   9,
+   4,
+   14,
+   19,
    5,
-   10,
-   28
+   8,
+   1,
+   0,
+   1,
+   0,
+   0,
+   3,
+   11,
+   8,
+   3,
+   22,
+   15
   ],
   "changes": [
+   {
+    "date": "2026-11-13T13:59:07Z",
+    "msg": "feat 562: read an exercise's setup aloud (feet to grip and breathing)"
+   },
+   {
+    "date": "2026-11-11T03:05:26Z",
+    "msg": "feat 561: cowork replies wait for review before they change the log"
+   },
    {
     "date": "2026-11-10T19:54:54Z",
     "msg": "feat 560: embed the whole shared font.js (About panel, crash notice, offline pill, zoom option)"
@@ -89,19 +97,11 @@
    {
     "date": "2026-11-10T12:30:57Z",
     "msg": "feat 557: house font standard - Atkinson Hyperlegible default, font picker in Settings"
-   },
-   {
-    "date": "2026-11-10T12:01:02Z",
-    "msg": "feat 556: motion figures rebuilt - readable, anatomically right, and pinned per exercise"
-   },
-   {
-    "date": "2026-11-09T01:58:21Z",
-    "msg": "feat 555: wider desktop column, capped for ultrawide"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-10T19:03:42Z",
+  "pushed_at": "2026-11-11T02:40:44Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -133,32 +133,36 @@
    0,
    0,
    0,
-   15,
-   6,
+   18,
+   13,
+   61,
+   37,
+   49,
+   110,
    39,
-   45,
-   32,
-   111,
-   69,
-   41,
-   40,
-   64,
-   28,
-   33,
-   10,
-   3,
-   4,
-   8,
-   0,
-   6,
-   2,
-   26,
+   55,
+   24,
+   62,
    53,
-   10,
+   6,
+   6,
+   5,
+   4,
+   6,
+   0,
    8,
-   89
+   3,
+   32,
+   48,
+   14,
+   56,
+   34
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:38:31Z",
+    "msg": "Cowork: review first by default (per operation), and a cowork.json manifest"
+   },
    {
     "date": "2026-11-10T19:01:54Z",
     "msg": "House standards: shared font.js, device-default theme, what's new"
@@ -194,10 +198,6 @@
    {
     "date": "2026-11-10T00:54:35Z",
     "msg": "Queue: forget a remembered file path once the file is gone from the search folders"
-   },
-   {
-    "date": "2026-11-09T22:47:37Z",
-    "msg": "Cowork: dynamic queues, re-queue suggestions that don't nag, prep notes per queue"
    }
   ]
  },
@@ -234,18 +234,18 @@
    0,
    0,
    0,
-   2,
-   2,
+   4,
    0,
-   25,
+   22,
    19,
+   3,
    0,
    0,
    0,
    0,
-   20,
+   24,
    4,
-   4,
+   0,
    4,
    0,
    0,
@@ -303,7 +303,7 @@
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-11-10T18:53:45Z",
+  "pushed_at": "2026-11-11T02:30:59Z",
   "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
@@ -335,19 +335,19 @@
    0,
    0,
    0,
-   7,
-   6,
+   13,
    0,
-   4,
+   1,
+   3,
    1,
    0,
    0,
    0,
    0,
-   6,
-   2,
+   7,
+   4,
+   0,
    3,
-   3,
    0,
    0,
    0,
@@ -358,9 +358,13 @@
    0,
    0,
    0,
-   9
+   10
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:30:14Z",
+    "msg": "Cowork v2: describe the coach channel so replies are reviewed, not raw JSON"
+   },
    {
     "date": "2026-11-10T18:52:44Z",
     "msg": "What's new list, and the default skin follows the device"
@@ -396,15 +400,11 @@
    {
     "date": "2026-11-07T14:11:51Z",
     "msg": "Practice mode, MIDI input, MusicXML import, fretboard game, sight-reading, practice timer"
-   },
-   {
-    "date": "2026-08-23T01:28:17Z",
-    "msg": "Progress: loading the shared cowork panel tolerates a headless DOM"
    }
   ]
  },
  "BlackMirrorBikeRide": {
-  "pushed_at": "2026-11-10T18:55:45Z",
+  "pushed_at": "2026-11-11T02:31:36Z",
   "stars": 0,
   "created": "2026-05-30T03:41:43Z",
   "weeks": [
@@ -436,7 +436,18 @@
    0,
    0,
    0,
-   5,
+   7,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   15,
+   2,
+   0,
    2,
    0,
    0,
@@ -445,23 +456,16 @@
    0,
    0,
    0,
-   4,
-   11,
-   2,
-   2,
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   8
+   9
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:30:13Z",
+    "msg": "Cowork v2: coach replies are reviewed before they apply, with undo"
+   },
    {
     "date": "2026-11-10T18:54:32Z",
     "msg": "What's new, device-following default theme, live after-deploy check"
@@ -497,15 +501,11 @@
    {
     "date": "2026-08-22T20:59:54Z",
     "msg": "Report recorded rides to the maker portal's character sheet"
-   },
-   {
-    "date": "2026-08-13T02:37:22Z",
-    "msg": "Tell the maker's app portal when the app is installed"
    }
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-11-10T18:54:21Z",
+  "pushed_at": "2026-11-11T02:32:19Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -537,7 +537,18 @@
    0,
    0,
    0,
-   3,
+   9,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   9,
+   4,
+   0,
    6,
    0,
    0,
@@ -546,23 +557,16 @@
    0,
    0,
    0,
-   5,
-   4,
-   4,
-   6,
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   9
+   10
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:31:01Z",
+    "msg": "Cowork v2: describe the coach channel (review, preview text, undo)"
+   },
    {
     "date": "2026-11-10T18:53:13Z",
     "msg": "What's new log, and the default theme follows the device"
@@ -598,15 +602,11 @@
    {
     "date": "2026-08-23T02:22:37Z",
     "msg": "Dashboard: coach section \u2014 folder cowork through the maker's shared panel"
-   },
-   {
-    "date": "2026-08-22T20:59:58Z",
-    "msg": "Report photo uploads and body-comp entries to the maker portal's character sheet"
    }
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-11-10T18:54:36Z",
+  "pushed_at": "2026-11-11T02:31:38Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -647,9 +647,9 @@
    0,
    1,
    0,
-   3,
    17,
-   2,
+   5,
+   0,
    2,
    0,
    1,
@@ -661,9 +661,13 @@
    0,
    0,
    0,
-   11
+   12
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:30:29Z",
+    "msg": "Cowork v2 \u2014 coach replies are reviewed before they replace the advice, with undo"
+   },
    {
     "date": "2026-11-10T18:53:28Z",
     "msg": "What's new feed and third-party notices"
@@ -699,15 +703,11 @@
    {
     "date": "2026-11-10T00:53:53Z",
     "msg": "CI: run the in-page self-test headless on every push"
-   },
-   {
-    "date": "2026-11-08T22:53:52Z",
-    "msg": "Keep BRIEF.md, brief.json and recent.json current in the cowork folder for the morning brief"
    }
   ]
  },
  "MicroMiniger": {
-  "pushed_at": "2026-11-10T18:51:05Z",
+  "pushed_at": "2026-11-11T02:27:09Z",
   "stars": 0,
   "created": "2026-08-08T13:26:44Z",
   "weeks": [
@@ -749,8 +749,8 @@
    1,
    0,
    0,
-   2,
-   2,
+   4,
+   0,
    3,
    0,
    0,
@@ -762,9 +762,13 @@
    0,
    0,
    0,
-   11
+   12
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:26:15Z",
+    "msg": "Cowork v2: review the coach's plan before it replaces yours, undo, and a morning brief"
+   },
    {
     "date": "2026-11-10T18:49:59Z",
     "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
@@ -800,15 +804,11 @@
    {
     "date": "2026-11-10T03:29:11Z",
     "msg": "Smoke test: wait for the font picker; optional SMOKE_HASH"
-   },
-   {
-    "date": "2026-11-10T01:33:24Z",
-    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
    }
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-10T18:55:37Z",
+  "pushed_at": "2026-11-11T12:53:36Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -840,8 +840,7 @@
    0,
    0,
    0,
-   4,
-   2,
+   6,
    0,
    0,
    0,
@@ -849,23 +848,32 @@
    0,
    0,
    0,
-   2,
-   15,
+   0,
+   12,
+   7,
    5,
-   5,
-   0,
-   0,
    3,
    0,
+   1,
+   2,
    0,
    0,
    0,
    0,
    0,
    0,
-   12
+   0,
+   14
   ],
   "changes": [
+   {
+    "date": "2026-11-11T12:52:34Z",
+    "msg": "Report: per-attribute +/- vs last take; splits score every attribute per part"
+   },
+   {
+    "date": "2026-11-11T02:36:52Z",
+    "msg": "Cowork v2: shared fs-mode engine with review-first, schedules, history and undo"
+   },
    {
     "date": "2026-11-10T18:54:30Z",
     "msg": "House standards: what's new, device-following default theme, guide fonts self-hosted"
@@ -897,19 +905,11 @@
    {
     "date": "2026-11-10T12:38:25Z",
     "msg": "Drive sync: show the connected Google account's photo and name"
-   },
-   {
-    "date": "2026-11-10T03:21:16Z",
-    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
-   },
-   {
-    "date": "2026-11-10T00:55:59Z",
-    "msg": "Practice QoL: pace timeline + splits, hedges, WCPM, listen-first, talk timer, echo, Just speak"
    }
   ]
  },
  "Mise": {
-  "pushed_at": "2026-11-10T18:50:24Z",
+  "pushed_at": "2026-11-11T02:28:18Z",
   "stars": 0,
   "created": "2026-08-02T21:11:16Z",
   "weeks": [
@@ -950,11 +950,10 @@
    1,
    0,
    0,
-   4,
-   1,
-   2,
+   5,
    2,
    0,
+   2,
    0,
    0,
    0,
@@ -964,9 +963,14 @@
    0,
    0,
    0,
-   11
+   0,
+   12
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:27:50Z",
+    "msg": "Cowork v2: review the agent's advice before it replaces yours, with undo"
+   },
    {
     "date": "2026-11-10T18:50:03Z",
     "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
@@ -1002,10 +1006,6 @@
    {
     "date": "2026-11-10T12:38:19Z",
     "msg": "Show the Google account picture beside the Drive sync status"
-   },
-   {
-    "date": "2026-11-10T03:24:02Z",
-    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
    }
   ]
  },
@@ -1042,18 +1042,18 @@
    0,
    0,
    0,
-   2,
-   3,
-   0,
-   0,
-   0,
-   0,
-   1,
-   1,
-   0,
-   2,
    5,
+   0,
+   0,
+   0,
+   0,
+   0,
    1,
+   1,
+   0,
+   7,
+   1,
+   0,
    2,
    0,
    11,
@@ -1111,7 +1111,7 @@
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-10T18:54:53Z",
+  "pushed_at": "2026-11-11T02:37:27Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1164,11 +1164,15 @@
    0,
    0,
    0,
-   23,
-   3,
-   26
+   26,
+   0,
+   27
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:36:14Z",
+    "msg": "Cowork replies wait for review (on by default, per channel), and every apply can be undone"
+   },
    {
     "date": "2026-11-10T18:53:25Z",
     "msg": "What's new for the runner: whatsnew.json, declared in the page and deployed"
@@ -1204,15 +1208,11 @@
    {
     "date": "2026-11-10T03:22:12Z",
     "msg": "House font: Atkinson Hyperlegible by default, reader's choice in settings"
-   },
-   {
-    "date": "2026-11-08T22:46:06Z",
-    "msg": "recent.json in the cowork folder: six weeks whole, for the daily and weekly brief"
    }
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-11-10T18:59:22Z",
+  "pushed_at": "2026-11-11T02:40:23Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1267,9 +1267,13 @@
    0,
    0,
    0,
-   11
+   12
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:39:36Z",
+    "msg": "Cowork v2: the study coach channel is reviewed before it applies, and undoable"
+   },
    {
     "date": "2026-11-10T18:58:38Z",
     "msg": "What's new: whatsnew.json for learners and parents, kept from kid profiles"
@@ -1305,19 +1309,14 @@
    {
     "date": "2026-11-10T12:08:59Z",
     "msg": "Content: In Order, Chemical Elements, Frases Cortas; Using the Pit covers the new features"
-   },
-   {
-    "date": "2026-11-10T00:48:00Z",
-    "msg": "CI: run the checks on every push"
    }
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-11-10T18:50:54Z",
+  "pushed_at": "2026-11-11T02:28:41Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
-   0,
    0,
    0,
    0,
@@ -1359,18 +1358,23 @@
    2,
    0,
    0,
+   0,
    1,
    0,
    0,
-   0,
-   8,
-   1,
-   0,
+   2,
+   7,
    0,
    0,
-   17
+   0,
+   4,
+   14
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:27:48Z",
+    "msg": "Cowork v2: review the agent's advice before it replaces yours, with undo"
+   },
    {
     "date": "2026-11-10T18:50:01Z",
     "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
@@ -1406,15 +1410,11 @@
    {
     "date": "2026-11-10T00:53:56Z",
     "msg": "CI: run the checks through npm test"
-   },
-   {
-    "date": "2026-11-07T13:22:38Z",
-    "msg": "Ratings, notes, taste profile for agents, Library bulk actions, finetunes"
    }
   ]
  },
  "long-gallery": {
-  "pushed_at": "2026-11-10T18:54:00Z",
+  "pushed_at": "2026-11-11T02:31:10Z",
   "stars": 0,
   "created": "2026-08-25T00:51:45Z",
   "weeks": [
@@ -1459,19 +1459,23 @@
    0,
    0,
    0,
-   0,
-   6,
-   12,
-   13,
-   20,
-   10,
-   0,
+   3,
+   4,
    16,
+   22,
+   10,
+   6,
+   5,
+   11,
    3,
    0,
-   7
+   8
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:28:18Z",
+    "msg": "Cowork v2: review the agent's advice before it replaces yours, with undo"
+   },
    {
     "date": "2026-11-10T18:50:25Z",
     "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
@@ -1507,15 +1511,11 @@
    {
     "date": "2026-10-24T14:38:56Z",
     "msg": "61 more artist portraits found by Commons search"
-   },
-   {
-    "date": "2026-10-24T10:53:53Z",
-    "msg": "HD zoom for every credited plate via Commons; artist timelines"
    }
   ]
  },
  "classical-journey": {
-  "pushed_at": "2026-11-10T18:51:49Z",
+  "pushed_at": "2026-11-11T02:29:50Z",
   "stars": 0,
   "created": "2026-09-11T11:26:41Z",
   "weeks": [
@@ -1561,18 +1561,22 @@
    0,
    0,
    0,
-   0,
-   6,
-   0,
+   2,
+   4,
    6,
    8,
-   16,
-   3,
+   12,
+   7,
    2,
    0,
-   13
+   0,
+   14
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:28:32Z",
+    "msg": "Cowork v2: review the agent's advice before it replaces yours, with undo"
+   },
    {
     "date": "2026-11-10T18:50:39Z",
     "msg": "What's new: whatsnew.json, shown once after an update (readers can silence it)"
@@ -1608,15 +1612,11 @@
    {
     "date": "2026-11-09T01:32:44Z",
     "msg": "Autoplay: hands-free run through a journey, marking each piece heard"
-   },
-   {
-    "date": "2026-11-08T22:46:09Z",
-    "msg": "Write BRIEF.md + brief.json to a Cowork folder for the morning brief"
    }
   ]
  },
  "InsightMaster": {
-  "pushed_at": "2026-11-10T18:56:27Z",
+  "pushed_at": "2026-11-11T02:36:34Z",
   "stars": 0,
   "created": "2026-08-12T22:54:41Z",
   "weeks": [
@@ -1658,7 +1658,6 @@
    0,
    0,
    0,
-   0,
    2,
    0,
    0,
@@ -1671,9 +1670,14 @@
    0,
    0,
    0,
-   9
+   0,
+   10
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:34:49Z",
+    "msg": "Build 5: practice coach through the shared cowork panel"
+   },
    {
     "date": "2026-11-10T18:54:30Z",
     "msg": "What's new after updates: whatsnew.json, linked from the page"
@@ -1709,15 +1713,11 @@
    {
     "date": "2026-11-09T22:36:05Z",
     "msg": "Build 2: settling-in countdown, open sits, reminders, CSV, update toast; deploy to Pages"
-   },
-   {
-    "date": "2026-08-12T22:49:22Z",
-    "msg": "InsightHunter: the app, with a starter sitting-meditation module"
    }
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-10T18:54:36Z",
+  "pushed_at": "2026-11-11T02:37:00Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1772,9 +1772,13 @@
    0,
    0,
    0,
-   11
+   12
   ],
   "changes": [
+   {
+    "date": "2026-11-11T02:35:54Z",
+    "msg": "Cowork: a feat coach channel on the shared engine"
+   },
    {
     "date": "2026-11-10T18:53:37Z",
     "msg": "What's new for the athlete, and no Google Fonts on the original ledger"
@@ -1810,10 +1814,6 @@
    {
     "date": "2026-11-10T12:03:45Z",
     "msg": "Adopt the house font: Atkinson Hyperlegible with a reader-changeable setting"
-   },
-   {
-    "date": "2026-11-10T00:48:02Z",
-    "msg": "CI: run the checks on every push"
    }
   ]
  }
