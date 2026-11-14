@@ -101,7 +101,7 @@
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-14T03:12:56Z",
+  "pushed_at": "2026-11-14T03:20:41Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -160,6 +160,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T03:18:47Z",
+    "msg": "Session review: reply field is `reviews` (house standard 18); never commit temp scripts"
+   },
+   {
     "date": "2026-11-14T03:12:53Z",
     "msg": "Cowork: AI review of typing runs and reading-aloud sessions (house standard 18)"
    },
@@ -194,10 +198,6 @@
    {
     "date": "2026-11-10T15:49:34Z",
     "msg": "Deploy only after lint and unit tests pass; work on main"
-   },
-   {
-    "date": "2026-11-10T12:04:09Z",
-    "msg": "Default font: Atkinson Hyperlegible for the UI and for tabs with no font chosen"
    }
   ]
  },
@@ -303,7 +303,7 @@
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-11-14T02:03:06Z",
+  "pushed_at": "2026-11-14T03:22:43Z",
   "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
@@ -362,6 +362,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T03:21:37Z",
+    "msg": "What's new: AI practice reviews"
+   },
+   {
+    "date": "2026-11-14T03:21:20Z",
+    "msg": "AI practice review channel (house standard 18)"
+   },
+   {
     "date": "2026-11-14T02:01:04Z",
     "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
    },
@@ -392,14 +400,6 @@
    {
     "date": "2026-11-10T13:21:14Z",
     "msg": "Erase everything: remove only GuitarPicker's data, and sign out of sync"
-   },
-   {
-    "date": "2026-11-10T12:37:50Z",
-    "msg": "Show the connected Google account's profile picture beside its name"
-   },
-   {
-    "date": "2026-11-10T03:22:01Z",
-    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
    }
   ]
  },
@@ -1111,7 +1111,7 @@
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-14T02:02:53Z",
+  "pushed_at": "2026-11-14T03:26:54Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1170,6 +1170,14 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T03:25:43Z",
+    "msg": "Ignore the local Python environment and database files"
+   },
+   {
+    "date": "2026-11-14T03:14:43Z",
+    "msg": "run-review cowork channel: an AI grades each session beside the app's own numbers"
+   },
+   {
     "date": "2026-11-14T02:01:33Z",
     "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
    },
@@ -1200,14 +1208,6 @@
    {
     "date": "2026-11-10T14:09:02Z",
     "msg": "Calendar days are the runner's local day"
-   },
-   {
-    "date": "2026-11-10T13:23:55Z",
-    "msg": "No third-party requests, a clean device erase, and the build in settings"
-   },
-   {
-    "date": "2026-11-10T12:38:03Z",
-    "msg": "Show the Google profile picture beside the Drive account and in the nav's sync status"
    }
   ]
  },
