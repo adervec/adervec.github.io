@@ -808,7 +808,7 @@
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-14T03:10:21Z",
+  "pushed_at": "2026-11-14T03:32:05Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -867,6 +867,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T03:30:55Z",
+    "msg": "Transcript is clamped (data-clamp) so long takes don't bury the report buttons"
+   },
+   {
     "date": "2026-11-14T03:09:18Z",
     "msg": "AI speech review channel (house standard 18): an AI grade beside the app's score"
    },
@@ -901,15 +905,11 @@
    {
     "date": "2026-11-10T14:08:48Z",
     "msg": "Days are the user's local calendar day (streak, activity grid, DOB, relative dates)"
-   },
-   {
-    "date": "2026-11-10T13:22:48Z",
-    "msg": "House standards: no third-party requests; erase everything on this device"
    }
   ]
  },
  "Mise": {
-  "pushed_at": "2026-11-14T01:51:39Z",
+  "pushed_at": "2026-11-14T03:32:36Z",
   "stars": 0,
   "created": "2026-08-02T21:11:16Z",
   "weeks": [
@@ -968,6 +968,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T03:32:32Z",
+    "msg": "Languages: English plus 16 machine-translated languages (font.js t()), RTL-safe layout"
+   },
+   {
     "date": "2026-11-14T01:51:20Z",
     "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
    },
@@ -1002,10 +1006,6 @@
    {
     "date": "2026-11-10T13:18:51Z",
     "msg": "Self-hosted fonts instead of Google Fonts; erase everything in Settings"
-   },
-   {
-    "date": "2026-11-10T13:13:34Z",
-    "msg": "Deploy script runs the tests first"
    }
   ]
  },
@@ -1212,7 +1212,7 @@
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-11-11T02:40:23Z",
+  "pushed_at": "2026-11-14T03:33:01Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
@@ -1271,6 +1271,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-14T03:32:06Z",
+    "msg": "Study-review: an AI tutor grades each sitting, beside the app's own score"
+   },
+   {
     "date": "2026-11-11T02:39:36Z",
     "msg": "Cowork v2: the study coach channel is reviewed before it applies, and undoable"
    },
@@ -1305,10 +1309,6 @@
    {
     "date": "2026-11-10T12:09:00Z",
     "msg": "House font: Atkinson Hyperlegible by default, reader's choice in Settings"
-   },
-   {
-    "date": "2026-11-10T12:08:59Z",
-    "msg": "Content: In Order, Chemical Elements, Frases Cortas; Using the Pit covers the new features"
    }
   ]
  },
