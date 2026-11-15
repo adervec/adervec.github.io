@@ -22,6 +22,9 @@
   --tile:45% 20%; --tileink:70% 75%; --chipbg:#1e2742;
   --spark:65% 62%; --area:rgba(130,166,255,.14);
 }
+:root[data-house-theme]{--bg:var(--t-bg);--card:var(--t-surface);--ink:var(--t-text);--mut:var(--t-dim);--line:var(--t-line);--acc:var(--t-accent);--accink:var(--t-on-accent);--chipbg:var(--t-surface2);--grid:color-mix(in srgb,var(--t-accent) 6%,transparent);--area:color-mix(in srgb,var(--t-accent) 13%,transparent);color-scheme:var(--t-scheme)}
+:root[data-house-dark='1']{--tile:45% 20%;--tileink:70% 75%;--spark:65% 62%}
+:root[data-house-dark='0']{--tile:70% 90%;--tileink:35% 25%;--spark:60% 40%}
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
