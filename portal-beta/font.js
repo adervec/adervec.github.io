@@ -867,7 +867,8 @@
   }
 
   // ---- One theme list for every app (house standard 24) ---------------------------------------------
-  // Every app offers exactly these themes, under these names. The choice is kept per app, so one app
+  // Every app offers at least these themes, under these names: the shared base list. An app may keep
+  // extra themes of its own on top (appFont.addThemes). The choice is kept per app, so one app
   // can be Ember while another is Paper; "System" (the default) follows the device's light/dark.
   // font.js sets the chosen palette on <html> as CSS variables, and each app maps them onto its own:
   //   --t-bg --t-surface --t-surface2 --t-line --t-text --t-dim --t-accent --t-on-accent --t-good --t-warn --t-bad
@@ -896,7 +897,24 @@
     t[3].split(' ').forEach(function (hex, i) { c[T_VARS[i]] = '#' + hex; });
     return { id: t[0], label: t[1], dark: !!t[2], colors: c };
   });
+  var BASE_THEMES = themes.length;
   var themeById = function (id) { return themes.filter(function (t) { return t.id === id; })[0]; };
+  // An app's own extra themes, on top of the base list: appFont.addThemes([{ id, label, dark, colors }])
+  // with all eleven colours ('#rrggbb'). They join appFont.themes and the picker after the base list,
+  // for this app only; a base id cannot be replaced. Call it once at start-up, before first paint.
+  function addThemes(list) {
+    var added = 0;
+    (Array.isArray(list) ? list : []).forEach(function (t) {
+      if (!t || typeof t.id !== 'string' || !/^[a-z0-9-]{1,30}$/i.test(t.id) || t.id === 'system' || themeById(t.id) || !t.colors) return;
+      if (!T_VARS.every(function (k) { return /^#[0-9a-f]{6}$/i.test(t.colors[k] || ''); })) return;
+      var c = {};
+      T_VARS.forEach(function (k) { c[k] = t.colors[k]; });
+      themes.push({ id: t.id, label: String(t.label || t.id), dark: !!t.dark, colors: c, extra: true });
+      added++;
+    });
+    if (added) { applyTheme(); document.dispatchEvent(new CustomEvent('app-themes-added')); } // a saved extra choice now applies
+    return added;
+  }
   var T_KEY = function () { return 'maker-theme:' + appKey(); };
   // the reader's choice for THIS app: a theme id, or 'system' when they have not chosen
   function themeChoice() { var v = store.get(T_KEY()); return v && themeById(v) ? v : 'system'; }
@@ -926,10 +944,15 @@
         if (this.firstChild) return;
         if (!houseReady && lang() !== 'en') { var me = this; ready.then(function () { if (!me.firstChild) me.connectedCallback(); }); return; }
         var label = document.createElement('label'), select = document.createElement('select');
-        [{ id: 'system', label: 'System' }].concat(themes).forEach(function (t) {
-          var o = document.createElement('option'); o.value = t.id; o.textContent = tr(t.label); select.appendChild(o);
-        });
-        select.value = themeChoice();
+        var fill = function () {
+          select.textContent = '';
+          [{ id: 'system', label: 'System' }].concat(themes).forEach(function (t) {
+            var o = document.createElement('option'); o.value = t.id; o.textContent = t.extra ? t.label : tr(t.label); select.appendChild(o);
+          });
+          select.value = themeChoice();
+        };
+        fill();
+        document.addEventListener('app-themes-added', fill);
         select.addEventListener('change', function () { setTheme(select.value); });
         document.addEventListener('app-theme-change', function () { select.value = themeChoice(); });
         label.append((this.getAttribute('label') || tr('Theme')) + ' ', select);
@@ -1007,21 +1030,23 @@
       .then(function (r) { return r.json(); })
       .then(function (j) { return (j.files || []).map(function (f) { return f.name; }).filter(function (n) { return n.indexOf(prefix) === 0; }); });
   }
-  function driveWrite(name, text) {
+  // body: text, or a Blob for a binary file; mime defaults to JSON
+  function driveWrite(name, body, mime) {
+    mime = mime || 'application/json';
     return gFind(name).then(function (id) {
-      if (id) return gApi('upload/drive/v3/files/' + id + '?uploadType=media', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: text });
+      if (id) return gApi('upload/drive/v3/files/' + id + '?uploadType=media', { method: 'PATCH', headers: { 'Content-Type': mime }, body: body });
       var b = 'b' + randomId().replace(/-/g, '');
-      var body = '--' + b + '\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n' + JSON.stringify({ name: name, parents: ['appDataFolder'] }) +
-        '\r\n--' + b + '\r\nContent-Type: application/json\r\n\r\n' + text + '\r\n--' + b + '--';
-      return gApi('upload/drive/v3/files?uploadType=multipart', { method: 'POST', headers: { 'Content-Type': 'multipart/related; boundary=' + b }, body: body });
+      var multi = new Blob(['--' + b + '\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n' + JSON.stringify({ name: name, parents: ['appDataFolder'] }) +
+        '\r\n--' + b + '\r\nContent-Type: ' + mime + '\r\n\r\n', body, '\r\n--' + b + '--']);
+      return gApi('upload/drive/v3/files?uploadType=multipart', { method: 'POST', headers: { 'Content-Type': 'multipart/related; boundary=' + b }, body: multi });
     }).then(function () {});
   }
 
   // ---- Cold backup (hub roadmap chunk 2a) ------------------------------------------------------------
   // Every app shares the origin, so one page can read all of their settings and databases into one
   // file the reader keeps wherever they like. This half only READS: nothing here writes app data.
-  // TODO(chunk 2b): restore. One app at a time, a fresh backup first, tested by restoring into a clean
-  // browser and comparing every record; open problem: Drive sync pulling over, or pushing, restored data.
+  // Restore (chunk 2b) lives on the hub's Backup page (backup.html): it reads a file as a stream, takes a
+  // safety copy of what it is about to replace, and rebuilds values with dec() below.
   // Memory: records are read a batch at a time and handed to the browser as Blob pieces (which it may
   // keep on disk), so the page never holds a whole database, let alone the whole backup.
   // ponytail: one record is still held whole (a single 500 MB recording would hurt); binary is base64.
@@ -1062,6 +1087,29 @@
       keys.forEach(function (k, i) { o[k] = vals[i]; });
       return '$t' in o ? { $t: 'obj', v: o } : o;
     });
+  }
+  // the reverse of enc, for restore: a value read from a backup file becomes what it was.
+  // Throws on a value that cannot be rebuilt (a folder handle, a crypto key), so the caller can skip it.
+  var VIEWS = /^(Int8|Uint8|Uint8Clamped|Int16|Uint16|Int32|Uint32|Float32|Float64|BigInt64|BigUint64)Array$|^DataView$/;
+  function unb64(s) { var b = atob(s || ''), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  function dec(v) {
+    if (v === null || typeof v !== 'object') return v;
+    if (Array.isArray(v)) return v.map(dec);
+    var o = {};
+    if (typeof v.$t !== 'string') { Object.keys(v).forEach(function (k) { o[k] = dec(v[k]); }); return o; }
+    switch (v.$t) {
+      case 'undef': return undefined;
+      case 'bigint': return BigInt(v.v);
+      case 'num': return Number(v.v);
+      case 'date': return new Date(v.v == null ? NaN : v.v);
+      case 'blob': return v.name != null ? new File([unb64(v.b64)], v.name, { type: v.type || '', lastModified: v.lastModified }) : new Blob([unb64(v.b64)], { type: v.type || '' });
+      case 'buf': return unb64(v.b64).buffer;
+      case 'view': if (!VIEWS.test(v.ctor)) throw new Error('Unknown binary kind'); return new window[v.ctor](unb64(v.b64).buffer);
+      case 'map': return new Map(dec(v.v));
+      case 'set': return new Set(dec(v.v));
+      case 'obj': Object.keys(v.v || {}).forEach(function (k) { o[k] = dec(v.v[k]); }); return o;
+      default: throw new Error('This value cannot be rebuilt: ' + (v.is || v.$t));
+    }
   }
   function idbReq(r) { return new Promise(function (res, rej) { r.onsuccess = function () { res(r.result); }; r.onerror = function () { rej(r.error); }; }); }
   // -> the open database, or null if it is not there (it is never created, and never blocks an app's upgrade)
@@ -1191,10 +1239,10 @@
   window.appFont = { options: options, get: get, set: set, buildLabel: buildLabel, updateNotice: updateNotice,
     esc: esc, html: html, safeUrl: safeUrl, parseJSON: parseJSON, randomId: randomId, redact: redact,
     zoomAllowed: zoomAllowed, setZoomAllowed: setZoomAllowed, crashNotice: crashNotice,
-    themes: themes, theme: themeChoice, themeNow: themeNow, setTheme: setTheme,
+    themes: themes, baseThemes: BASE_THEMES, addThemes: addThemes, theme: themeChoice, themeNow: themeNow, setTheme: setTheme,
     google: { token: googleToken, signedIn: googleSignedIn, signOut: googleSignOut, read: driveRead, write: driveWrite, list: driveList },
     logSession: logSession,
-    backup: { list: backupList, peek: backupPeek, build: backupBuild, download: backupDownload },
+    backup: { list: backupList, peek: backupPeek, build: backupBuild, download: backupDownload, open: idbOpen, decode: dec },
     diagnostics: diagnostics, copyDiagnostics: copyDiagnostics, storageInfo: storageInfo, systemTheme: systemTheme,
     whatsNew: whatsNew, checkWhatsNew: checkWhatsNew, setWhatsNewSilenced: setWhatsNewSilenced,
     getAccount: getAccount, setAccount: setAccount,
