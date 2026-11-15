@@ -37,6 +37,13 @@ a{color:var(--acc)}
 h1{font:700 30px/1.15 var(--mono);letter-spacing:-.5px;margin:6px 0 10px}
 .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 #bk{margin-left:auto}
+@media (max-width:430px){.head{gap:8px}.bk{padding:0 10px}}
+#suggest{font:14px var(--mono);margin:14px 0 8px}
+#setupopts label{display:grid;grid-template-columns:auto 1fr auto auto;gap:4px 10px;align-items:center;padding:7px 0;border-top:1px solid var(--line);font:13px var(--mono)}
+#setupopts small{display:block;color:var(--mut);font-size:11px}
+#setupopts input[type=checkbox]{width:20px;height:20px}
+#setupopts input[type=number]{width:4.2em;font:inherit;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:4px}
+footer.page .nfmb{padding:0;min-height:0;font:inherit}
 body:not(.showhid) .nfm{display:none!important}
 .showhid .nfm{opacity:.55}
 .nfmb{font:11px var(--mono);color:var(--mut);background:none;border:0;cursor:pointer;text-decoration:underline;padding:8px 0;min-height:32px}
