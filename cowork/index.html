@@ -32,7 +32,10 @@ body{margin:0;color:var(--ink);font:15px/1.5 var(--sans);
 main{max-width:1140px;margin:0 auto;padding:28px 20px 60px}
 a{color:var(--acc)}
 h1{font:700 30px/1.15 var(--mono);letter-spacing:-.5px;margin:6px 0 10px}
-.head{display:flex;align-items:center;gap:12px}
+.head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bk{margin-left:auto;display:inline-flex;align-items:center;height:36px;padding:0 14px;font:600 12px var(--mono);
+  color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:9px;text-decoration:none;white-space:nowrap}
+.bk~.install,.bk~.toggle{margin-left:0}
 .wordmark{font:600 13px var(--mono);color:var(--mut);letter-spacing:.5px}
 .toggle{width:36px;height:36px;font-size:16px;color:var(--ink);cursor:pointer;
   background:var(--card);border:1px solid var(--line);border-radius:9px}
