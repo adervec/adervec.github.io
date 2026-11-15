@@ -835,13 +835,86 @@
       .replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, '[email]');
   }
 
+  // ---- Google sign-in and the private Drive folder, one copy for everyone (hub roadmap chunk 3) -------
+  // The hub and its Backup and Settings pages use this; apps still carry their own copy and should
+  // move here (see HOUSE-STANDARDS). The access token lives in memory only. What is remembered is the
+  // address of the account last chosen (maker-google-hint), so the next sign-in skips the chooser.
+  // The client id is public (an identifier, not a secret); Google honours it only from registered origins.
+  var G_CLIENT = window.appGoogleClient || '547617739897-br6dj2facmsc34qnkjb5u4dbfhju39pu.apps.googleusercontent.com';
+  var G_SCOPE = 'openid email profile https://www.googleapis.com/auth/drive.appdata';
+  var G_HINT = 'maker-google-hint';
+  var gTok = null, gLoading = null;
+  function gLoad() {
+    return gLoading || (gLoading = new Promise(function (res, rej) {
+      if (window.google && google.accounts && google.accounts.oauth2) return res();
+      var s = document.createElement('script');
+      s.src = 'https://accounts.google.com/gsi/client';
+      s.onload = function () { res(); };
+      s.onerror = function () { gLoading = null; rej(new Error('Could not load Google sign-in.')); };
+      document.head.appendChild(s);
+    }));
+  }
+  var googleSignedIn = function () { return !!gTok && gTok.exp > Date.now() + 60000; };
+  // -> a promise of an access token. { silent: true } never shows Google's window to the reader: it
+  // rejects instead (browsers also block it outside a tap, so call it from one when it matters).
+  function googleToken(opts) {
+    if (googleSignedIn()) return Promise.resolve(gTok.value);
+    return gLoad().then(function () {
+      return new Promise(function (res, rej) {
+        google.accounts.oauth2.initTokenClient({
+          client_id: G_CLIENT, scope: G_SCOPE, login_hint: store.get(G_HINT) || undefined,
+          callback: function (r) {
+            if (!r || !r.access_token) return rej(new Error((r && r.error) || 'Sign-in failed.'));
+            gTok = { value: r.access_token, exp: Date.now() + (+r.expires_in || 3600) * 1000 };
+            res(gTok.value);
+          },
+          error_callback: function (e) { rej(new Error((e && (e.message || e.type)) || 'Sign-in was dismissed.')); },
+        }).requestAccessToken({ prompt: opts && opts.silent ? 'none' : '' });
+      });
+    }).then(function (t) {
+      // house standard 1: the picture sits in the top bar while signed in
+      return fetch('https://www.googleapis.com/oauth2/v3/userinfo', { headers: { Authorization: 'Bearer ' + t } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) { if (j) { setAccount({ name: j.name || j.email || 'Google', picture: j.picture || '', email: j.email || '' }); store.set(G_HINT, j.email || null); } })
+        .catch(function () { /* cosmetic only */ })
+        .then(function () { return t; });
+    });
+  }
+  // forgets the account here; the grant itself stays, since the apps share it
+  function googleSignOut() { gTok = null; store.set(G_HINT, null); setAccount(null); }
+  function gApi(path, init) {
+    return googleToken({ silent: true }).then(function (t) {
+      init = init || {};
+      return fetch('https://www.googleapis.com/' + path, { method: init.method, body: init.body, headers: Object.assign({ Authorization: 'Bearer ' + t }, init.headers) });
+    }).then(function (r) { if (!r.ok) throw new Error('Google Drive answered ' + r.status + '.'); return r; });
+  }
+  function gFind(name) {
+    var q = "name='" + String(name).replace(/['\\]/g, '\\$&') + "' and trashed=false";
+    return gApi('drive/v3/files?spaces=appDataFolder&fields=files(id)&q=' + encodeURIComponent(q))
+      .then(function (r) { return r.json(); }).then(function (j) { return ((j.files || [])[0] || {}).id || null; });
+  }
+  // one named file in the private folder: -> its text, or null when there is none yet
+  function driveRead(name) {
+    return gFind(name).then(function (id) { return id ? gApi('drive/v3/files/' + id + '?alt=media').then(function (r) { return r.text(); }) : null; });
+  }
+  function driveWrite(name, text) {
+    return gFind(name).then(function (id) {
+      if (id) return gApi('upload/drive/v3/files/' + id + '?uploadType=media', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: text });
+      var b = 'b' + randomId().replace(/-/g, '');
+      var body = '--' + b + '\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n' + JSON.stringify({ name: name, parents: ['appDataFolder'] }) +
+        '\r\n--' + b + '\r\nContent-Type: application/json\r\n\r\n' + text + '\r\n--' + b + '--';
+      return gApi('upload/drive/v3/files?uploadType=multipart', { method: 'POST', headers: { 'Content-Type': 'multipart/related; boundary=' + b }, body: body });
+    }).then(function () {});
+  }
+
   // ---- Cold backup (hub roadmap chunk 2a) ------------------------------------------------------------
   // Every app shares the origin, so one page can read all of their settings and databases into one
   // file the reader keeps wherever they like. This half only READS: nothing here writes app data.
   // TODO(chunk 2b): restore. One app at a time, a fresh backup first, tested by restoring into a clean
   // browser and comparing every record; open problem: Drive sync pulling over, or pushing, restored data.
-  // ponytail: the whole snapshot is held in memory and saved as one JSON file (binary as base64);
-  // stream to a zip if someone's recordings outgrow the tab.
+  // Memory: records are read a batch at a time and handed to the browser as Blob pieces (which it may
+  // keep on disk), so the page never holds a whole database, let alone the whole backup.
+  // ponytail: one record is still held whole (a single 500 MB recording would hurt); binary is base64.
   var SECRET_KEY = /token|secret|credential|password/i;
   var SECRET_VAL = /ya29\.[\w.-]{20,}|eyJ[\w-]{10,}\.[\w-]{10,}\.|"(access|refresh|id)_token"\s*:/;
   function b64(buf) {
@@ -849,108 +922,164 @@
     for (var i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000));
     return btoa(s);
   }
-  // -> a promise of a JSON-safe copy: binary, dates, maps, sets and the like become { $t: … }
-  function enc(v) {
+  // -> a promise of a JSON-safe copy: binary, dates, maps, sets and the like become { $t: … }.
+  // light: binary is described ({ size }) instead of read, for showing a record on screen.
+  function enc(v, light) {
     var P = function (x) { return Promise.resolve(x); };
     if (v === undefined) return P({ $t: 'undef' });
     if (typeof v === 'bigint') return P({ $t: 'bigint', v: String(v) });
     if (typeof v === 'number' && !isFinite(v)) return P({ $t: 'num', v: String(v) });
-    if (typeof v === 'string') return P(SECRET_VAL.test(v) && v.length < 5000 ? '[token]' : v);
+    if (typeof v === 'string') return P(v.length < 5000 && SECRET_VAL.test(v) ? '[token]' : v);
     if (v === null || typeof v !== 'object') return P(v);
     if (v instanceof Date) return P({ $t: 'date', v: v.getTime() });
-    if (v instanceof Blob) return v.arrayBuffer().then(function (b) {
-      return { $t: 'blob', type: v.type, name: v.name, lastModified: v.lastModified, b64: b64(b) };
-    });
-    if (v instanceof ArrayBuffer) return P({ $t: 'buf', b64: b64(v) });
-    if (ArrayBuffer.isView(v)) return P({ $t: 'view', ctor: v.constructor.name, b64: b64(v.buffer.slice(v.byteOffset, v.byteOffset + v.byteLength)) });
-    if (v instanceof Map) return enc(Array.from(v)).then(function (a) { return { $t: 'map', v: a }; });
-    if (v instanceof Set) return enc(Array.from(v)).then(function (a) { return { $t: 'set', v: a }; });
-    if (Array.isArray(v)) return Promise.all(Array.from(v, enc));
+    if (v instanceof Blob) {
+      var meta = { $t: 'blob', type: v.type, name: v.name, lastModified: v.lastModified };
+      if (light) { meta.size = v.size; return P(meta); }
+      return v.arrayBuffer().then(function (b) { meta.b64 = b64(b); return meta; });
+    }
+    if (v instanceof ArrayBuffer) return P(light ? { $t: 'buf', size: v.byteLength } : { $t: 'buf', b64: b64(v) });
+    if (ArrayBuffer.isView(v)) return P(light ? { $t: 'view', ctor: v.constructor.name, size: v.byteLength }
+      : { $t: 'view', ctor: v.constructor.name, b64: b64(v.buffer.slice(v.byteOffset, v.byteOffset + v.byteLength)) });
+    if (v instanceof Map) return enc(Array.from(v), light).then(function (a) { return { $t: 'map', v: a }; });
+    if (v instanceof Set) return enc(Array.from(v), light).then(function (a) { return { $t: 'set', v: a }; });
+    if (Array.isArray(v)) return Promise.all(Array.from(v, function (x) { return enc(x, light); }));
     var proto = Object.getPrototypeOf(v);
     // a folder handle, a crypto key…: cannot be written to a file; say what it was
     if (proto && proto !== Object.prototype) return P({ $t: 'other', is: Object.prototype.toString.call(v).slice(8, -1) });
     var keys = Object.keys(v);
-    return Promise.all(keys.map(function (k) { return enc(v[k]); })).then(function (vals) {
+    return Promise.all(keys.map(function (k) { return enc(v[k], light); })).then(function (vals) {
       var o = {};
       keys.forEach(function (k, i) { o[k] = vals[i]; });
       return '$t' in o ? { $t: 'obj', v: o } : o;
     });
   }
-  // one database -> { version, stores: { name: { keyPath, autoIncrement, indexes, keys, values } } }, or null if it is gone
-  function idbDump(name) {
-    return new Promise(function (res, rej) {
+  function idbReq(r) { return new Promise(function (res, rej) { r.onsuccess = function () { res(r.result); }; r.onerror = function () { rej(r.error); }; }); }
+  // -> the open database, or null if it is not there (it is never created, and never blocks an app's upgrade)
+  function idbOpen(name) {
+    return new Promise(function (res) {
       var rq = indexedDB.open(name);
-      rq.onupgradeneeded = function () { rq.transaction.abort(); }; // it was not there: never create it
+      rq.onupgradeneeded = function () { rq.transaction.abort(); };
       rq.onerror = function (ev) { ev.preventDefault(); res(null); };
-      rq.onsuccess = function () {
-        var db = rq.result, names = Array.from(db.objectStoreNames), out = { version: db.version, stores: {} }, raw = {};
-        db.onversionchange = function () { db.close(); }; // never block an app's own upgrade
-        if (!names.length) { db.close(); return res(out); }
-        var tx = db.transaction(names, 'readonly');
-        names.forEach(function (n) {
-          var st = tx.objectStore(n);
-          out.stores[n] = { keyPath: st.keyPath, autoIncrement: st.autoIncrement,
-            indexes: Array.from(st.indexNames).map(function (i) { var x = st.index(i); return { name: x.name, keyPath: x.keyPath, unique: x.unique, multiEntry: x.multiEntry }; }) };
-          var k = st.getAllKeys(), v = st.getAll();
-          v.onsuccess = function () { raw[n] = [k.result, v.result]; };
-        });
-        tx.oncomplete = function () {
-          db.close();
-          Promise.all(names.map(function (n) {
-            return enc(raw[n]).then(function (e) { out.stores[n].keys = e[0]; out.stores[n].values = e[1]; });
-          })).then(function () { res(out); }, rej);
-        };
-        tx.onerror = tx.onabort = function () { db.close(); rej(tx.error || new Error('Could not read ' + name)); };
-      };
+      rq.onsuccess = function () { rq.result.onversionchange = function () { rq.result.close(); }; res(rq.result); };
     });
   }
-  // want(kind, name) -> false leaves that key or database out; by default everything is taken.
-  // A database that cannot be read is recorded as { error } so the gap is never silent.
-  function backupSnapshot(want) {
+  // the next n records after key `after` (or the first n): -> [keys, values], read in one transaction
+  function idbBatch(db, store, started, after, n) {
+    var st = db.transaction(store, 'readonly').objectStore(store), range = started ? IDBKeyRange.lowerBound(after, true) : null;
+    return Promise.all([idbReq(st.getAllKeys(range, n)), idbReq(st.getAll(range, n))]);
+  }
+  // what is stored, without reading it: { localStorage: [{ name, bytes, secret }], indexedDB: [{ name, version, stores: [{ name, count }] } | { name, error }], note }
+  async function backupList() {
+    var out = { localStorage: [], indexedDB: [] };
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i), v = localStorage.getItem(k);
+        out.localStorage.push({ name: k, bytes: v.length, secret: SECRET_KEY.test(k) || SECRET_VAL.test(v) });
+      }
+    } catch (e) { out.note = 'Settings could not be read: ' + (e.message || e); }
+    if (!window.indexedDB || !indexedDB.databases) { out.note = 'This browser cannot list its databases, so only settings are included.'; return out; }
+    var dbs = await indexedDB.databases();
+    for (var d = 0; d < dbs.length; d++) {
+      var name = dbs[d].name, db = null;
+      if (!name) continue;
+      try {
+        db = await idbOpen(name);
+        if (!db) continue;
+        var names = Array.from(db.objectStoreNames), counts = [];
+        if (names.length) { var tx = db.transaction(names, 'readonly'); counts = await Promise.all(names.map(function (n) { return idbReq(tx.objectStore(n).count()); })); }
+        out.indexedDB.push({ name: name, version: db.version, stores: names.map(function (n, j) { return { name: n, count: counts[j] }; }) });
+      } catch (e) { out.indexedDB.push({ name: name, error: String((e && e.message) || e) }); }
+      if (db) db.close();
+    }
+    return out;
+  }
+  // the first n records of each store, for showing: { store: [[key, value], …] } (binary described, not read)
+  async function backupPeek(name, n) {
+    var db = await idbOpen(name), out = {};
+    if (!db) return out;
+    try {
+      var names = Array.from(db.objectStoreNames);
+      for (var i = 0; i < names.length; i++) {
+        var kv = await idbBatch(db, names[i], false, null, n || 20);
+        out[names[i]] = await enc(kv[0].map(function (k, j) { return [k, kv[1][j]]; }), true);
+      }
+    } finally { db.close(); }
+    return out;
+  }
+  // one database as JSON text in Blob pieces: {"version":n,"stores":{name:{keyPath,autoIncrement,indexes,"rows":[[key,value],…]}}}
+  async function backupDb(db, progress) {
+    var pieces = [], buf = '';
+    var add = function (s) { buf += s; if (buf.length > 4e6) { pieces.push(new Blob([buf])); buf = ''; } };
+    var names = Array.from(db.objectStoreNames);
+    add('{"version":' + db.version + ',"stores":{');
+    for (var i = 0; i < names.length; i++) {
+      var n = names[i], st = db.transaction(n, 'readonly').objectStore(n);
+      var meta = { keyPath: st.keyPath, autoIncrement: st.autoIncrement,
+        indexes: Array.from(st.indexNames).map(function (x) { x = st.index(x); return { name: x.name, keyPath: x.keyPath, unique: x.unique, multiEntry: x.multiEntry }; }) };
+      add((i ? ',' : '') + JSON.stringify(n) + ':' + JSON.stringify(meta).slice(0, -1) + ',"rows":[');
+      var count = 0, last, started = false;
+      for (;;) {
+        var kv = await idbBatch(db, n, started, last, 50);
+        if (!kv[0].length) break;
+        for (var j = 0; j < kv[0].length; j++) add((count++ ? ',' : '') + JSON.stringify(await enc([kv[0][j], kv[1][j]]))); // one at a time: one recording in memory, not fifty
+        last = kv[0][kv[0].length - 1]; started = true;
+        progress(db.name, count);
+      }
+      add(']}');
+    }
+    add('}}');
+    pieces.push(new Blob([buf]));
+    return pieces;
+  }
+  // want(kind, name) -> false leaves that key or database out (default: everything).
+  // more(push): optional, appends further top-level JSON members (the hub adds ',"drive":[…]').
+  // progress(name, records): optional. -> { blob, made, skipped, errors: { database: reason } }
+  // A database that cannot be read is recorded under errors, so a gap is never silent.
+  async function backupBuild(want, more, progress) {
     want = want || function () { return true; };
-    var out = { format: 'adervec-backup', schema: 1, made: new Date().toISOString(), origin: location.origin, from: location.pathname,
-      localStorage: {}, skipped: [], indexedDB: {} };
+    progress = progress || function () {};
+    var head = { format: 'adervec-backup', schema: 2, made: new Date().toISOString(), origin: location.origin, from: location.pathname, localStorage: {}, skipped: [] };
+    var errors = {}, parts = [], first = true;
     try {
       for (var i = 0; i < localStorage.length; i++) {
         var k = localStorage.key(i), v = localStorage.getItem(k);
         if (!want('localStorage', k)) continue;
-        if (SECRET_KEY.test(k) || SECRET_VAL.test(v)) out.skipped.push(k); else out.localStorage[k] = v; // sign-in tokens stay out
+        if (SECRET_KEY.test(k) || SECRET_VAL.test(v)) head.skipped.push(k); else head.localStorage[k] = v; // sign-in tokens stay out
       }
-    } catch (e) { out.note = 'Settings could not be read: ' + (e.message || e); }
-    if (!window.indexedDB || !indexedDB.databases) { out.note = 'This browser cannot list its databases, so only settings are included.'; return Promise.resolve(out); }
-    return indexedDB.databases().then(function (dbs) {
-      return Promise.all(dbs.filter(function (d) { return d.name && want('indexedDB', d.name); }).map(function (d) {
-        return idbDump(d.name).catch(function (e) { return { error: String((e && e.message) || e) }; })
-          .then(function (dump) { if (dump) out.indexedDB[d.name] = dump; });
-      }));
-    }).then(function () { return out; });
+    } catch (e) { head.note = 'Settings could not be read: ' + (e.message || e); }
+    var dbs = [];
+    if (window.indexedDB && indexedDB.databases) dbs = await indexedDB.databases();
+    else head.note = 'This browser cannot list its databases, so only settings are included.';
+    parts.push(JSON.stringify(head).slice(0, -1) + ',"indexedDB":{');
+    for (var d = 0; d < dbs.length; d++) {
+      var name = dbs[d].name, db = null, pieces = null;
+      if (!name || !want('indexedDB', name)) continue;
+      try { db = await idbOpen(name); if (db) pieces = await backupDb(db, progress); }
+      catch (e) { errors[name] = String((e && e.message) || e); }
+      if (db) db.close();
+      if (pieces) { parts.push((first ? '' : ',') + JSON.stringify(name) + ':'); parts = parts.concat(pieces); first = false; }
+    }
+    parts.push('}');
+    if (more) await more(function (s) { parts.push(s); });
+    parts.push(',"errors":' + JSON.stringify(errors) + '}');
+    return { blob: new Blob(parts, { type: 'application/json' }), made: head.made, skipped: head.skipped, errors: errors };
   }
-  // the file: one JSON text, written a database at a time so no single string has to hold it all
-  function backupBlob(snap) {
-    var idb = snap.indexedDB || {}, head = Object.assign({}, snap);
-    delete head.indexedDB;
-    var parts = [JSON.stringify(head).slice(0, -1), ',"indexedDB":{'];
-    Object.keys(idb).forEach(function (n, i) { parts.push((i ? ',' : '') + JSON.stringify(n) + ':' + JSON.stringify(idb[n])); });
-    parts.push('}}');
-    return new Blob(parts, { type: 'application/json' });
-  }
-  // extra: more top-level fields for the file (the hub adds the Google Drive copy)
-  function backupDownload(want, extra) {
-    return backupSnapshot(want).then(function (snap) {
-      Object.assign(snap, extra || {});
-      var u = URL.createObjectURL(backupBlob(snap)), x = document.createElement('a');
-      x.href = u; x.download = 'adervec-backup-' + snap.made.slice(0, 10) + '.json';
+  function backupDownload(want, more, progress) {
+    return backupBuild(want, more, progress).then(function (r) {
+      var u = URL.createObjectURL(r.blob), x = document.createElement('a');
+      x.href = u; x.download = 'adervec-backup-' + r.made.slice(0, 10) + '.json';
       document.body.appendChild(x); x.click(); x.remove();
       setTimeout(function () { URL.revokeObjectURL(u); }, 60000);
       try { localStorage.setItem('portal-last-backup', String(Date.now())); } catch (e) { /* private mode */ }
-      return snap;
+      return r;
     });
   }
 
   window.appFont = { options: options, get: get, set: set, buildLabel: buildLabel, updateNotice: updateNotice,
     esc: esc, html: html, safeUrl: safeUrl, parseJSON: parseJSON, randomId: randomId, redact: redact,
     zoomAllowed: zoomAllowed, setZoomAllowed: setZoomAllowed, crashNotice: crashNotice,
-    backup: { snapshot: backupSnapshot, blob: backupBlob, download: backupDownload },
+    google: { token: googleToken, signedIn: googleSignedIn, signOut: googleSignOut, read: driveRead, write: driveWrite },
+    backup: { list: backupList, peek: backupPeek, build: backupBuild, download: backupDownload },
     diagnostics: diagnostics, copyDiagnostics: copyDiagnostics, storageInfo: storageInfo, systemTheme: systemTheme,
     whatsNew: whatsNew, checkWhatsNew: checkWhatsNew, setWhatsNewSilenced: setWhatsNewSilenced,
     getAccount: getAccount, setAccount: setAccount,
