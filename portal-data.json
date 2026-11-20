@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-11-14T20:06:55Z",
+  "pushed_at": "2026-11-20T22:13:27Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -31,77 +31,77 @@
    0,
    0,
    0,
-   2,
-   65,
-   129,
-   58,
-   71,
+   36,
+   119,
+   80,
+   90,
    21,
    0,
-   12,
-   8,
    3,
-   13,
-   20,
-   6,
-   6,
-   1,
-   0,
-   1,
-   0,
-   0,
-   3,
-   14,
+   15,
+   4,
+   10,
+   21,
+   7,
    5,
-   3,
-   23,
-   16
+   4,
+   0,
+   0,
+   1,
+   0,
+   0,
+   9,
+   8,
+   7,
+   21,
+   16,
+   14
   ],
   "changes": [
    {
-    "date": "2026-11-14T20:00:03Z",
-    "msg": "feat 566: sleep analysis from the wearable log, and a weekly AI sleep review via cowork"
+    "date": "2026-11-20T22:13:24Z",
+    "msg": "feat 577: what the coach says, routed \u2014 per-line switches, how often, a talk budget, mute, and new lines"
    },
    {
-    "date": "2026-11-14T17:11:15Z",
-    "msg": "feats 563-565: most impressive heavier set, squash/retype weights, projected weight rows; CI permissions"
+    "date": "2026-11-20T17:47:35Z",
+    "msg": "feats 571-576: plan editor fixes, one-button Fix weights, plan requests, POD effort, weight list, chart switches + carousel"
    },
    {
-    "date": "2026-11-13T13:59:07Z",
-    "msg": "feat 562: read an exercise's setup aloud (feet to grip and breathing)"
+    "date": "2026-11-17T20:43:24Z",
+    "msg": "feat 569 step 8: relative times are plural phrases; \"1 day ago\""
    },
    {
-    "date": "2026-11-11T03:05:26Z",
-    "msg": "feat 561: cowork replies wait for review before they change the log"
+    "date": "2026-11-17T15:26:11Z",
+    "msg": "feat 569 step 7: stat lines by parts, plurals with clauses, units (1,655 phrases \u00d7 16 languages)"
    },
    {
-    "date": "2026-11-10T19:54:54Z",
-    "msg": "feat 560: embed the whole shared font.js (About panel, crash notice, offline pill, zoom option)"
+    "date": "2026-11-17T14:48:16Z",
+    "msg": "feat 569 step 6: optional clauses, word choices, dates in the chosen language (1,637 phrases \u00d7 16 languages)"
    },
    {
-    "date": "2026-11-10T19:24:37Z",
-    "msg": "feat 559: default theme follows the device; what's new"
+    "date": "2026-11-17T04:02:40Z",
+    "msg": "feat 569 step 5: plurals, sentences with links, real-parser scope check, unshadowed blocks (1,542 phrases \u00d7 16 languages)"
    },
    {
-    "date": "2026-11-10T18:43:49Z",
-    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
+    "date": "2026-11-16T22:44:11Z",
+    "msg": "Remove a temporary smoke-test script committed by mistake"
    },
    {
-    "date": "2026-11-10T18:40:50Z",
-    "msg": "After each deploy: live check of the published site, then a release tag"
+    "date": "2026-11-16T22:43:52Z",
+    "msg": "feat 569 step 4: static markup, phrases with values, built messages (1,438 phrases \u00d7 16 languages)"
    },
    {
-    "date": "2026-11-10T18:19:58Z",
-    "msg": "feat 558: erase all GymTracker data on this device; guides load no third-party fonts"
+    "date": "2026-11-16T18:11:35Z",
+    "msg": "feat 569 step 3: translate template text, toasts and dialogs (1,202 phrases \u00d7 16 languages); shadowing guard"
    },
    {
-    "date": "2026-11-10T15:52:58Z",
-    "msg": "Ignore the local RESUME CLAUDE launcher"
+    "date": "2026-11-16T01:40:31Z",
+    "msg": "feat 570: hide duplicate exercises (hack squat machine, neck plate/harness, westside box squat, barbell wrist curl)"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-14T16:48:09Z",
+  "pushed_at": "2026-11-20T12:25:03Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -132,33 +132,45 @@
    0,
    0,
    0,
-   1,
-   17,
-   32,
+   16,
+   7,
+   61,
+   25,
+   38,
+   113,
+   57,
    50,
-   35,
-   55,
-   122,
-   21,
-   53,
-   34,
-   62,
    39,
-   12,
-   0,
-   5,
+   58,
+   53,
    8,
+   8,
+   5,
    2,
+   8,
+   0,
    6,
    2,
-   4,
-   45,
-   34,
-   14,
-   60,
-   33
+   26,
+   53,
+   16,
+   2,
+   90,
+   4
   ],
   "changes": [
+   {
+    "date": "2026-11-20T12:22:58Z",
+    "msg": "CI and deploy: skip onnxruntime-node's CUDA download"
+   },
+   {
+    "date": "2026-11-20T12:21:40Z",
+    "msg": "Languages batch 3 (Trackyread) + the shared base theme list"
+   },
+   {
+    "date": "2026-11-15T04:01:50Z",
+    "msg": "Languages batch 2 (the reader) + data inventory + session ledger"
+   },
    {
     "date": "2026-11-14T16:46:29Z",
     "msg": "Languages batch 1 (menus, tabs, controls, settings, data, fonts) + CSP + npm audit in CI"
@@ -186,23 +198,11 @@
    {
     "date": "2026-11-10T18:40:55Z",
     "msg": "After each deploy: live check of the published site, then a release tag"
-   },
-   {
-    "date": "2026-11-10T16:51:33Z",
-    "msg": "Deploy: full-history checkout so the build number is real"
-   },
-   {
-    "date": "2026-11-10T16:49:14Z",
-    "msg": "House standards: local-day dates, crash and update notices, persistent storage, zoom option, self-hosted engines"
-   },
-   {
-    "date": "2026-11-10T15:53:32Z",
-    "msg": "Ignore the local RESUME CLAUDE launcher"
    }
   ]
  },
  "ChessRetabled": {
-  "pushed_at": "2026-11-10T15:52:50Z",
+  "pushed_at": "2026-11-15T13:07:17Z",
   "stars": 0,
   "created": "2026-05-31T13:07:16Z",
   "weeks": [
@@ -233,18 +233,18 @@
    0,
    0,
    0,
-   0,
-   4,
-   0,
-   25,
+   2,
+   2,
+   20,
+   5,
    19,
-   0,
    0,
    0,
    0,
    0,
    24,
    4,
+   0,
    4,
    0,
    0,
@@ -256,10 +256,26 @@
    0,
    0,
    0,
-   0,
-   0
+   3,
+   2
   ],
   "changes": [
+   {
+    "date": "2026-11-15T12:47:41Z",
+    "msg": "Adopt the house standards: one gate, local days, erase, CSP, cowork v2, house themes"
+   },
+   {
+    "date": "2026-11-10T15:52:48Z",
+    "msg": "Ignore the local RESUME CLAUDE launcher"
+   },
+   {
+    "date": "2026-11-10T03:25:03Z",
+    "msg": "House font: Atkinson Hyperlegible by default, with a font choice under Settings"
+   },
+   {
+    "date": "2026-11-10T00:54:51Z",
+    "msg": "Daily challenge, and a move-review referee that gives the same verdict every run"
+   },
    {
     "date": "2026-08-22T21:32:10Z",
     "msg": "AI Coach: folder cowork through the maker's shared panel"
@@ -283,27 +299,11 @@
    {
     "date": "2026-08-05T17:42:13Z",
     "msg": "Give the app its own scrolling, and its own scrollbars"
-   },
-   {
-    "date": "2026-08-04T02:06:21Z",
-    "msg": "Close the session gaps: every game tracked, every puzzle logged, real resume"
-   },
-   {
-    "date": "2026-08-04T01:41:01Z",
-    "msg": "Sessions you can come back to, one Academy, and puzzles in one place"
-   },
-   {
-    "date": "2026-08-04T01:32:56Z",
-    "msg": "Central review area with per-move ratings, deletion, and a games library"
-   },
-   {
-    "date": "2026-08-03T11:29:39Z",
-    "msg": "Per-game layout, boards that fit, board touches that move pieces"
    }
   ]
  },
  "GuitarPicker": {
-  "pushed_at": "2026-11-14T16:34:16Z",
+  "pushed_at": "2026-11-20T17:35:21Z",
   "stars": 3,
   "created": "2026-05-30T03:46:51Z",
   "weeks": [
@@ -334,20 +334,19 @@
    0,
    0,
    0,
-   6,
-   7,
-   0,
+   10,
    3,
-   2,
-   0,
+   1,
+   3,
+   1,
    0,
    0,
    0,
    0,
    7,
    4,
-   2,
-   1,
+   0,
+   3,
    0,
    0,
    0,
@@ -357,10 +356,23 @@
    0,
    0,
    0,
-   1,
-   15
+   0,
+   10,
+   8
   ],
   "changes": [
+   {
+    "date": "2026-11-20T17:34:28Z",
+    "msg": "Bring back 12 old app skins as GuitarPicker's own extra themes"
+   },
+   {
+    "date": "2026-11-15T03:48:27Z",
+    "msg": "One theme list: the house themes replace GuitarPicker's 26 app skins"
+   },
+   {
+    "date": "2026-11-15T03:40:29Z",
+    "msg": "Data inventory (app-data.json) and the hub session ledger"
+   },
    {
     "date": "2026-11-14T16:33:14Z",
     "msg": "Imported song fields render as text, never markup; what's new for languages"
@@ -388,23 +400,11 @@
    {
     "date": "2026-11-11T02:30:14Z",
     "msg": "Cowork v2: describe the coach channel so replies are reviewed, not raw JSON"
-   },
-   {
-    "date": "2026-11-10T18:52:44Z",
-    "msg": "What's new list, and the default skin follows the device"
-   },
-   {
-    "date": "2026-11-10T18:43:56Z",
-    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
-   },
-   {
-    "date": "2026-11-10T18:40:58Z",
-    "msg": "After each deploy: live check of the published site, then a release tag"
    }
   ]
  },
  "BlackMirrorBikeRide": {
-  "pushed_at": "2026-11-14T16:42:19Z",
+  "pushed_at": "2026-11-15T13:02:49Z",
   "stars": 0,
   "created": "2026-05-30T03:41:43Z",
   "weeks": [
@@ -435,9 +435,8 @@
    0,
    0,
    0,
-   2,
-   5,
-   0,
+   6,
+   1,
    0,
    0,
    0,
@@ -447,8 +446,8 @@
    0,
    15,
    2,
-   1,
-   1,
+   0,
+   2,
    0,
    0,
    0,
@@ -459,9 +458,18 @@
    0,
    0,
    0,
-   11
+   9,
+   4
   ],
   "changes": [
+   {
+    "date": "2026-11-15T13:01:35Z",
+    "msg": "16 machine-translated languages; dates and numbers follow the reader's locale"
+   },
+   {
+    "date": "2026-11-15T03:44:08Z",
+    "msg": "House theme list and palette, data inventory, session ledger"
+   },
    {
     "date": "2026-11-14T16:40:39Z",
     "msg": "AI ride review channel, Content-Security-Policy, audited CI"
@@ -493,14 +501,6 @@
    {
     "date": "2026-11-10T13:54:41Z",
     "msg": "Third-party notices for three.js"
-   },
-   {
-    "date": "2026-11-10T01:35:18Z",
-    "msg": "Adopt the house font standard: shared font.js, --app-font, settings picker"
-   },
-   {
-    "date": "2026-11-10T00:55:31Z",
-    "msg": "Workouts, trainer control, zones, climbs, TCX, audio, weather; cowork brief"
    }
   ]
  },
@@ -536,20 +536,19 @@
    0,
    0,
    0,
-   0,
-   9,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   9,
    4,
-   4,
-   2,
+   5,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   7,
+   6,
+   0,
+   6,
    0,
    0,
    0,
@@ -560,7 +559,8 @@
    0,
    0,
    0,
-   15
+   10,
+   5
   ],
   "changes": [
    {
@@ -606,7 +606,7 @@
   ]
  },
  "HandwritingHelper": {
-  "pushed_at": "2026-11-14T02:02:38Z",
+  "pushed_at": "2026-11-15T04:03:00Z",
   "stars": 0,
   "created": "2026-08-02T20:21:43Z",
   "weeks": [
@@ -646,13 +646,12 @@
    0,
    1,
    0,
+   5,
+   17,
    0,
-   19,
-   3,
+   2,
+   0,
    1,
-   1,
-   0,
-   1,
    0,
    0,
    0,
@@ -661,9 +660,18 @@
    0,
    0,
    0,
-   13
+   12,
+   3
   ],
   "changes": [
+   {
+    "date": "2026-11-15T04:01:54Z",
+    "msg": "Sixteen machine-translated languages, and ids from outside data must be plain tokens"
+   },
+   {
+    "date": "2026-11-15T03:46:10Z",
+    "msg": "House themes, AI sheet review, CSP, data inventory, session ledger"
+   },
    {
     "date": "2026-11-14T02:01:12Z",
     "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
@@ -695,14 +703,6 @@
    {
     "date": "2026-11-10T13:09:42Z",
     "msg": "Deploy only after the checks pass"
-   },
-   {
-    "date": "2026-11-10T12:38:00Z",
-    "msg": "Show the Google profile picture beside the account when Drive is connected"
-   },
-   {
-    "date": "2026-11-10T03:22:22Z",
-    "msg": "House font \u2014 Atkinson Hyperlegible by default, with a font choice under Setup"
    }
   ]
  },
@@ -748,10 +748,9 @@
    1,
    0,
    0,
-   2,
-   2,
-   1,
-   2,
+   4,
+   0,
+   3,
    0,
    0,
    0,
@@ -762,7 +761,8 @@
    0,
    0,
    0,
-   16
+   12,
+   4
   ],
   "changes": [
    {
@@ -808,7 +808,7 @@
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-14T16:41:10Z",
+  "pushed_at": "2026-11-20T17:44:22Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -839,8 +839,8 @@
    0,
    0,
    0,
-   1,
    5,
+   1,
    0,
    0,
    0,
@@ -848,10 +848,10 @@
    0,
    0,
    0,
-   0,
-   15,
-   4,
    8,
+   11,
+   5,
+   3,
    0,
    0,
    3,
@@ -862,10 +862,18 @@
    0,
    0,
    0,
-   0,
-   19
+   14,
+   6
   ],
   "changes": [
+   {
+    "date": "2026-11-20T17:43:15Z",
+    "msg": "Just speak becomes an open-ended sitting: scored in chunks as you go, full review at the end"
+   },
+   {
+    "date": "2026-11-15T03:44:31Z",
+    "msg": "House standards 23-25: data inventory, house theme list, session ledger"
+   },
    {
     "date": "2026-11-14T16:40:08Z",
     "msg": "Security + supply chain (house standard 22): CSP, npm audit in CI"
@@ -897,14 +905,6 @@
    {
     "date": "2026-11-10T18:54:30Z",
     "msg": "House standards: what's new, device-following default theme, guide fonts self-hosted"
-   },
-   {
-    "date": "2026-11-10T18:44:09Z",
-    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
-   },
-   {
-    "date": "2026-11-10T18:41:06Z",
-    "msg": "After each deploy: live check of the published site, then a release tag"
    }
   ]
  },
@@ -943,7 +943,6 @@
    0,
    0,
    0,
-   0,
    5,
    0,
    0,
@@ -952,6 +951,7 @@
    0,
    5,
    2,
+   0,
    2,
    0,
    0,
@@ -963,8 +963,8 @@
    0,
    0,
    0,
-   0,
-   15
+   12,
+   3
   ],
   "changes": [
    {
@@ -1010,7 +1010,7 @@
   ]
  },
  "MarksmanApp": {
-  "pushed_at": "2026-11-14T02:03:24Z",
+  "pushed_at": "2026-11-15T13:16:34Z",
   "stars": 0,
   "created": "2026-05-30T03:50:29Z",
   "weeks": [
@@ -1041,18 +1041,17 @@
    0,
    0,
    0,
+   3,
+   2,
+   0,
+   0,
+   0,
+   0,
    1,
-   4,
-   0,
-   0,
-   0,
-   0,
-   0,
-   1,
    1,
    0,
-   7,
-   1,
+   3,
+   5,
    0,
    2,
    0,
@@ -1065,9 +1064,26 @@
    0,
    0,
    0,
-   12
+   11,
+   5
   ],
   "changes": [
+   {
+    "date": "2026-11-15T13:15:05Z",
+    "msg": "Speak seventeen languages, and stop shadowing the word that does it"
+   },
+   {
+    "date": "2026-11-15T03:59:54Z",
+    "msg": "AI review of a session, beside the app's own score"
+   },
+   {
+    "date": "2026-11-15T03:50:11Z",
+    "msg": "Wear the house theme list, and keep the target face legible on all of them"
+   },
+   {
+    "date": "2026-11-15T03:45:23Z",
+    "msg": "Four house standards: a CSP, a data inventory, the ledger call, a pinned action"
+   },
    {
     "date": "2026-11-14T02:01:18Z",
     "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
@@ -1091,31 +1107,14 @@
    {
     "date": "2026-11-10T15:53:13Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
-   },
-   {
-    "date": "2026-11-10T13:27:38Z",
-    "msg": "Add an erase-everything control, scoped to this app alone"
-   },
-   {
-    "date": "2026-11-10T12:40:10Z",
-    "msg": "Show the Google profile picture beside the Drive account name"
-   },
-   {
-    "date": "2026-11-10T03:29:52Z",
-    "msg": "CI: run the Python 3.9 job on ubuntu-24.04"
-   },
-   {
-    "date": "2026-11-10T03:23:11Z",
-    "msg": "House font: Atkinson Hyperlegible by default, with a font choice in the app"
    }
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-14T03:26:54Z",
+  "pushed_at": "2026-11-17T20:29:20Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
-   0,
    0,
    0,
    0,
@@ -1163,12 +1162,45 @@
    0,
    0,
    0,
+   0,
    23,
    3,
-   14,
-   16
+   27,
+   11
   ],
   "changes": [
+   {
+    "date": "2026-11-17T20:27:52Z",
+    "msg": "Replay no longer stops on its readout in a translated language (a local t hid t())"
+   },
+   {
+    "date": "2026-11-17T20:24:54Z",
+    "msg": "Languages, chunk 4: races, calendar, plan of the day, ask, sessions, replay, share and journal"
+   },
+   {
+    "date": "2026-11-17T15:09:15Z",
+    "msg": "Languages, chunk 3: the analysis wording in 16 languages, stored data still English"
+   },
+   {
+    "date": "2026-11-17T14:48:20Z",
+    "msg": "t() moves to js/i18n.js, with english() for what is stored or read by an AI"
+   },
+   {
+    "date": "2026-11-15T13:05:00Z",
+    "msg": "Languages, chunk 2: Today, Activities and the activity page in 16 languages"
+   },
+   {
+    "date": "2026-11-15T03:51:49Z",
+    "msg": "Heatmap no longer throws on a device with no runs yet (its empty state has no map)"
+   },
+   {
+    "date": "2026-11-15T03:47:27Z",
+    "msg": "House themes, a CSP, the data inventory and the session ledger; locales load"
+   },
+   {
+    "date": "2026-11-15T03:40:47Z",
+    "msg": "Languages, chunk 1: the shell, the menus and Sync & cowork in 16 machine-translated languages"
+   },
    {
     "date": "2026-11-14T03:25:43Z",
     "msg": "Ignore the local Python environment and database files"
@@ -1176,47 +1208,14 @@
    {
     "date": "2026-11-14T03:14:43Z",
     "msg": "run-review cowork channel: an AI grades each session beside the app's own numbers"
-   },
-   {
-    "date": "2026-11-14T02:01:33Z",
-    "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
-   },
-   {
-    "date": "2026-11-11T02:36:14Z",
-    "msg": "Cowork replies wait for review (on by default, per channel), and every apply can be undone"
-   },
-   {
-    "date": "2026-11-10T18:53:25Z",
-    "msg": "What's new for the runner: whatsnew.json, declared in the page and deployed"
-   },
-   {
-    "date": "2026-11-10T18:44:14Z",
-    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
-   },
-   {
-    "date": "2026-11-10T18:41:12Z",
-    "msg": "After each deploy: live check of the published site, then a release tag"
-   },
-   {
-    "date": "2026-11-10T15:53:23Z",
-    "msg": "Ignore the local RESUME CLAUDE launcher"
-   },
-   {
-    "date": "2026-11-10T15:51:44Z",
-    "msg": "Third-party notices, and day arithmetic through the shared local-day helpers"
-   },
-   {
-    "date": "2026-11-10T14:09:02Z",
-    "msg": "Calendar days are the runner's local day"
    }
   ]
  },
  "learning-pit": {
-  "pushed_at": "2026-11-14T03:33:01Z",
+  "pushed_at": "2026-11-20T12:18:04Z",
   "stars": 0,
   "created": "2026-09-06T21:15:14Z",
   "weeks": [
-   0,
    0,
    0,
    0,
@@ -1267,53 +1266,54 @@
    0,
    0,
    0,
-   13
+   12,
+   9
   ],
   "changes": [
    {
+    "date": "2026-11-20T12:17:13Z",
+    "msg": "Right-to-left layouts mirror properly; headless self-test runner"
+   },
+   {
+    "date": "2026-11-16T23:10:39Z",
+    "msg": "Escape the one translated line the security check flagged"
+   },
+   {
+    "date": "2026-11-16T23:10:27Z",
+    "msg": "The Human Body and Erste W\u00f6rter; the last English corners translated"
+   },
+   {
+    "date": "2026-11-15T13:31:10Z",
+    "msg": "Languages, chunk 8: the last messages, session tools and certificate"
+   },
+   {
+    "date": "2026-11-15T13:25:34Z",
+    "msg": "Languages, chunk 7: import, editor, read-through, quick card and messages"
+   },
+   {
+    "date": "2026-11-15T13:20:00Z",
+    "msg": "Languages, chunk 6: the exercises; CI now really parses app.js"
+   },
+   {
+    "date": "2026-11-15T13:12:13Z",
+    "msg": "Languages, chunks 3-5: library, module screen, exercises, progress and results"
+   },
+   {
+    "date": "2026-11-15T12:54:46Z",
+    "msg": "House standards: themes, security policy, data inventory, CI permissions, session ledger"
+   },
+   {
+    "date": "2026-11-15T03:51:27Z",
+    "msg": "Languages, chunk 1-2: the app speaks 16 more languages on its main screens"
+   },
+   {
     "date": "2026-11-14T03:32:06Z",
     "msg": "Study-review: an AI tutor grades each sitting, beside the app's own score"
-   },
-   {
-    "date": "2026-11-11T02:39:36Z",
-    "msg": "Cowork v2: the study coach channel is reviewed before it applies, and undoable"
-   },
-   {
-    "date": "2026-11-10T18:58:38Z",
-    "msg": "What's new: whatsnew.json for learners and parents, kept from kid profiles"
-   },
-   {
-    "date": "2026-11-10T18:44:17Z",
-    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
-   },
-   {
-    "date": "2026-11-10T18:41:14Z",
-    "msg": "After each deploy: live check of the published site, then a release tag"
-   },
-   {
-    "date": "2026-11-10T18:01:35Z",
-    "msg": "Erase everything: fix the button, take only the Pit's own data, disconnect Drive"
-   },
-   {
-    "date": "2026-11-10T15:53:37Z",
-    "msg": "Ignore the local RESUME CLAUDE launcher"
-   },
-   {
-    "date": "2026-11-10T13:09:45Z",
-    "msg": "Deploy only after the checks pass"
-   },
-   {
-    "date": "2026-11-10T12:48:26Z",
-    "msg": "Sync: show the connected Google account's picture and name"
-   },
-   {
-    "date": "2026-11-10T12:09:00Z",
-    "msg": "House font: Atkinson Hyperlegible by default, reader's choice in Settings"
    }
   ]
  },
  "MusicStudio": {
-  "pushed_at": "2026-11-14T16:46:36Z",
+  "pushed_at": "2026-11-15T03:41:01Z",
   "stars": 0,
   "created": "2026-08-12T22:53:10Z",
   "weeks": [
@@ -1349,7 +1349,6 @@
    0,
    0,
    0,
-   0,
    1,
    0,
    0,
@@ -1360,17 +1359,22 @@
    0,
    0,
    1,
-   0,
-   0,
-   2,
-   7,
    0,
    0,
    0,
    8,
-   15
+   1,
+   0,
+   0,
+   3,
+   15,
+   6
   ],
   "changes": [
+   {
+    "date": "2026-11-15T03:40:11Z",
+    "msg": "House standards 23 + 25: data inventory and session ledger"
+   },
    {
     "date": "2026-11-14T16:45:31Z",
     "msg": "Security standard 22: Content-Security-Policy, sandboxed Markdown, audited CI"
@@ -1406,10 +1410,6 @@
    {
     "date": "2026-11-10T18:41:17Z",
     "msg": "After each deploy: live check of the published site, then a release tag"
-   },
-   {
-    "date": "2026-11-10T14:07:54Z",
-    "msg": "Spend log: file each spend under its local day, not the UTC day"
    }
   ]
  },
@@ -1458,18 +1458,18 @@
    0,
    0,
    0,
-   0,
-   3,
-   13,
+   2,
+   4,
    12,
-   17,
-   13,
-   3,
+   27,
+   6,
+   10,
+   0,
    16,
    3,
    0,
-   0,
-   8
+   8,
+   0
   ],
   "changes": [
    {
@@ -1562,15 +1562,15 @@
    0,
    0,
    6,
-   0,
    6,
+   0,
    8,
-   14,
-   5,
+   16,
+   3,
    2,
    0,
-   0,
-   16
+   14,
+   2
   ],
   "changes": [
    {
@@ -1616,11 +1616,10 @@
   ]
  },
  "InsightMaster": {
-  "pushed_at": "2026-11-14T02:03:41Z",
+  "pushed_at": "2026-11-15T03:51:59Z",
   "stars": 0,
   "created": "2026-08-12T22:54:41Z",
   "weeks": [
-   0,
    0,
    0,
    0,
@@ -1671,9 +1670,14 @@
    0,
    0,
    0,
-   11
+   10,
+   2
   ],
   "changes": [
+   {
+    "date": "2026-11-15T03:49:47Z",
+    "msg": "Build 6: 17 languages, house themes, and the newer house standards"
+   },
    {
     "date": "2026-11-14T02:01:36Z",
     "msg": "Google picture always visible at the top while synced (font.js <app-account>); tap opens sync settings"
@@ -1709,15 +1713,11 @@
    {
     "date": "2026-11-10T00:52:14Z",
     "msg": "Test: wait for the service worker to finish activating instead of racing it"
-   },
-   {
-    "date": "2026-11-10T00:48:05Z",
-    "msg": "CI: run the checks on every push"
    }
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-14T17:12:08Z",
+  "pushed_at": "2026-11-15T03:42:56Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1771,10 +1771,14 @@
    0,
    0,
    0,
-   0,
-   15
+   12,
+   4
   ],
   "changes": [
+   {
+    "date": "2026-11-15T03:42:00Z",
+    "msg": "House standards 23-25: data inventory, the house themes, the session ledger"
+   },
    {
     "date": "2026-11-14T17:11:23Z",
     "msg": "Languages: English plus 16 machine-translated, and imperial units"
@@ -1810,10 +1814,107 @@
    {
     "date": "2026-11-10T15:52:45Z",
     "msg": "Ignore the local RESUME CLAUDE launcher"
+   }
+  ]
+ },
+ "LanguageLab": {
+  "pushed_at": "2026-11-20T22:12:39Z",
+  "stars": 0,
+  "created": "2026-11-15T15:39:55Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   90
+  ],
+  "changes": [
+   {
+    "date": "2026-11-20T17:37:08Z",
+    "msg": "The 36 new stories after a second read: 34 sentences reworded, twelve glosses and notes put right"
    },
    {
-    "date": "2026-11-10T13:54:21Z",
-    "msg": "Add the MIT licence"
+    "date": "2026-11-20T17:33:26Z",
+    "msg": "Four more stories each in English and Croatian: 28 texts in every main language but French (52)"
+   },
+   {
+    "date": "2026-11-20T17:31:19Z",
+    "msg": "Four more Dutch stories (two A2, two B1): 28 Dutch texts"
+   },
+   {
+    "date": "2026-11-20T17:29:32Z",
+    "msg": "Four more Portuguese stories (two A2, two B1): 28 Portuguese texts"
+   },
+   {
+    "date": "2026-11-20T17:27:51Z",
+    "msg": "Four more Italian stories (two A2, two B1): 28 Italian texts"
+   },
+   {
+    "date": "2026-11-20T17:26:07Z",
+    "msg": "Four more German stories; the Spanish lost phone is a m\u00f3vil"
+   },
+   {
+    "date": "2026-11-20T17:24:09Z",
+    "msg": "Four more Spanish stories (two A2, two B1): 28 Spanish texts"
+   },
+   {
+    "date": "2026-11-20T17:22:21Z",
+    "msg": "Four more French stories (two A2, two B1): 52 French texts"
+   },
+   {
+    "date": "2026-11-20T17:20:20Z",
+    "msg": "Four more French stories (two B1, two B2): 48 French texts"
+   },
+   {
+    "date": "2026-11-20T17:18:05Z",
+    "msg": "The texts of the last twelve languages after a harder read: 161 sentences reworded"
    }
   ]
  }
