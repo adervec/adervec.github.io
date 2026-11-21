@@ -1,6 +1,6 @@
 {
  "GymTracker315": {
-  "pushed_at": "2026-11-20T22:13:27Z",
+  "pushed_at": "2026-11-21T14:52:24Z",
   "stars": 0,
   "created": "2026-05-30T03:53:46Z",
   "weeks": [
@@ -31,33 +31,65 @@
    0,
    0,
    0,
-   36,
-   119,
-   80,
-   90,
+   42,
+   131,
+   73,
+   79,
    21,
    0,
-   3,
-   15,
+   9,
+   9,
    4,
-   10,
-   21,
-   7,
+   14,
+   19,
    5,
-   4,
-   0,
+   8,
+   1,
    0,
    1,
    0,
    0,
-   9,
+   3,
+   11,
    8,
-   7,
-   21,
-   16,
-   14
+   3,
+   22,
+   15,
+   16
   ],
   "changes": [
+   {
+    "date": "2026-11-21T14:46:33Z",
+    "msg": "feats 586-587: voice volume, speed and pitch per coach; sound packs"
+   },
+   {
+    "date": "2026-11-21T14:06:20Z",
+    "msg": "feat 585: Home Arsenal \u2014 five 2-hour home plans (push, pull, lower, upper, full body)"
+   },
+   {
+    "date": "2026-11-21T13:30:50Z",
+    "msg": "feat 584: one-limb versions fold under their exercise"
+   },
+   {
+    "date": "2026-11-21T05:16:01Z",
+    "msg": "feats 582-583: the Iron Hexagon six-day split; the plan view lists exercises by the step they counted toward"
+   },
+   {
+    "date": "2026-11-21T04:41:32Z",
+    "msg": "feat 581: your own words for a coach line"
+   },
+   {
+    "date": "2026-11-21T03:57:14Z",
+    "msg": "feat 580: a weight list editor in place of the comma list; OVERLAPS.md (house standard 27)"
+   },
+   {
+    "date": "2026-11-21T03:10:43Z",
+    "msg": "feat 579: Strava cardio shows its Strava name and a rough outline of the route"
+   },
+   {
+    "date": "2026-11-20T22:52:05Z",
+    "msg": "feat 578: a sound for any coach line \u2014 several clips per moment in turn, a volume each, microphone recording"
+   },
    {
     "date": "2026-11-20T22:13:24Z",
     "msg": "feat 577: what the coach says, routed \u2014 per-line switches, how often, a talk budget, mute, and new lines"
@@ -65,43 +97,11 @@
    {
     "date": "2026-11-20T17:47:35Z",
     "msg": "feats 571-576: plan editor fixes, one-button Fix weights, plan requests, POD effort, weight list, chart switches + carousel"
-   },
-   {
-    "date": "2026-11-17T20:43:24Z",
-    "msg": "feat 569 step 8: relative times are plural phrases; \"1 day ago\""
-   },
-   {
-    "date": "2026-11-17T15:26:11Z",
-    "msg": "feat 569 step 7: stat lines by parts, plurals with clauses, units (1,655 phrases \u00d7 16 languages)"
-   },
-   {
-    "date": "2026-11-17T14:48:16Z",
-    "msg": "feat 569 step 6: optional clauses, word choices, dates in the chosen language (1,637 phrases \u00d7 16 languages)"
-   },
-   {
-    "date": "2026-11-17T04:02:40Z",
-    "msg": "feat 569 step 5: plurals, sentences with links, real-parser scope check, unshadowed blocks (1,542 phrases \u00d7 16 languages)"
-   },
-   {
-    "date": "2026-11-16T22:44:11Z",
-    "msg": "Remove a temporary smoke-test script committed by mistake"
-   },
-   {
-    "date": "2026-11-16T22:43:52Z",
-    "msg": "feat 569 step 4: static markup, phrases with values, built messages (1,438 phrases \u00d7 16 languages)"
-   },
-   {
-    "date": "2026-11-16T18:11:35Z",
-    "msg": "feat 569 step 3: translate template text, toasts and dialogs (1,202 phrases \u00d7 16 languages); shadowing guard"
-   },
-   {
-    "date": "2026-11-16T01:40:31Z",
-    "msg": "feat 570: hide duplicate exercises (hack squat machine, neck plate/harness, westside box squat, barbell wrist curl)"
    }
   ]
  },
  "Tachyread": {
-  "pushed_at": "2026-11-20T12:25:03Z",
+  "pushed_at": "2026-11-21T03:49:43Z",
   "stars": 0,
   "created": "2026-05-30T03:41:56Z",
   "weeks": [
@@ -132,33 +132,53 @@
    0,
    0,
    0,
-   16,
-   7,
+   18,
+   13,
    61,
-   25,
-   38,
-   113,
-   57,
-   50,
+   37,
+   49,
+   110,
    39,
-   58,
+   55,
+   24,
+   62,
    53,
-   8,
-   8,
-   5,
-   2,
-   8,
-   0,
    6,
-   2,
-   26,
-   53,
-   16,
-   2,
-   90,
-   4
+   6,
+   5,
+   4,
+   6,
+   0,
+   8,
+   3,
+   32,
+   48,
+   14,
+   56,
+   34,
+   8
   ],
   "changes": [
+   {
+    "date": "2026-11-21T03:47:40Z",
+    "msg": "OVERLAPS.md: the register of overlaps with other apps and the hub"
+   },
+   {
+    "date": "2026-11-21T03:45:12Z",
+    "msg": "Languages batch 7: numbers and dates through appFont.fmt, right-to-left layout"
+   },
+   {
+    "date": "2026-11-21T03:24:54Z",
+    "msg": "Languages batch 6 (Help, Grab Text, biometrics, eye warm-up, comfort, pickers)"
+   },
+   {
+    "date": "2026-11-20T22:56:41Z",
+    "msg": "Languages batch 5 (audio and voice)"
+   },
+   {
+    "date": "2026-11-20T22:28:13Z",
+    "msg": "Languages batch 4 (typing)"
+   },
    {
     "date": "2026-11-20T12:22:58Z",
     "msg": "CI and deploy: skip onnxruntime-node's CUDA download"
@@ -178,26 +198,6 @@
    {
     "date": "2026-11-14T03:18:47Z",
     "msg": "Session review: reply field is `reviews` (house standard 18); never commit temp scripts"
-   },
-   {
-    "date": "2026-11-14T03:12:53Z",
-    "msg": "Cowork: AI review of typing runs and reading-aloud sessions (house standard 18)"
-   },
-   {
-    "date": "2026-11-11T02:38:31Z",
-    "msg": "Cowork: review first by default (per operation), and a cowork.json manifest"
-   },
-   {
-    "date": "2026-11-10T19:01:54Z",
-    "msg": "House standards: shared font.js, device-default theme, what's new"
-   },
-   {
-    "date": "2026-11-10T18:43:53Z",
-    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
-   },
-   {
-    "date": "2026-11-10T18:40:55Z",
-    "msg": "After each deploy: live check of the published site, then a release tag"
    }
   ]
  },
@@ -233,11 +233,11 @@
    0,
    0,
    0,
-   2,
-   2,
-   20,
-   5,
+   4,
+   0,
+   22,
    19,
+   3,
    0,
    0,
    0,
@@ -334,8 +334,8 @@
    0,
    0,
    0,
-   10,
-   3,
+   13,
+   0,
    1,
    3,
    1,
@@ -358,7 +358,7 @@
    0,
    0,
    10,
-   8
+   9
   ],
   "changes": [
    {
@@ -435,8 +435,8 @@
    0,
    0,
    0,
-   6,
-   1,
+   7,
+   0,
    0,
    0,
    0,
@@ -505,7 +505,7 @@
   ]
  },
  "BodybuildingProgressCoach": {
-  "pushed_at": "2026-11-14T17:07:54Z",
+  "pushed_at": "2026-11-21T15:15:59Z",
   "stars": 0,
   "created": "2026-05-31T12:59:37Z",
   "weeks": [
@@ -536,17 +536,17 @@
    0,
    0,
    0,
+   9,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   9,
    4,
-   5,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   7,
-   6,
    0,
    6,
    0,
@@ -563,6 +563,22 @@
    5
   ],
   "changes": [
+   {
+    "date": "2026-11-21T15:14:54Z",
+    "msg": "AI judge: cowork reads the posing photos themselves (pose review, check-in review, coach)"
+   },
+   {
+    "date": "2026-11-21T15:14:54Z",
+    "msg": "Fix: JPEG uploads lost their original (thumbnail overwrote it) in the browser build"
+   },
+   {
+    "date": "2026-11-21T03:40:33Z",
+    "msg": "Theme: name the font.js handle appFont"
+   },
+   {
+    "date": "2026-11-21T03:39:58Z",
+    "msg": "Shared theme list, data inventory, session ledger, overlaps register"
+   },
    {
     "date": "2026-11-14T17:06:54Z",
     "msg": "What's new: the app in 16 more languages"
@@ -586,22 +602,6 @@
    {
     "date": "2026-11-11T02:31:01Z",
     "msg": "Cowork v2: describe the coach channel (review, preview text, undo)"
-   },
-   {
-    "date": "2026-11-10T18:53:13Z",
-    "msg": "What's new log, and the default theme follows the device"
-   },
-   {
-    "date": "2026-11-10T18:44:01Z",
-    "msg": "Agent notes: import the house standards, and how to test and deploy this app"
-   },
-   {
-    "date": "2026-11-10T18:41:00Z",
-    "msg": "After each deploy: live check of the published site, then a release tag"
-   },
-   {
-    "date": "2026-11-10T17:48:35Z",
-    "msg": "Local calendar days, erase-everything control, third-party origin guard"
    }
   ]
  },
@@ -646,8 +646,8 @@
    0,
    1,
    0,
-   5,
    17,
+   5,
    0,
    2,
    0,
@@ -808,7 +808,7 @@
   ]
  },
  "SpeechImprover": {
-  "pushed_at": "2026-11-20T17:44:22Z",
+  "pushed_at": "2026-11-21T14:48:54Z",
   "stars": 0,
   "created": "2026-05-30T03:44:29Z",
   "weeks": [
@@ -839,22 +839,22 @@
    0,
    0,
    0,
+   6,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   12,
+   7,
    5,
+   3,
+   0,
    1,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   8,
-   11,
-   5,
-   3,
-   0,
-   0,
-   3,
+   2,
    0,
    0,
    0,
@@ -863,9 +863,17 @@
    0,
    0,
    14,
-   6
+   7
   ],
   "changes": [
+   {
+    "date": "2026-11-21T14:47:57Z",
+    "msg": "Just speak: live score and trend lines; house standards 26 and 27"
+   },
+   {
+    "date": "2026-11-21T03:14:03Z",
+    "msg": "Just speak: fix crash in book-reading mode (live panel printed a metric book mode removes)"
+   },
    {
     "date": "2026-11-20T17:43:15Z",
     "msg": "Just speak becomes an open-ended sitting: scored in chunks as you go, full review at the end"
@@ -897,14 +905,6 @@
    {
     "date": "2026-11-11T12:52:34Z",
     "msg": "Report: per-attribute +/- vs last take; splits score every attribute per part"
-   },
-   {
-    "date": "2026-11-11T02:36:52Z",
-    "msg": "Cowork v2: shared fs-mode engine with review-first, schedules, history and undo"
-   },
-   {
-    "date": "2026-11-10T18:54:30Z",
-    "msg": "House standards: what's new, device-following default theme, guide fonts self-hosted"
    }
   ]
  },
@@ -1009,8 +1009,105 @@
    }
   ]
  },
+ "MacroTrackro": {
+  "pushed_at": "2026-11-21T14:03:49Z",
+  "stars": 0,
+  "created": "2026-05-31T13:03:17Z",
+  "weeks": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   5,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0
+  ],
+  "changes": [
+   {
+    "date": "2026-11-21T14:02:56Z",
+    "msg": "Agent notes: the repo is public and deploys to Pages"
+   },
+   {
+    "date": "2026-11-21T13:49:56Z",
+    "msg": "Rebuild as a static Vite app; add the supplement stack, ingredient guide and stack check"
+   },
+   {
+    "date": "2026-11-21T03:18:32Z",
+    "msg": "Agent notes: import the house standards; where the app stands after unshelving"
+   },
+   {
+    "date": "2026-11-10T15:53:11Z",
+    "msg": "Ignore the local RESUME CLAUDE launcher"
+   },
+   {
+    "date": "2026-06-05T02:18:31Z",
+    "msg": "Prepare repo for public release"
+   },
+   {
+    "date": "2026-06-05T02:15:51Z",
+    "msg": "Add CI/CD pipeline with ESLint"
+   },
+   {
+    "date": "2026-06-01T00:21:35Z",
+    "msg": "Update .gitignore"
+   },
+   {
+    "date": "2026-05-31T18:57:44Z",
+    "msg": "Add core macro tracker web app"
+   },
+   {
+    "date": "2026-05-31T13:02:56Z",
+    "msg": "Initial Commit"
+   }
+  ]
+ },
  "MarksmanApp": {
-  "pushed_at": "2026-11-15T13:16:34Z",
+  "pushed_at": "2026-11-21T03:42:51Z",
   "stars": 0,
   "created": "2026-05-30T03:50:29Z",
   "weeks": [
@@ -1041,17 +1138,17 @@
    0,
    0,
    0,
-   3,
-   2,
-   0,
-   0,
-   0,
-   0,
-   1,
-   1,
-   0,
-   3,
    5,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   1,
+   0,
+   7,
+   1,
    0,
    2,
    0,
@@ -1068,6 +1165,10 @@
    5
   ],
   "changes": [
+   {
+    "date": "2026-11-21T03:41:15Z",
+    "msg": "Register the overlaps with the other apps, and pin old backups open"
+   },
    {
     "date": "2026-11-15T13:15:05Z",
     "msg": "Speak seventeen languages, and stop shadowing the word that does it"
@@ -1103,15 +1204,11 @@
    {
     "date": "2026-11-10T18:41:09Z",
     "msg": "After each deploy: live check of the published site, then a release tag"
-   },
-   {
-    "date": "2026-11-10T15:53:13Z",
-    "msg": "Ignore the local RESUME CLAUDE launcher"
    }
   ]
  },
  "Run315": {
-  "pushed_at": "2026-11-17T20:29:20Z",
+  "pushed_at": "2026-11-21T13:39:44Z",
   "stars": 0,
   "created": "2026-09-06T21:00:29Z",
   "weeks": [
@@ -1163,12 +1260,24 @@
    0,
    0,
    0,
-   23,
-   3,
+   26,
+   0,
    27,
-   11
+   12
   ],
   "changes": [
+   {
+    "date": "2026-11-21T03:23:56Z",
+    "msg": "No home-folder paths in the tests: the real-file smoke tests read RUN315_GARMIN_ZIP / RUN315_FIT_DIR"
+   },
+   {
+    "date": "2026-11-21T03:20:56Z",
+    "msg": "Races channel: the race calendar kept current from email and race websites, plus scouting"
+   },
+   {
+    "date": "2026-11-20T22:37:09Z",
+    "msg": "Languages, chunk 5: the analysis pages and the race-plan notes in 16 languages"
+   },
    {
     "date": "2026-11-17T20:27:52Z",
     "msg": "Replay no longer stops on its readout in a translated language (a local t hid t())"
@@ -1196,18 +1305,6 @@
    {
     "date": "2026-11-15T03:47:27Z",
     "msg": "House themes, a CSP, the data inventory and the session ledger; locales load"
-   },
-   {
-    "date": "2026-11-15T03:40:47Z",
-    "msg": "Languages, chunk 1: the shell, the menus and Sync & cowork in 16 machine-translated languages"
-   },
-   {
-    "date": "2026-11-14T03:25:43Z",
-    "msg": "Ignore the local Python environment and database files"
-   },
-   {
-    "date": "2026-11-14T03:14:43Z",
-    "msg": "run-review cowork channel: an AI grades each session beside the app's own numbers"
    }
   ]
  },
@@ -1267,7 +1364,7 @@
    0,
    0,
    12,
-   9
+   10
   ],
   "changes": [
    {
@@ -1361,13 +1458,13 @@
    1,
    0,
    0,
+   2,
+   7,
    0,
-   8,
-   1,
    0,
    0,
-   3,
-   15,
+   4,
+   14,
    6
   ],
   "changes": [
@@ -1458,14 +1555,14 @@
    0,
    0,
    0,
-   2,
+   3,
    4,
-   12,
-   27,
-   6,
-   10,
-   0,
    16,
+   22,
+   10,
+   6,
+   5,
+   11,
    3,
    0,
    8,
@@ -1515,7 +1612,7 @@
   ]
  },
  "classical-journey": {
-  "pushed_at": "2026-11-14T16:34:42Z",
+  "pushed_at": "2026-11-21T04:21:18Z",
   "stars": 0,
   "created": "2026-09-11T11:26:41Z",
   "weeks": [
@@ -1560,19 +1657,23 @@
    0,
    0,
    0,
-   0,
-   6,
-   6,
-   0,
-   8,
-   16,
-   3,
    2,
+   4,
+   6,
+   8,
+   12,
+   7,
+   2,
+   0,
    0,
    14,
    2
   ],
   "changes": [
+   {
+    "date": "2026-11-21T04:19:49Z",
+    "msg": "Colour themes, data inventory, session ledger, overlap register"
+   },
    {
     "date": "2026-11-14T16:33:16Z",
     "msg": "Security: Content-Security-Policy and least-privilege CI permissions"
@@ -1608,10 +1709,6 @@
    {
     "date": "2026-11-10T03:28:11Z",
     "msg": "House font: Atkinson Hyperlegible by default, with a font choice on the Progress page"
-   },
-   {
-    "date": "2026-11-10T00:47:56Z",
-    "msg": "CI: run the checks on every push"
    }
   ]
  },
@@ -1717,7 +1814,7 @@
   ]
  },
  "CelebrityCrusher": {
-  "pushed_at": "2026-11-15T03:42:56Z",
+  "pushed_at": "2026-11-21T04:20:29Z",
   "stars": 0,
   "created": "2026-11-09T23:08:47Z",
   "weeks": [
@@ -1776,6 +1873,10 @@
   ],
   "changes": [
    {
+    "date": "2026-11-21T04:19:27Z",
+    "msg": "Overlaps register (house standard 27)"
+   },
+   {
     "date": "2026-11-15T03:42:00Z",
     "msg": "House standards 23-25: data inventory, the house themes, the session ledger"
    },
@@ -1810,10 +1911,6 @@
    {
     "date": "2026-11-10T17:55:14Z",
     "msg": "House standards: local days, self-hosted fonts, erase, portal activity"
-   },
-   {
-    "date": "2026-11-10T15:52:45Z",
-    "msg": "Ignore the local RESUME CLAUDE launcher"
    }
   ]
  },
@@ -1873,7 +1970,7 @@
    0,
    0,
    0,
-   90
+   107
   ],
   "changes": [
    {
