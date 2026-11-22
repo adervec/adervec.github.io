@@ -36,8 +36,8 @@ main{max-width:1140px;margin:0 auto;padding:28px 20px 60px}
 a{color:var(--acc)}
 h1{font:700 30px/1.15 var(--mono);letter-spacing:-.5px;margin:6px 0 10px}
 .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-#bk{margin-left:auto}
-@media (max-width:430px){.head{gap:8px}.bk{padding:0 10px}}
+.head .bk:first-of-type{margin-left:auto}
+@media (max-width:430px){.head{gap:8px}.bk{padding:0 10px}.head .wordmark{display:none}}
 #suggest{font:14px var(--mono);margin:14px 0 8px}
 #setupask{margin:0;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font:13px var(--mono)}
 #setupask span{color:var(--mut);flex:1 1 200px}
