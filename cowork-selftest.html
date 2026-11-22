@@ -29,7 +29,7 @@
   document.getElementById("b").appendChild(q);
   q.configure({app:"selftest",manifest:{protocol:"cowork-manifest",protocolVersion:1,app:"selftest",
     channels:[{name:"one",request:["one/request.json"],replyPath:"one/reply.json"}]}});
-  ok(q.shadowRoot.querySelector("header button.primary").textContent==="Connect folder","fs mode starts disconnected");
+  ok(!/Connect folder|Change folder/.test(q.shadowRoot.textContent)&&/not connected|font\.js/.test(q.shadowRoot.textContent),"fs mode starts disconnected, with no folder to pick (v5: cloud only)");
   ok(q.shadowRoot.querySelector(".pill").textContent==="idle","fs mode idle");
   ok(getComputedStyle(q.shadowRoot.querySelector(".wrap")).borderTopLeftRadius==="12px","shadow css applied");
   document.getElementById("r").textContent=fails.length?"FAIL "+fails.length:"OK "+log.length+" checks";
