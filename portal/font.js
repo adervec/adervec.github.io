@@ -1098,6 +1098,19 @@
     write: function (name, body, mime) {
       mime = mime || 'application/json';
       return gFind(name).then(function (id) {
+        // simple and multipart uploads stop at 5 MB; a bigger file (a song with its audio) goes resumable
+        var size = typeof body === 'string' ? new Blob([body]).size : (body && body.size) || 0;
+        if (size > 4 * 1024 * 1024) {
+          return gApi(id ? 'upload/drive/v3/files/' + id + '?uploadType=resumable' : 'upload/drive/v3/files?uploadType=resumable', {
+            method: id ? 'PATCH' : 'POST',
+            headers: { 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Type': mime },
+            body: JSON.stringify(id ? {} : { name: name, parents: ['appDataFolder'] }),
+          }).then(function (r) {
+            var at = r.headers.get('Location');
+            if (!at) throw new Error('Google Drive did not start the upload.');
+            return fetch(at, { method: 'PUT', body: body }); // the session address carries its own pass
+          }).then(function (r) { if (!r.ok) throw new Error('Google Drive answered ' + r.status + '.'); });
+        }
         if (id) return gApi('upload/drive/v3/files/' + id + '?uploadType=media', { method: 'PATCH', headers: { 'Content-Type': mime }, body: body });
         var b = 'b' + randomId().replace(/-/g, '');
         var multi = new Blob(['--' + b + '\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n' + JSON.stringify({ name: name, parents: ['appDataFolder'] }) +
